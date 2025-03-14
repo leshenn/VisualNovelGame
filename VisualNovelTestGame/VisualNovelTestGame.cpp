@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <nlohmann/json.hpp>
+#include "Button.h"
 
 using json = nlohmann::json;
 using namespace sf;
@@ -49,6 +50,10 @@ int main()
 	scrollSprite.setScale(0.35, 0.35);
 	scrollSprite.setPosition(153, 300);
 
+	//Button
+	Button btn1("hello", Vector2f{ 100, 50 }, 20, sf::Color::Green, sf::Color::Black);
+	btn1.setPosition({ 200, 200 });
+
 
 	while (window.isOpen()) {
 
@@ -66,6 +71,7 @@ int main()
 		window.draw(characterSprite);
 		window.draw(dialogText);
 		
+		btn1.drawTo(window);
 		
 		window.display();
 	}
