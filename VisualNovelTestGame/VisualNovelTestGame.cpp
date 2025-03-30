@@ -153,7 +153,7 @@ int main()
 			}
 
 		}
-
+			
 
 		window.clear();
 		window.draw(backgroundSprite);
