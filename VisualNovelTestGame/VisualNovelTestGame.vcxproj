@@ -135,6 +135,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="DionysusConvoState.cpp" />
+    <ClCompile Include="HadesConvoState.cpp" />
+    <ClCompile Include="PoseidonConvoState.cpp" />
+    <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="VisualNovelTestGame.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +146,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
+    <ClInclude Include="DionysusConvoState.h" />
+    <ClInclude Include="EndState.h" />
+    <ClInclude Include="HadesConvoState.h" />
+    <ClInclude Include="PoseidonConvoState.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="StateManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
