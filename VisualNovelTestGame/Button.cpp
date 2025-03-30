@@ -19,6 +19,9 @@ Button::Button(string t, sf::Vector2f size, int charSize, sf::Color bgColor, sf:
 
 void Button::setFont(sf::Font& font) {
     text.setFont(font);
+    sf::FloatRect textRect = text.getLocalBounds();
+    text.setOrigin(textRect.left + textRect.width / 2.0f,
+        textRect.top + textRect.height / 2.0f);
 }
 
 void Button::setBackColor(sf::Color color) {
