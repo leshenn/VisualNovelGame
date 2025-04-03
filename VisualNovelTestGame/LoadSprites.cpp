@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include "LoadSprites.h"
-#include "Button.h"
 
 using namespace std;
 using namespace sf;
