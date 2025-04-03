@@ -36,9 +36,8 @@ int main()
 		window.clear();
 		window.draw(loadSprites.menuBackgroundSprite);
 
-		ButtonLayout button(window, newFont);
-		button.loadPlayButton();
-		button.loadWorldButtons();
+		ButtonLayout layout(window, newFont);
+		layout.loadPlayButton();
 
 		window.display();
 	}
