@@ -4,6 +4,7 @@
 #include <fstream>
 #include <nlohmann/json.hpp>
 #include "Button.h"
+#include "LoadSprites.h"
 
 using json = nlohmann::json;
 using namespace sf;
@@ -14,48 +15,9 @@ const int WIN_HEIGHT = 720;
 int main()
 {
 	RenderWindow window(VideoMode(WIN_WIDTH, WIN_HEIGHT), "Visual Novel");
-	Texture background;
-	Texture MainCharacter;
-	Texture Zeus;
-	Texture scroll;
-	Font font;
+	LoadSprites loadSprites;
 
-	font.loadFromFile("Robot_Font.otf");
-	Text dialogText;
-	dialogText.setFont(font);
-	dialogText.setString("Test Text");
-	dialogText.setCharacterSize(24);
-	dialogText.setFillColor(Color::Black);
-	dialogText.setPosition(400, 375);
-
-	ifstream file("test.json");
-	json poesidonData;
-	file >> poesidonData;
-	vector<json> phraseDialog = poesidonData["poesidon"];
-
-	MainCharacter.loadFromFile("MainCharacter.png");
-	Sprite characterSprite(MainCharacter);
-	characterSprite.setPosition(0, 220);
-
-	Zeus.loadFromFile("zeus.png");
-	Sprite zeusSprite(Zeus);
-	zeusSprite.setPosition(620, 220);
-
-	background.loadFromFile("Coliseum.jpg");
-	Sprite backgroundSprite(background);
-	float scaleX = static_cast<float>(WIN_WIDTH) / background.getSize().x;
-	float scaleY = static_cast<float>(WIN_HEIGHT) / background.getSize().y;
-	backgroundSprite.setScale(scaleX, scaleY);
-
-	scroll.loadFromFile("scroll.png");
-	Sprite scrollSprite(scroll);
-	scrollSprite.setScale(0.35, 0.35);
-	scrollSprite.setPosition(153, 300);
-
-	//Button
-	Button btn1("hello", Vector2f{ 100, 50 }, 20, sf::Color::Green, sf::Color::Black);
-	btn1.setPosition({ 200, 200 });
-
+	loadSprites.loadInstructionScreen("Backgrounds/MenuBackground.png", "Acessories/MenuScroll.png");
 
 	while (window.isOpen()) {
 
@@ -67,14 +29,8 @@ int main()
 
 
 		window.clear();
-		window.draw(backgroundSprite);
-		window.draw(scrollSprite);
-		window.draw(zeusSprite);
-		window.draw(characterSprite);
-		window.draw(dialogText);
-		
-		btn1.drawTo(window);
-		
+		window.draw(loadSprites.instructionBackgroundSprite);
+		window.draw(loadSprites.menuScrollSprite);
 		window.display();
 	}
 }

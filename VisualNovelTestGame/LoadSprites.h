@@ -6,9 +6,9 @@ using namespace std;
 using namespace sf;
 
 class LoadSprites {
-private:
+public:
 	//Window dimetions
-	const int WIN_WIDTH = 1080;
+	const int WIN_WIDTH = 1280;
 	const int WIN_HEIGHT = 720;
 
 	//Load in all the textures
@@ -30,13 +30,16 @@ private:
 	Sprite menuScrollSprite;
 
 public:
-	void loadMenuScreen(string& menuBackgroundPath);
+	void loadMenuScreen(const string& menuBackgroundPath);
 
-	void loadInstructionScreen(string& insrtuctionBackgroundPath, string& menuScrollPath);
+	void loadInstructionScreen(const string& insrtuctionBackgroundPath, const string& menuScrollPath);
 
-	void loadGameScreen(string& gameBackgroundPath, string& godPath,
-						string& mainCharacterPath, string& gameScrollPath);
+	void loadGameScreen(const string& gameBackgroundPath,const string& godPath,
+						const string& mainCharacterPath, const string& gameScrollPath);
 	
-	void fitBackground(float winWidth, float winHeight, float textureX, float textureY, Sprite& menuBackgroundSprite);
+	void fitBackground(float winWidth, float winHeight, 
+		float textureX, float textureY, Sprite& menuBackgroundSprite);
+
+	void CenterMenuScroll(float textureX, float textureY, Sprite& scrollSprite);
 
 };
