@@ -8,5 +8,6 @@ ButtonLayout::ButtonLayout(RenderWindow& window, const Font& font) : window(wind
 vector<Button> ButtonLayout::createVerticalButtons(const vector<string>& buttonTexts,
 	float yPosition, float spacing, Vector2f size, int textSize)
 {
-
+	vector<Button> buttons;
+	return buttons;
 }
