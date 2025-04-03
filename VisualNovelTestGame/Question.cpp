@@ -1,27 +1,39 @@
 #include "Question.h"
 
+using namespace std;
+
 // Default constructor
 Question::Question() {}
 
-// Parameterized constructor - creates a complete question
-Question::Question(const std::string& questionText,
-    const std::vector<std::string>& options,
-    int correctAnswerIndex)
-    : questionText(questionText), options(options), correctAnswerIndex(correctAnswerIndex) {
+// Parameterized constructor
+Question::Question(const string& insertQuestionText, const std::vector<std::string>& insertOptions, int insertCorrectAnswerIndex)
+{
+    questionText = insertQuestionText;
+    options = insertOptions;
+    correctAnswerIndex = insertCorrectAnswerIndex;
+
 }
 
 // Returns the question text
-std::string Question::getQuestionText() const { return questionText; }
+string Question::getQuestionText() const
+{
+    return questionText;
+}
 
 // Returns all answer options
-std::vector<std::string> Question::getOptions() const { return options; }
+vector<string> Question::getOptions() const
+{
+    return options;
+}
 
 // Checks if the selected answer is correct
-bool Question::isCorrect(int answerIndex) const {
+bool Question::isCorrect(int answerIndex) const
+{
     return answerIndex == correctAnswerIndex;
 }
 
 // Returns the index of the correct answer
-int Question::getCorrectAnswerIndex() const {
+int Question::getCorrectAnswerIndex() const
+{
     return correctAnswerIndex;
 }
