@@ -24,6 +24,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="test.json" />
+    <None Include="Dionyses.json" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h">

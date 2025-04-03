@@ -138,6 +138,7 @@
     <ClCompile Include="VisualNovelTestGame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Dionyses.json" />
     <None Include="test.json" />
   </ItemGroup>
   <ItemGroup>

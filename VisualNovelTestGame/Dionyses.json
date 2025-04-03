@@ -1,0 +1,64 @@
+{
+  "questions": [
+    {
+      "question": "Who is Dionysus the god of?",
+      "options": [ "War", "Wine and Revelry", "The Sun", "Wisdom" ],
+      "answer": "Wine and Revelry",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Who were the parents of Dionysus?",
+      "options": [ "Zeus and Hera", "Poseidon and Amphitrite", "Zeus and Semele", "Apollo and Artemis" ],
+      "answer": "Zeus and Semele",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which group of female followers was devoted to Dionysus?",
+      "options": [ "Amazons", "Maenads", "Nymphs", "Gorgons" ],
+      "answer": "Maenads",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the Roman equivalent of Dionysus?",
+      "options": [ "Mars", "Jupiter", "Bacchus", "Mercury" ],
+      "answer": "Bacchus",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What was Dionysus known to carry as a symbol of his power?",
+      "options": [ "A lightning bolt", "A lyre", "A thyrsus", "A trident" ],
+      "answer": "A thyrsus",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which king opposed the worship of Dionysus and was punished for it?",
+      "options": [ "Midas", "Pentheus", "Minos", "Agamemnon" ],
+      "answer": "Pentheus",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following was NOT a domain of Dionysus?",
+      "options": [ "Theater", "Fertility", "Wisdom", "Ecstasy" ],
+      "answer": "Wisdom",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Dionysus was often depicted with which type of animal?",
+      "options": [ "Lion", "Dolphin", "Goat", "All of the above" ],
+      "answer": "All of the above",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which mortal did Dionysus rescue from the island of Naxos and later marry?",
+      "options": [ "Ariadne", "Andromeda", "Psyche", "Helen" ],
+      "answer": "Ariadne",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What festival was held in honor of Dionysus in ancient Athens?",
+      "options": [ "Panathenaea", "Dionysia", "Olympia", "Lupercalia" ],
+      "answer": "Dionysia",
+      "difficulty": "medium"
+    }
+  ]
+}
