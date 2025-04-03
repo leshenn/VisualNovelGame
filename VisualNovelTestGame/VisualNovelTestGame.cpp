@@ -8,8 +8,8 @@
 using json = nlohmann::json;
 using namespace sf;
 using namespace std;
-const int WIN_WIDTH = 890;
-const int WIN_HEIGHT = 448;
+const int WIN_WIDTH = 1280;
+const int WIN_HEIGHT = 720;
 
 int main()
 {
