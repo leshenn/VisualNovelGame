@@ -43,7 +43,9 @@ int main()
 
 	background.loadFromFile("Coliseum.jpg");
 	Sprite backgroundSprite(background);
-	backgroundSprite.setScale(0.5, 0.5);
+	float scaleX = static_cast<float>(WIN_WIDTH) / background.getSize().x;
+	float scaleY = static_cast<float>(WIN_HEIGHT) / background.getSize().y;
+	backgroundSprite.setScale(scaleX, scaleY);
 
 	scroll.loadFromFile("scroll.png");
 	Sprite scrollSprite(scroll);
