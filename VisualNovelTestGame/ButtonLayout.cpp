@@ -51,7 +51,7 @@ void ButtonLayout::loadQuizButtons(GameState& currentState)
 // Create and load play button for the menu page
 void ButtonLayout::loadPlayButton()
 {
-	Button playButton = Button("Play", Vector2f(250.f, 80.f), 36, Color(255, 215, 0), Color::Black);
+	playButton = Button("Play", Vector2f(250.f, 80.f), 36, Color(255, 215, 0), Color::Black);
 	playButton.setFont(font);
 	playButton.setOutline(Color::White, 3.f);
 	playButton.setPosition({(window.getSize().x - playButton.getSize().x) / 2.f, window.getSize().y * 0.7f});
@@ -59,10 +59,21 @@ void ButtonLayout::loadPlayButton()
 	playButton.drawTo(window);
 }
 
+// Check if the play button is clicked
+bool ButtonLayout::playButtonClicked(RenderWindow& window) {
+	Vector2i mousePos = Mouse::getPosition(window);
+	return playButton.getGlobalBounds().contains(static_cast<Vector2f>(mousePos));
+}
+
+// Allows user to get the button
+Button& ButtonLayout::getPlayButton() {
+	return playButton;
+}
+
 void ButtonLayout::loadNextButton()
 {
 	// Create next button
-	Button nextButton = Button("Next", Vector2f(150.f, 50.f), 24, Color(200, 200, 200), Color::Black);
+	nextButton = Button("Next", Vector2f(150.f, 50.f), 24, Color(200, 200, 200), Color::Black);
 	nextButton.setFont(font);
 	nextButton.setOutline(Color::White, 2.f);
 
@@ -74,19 +85,30 @@ void ButtonLayout::loadNextButton()
 
 }
 
+//	Checks if the next button is clicked
+bool ButtonLayout::nextButtonClicked(RenderWindow& window) {
+	Vector2i mousePos = Mouse::getPosition(window);
+	return nextButton.getGlobalBounds().contains(static_cast<Vector2f>(mousePos));
+}
+
+// Allows user to access next button
+Button& ButtonLayout::getNextButton() {
+	return nextButton;
+}
+
 // Create and load buttons for user to choose
 void ButtonLayout::loadWorldButtons()
 {
 	// Underworld
-	Button underWorldButton = Button("Underworld", Vector2f(200.f, 60.f), 24, Color(128, 0, 128), Color::White);
+	underWorldButton = Button("Underworld", Vector2f(200.f, 60.f), 24, Color(128, 0, 128), Color::White);
 	underWorldButton.setFont(font);
 
 	// Seaworld
-	Button seaWorldButton = Button("Sea World", Vector2f(200.f, 60.f), 24, Color(0, 105, 148), Color::White);
+	seaWorldButton = Button("Sea World", Vector2f(200.f, 60.f), 24, Color(0, 105, 148), Color::White);
 	seaWorldButton.setFont(font);
 
 	// Country side
-	Button countrySideButton = Button("Country Side", Vector2f(200.f, 60.f), 24, Color(34, 139, 34), Color::White);
+	countrySideButton = Button("Country Side", Vector2f(200.f, 60.f), 24, Color(34, 139, 34), Color::White);
 	countrySideButton.setFont(font);
 
 	// Set position of buttons
@@ -102,4 +124,35 @@ void ButtonLayout::loadWorldButtons()
 	underWorldButton.drawTo(window);
 	seaWorldButton.drawTo(window);
 	countrySideButton.drawTo(window);
+}
+
+// Check if a button is clicked based on mouse position
+GameState ButtonLayout::loadButtonClicked(const sf::Vector2i& mousePos)
+{
+	if (seaWorldButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+		return GameState::AMPHITRITE_STAGE;
+	}
+	else if (underWorldButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+		return GameState::UNDERWORLD;
+	}
+	
+	else if (countrySideButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+		return GameState::COUNTRY_SIDE;
+	}
+
+	return GameState::NONE;
+}
+
+
+//Allows user to access which button was clicked(underWorld/seaWorld/countrySide)
+Button& ButtonLayout::getUnderworldButton() { 
+	return underWorldButton;
+}
+
+Button& ButtonLayout::getSeaWorldButton() { 
+	return seaWorldButton;
+}
+
+Button& ButtonLayout::getCountrySideButton() { 
+	return countrySideButton;
 }

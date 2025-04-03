@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 using namespace std;
+using namespace sf;
 class Button
 {
 public:
@@ -14,6 +15,7 @@ public:
 	void drawTo(sf::RenderWindow& window);
 	bool isMouseOver(sf::RenderWindow& window);
 	void setOutline(sf::Color color, float thickness);
+	FloatRect getGlobalBounds(); // New method
 
 
 	sf::Vector2f getSize() const

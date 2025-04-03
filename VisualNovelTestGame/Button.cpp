@@ -63,3 +63,7 @@ bool Button::isMouseOver(sf::RenderWindow& window) {
         mouseY > btnPosY && mouseY < btnPosY + btnHeight);
 }
 
+FloatRect Button::getGlobalBounds() {
+    return button.getGlobalBounds();  // Returns the bounding box of the button
+}
+

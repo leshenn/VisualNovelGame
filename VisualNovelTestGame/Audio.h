@@ -18,6 +18,7 @@ private:
 	Sound correctAnswerSound;
 	Sound incorrectAnswerSound;
 public:
+	//Create the functions for wach sound
 	void playBackgroundSound();
 	void playclickButtonSound();
 	void correctAnswerSound();

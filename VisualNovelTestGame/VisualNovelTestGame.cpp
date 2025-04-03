@@ -7,6 +7,7 @@
 #include "LoadSprites.h"
 #include "GameState.h"
 #include "ButtonLayout.h";
+#include "GameLogic.h"
 
 using json = nlohmann::json;
 using namespace sf;
@@ -22,23 +23,21 @@ int main()
 	Font newFont;
 	newFont.loadFromFile("Robot_Font.otf");
 
+	//This is the play button
+	ButtonLayout layout(window, newFont);
+
 	currentState = GameState::MENU;
-	loadSprites.loadMenuScreen("Backgrounds/MenuBackground.png");
 	while (window.isOpen()) {
 
 		Event event;
 		while (window.pollEvent(event)) {
 			if (event.type == Event::Closed)
 				window.close();
+
+			handleGameLogic(window, currentState, layout, loadSprites, event);
 		}
 
-
-		window.clear();
-		window.draw(loadSprites.menuBackgroundSprite);
-
-		ButtonLayout layout(window, newFont);
-		layout.loadPlayButton();
-
-		window.display();
 	}
+
+	return 0;
 }
