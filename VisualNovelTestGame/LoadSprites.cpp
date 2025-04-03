@@ -66,6 +66,18 @@ void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string&
     //Make the background fit the screen
     fitBackground(WIN_WIDTH, WIN_HEIGHT, gameBackgroundTexture.getSize().x,
         gameBackgroundTexture.getSize().y, gameBackgroundSprite);
+
+    //Position main Character
+    mainCharacterSprite.setPosition(10, 100);
+    mainCharacterSprite.setScale(1.8, 1.8);
+
+    //Position god
+    godSprite.setPosition(730, 100);
+    godSprite.setScale(1.8, 1.8);
+
+    //position scroll
+    PositionScroll(gameScrollTexture.getSize().x, gameScrollTexture.getSize().y, gameScrollSprite);
+
 }
 
 void LoadSprites::fitBackground(float winWidth, float winHeight,
@@ -83,13 +95,26 @@ void LoadSprites::fitBackground(float winWidth, float winHeight,
 
 void LoadSprites::CenterMenuScroll(float textureX, float textureY, Sprite& scrollSprite) {
     // Calculate the scaling factors
-    float scaleX = static_cast<float>(426) / textureX;
-    float scaleY = static_cast<float>(240) / textureY;
+    float scaleX = static_cast<float>(852) / textureX;
+    float scaleY = static_cast<float>(480) / textureY;
 
     // Set the sprite's scale
     scrollSprite.setScale(scaleX, scaleY);
 
     // Optionally, center the sprite if you want the background to be centered
-    scrollSprite.setPosition(0, 0);  // Aligns the background to the top-left corner
+    scrollSprite.setPosition(214, 120);  // Aligns the background to the center
 }
+
+void LoadSprites::PositionScroll(float textureX, float textureY, Sprite& scrollSprite) {
+    // Calculate the scaling factors
+    float scaleX = static_cast<float>(1250) / textureX;
+    float scaleY = static_cast<float>(380) / textureY;
+
+    // Set the sprite's scale
+    scrollSprite.setScale(scaleX, scaleY);
+    scrollSprite.setPosition(20, 350);
+}
+
+
+
 

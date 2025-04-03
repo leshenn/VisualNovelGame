@@ -42,4 +42,8 @@ public:
 
 	void CenterMenuScroll(float textureX, float textureY, Sprite& scrollSprite);
 
+	void PositionScroll(float textureX, float textureY, Sprite& mainCharacterSprite);
+
+	void PositionMainCharacter(float textureX, float textureY, Sprite& mainCharacterSprite);
+
 };

@@ -5,6 +5,7 @@
 #include <nlohmann/json.hpp>
 #include "Button.h"
 #include "LoadSprites.h"
+#include "GameState.h"
 
 using json = nlohmann::json;
 using namespace sf;
@@ -16,9 +17,10 @@ int main()
 {
 	RenderWindow window(VideoMode(WIN_WIDTH, WIN_HEIGHT), "Visual Novel");
 	LoadSprites loadSprites;
+	GameState currentState;
 
-	loadSprites.loadInstructionScreen("Backgrounds/MenuBackground.png", "Acessories/MenuScroll.png");
-
+	currentState = GameState::MENU;
+	loadSprites.loadMenuScreen("Backgrounds/MenuBackground.png");
 	while (window.isOpen()) {
 
 		Event event;
@@ -29,8 +31,7 @@ int main()
 
 
 		window.clear();
-		window.draw(loadSprites.instructionBackgroundSprite);
-		window.draw(loadSprites.menuScrollSprite);
+		window.draw(loadSprites.menuBackgroundSprite);
 		window.display();
 	}
 }
