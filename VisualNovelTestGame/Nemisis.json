@@ -1,0 +1,52 @@
+{
+  "questions": [
+    {
+      "question": "What is Nemesis the goddess of in Greek mythology?",
+      "options": [ "A) Love", "B) Retribution", "C) Wisdom", "D) The sea" ],
+      "answerIndex": 1,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following traits is Nemesis most associated with?",
+      "options": [ "A) Justice", "B) Greed", "C) Vengeance", "D) Wisdom" ],
+      "answerIndex": 2,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Who was Nemesis' mother according to some versions of Greek mythology?",
+      "options": [ "A) Nyx", "B) Hera", "C) Gaia", "D) Demeter" ],
+      "answerIndex": 0,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Nemesis is said to punish those who display which of the following qualities?",
+      "options": [ "A) Hubris", "B) Courage", "C) Humility", "D) Kindness" ],
+      "answerIndex": 0,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which god is Nemesis often portrayed in opposition to due to his association with excess and indulgence?",
+      "options": [ "A) Zeus", "B) Hades", "C) Dionysus", "D) Apollo" ],
+      "answerIndex": 2,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Who did Nemesis give birth to after Zeus pursued her in the form of a swan?",
+      "options": [ "A) Helen of Troy", "B) Eros", "C) Nemesis had no children", "D) The Fates" ],
+      "answerIndex": 0,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the role of Nemesis in the myth of Narcissus?",
+      "options": [ "A) She rewards Narcissus for his devotion", "B) She punishes Narcissus for his vanity", "C) She falls in love with Narcissus", "D) She helps Narcissus find his true love" ],
+      "answerIndex": 1,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What was Nemesis' relationship to the concept of fate in Greek mythology?",
+      "options": [ "A) She controls fate", "B) She punishes those who defy fate", "C) She works alongside the Fates", "D) She ignores fate" ],
+      "answerIndex": 1,
+      "difficulty": "hard"
+    }
+  ]
+}

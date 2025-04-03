@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "question": "What is Aphrodite the goddess of in Greek mythology?",
+      "options": [ "A) Wisdom", "B) War", "C) Love and beauty", "D) Harvest" ],
+      "answerIndex": 2,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following is Aphrodite's most well-known symbol?",
+      "options": [ "A) Dove", "B) Owl", "C) Lyre", "D) Trident" ],
+      "answerIndex": 0,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Who is Aphrodite married to in Greek mythology?",
+      "options": [ "A) Zeus", "B) Poseidon", "C) Hephaestus", "D) Hermes" ],
+      "answerIndex": 2,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which hero did Aphrodite help in the Trojan War?",
+      "options": [ "A) Achilles", "B) Odysseus", "C) Paris", "D) Hercules" ],
+      "answerIndex": 2,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Who are the parents of Aphrodite according to the most common myth?",
+      "options": [ "A) Zeus and Hera", "B) Uranus and Gaia", "C) Cronus and Rhea", "D) Zeus and Demeter" ],
+      "answerIndex": 1,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Aphrodite is often depicted as being born from which element?",
+      "options": [ "A) Fire", "B) The sea foam", "C) A cloud", "D) A tree" ],
+      "answerIndex": 1,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following is Aphrodite's Roman counterpart?",
+      "options": [ "A) Juno", "B) Venus", "C) Diana", "D) Minerva" ],
+      "answerIndex": 1,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What was the reason for the creation of the 'Golden Apple of Discord' in the myth involving Aphrodite?",
+      "options": [ "A) To award the most beautiful goddess", "B) To start the Trojan War", "C) To bribe Paris", "D) To challenge Hera's beauty" ],
+      "answerIndex": 0,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the name of Aphrodite's son, the god of love?",
+      "options": [ "A) Apollo", "B) Eros", "C) Hermes", "D) Ares" ],
+      "answerIndex": 1,
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following was Aphrodite's primary domain?",
+      "options": [ "A) The sea", "B) Love and beauty", "C) War and victory", "D) The underworld" ],
+      "answerIndex": 1,
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following is a myth involving Aphrodite?",
+      "options": [ "A) The Judgment of Paris", "B) The Odyssey", "C) The Titanomachy", "D) The Iliad" ],
+      "answerIndex": 0,
+      "difficulty": "hard"
+    },
+    {
+      "question": "Aphrodite was associated with which ancient Greek festival?",
+      "options": [ "A) The Panathenaic Games", "B) The Dionysia", "C) The Aphrodisia", "D) The Eleusinian Mysteries" ],
+      "answerIndex": 2,
+      "difficulty": "hard"
+    }
+  ]
+}

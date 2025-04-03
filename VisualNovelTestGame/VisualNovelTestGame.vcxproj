@@ -138,8 +138,16 @@
     <ClCompile Include="VisualNovelTestGame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Aphrodite.json" />
+    <None Include="Apollo.json" />
+    <None Include="Ares.json" />
+    <None Include="Athena.json" />
     <None Include="Dionyses.json" />
+    <None Include="Hera.json" />
+    <None Include="Hypnos.json" />
+    <None Include="Nemisis.json" />
     <None Include="test.json" />
+    <None Include="Zeus.json" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />

@@ -1,0 +1,82 @@
+{
+  "questions": [
+    {
+      "question": "What is Hypnos the god of in Greek mythology?",
+      "options": [ "A) Death", "B) Sleep", "C) War", "D) Love" ],
+      "answerIndex": 1,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Who are the parents of Hypnos?",
+      "options": [ "A) Zeus and Hera", "B) Nyx and Erebus", "C) Cronus and Rhea", "D) Oceanus and Tethys" ],
+      "answerIndex": 1,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following is a power of Hypnos?",
+      "options": [ "A) Control over dreams", "B) Ability to induce sleep", "C) Prophecy", "D) Creation of nightmares" ],
+      "answerIndex": 1,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Hypnos is often depicted with which symbol?",
+      "options": [ "A) A raven", "B) A poppy flower", "C) A golden crown", "D) A staff with a snake" ],
+      "answerIndex": 1,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Who is the twin brother of Hypnos?",
+      "options": [ "A) Thanatos", "B) Morpheus", "C) Hades", "D) Helios" ],
+      "answerIndex": 0,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Hypnos was said to dwell in which location?",
+      "options": [ "A) Mount Olympus", "B) The Underworld", "C) The cave of Sleep", "D) The rivers of Styx" ],
+      "answerIndex": 2,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which Greek hero did Hypnos aid by putting Zeus to sleep?",
+      "options": [ "A) Hercules", "B) Achilles", "C) Odysseus", "D) Jason" ],
+      "answerIndex": 2,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What was the relationship between Hypnos and the goddess Nyx?",
+      "options": [ "A) He was her son", "B) He was her lover", "C) He was her brother", "D) He was her father" ],
+      "answerIndex": 0,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which Roman counterpart is Hypnos associated with?",
+      "options": [ "A) Somnus", "B) Pluto", "C) Mars", "D) Mercury" ],
+      "answerIndex": 0,
+      "difficulty": "medium"
+    },
+    {
+      "question": "In Greek mythology, Hypnos had a palace made of which material?",
+      "options": [ "A) Ice", "B) Clouds", "C) Mist", "D) Silver" ],
+      "answerIndex": 2,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What was Hypnos' role in the Trojan War?",
+      "options": [ "A) He helped the Greeks by putting Zeus to sleep", "B) He had no involvement", "C) He sided with the Trojans", "D) He caused the war" ],
+      "answerIndex": 0,
+      "difficulty": "hard"
+    },
+    {
+      "question": "Hypnos' son is known as the god of what?",
+      "options": [ "A) Dreams", "B) Sleep", "C) Nightmares", "D) Death" ],
+      "answerIndex": 0,
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which other god did Hypnos put to sleep in order to aid Hera in a plan against Zeus?",
+      "options": [ "A) Apollo", "B) Hermes", "C) Poseidon", "D) Ares" ],
+      "answerIndex": 2,
+      "difficulty": "hard"
+    }
+  ]
+}

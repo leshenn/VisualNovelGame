@@ -1,0 +1,58 @@
+{
+  "questions": [
+    {
+      "question": "Who is Apollo's twin sister in Greek mythology?",
+      "options": [ "A) Artemis", "B) Hera", "C) Athena", "D) Demeter" ],
+      "answerIndex": 0,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What instrument is Apollo famously associated with?",
+      "options": [ "A) Lyre", "B) Harp", "C) Flute", "D) Drum" ],
+      "answerIndex": 0,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following is a key role of Apollo in Greek mythology?",
+      "options": [ "A) God of war", "B) God of the sun and music", "C) God of the underworld", "D) God of wine" ],
+      "answerIndex": 1,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Who did Apollo fall in love with, but was tragically rejected?",
+      "options": [ "A) Daphne", "B) Persephone", "C) Eurydice", "D) Calliope" ],
+      "answerIndex": 0,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What prophecy does Apollo give in the myth of Oedipus?",
+      "options": [ "A) The fall of Troy", "B) The fate of the city of Thebes", "C) The murder of his father", "D) The murder of his mother" ],
+      "answerIndex": 1,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Apollo was the leader of which group of goddesses known for their connection to music and the arts?",
+      "options": [ "A) The Muses", "B) The Graces", "C) The Nymphs", "D) The Furies" ],
+      "answerIndex": 0,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which creature did Apollo slay at Delphi to establish his temple?",
+      "options": [ "A) Python", "B) Minotaur", "C) Hydra", "D) Cyclops" ],
+      "answerIndex": 0,
+      "difficulty": "hard"
+    },
+    {
+      "question": "Apollo had a son, Asclepius, who was known for which of the following?",
+      "options": [ "A) God of healing", "B) God of war", "C) God of love", "D) God of wisdom" ],
+      "answerIndex": 0,
+      "difficulty": "hard"
+    },
+    {
+      "question": "Apollo is often depicted as riding a chariot across the sky. What is the significance of this imagery?",
+      "options": [ "A) He brings light and warmth", "B) He is the god of storms", "C) He battles monsters", "D) He travels to the underworld" ],
+      "answerIndex": 0,
+      "difficulty": "hard"
+    }
+  ]
+}

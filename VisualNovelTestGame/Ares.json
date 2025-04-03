@@ -1,0 +1,58 @@
+{
+  "questions": [
+    {
+      "question": "Who is Ares' father in Greek mythology?",
+      "options": [ "A) Zeus", "B) Poseidon", "C) Hades", "D) Hermes" ],
+      "answerIndex": 0,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is Ares' primary role in Greek mythology?",
+      "options": [ "A) God of love", "B) God of war", "C) God of the sea", "D) God of the sun" ],
+      "answerIndex": 1,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of the following creatures is associated with Ares?",
+      "options": [ "A) Pegasus", "B) Cerberus", "C) Boar", "D) Dolphin" ],
+      "answerIndex": 2,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Ares is often depicted riding what kind of vehicle in battle?",
+      "options": [ "A) Chariot", "B) Horse", "C) Elephant", "D) Dragon" ],
+      "answerIndex": 0,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which goddess was Ares' lover and also the goddess of love?",
+      "options": [ "A) Hera", "B) Artemis", "C) Aphrodite", "D) Athena" ],
+      "answerIndex": 2,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Who was Ares' son, known as a symbol of the violence of war?",
+      "options": [ "A) Eros", "B) Phobos", "C) Hermes", "D) Apollo" ],
+      "answerIndex": 1,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Ares was wounded by which of the following gods during a battle in the Iliad?",
+      "options": [ "A) Apollo", "B) Zeus", "C) Athena", "D) Heracles" ],
+      "answerIndex": 2,
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which of the following places was Ares' favorite location to engage in battle?",
+      "options": [ "A) Mount Olympus", "B) The battlefield of Troy", "C) The plains of Thessaly", "D) The fields of Ares' temple" ],
+      "answerIndex": 1,
+      "difficulty": "hard"
+    },
+    {
+      "question": "In which myth does Ares have a confrontation with his father, Zeus?",
+      "options": [ "A) The Titanomachy", "B) The Iliad", "C) The Amazonomachy", "D) The Battle of the Gods" ],
+      "answerIndex": 1,
+      "difficulty": "hard"
+    }
+  ]
+}

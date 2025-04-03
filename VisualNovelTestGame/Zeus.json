@@ -1,0 +1,82 @@
+{
+  "questions": [
+    {
+      "question": "What is Zeus the god of in Greek mythology?",
+      "options": [ "A) Sea", "B) Underworld", "C) Sky and thunder", "D) Love" ],
+      "answerIndex": 2,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Who are the parents of Zeus?",
+      "options": [ "A) Cronus and Rhea", "B) Uranus and Gaia", "C) Zeus and Hera", "D) Poseidon and Demeter" ],
+      "answerIndex": 0,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which weapon is Zeus famously known for wielding?",
+      "options": [ "A) Trident", "B) Sword", "C) Thunderbolt", "D) Bow and arrow" ],
+      "answerIndex": 2,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Who did Zeus overthrow to become the ruler of Mount Olympus?",
+      "options": [ "A) Cronus", "B) Uranus", "C) Hades", "D) Poseidon" ],
+      "answerIndex": 0,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following is one of Zeus's many lovers?",
+      "options": [ "A) Hera", "B) Aphrodite", "C) Demeter", "D) Leto" ],
+      "answerIndex": 1,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Zeus is associated with which animal?",
+      "options": [ "A) Eagle", "B) Dolphin", "C) Horse", "D) Lion" ],
+      "answerIndex": 0,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What was Zeus's role during the Titanomachy?",
+      "options": [ "A) He sided with the Titans", "B) He defeated the Titans and became the ruler of the gods", "C) He remained neutral", "D) He created the storm that destroyed the Titans" ],
+      "answerIndex": 1,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which goddess did Zeus marry?",
+      "options": [ "A) Hera", "B) Demeter", "C) Leto", "D) Aphrodite" ],
+      "answerIndex": 0,
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which of the following myths involves Zeus's transformation?",
+      "options": [ "A) Zeus turned into a swan to seduce Leda", "B) Zeus transformed into a bull to abduct Europa", "C) Zeus became a golden shower to impregnate Danae", "D) All of the above" ],
+      "answerIndex": 3,
+      "difficulty": "hard"
+    },
+    {
+      "question": "Zeus's symbol, the thunderbolt, was created by which beings?",
+      "options": [ "A) The Cyclopes", "B) The Muses", "C) The Titans", "D) The Furies" ],
+      "answerIndex": 0,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What was Zeus's primary role in the Trojan War?",
+      "options": [ "A) He actively participated in battles", "B) He remained neutral, but intervened in key moments", "C) He sided with the Trojans", "D) He sided with the Greeks" ],
+      "answerIndex": 1,
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which mortal did Zeus father a child with, who later became a hero?",
+      "options": [ "A) Perseus", "B) Hercules", "C) Achilles", "D) Jason" ],
+      "answerIndex": 1,
+      "difficulty": "hard"
+    },
+    {
+      "question": "Zeus is the leader of which group of deities?",
+      "options": [ "A) The Primordials", "B) The Olympians", "C) The Titans", "D) The Muses" ],
+      "answerIndex": 1,
+      "difficulty": "hard"
+    }
+  ]
+}

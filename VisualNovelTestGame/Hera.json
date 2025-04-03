@@ -1,0 +1,96 @@
+
+  {
+    "questions": [
+      {
+        "question": "What is Hera the goddess of in Greek mythology?",
+        "options": [ "A) War", "B) Marriage", "C) Wisdom", "D) Love" ],
+        "answerIndex": 1,
+        "difficulty": "easy"
+      },
+      {
+        "question": "Who is Hera married to?",
+        "options": [ "A) Apollo", "B) Poseidon", "C) Zeus", "D) Hades" ],
+        "answerIndex": 2,
+        "difficulty": "easy"
+      },
+      {
+        "question": "Hera is the daughter of which two primordial deities?",
+        "options": [ "A) Chaos and Gaia", "B) Rhea and Cronus", "C) Nyx and Erebus", "D) Uranus and Gaia" ],
+        "answerIndex": 1,
+        "difficulty": "easy"
+      },
+      {
+        "question": "What is the symbol most commonly associated with Hera?",
+        "options": [ "A) Owl", "B) Peacock", "C) Dolphin", "D) Trident" ],
+        "answerIndex": 1,
+        "difficulty": "medium"
+      },
+      {
+        "question": "Who were Hera's siblings?",
+        "options": [ "A) Hestia and  Poseidon", "B) Hestia and Zeus", "C) Apollo and Hermes", "D) Ares and " ],
+        "answerIndex": 1,
+        "difficulty": "medium"
+      },
+      {
+        "question": "Which of the following is a common depiction of Hera in Greek art?",
+        "options": [ "A) With a crown and scepter", "B) With wings and a bow", "C) Holding a lyre", "D) Riding a chariot drawn by horses" ],
+        "answerIndex": 0,
+        "difficulty": "medium"
+      },
+      {
+        "question": "What was Hera's reaction to Zeus's affairs?",
+        "options": [ "A) Anger", "B) Indifference", "C) Forgiveness", "D) Joy" ],
+        "answerIndex": 0,
+        "difficulty": "medium"
+      },
+      {
+        "question": "Which Greek hero did Hera oppose during his 12 Labors?",
+        "options": [ "A) Heracles", "B) Perseus", "C) Theseus", "D) Achilles" ],
+        "answerIndex": 0,
+        "difficulty": "medium"
+      },
+      {
+        "question": "Who were the children of Hera and Zeus?",
+        "options": [ "A) Athena and Apollo", "B) Ares and Hephaestus", "C) Hermes and Artemis", "D) Persephone and Hades" ],
+        "answerIndex": 1,
+        "difficulty": "medium"
+      },
+      {
+        "question": "What was Hera's reaction to Heracles' birth?",
+        "options": [ "A) She blessed him", "B) She tried to kill him", "C) She made him immortal", "D) She adopted him" ],
+        "answerIndex": 1,
+        "difficulty": "medium"
+      },
+      {
+        "question": "Hera is associated with which sacred animal?",
+        "options": [ "A) Lion", "B) Cow", "C) Owl", "D) Peacock" ],
+        "answerIndex": 3,
+        "difficulty": "hard"
+      },
+      {
+        "question": "Hera punished which woman for being loved by Zeus?",
+        "options": [ "A) Leda", "B) Io", "C) Callisto", "D) Semele" ],
+        "answerIndex": 1,
+        "difficulty": "hard"
+      },
+      {
+        "question": "Who was Hera's main rival for Zeus' affection?",
+        "options": [ "A) Aphrodite", "B) Demeter", "C) Themis", "D) Io" ],
+        "answerIndex": 0,
+        "difficulty": "hard"
+      },
+      {
+        "question": "What did Hera do to Io after Zeus turned her into a cow?",
+        "options": [ "A) Sent her to the underworld", "B) Chained her to a rock", "C) Allowed her to escape", "D) Sent a gadfly to torment her" ],
+        "answerIndex": 3,
+        "difficulty": "hard"
+      },
+      {
+        "question": "Which sacred city is Hera particularly associated with?",
+        "options": [ "A) Delphi", "B) Argos", "C) Athens", "D) Sparta" ],
+        "answerIndex": 1,
+        "difficulty": "hard"
+      }
+    ]
+  }
+

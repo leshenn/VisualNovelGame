@@ -1,0 +1,59 @@
+{
+  "questions": [
+    {
+      "question": "Who is Athena's father?",
+      "options": [ "A) Zeus", "B) Poseidon", "C) Apollo", "D) Hades" ],
+      "answerIndex": 0,
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is Athena the goddess of?",
+      "options": [ "A) Love", "B) War", "C) Wisdom", "D) Harvest" ],
+      "answerIndex": 2,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which animal is associated with Athena?",
+      "options": [ "A) Owl", "B) Dolphin", "C) Lion", "D) Eagle" ],
+      "answerIndex": 0,
+      "difficulty": "easy"
+    },
+    {
+      "question": "Where was Athena born?",
+      "options": [ "A) Mount Olympus", "B) The Aegean Sea", "C) From the head of Zeus", "D) Athens" ],
+      "answerIndex": 2,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the name of Athena's temple in Athens?",
+      "options": [ "A) Parthenon", "B) Pantheon", "C) Acropolis", "D) Delphi" ],
+      "answerIndex": 0,
+      "difficulty": "medium"
+    },
+    {
+      "question": "What is the symbol of Athena's wisdom?",
+      "options": [ "A) Laurel wreath", "B) Olive tree", "C) Golden helmet", "D) Spear" ],
+      "answerIndex": 1,
+      "difficulty": "medium"
+    },
+    {
+      "question": "In the Iliad, what role does Athena play in the Trojan War?",
+      "options": [ "A) She supports the Trojans", "B) She helps Achilles", "C) She causes the war", "D) She stays neutral" ],
+      "answerIndex": 1,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What is the name of Athena's closest companion, who was a mortal hero?",
+      "options": [ "A) Heracles", "B) Perseus", "C) Odysseus", "D) Theseus" ],
+      "answerIndex": 2,
+      "difficulty": "hard"
+    },
+    {
+      "question": "What gift did Athena give to the people of Athens?",
+      "options": [ "A) Fire", "B) Olive tree", "C) Horses", "D) Iron weapons" ],
+      "answerIndex": 1,
+      "difficulty": "hard"
+    }
+  ]
+}
+
