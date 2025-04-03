@@ -136,6 +136,7 @@
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="LoadSprites.cpp" />
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="QuizManager.cpp" />
     <ClCompile Include="VisualNovelTestGame.cpp" />
@@ -146,6 +147,7 @@
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="LoadSprites.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="QuizManager.h" />
   </ItemGroup>
