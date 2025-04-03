@@ -11,10 +11,6 @@ using namespace std;
 const int WIN_WIDTH = 890;
 const int WIN_HEIGHT = 448;
 
-//This is just a test push by Leshen
-// This is test by Yathish
-//	This is test by Rahil
-
 int main()
 {
 	RenderWindow window(VideoMode(WIN_WIDTH, WIN_HEIGHT), "Visual Novel");
