@@ -1,0 +1,64 @@
+{
+  "quiz": [
+    {
+      "question": "What is Hades the god of?",
+      "options": [ "The Sky", "The Underworld", "The Sea", "War" ],
+      "correct_answer": "The Underworld",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What is the name of Hades' three-headed dog?",
+      "options": [ "Pegasus", "Cerberus", "Chimera", "Griffin" ],
+      "correct_answer": "Cerberus",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What was the name of Hades' realm?",
+      "options": [ "Tartarus", "Elysium", "The Underworld", "Olympus" ],
+      "correct_answer": "The Underworld",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Who is Hades' wife?",
+      "options": [ "Aphrodite", "Hera", "Persephone", "Medusa" ],
+      "correct_answer": "Persephone",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Which river in the Underworld separates the living from the dead?",
+      "options": [ "Lethe", "Phlegethon", "Styx", "Acheron" ],
+      "correct_answer": "Styx",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What item did Hades give Persephone to eat that bound her to the Underworld?",
+      "options": [ "Apple", "Grapes", "Pomegranate seeds", "Olives" ],
+      "correct_answer": "Pomegranate seeds",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What special item did Hades own that made him invisible?",
+      "options": [ "A shield", "A cloak", "A helmet", "A staff" ],
+      "correct_answer": "A helmet",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which famous hero tried to kidnap Persephone from the Underworld?",
+      "options": [ "Hercules", "Theseus", "Achilles", "Jason" ],
+      "correct_answer": "Theseus",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which Greek hero successfully entered the Underworld and returned?",
+      "options": [ "Perseus", "Orpheus", "Odysseus", "Theseus" ],
+      "correct_answer": "Orpheus",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which section of the Underworld was reserved for the wicked?",
+      "options": [ "Elysium", "Asphodel Meadows", "Tartarus", "The Isles of the Blessed" ],
+      "correct_answer": "Tartarus",
+      "difficulty": "hard"
+    }
+  ]
+}
