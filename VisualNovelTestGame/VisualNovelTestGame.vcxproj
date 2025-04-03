@@ -135,6 +135,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="Question.cpp" />
+    <ClCompile Include="QuizManager.cpp" />
     <ClCompile Include="VisualNovelTestGame.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +145,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="Question.h" />
+    <ClInclude Include="QuizManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
