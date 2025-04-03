@@ -1,0 +1,65 @@
+{
+  "quiz": [
+    {
+      "question": "What is Poseidon the god of?",
+      "options": [ "Fire", "War", "The Sea", "The Sun" ],
+      "correct_answer": "The Sea",
+      "difficulty": "easy"
+    },
+    {
+      "question": "What weapon is Poseidon known for carrying?",
+      "options": [ "Sword", "Bow", "Trident", "Axe" ],
+      "correct_answer": "Trident",
+      "difficulty": "easy"
+    },
+
+    {
+      "question": "Which ancient civilization worshipped Poseidon as a major god?",
+      "options": [ "Romans", "Egyptians", "Greeks", "Norse" ],
+      "correct_answer": "Greeks",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Which of these symbols is associated with Poseidon?",
+      "options": [ "Thunderbolt", "Owl", "Trident", "Lyre" ],
+      "correct_answer": "Trident",
+      "difficulty": "easy"
+    },
+    {
+      "question": "Who are Poseidon's brothers?",
+      "options": [ "Zeus and Hades", "Ares and Hermes", "Apollo and Dionysus", "Hephaestus and Hera" ],
+      "correct_answer": "Zeus and Hades",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What natural disaster was Poseidon believed to cause?",
+      "options": [ "Hurricanes", "Earthquakes", "Volcanic eruptions", "Tornadoes" ],
+      "correct_answer": "Earthquakes",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What was the name of Poseidon's wife?",
+      "options": [ "Aphrodite", "Amphitrite", "Medusa", "Hera" ],
+      "correct_answer": "Amphitrite",
+      "difficulty": "medium"
+    },
+    {
+      "question": "What city did Poseidon compete with Athena to rule over?",
+      "options": [ "Delphi", "Corinth", "Athens", "Sparta" ],
+      "correct_answer": "Athens",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which mythical creature did Poseidon create?",
+      "options": [ "Minotaur", "Pegasus", "Cerberus", "Chimera" ],
+      "correct_answer": "Pegasus",
+      "difficulty": "hard"
+    },
+    {
+      "question": "Which hero was famously cursed by Poseidon, making his journey home difficult?",
+      "options": [ "Hercules", "Perseus", "Odysseus", "Theseus" ],
+      "correct_answer": "Odysseus",
+      "difficulty": "hard"
+    }
+  ]
+}
