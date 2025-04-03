@@ -135,12 +135,14 @@ GameState ButtonLayout::loadButtonClicked(const sf::Vector2i& mousePos)
 	else if (underWorldButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::UNDERWORLD;
 	}
-	
+
 	else if (countrySideButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::COUNTRY_SIDE;
 	}
-
-	return GameState::NONE;
+	else {
+		return GameState::START_GAME;
+	}
+		
 }
 
 
