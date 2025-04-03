@@ -6,6 +6,7 @@
 #include "Button.h"
 #include "LoadSprites.h"
 #include "GameState.h"
+#include "ButtonLayout.h";
 
 using json = nlohmann::json;
 using namespace sf;
@@ -18,6 +19,8 @@ int main()
 	RenderWindow window(VideoMode(WIN_WIDTH, WIN_HEIGHT), "Visual Novel");
 	LoadSprites loadSprites;
 	GameState currentState;
+	Font newFont;
+	newFont.loadFromFile("Robot_Font.otf");
 
 	currentState = GameState::MENU;
 	loadSprites.loadMenuScreen("Backgrounds/MenuBackground.png");
@@ -32,6 +35,10 @@ int main()
 
 		window.clear();
 		window.draw(loadSprites.menuBackgroundSprite);
+
+		ButtonLayout button(window, newFont);
+		button.loadPlayButton();
+
 		window.display();
 	}
 }

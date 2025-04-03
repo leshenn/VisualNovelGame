@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include "LoadSprites.h"
+#include "Button.h"
 
 using namespace std;
 using namespace sf;
@@ -77,6 +78,8 @@ void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string&
 
     //position scroll
     PositionScroll(gameScrollTexture.getSize().x, gameScrollTexture.getSize().y, gameScrollSprite);
+
+
 
 }
 

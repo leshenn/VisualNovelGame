@@ -13,6 +13,18 @@ public:
 	void setPosition(sf::Vector2f pos);
 	void drawTo(sf::RenderWindow& window);
 	bool isMouseOver(sf::RenderWindow& window);
+	void setOutline(sf::Color color, float thickness);
+
+
+	sf::Vector2f getSize() const
+	{
+		return button.getSize();
+	}
+
+	sf::Vector2f getPosition() const
+	{
+		return button.getPosition();
+	}
 
 
 

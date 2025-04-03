@@ -37,6 +37,12 @@ void Button::setPosition(sf::Vector2f pos) {
     text.setPosition({ xPos, yPos });
 }
 
+// Adds or modifies the button's outline
+void Button::setOutline(sf::Color color, float thickness) {
+    button.setOutlineColor(color);
+    button.setOutlineThickness(thickness);
+}
+
 void Button::drawTo(sf::RenderWindow& window) {
     window.draw(button);
     window.draw(text);
