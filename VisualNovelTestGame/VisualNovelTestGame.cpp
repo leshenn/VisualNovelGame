@@ -38,6 +38,7 @@ int main()
 
 		ButtonLayout button(window, newFont);
 		button.loadPlayButton();
+		button.loadWorldButtons();
 
 		window.display();
 	}

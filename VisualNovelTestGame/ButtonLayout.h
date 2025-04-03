@@ -9,8 +9,9 @@ using namespace sf;
 class ButtonLayout
 {
 public:
-	ButtonLayout(RenderWindow& window, Font font);
+	ButtonLayout(RenderWindow& window, Font& font);
 	void loadPlayButton();
+	void loadWorldButtons();
 
 
 private:
