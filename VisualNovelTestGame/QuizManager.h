@@ -28,10 +28,15 @@ private:
     std::vector<Question> questions; // Current set of questions
     int currentQuestionIndex; // Index of current question
     int score; // Player's score
-    std::vector<Question> amphitriteQuestions; // All Amphitrite questions
+    std::vector<Question> hadesQuestions; // All hades questions
+    std::vector<Question> poseidonQuestions; // All poseidon questions
+    std::vector<Question> dionysusQuestions; // All dionysus questions
     //Timer questionTimer;
 
     // Helper methods
     void loadAmphitriteQuestions(); // Load Amphitrite questions
+    void loadHadesQuestions(); // Load Hades questions
+    void loadPoseidonQuestions(); // Load Poseidon questions
+    void loadDionysusQuestions(); // Load Dionysus questions
     void selectRandomQuestions(int count); // Select random subset of questions
 };

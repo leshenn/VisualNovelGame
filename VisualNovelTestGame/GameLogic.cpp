@@ -77,6 +77,9 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
+        
+        quiz.render();
+
         break;
 
     case GameState::COUNTRY_SIDE:
@@ -85,6 +88,9 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
+        
+        quiz.render();
+
         break;
 
     default:
@@ -95,12 +101,12 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
 }
 
 void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz)
-{
+{   
     switch (currentState) {
     case GameState::MENU:
         if (event.type == Event::MouseButtonPressed) {
-            audio.playClickButtonSound();
             if (layout.playButtonClicked(window)) {
+                audio.playClickButtonSound();
                 currentState = GameState::INTRO; // Change state when Play button is clicked
             }
         }
@@ -110,8 +116,8 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
     case GameState::INTRO:
         if (event.type == Event::MouseButtonPressed) {
-            audio.playClickButtonSound();
             if (layout.nextButtonClicked(window)) {
+                audio.playClickButtonSound();
                 currentState = GameState::STAGE_ONE_MENU;
             }
         }
@@ -120,12 +126,12 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         break;
 
     case GameState::STAGE_ONE_MENU:
-        audio.playClickButtonSound();
         if (event.type == Event::MouseButtonPressed) {
+            audio.playClickButtonSound();
             Vector2i mousePos = Mouse::getPosition(window);
             currentState = layout.loadButtonClicked(mousePos);
 
-            quiz.loadQuiz();
+            quiz.initQuiz();
 
         }
         loadGameAssets(currentState, loadSprites);

@@ -1,0 +1,54 @@
+{
+"hadesQuestions": [
+    {
+      "question": "Who is Hades' Roman counterpart?",
+      "options": [ "A) Pluto", "B) Mars", "C) Mercury", "D) Saturn" ],
+      "correct_answer": 0
+    },
+    {
+      "question": "What is Hades the god of?",
+      "options": [ "A) The sky", "B) The sea", "C) The underworld", "D) War" ],
+      "correct_answer": 2
+    },
+    {
+      "question": "What is the name of Hades' three-headed dog?",
+      "options": [ "A) Chimera", "B) Cerberus", "C) Hydra", "D) Orthrus" ],
+      "correct_answer": 1
+    },
+    {
+      "question": "Who is Hades' wife?",
+      "options": [ "A) Hera", "B) Aphrodite", "C) Persephone", "D) Athena" ],
+      "correct_answer": 2
+    },
+    {
+      "question": "What river must souls cross to enter the underworld?",
+      "options": [ "A) Lethe", "B) Styx", "C) Acheron", "D) Phlegethon" ],
+      "correct_answer": 1
+    },
+    {
+      "question": "Who ferries souls across the river to the underworld?",
+      "options": [ "A) Hermes", "B) Thanatos", "C) Charon", "D) Hypnos" ],
+      "correct_answer": 2
+    },
+    {
+      "question": "Which of the following is NOT a section of the underworld?",
+      "options": [ "A) Elysium", "B) Tartarus", "C) Asphodel Meadows", "D) Mount Olympus" ],
+      "correct_answer": 3
+    },
+    {
+      "question": "What item did Persephone eat that bound her to the underworld?",
+      "options": [ "A) Apple", "B) Pomegranate seeds", "C) Grapes", "D) Olives" ],
+      "correct_answer": 1
+    },
+    {
+      "question": "What is Hades' most famous symbol?",
+      "options": [ "A) Trident", "B) Helm of Darkness", "C) Lightning bolt", "D) Caduceus" ],
+      "correct_answer": 1
+    },
+    {
+      "question": "What is the name of Hades' palace?",
+      "options": [ "A) Mount Olympus", "B) Elysium Hall", "C) House of Hades", "D) Palace of Souls" ],
+      "correct_answer": 2
+    }
+  ]
+}

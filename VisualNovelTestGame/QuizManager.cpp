@@ -16,28 +16,35 @@ QuizManager::QuizManager() : currentQuestionIndex(0), score(0) {
 
 // Load questions
 void QuizManager::loadQuestions(GameState world) {
+
     // reset questions, index and score
     questions.clear();
     currentQuestionIndex = 0;
     score = 0;
 
     // Load questions for different stages
-    if (world == GameState::SEAWORLD) {
-        loadAmphitriteQuestions();
+    if (world == GameState::UNDERWORLD) {
+        loadHadesQuestions();
     }
-
+    else if (world == GameState::SEAWORLD) {
+        loadPoseidonQuestions();
+    }
+    else if (world == GameState::COUNTRY_SIDE) {
+        loadDionysusQuestions();
+    }
     // Select 8 random questions
     selectRandomQuestions(8);
     //questionTimer.start();
 }
 
-// Amphitrite question bank
-void QuizManager::loadAmphitriteQuestions() {
-    amphitriteQuestions.clear();
-    ifstream file("amphitrite_questions.json");
+
+// Hades question bank
+void QuizManager::loadHadesQuestions() {
+    hadesQuestions.clear();
+    ifstream file("hades_questions.json");
 
     if (!file.is_open()) {
-        cerr << "Error: Unable to open amphitrite_questions.json" << endl;
+        cerr << "Error: Unable to open hades_questions.json" << endl;
         return;
     }
 
@@ -46,8 +53,8 @@ void QuizManager::loadAmphitriteQuestions() {
     file.close();
 
     try {
-        for (const auto& item : jsonData["amphitriteQuestions"]) {
-            amphitriteQuestions.emplace_back(
+        for (const auto& item : jsonData["hadesQuestions"]) {
+            hadesQuestions.emplace_back(
                 item["question"].get<string>(),
                 item["options"].get<vector<string>>(),
                 item["correct_answer"].get<int>()
@@ -60,8 +67,75 @@ void QuizManager::loadAmphitriteQuestions() {
     }
 
     // Copy questions to the main question bank
-    questions = amphitriteQuestions;
+    questions = hadesQuestions;
 }
+
+
+// Poseidon question bank
+void QuizManager::loadPoseidonQuestions() {
+    poseidonQuestions.clear();
+    ifstream file("poseidon_questions.json");
+
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open poseidon_questions.json" << endl;
+        return;
+    }
+
+    json jsonData;
+    file >> jsonData;
+    file.close();
+
+    try {
+        for (const auto& item : jsonData["poseidonQuestions"]) {
+            poseidonQuestions.emplace_back(
+                item["question"].get<string>(),
+                item["options"].get<vector<string>>(),
+                item["correct_answer"].get<int>()
+            );
+        }
+    }
+    catch (const json::exception& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return;
+    }
+
+    // Copy questions to the main question bank
+    questions = poseidonQuestions;
+}
+
+
+// Dionysus question bank
+void QuizManager::loadDionysusQuestions() {
+    dionysusQuestions.clear();
+    ifstream file("dionysus_questions.json");
+
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open dionysus_questions.json" << endl;
+        return;
+    }
+
+    json jsonData;
+    file >> jsonData;
+    file.close();
+
+    try {
+        for (const auto& item : jsonData["dionysusQuestions"]) {
+            dionysusQuestions.emplace_back(
+                item["question"].get<string>(),
+                item["options"].get<vector<string>>(),
+                item["correct_answer"].get<int>()
+            );
+        }
+    }
+    catch (const json::exception& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return;
+    }
+
+    // Copy questions to the main question bank
+    questions = dionysusQuestions;
+}
+
 
 // Select a random subset of questions
 void QuizManager::selectRandomQuestions(int count) {

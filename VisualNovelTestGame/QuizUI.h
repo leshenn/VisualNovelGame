@@ -4,6 +4,7 @@
 #include "QuizManager.h"
 #include <vector>
 #include <SFML/Window.hpp>
+#include "Audio.h"
 
 
 
@@ -12,7 +13,8 @@ class QuizUI
 public:
 
 	QuizUI(RenderWindow& window, GameState& state);
-	void loadQuiz();
+	void initQuiz();  // Loads questions ONLY on first start
+	void refreshQuizUI(); // Updates UI without resetting questions
 	void loadNextQuestion();
 	void handleEvent();
 	void updateScoreText();
@@ -37,7 +39,7 @@ private:
 	Text resultText;
 	Button nextButton;
 	bool showingResult;
-
+	Audio audio;		// Create audio file
 
 };
 

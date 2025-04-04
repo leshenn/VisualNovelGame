@@ -30,10 +30,10 @@ int main()
 	//This is the play button
 	ButtonLayout layout(window, newFont);
 
-	GameState state = GameState::SEAWORLD;
-	QuizUI quiz = QuizUI(window, state);
+	
 
 	currentState = GameState::MENU;
+	QuizUI quiz = QuizUI(window, currentState);
 	while (window.isOpen()) {
 
 		Event event;

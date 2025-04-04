@@ -40,7 +40,7 @@ void Audio::playCorrectAnswerSound() {
 
 
 void Audio::playIncorrectAnswerSound() {
-	if (!incorrectAnswerBuffer.loadFromFile("Audio/Incorrect.ogg")) {
+	if (!incorrectAnswerBuffer.loadFromFile("Audio/Incorrect.mp3")) {
 		cout << "Error: Cannot find Incorrect Answer audio" << endl;
 		return;
 	}
