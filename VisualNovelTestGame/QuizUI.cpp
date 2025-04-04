@@ -17,7 +17,7 @@ QuizUI::QuizUI(RenderWindow& window, GameState& state) : window(window), current
 
 	// Score display configuration
 	scoreText.setFont(font);
-	scoreText.setCharacterSize(100);
+	scoreText.setCharacterSize(45);
 	scoreText.setFillColor(sf::Color::White);
 
 	// Result text configuration (correct/wrong feedback)
@@ -138,6 +138,12 @@ void QuizUI::handleEvent()
 		for (size_t i = 0; i < answerButtons.size(); ++i) {
 			if (answerButtons[i].isMouseOver(window)) {
 				bool isCorrect = manager.answerCurrentQuestion(i);
+				
+				if (isCorrect)
+				{
+					answerButtons[i].setBackColor(Color::Green);
+				}
+
 				showResult(isCorrect); // Show feedback
 				updateScoreText(); // Update score display
 				break;
@@ -196,6 +202,7 @@ void QuizUI::render()
 {
 
 	window.draw(questionText);
+	window.draw(scoreText);
 
 	// Draw answer buttons
 	for (auto& button : answerButtons) {
