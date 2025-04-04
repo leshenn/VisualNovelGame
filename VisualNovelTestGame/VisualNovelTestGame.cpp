@@ -8,6 +8,9 @@
 #include "GameState.h"
 #include "ButtonLayout.h";
 #include "GameLogic.h"
+#include "QuizUI.h"
+#include "QuizManager.h"
+
 
 using json = nlohmann::json;
 using namespace sf;

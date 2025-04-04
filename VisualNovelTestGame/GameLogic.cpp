@@ -1,10 +1,13 @@
 #include "GameLogic.h"
+#include "QuizUI.h"
+#include "QuizManager.h"
 #include <SFML/Window.hpp>
 
 using namespace sf;
 
 void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event)
 {
+    QuizUI quiz = QuizUI(window, currentState);
     switch (currentState) {
     case GameState::MENU:
         if (event.type == Event::MouseButtonPressed) {
@@ -61,6 +64,10 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
+
+        quiz.handleEvent(event);
+
+
         break;
 
     case GameState::UNDERWORLD:

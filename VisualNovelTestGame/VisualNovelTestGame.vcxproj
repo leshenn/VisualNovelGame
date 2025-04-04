@@ -142,6 +142,7 @@
     <ClCompile Include="LoadSprites.cpp" />
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="QuizManager.cpp" />
+    <ClCompile Include="QuizUI.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="VisualNovelTestGame.cpp" />
   </ItemGroup>
@@ -158,6 +159,7 @@
     <ClInclude Include="LoadSprites.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="QuizManager.h" />
+    <ClInclude Include="QuizUI.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
