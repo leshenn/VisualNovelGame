@@ -69,11 +69,11 @@ void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string&
 
     //Position main Character
     mainCharacterSprite.setPosition(10, 100);
-    mainCharacterSprite.setScale(1.8, 1.8);
+    mainCharacterSprite.setScale(1, 1);
 
     //Position god
     godSprite.setPosition(730, 100);
-    godSprite.setScale(1.8, 1.8);
+    godSprite.setScale(1, 1);
 
     //position scroll
     PositionScroll(gameScrollTexture.getSize().x, gameScrollTexture.getSize().y, gameScrollSprite);
