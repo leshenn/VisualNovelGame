@@ -1,4 +1,6 @@
 #include "GameLogic.h"
+#include "QuizUI.h"
+#include "QuizManager.h"
 #include <SFML/Window.hpp>
 #include "Audio.h"
 
@@ -66,6 +68,10 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
+
+        quiz.handleEvent(event);
+
+
         break;
 
     case GameState::UNDERWORLD:

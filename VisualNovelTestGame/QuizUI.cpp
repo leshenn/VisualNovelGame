@@ -7,6 +7,7 @@
 using namespace std;
 using namespace sf;
 
+
 QuizUI::QuizUI(RenderWindow& window, GameState& state) : window(window), currentState(state) {
 
 	// Load questions

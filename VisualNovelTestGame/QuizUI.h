@@ -15,6 +15,7 @@ public:
 	void loadQuiz();
 	void loadNextQuestion();
 	void handleEvent(Event& event);
+	//void update();
 
 
 private:
