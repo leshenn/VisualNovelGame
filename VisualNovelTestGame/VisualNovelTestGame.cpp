@@ -9,6 +9,7 @@
 #include "ButtonLayout.h"
 #include "GameLogic.h"
 #include "Audio.h"
+#include "QuizUI.h"
 
 using json = nlohmann::json;
 using namespace sf;
@@ -29,6 +30,9 @@ int main()
 	//This is the play button
 	ButtonLayout layout(window, newFont);
 
+	GameState state = GameState::SEAWORLD;
+	QuizUI quiz = QuizUI(window, state);
+
 	currentState = GameState::MENU;
 	while (window.isOpen()) {
 
@@ -37,7 +41,7 @@ int main()
 			if (event.type == Event::Closed)
 				window.close();
 
-			handleGameLogic(window, currentState, layout, loadSprites, event, audio);
+			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz);
 		}
 
 	}

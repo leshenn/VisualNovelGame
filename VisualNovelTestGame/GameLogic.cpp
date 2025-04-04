@@ -38,7 +38,7 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites)
     }
 }
 
-void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout& layout, LoadSprites& loadSprites)
+void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout& layout, LoadSprites& loadSprites, QuizUI& quiz)
 {
     switch (currentState) {
     case GameState::MENU:
@@ -66,6 +66,9 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
+      
+        quiz.render();
+
         break;
 
     case GameState::UNDERWORLD:
@@ -91,7 +94,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
     window.display();  // Update the window with the newly drawn content
 }
 
-void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio)
+void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz)
 {
     switch (currentState) {
     case GameState::MENU:
@@ -102,7 +105,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
         loadGameAssets(currentState, loadSprites);
-        renderGameScene(window, currentState, layout, loadSprites);
+        renderGameScene(window, currentState, layout, loadSprites, quiz);
         break;
 
     case GameState::INTRO:
@@ -113,7 +116,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
         loadGameAssets(currentState, loadSprites);
-        renderGameScene(window, currentState, layout, loadSprites);
+        renderGameScene(window, currentState, layout, loadSprites, quiz);
         break;
 
     case GameState::STAGE_ONE_MENU:
@@ -121,16 +124,26 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         if (event.type == Event::MouseButtonPressed) {
             Vector2i mousePos = Mouse::getPosition(window);
             currentState = layout.loadButtonClicked(mousePos);
+
+            quiz.loadQuiz();
+
         }
         loadGameAssets(currentState, loadSprites);
-        renderGameScene(window, currentState, layout, loadSprites);
+        renderGameScene(window, currentState, layout, loadSprites, quiz);
         break;
 
     case GameState::SEAWORLD:
     case GameState::UNDERWORLD:
     case GameState::COUNTRY_SIDE:
         loadGameAssets(currentState, loadSprites);
-        renderGameScene(window, currentState, layout, loadSprites);
+
+        // Handle quiz event
+        if (event.type == Event::MouseButtonPressed)
+        {
+            quiz.handleEvent();
+        }
+
+        renderGameScene(window, currentState, layout, loadSprites, quiz);
         break;
 
     default:

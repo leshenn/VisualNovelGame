@@ -11,7 +11,7 @@ using json = nlohmann::json;
 
 
 // Initialise attributes
-QuizManager::QuizManager() : currentQuestionIndex(0), score(0), questionTimer(10.0f) {
+QuizManager::QuizManager() : currentQuestionIndex(0), score(0) {
 }
 
 // Load questions
@@ -28,7 +28,7 @@ void QuizManager::loadQuestions(GameState world) {
 
     // Select 8 random questions
     selectRandomQuestions(8);
-    questionTimer.start();
+    //questionTimer.start();
 }
 
 // Amphitrite question bank
@@ -87,10 +87,12 @@ const Question& QuizManager::getCurrentQuestion() const {
 
 // Answer current question and update the score
 bool QuizManager::answerCurrentQuestion(int answerIndex) {
+    /*
     if (questionTimer.isFinished()) {
         cout << "Timer is up";
         return false;
     }
+    */
 
     if (getCurrentQuestion().isCorrect(answerIndex)) {
         score++;
@@ -102,16 +104,19 @@ bool QuizManager::answerCurrentQuestion(int answerIndex) {
 // Move to the next question
 void QuizManager::nextQuestion() {
     currentQuestionIndex++;
+    /*
     if (!isQuizComplete()) {
         questionTimer.reset();
         questionTimer.start();
     }
+    */
 }
 
 bool QuizManager::isQuizComplete() const {
     return currentQuestionIndex >= questions.size();
 }
 
+/*
 void QuizManager::update(float deltaTime) {
     questionTimer.update(deltaTime);
     if (questionTimer.isFinished()) {
@@ -120,6 +125,7 @@ void QuizManager::update(float deltaTime) {
         nextQuestion();
     }
 }
+*/
 
 int QuizManager::getScore() const { return score; }
 int QuizManager::getTotalQuestions() const { return questions.size(); }

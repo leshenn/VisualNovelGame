@@ -14,8 +14,13 @@ public:
 	QuizUI(RenderWindow& window, GameState& state);
 	void loadQuiz();
 	void loadNextQuestion();
-	void handleEvent(Event& event);
-	//void update();
+	void handleEvent();
+	void updateScoreText();
+	void showResult(bool isCorrect);
+	void showFinalScore();
+	void render();
+	
+	
 
 
 private:
@@ -28,10 +33,11 @@ private:
 	vector<string> options;
 	Font font;
 	Text questionText;
+	Text scoreText;
+	Text resultText;
 	Button nextButton;
-	//Timer remainingTime;
-	//Clock quizTime;
-	Text timerLabel;
+	bool showingResult;
+
 
 };
 
