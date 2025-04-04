@@ -69,8 +69,6 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
 
-        quiz.handleEvent(event);
-
 
         break;
 
