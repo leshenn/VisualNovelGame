@@ -1,15 +1,18 @@
 #include "GameLogic.h"
 #include <SFML/Window.hpp>
+#include "Audio.h"
 
 using namespace sf;
 
-void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event)
-{
+void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio)
+{   
     switch (currentState) {
     case GameState::MENU:
         if (event.type == Event::MouseButtonPressed) {
+            audio.playClickButtonSound();
             if (layout.playButtonClicked(window)) {
                 currentState = GameState::INTRO; // Change state when Play button is clicked
+
             }
         }
 
@@ -26,8 +29,9 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
     case GameState::INTRO:
         if (event.type == Event::MouseButtonPressed) {
+            audio.playClickButtonSound();
             if (layout.nextButtonClicked(window)) {
-                currentState = GameState::START_GAME;
+                currentState = GameState::STAGE_ONE_MENU;
             }
         }
 
@@ -42,7 +46,8 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         layout.loadNextButton();
         break;
 
-    case GameState::START_GAME:
+    case GameState::STAGE_ONE_MENU:
+        audio.playClickButtonSound();
         if (event.type == Event::MouseButtonPressed) {
             Vector2i mousePos = Mouse::getPosition(window);
             currentState = layout.loadButtonClicked(mousePos);

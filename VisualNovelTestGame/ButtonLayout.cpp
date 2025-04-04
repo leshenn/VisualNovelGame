@@ -140,7 +140,7 @@ GameState ButtonLayout::loadButtonClicked(const sf::Vector2i& mousePos)
 		return GameState::COUNTRY_SIDE;
 	}
 	else {
-		return GameState::START_GAME;
+		return GameState::STAGE_ONE_MENU;
 	}
 		
 }

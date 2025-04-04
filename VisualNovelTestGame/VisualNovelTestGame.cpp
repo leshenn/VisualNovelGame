@@ -6,8 +6,9 @@
 #include "Button.h"
 #include "LoadSprites.h"
 #include "GameState.h"
-#include "ButtonLayout.h";
+#include "ButtonLayout.h"
 #include "GameLogic.h"
+#include "Audio.h"
 
 using json = nlohmann::json;
 using namespace sf;
@@ -22,6 +23,8 @@ int main()
 	GameState currentState;
 	Font newFont;
 	newFont.loadFromFile("Robot_Font.otf");
+	Audio audio;
+	audio.playBackgroundSound();
 
 	//This is the play button
 	ButtonLayout layout(window, newFont);
@@ -34,7 +37,7 @@ int main()
 			if (event.type == Event::Closed)
 				window.close();
 
-			handleGameLogic(window, currentState, layout, loadSprites, event);
+			handleGameLogic(window, currentState, layout, loadSprites, event, audio);
 		}
 
 	}

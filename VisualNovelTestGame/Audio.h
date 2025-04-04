@@ -20,8 +20,11 @@ private:
 public:
 	//Create the functions for wach sound
 	void playBackgroundSound();
-	void playclickButtonSound();
-	void correctAnswerSound();
-	void incorrectAnswerSound();
+
+	void playClickButtonSound();
+	
+	void playCorrectAnswerSound();
+	
+	void playIncorrectAnswerSound();
 
 };
