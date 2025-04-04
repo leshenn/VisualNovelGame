@@ -143,6 +143,9 @@ void QuizUI::handleEvent()
 				{
 					answerButtons[i].setBackColor(Color::Green);
 				}
+				else if (!isCorrect) {
+					answerButtons[i].setBackColor(Color::Red);
+				}
 
 				showResult(isCorrect); // Show feedback
 				updateScoreText(); // Update score display
