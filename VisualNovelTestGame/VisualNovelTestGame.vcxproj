@@ -142,9 +142,11 @@
     <ClCompile Include="LoadSprites.cpp" />
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="QuizManager.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="VisualNovelTestGame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="amphitrite_questions.json" />
     <None Include="test.json" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +158,7 @@
     <ClInclude Include="LoadSprites.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="QuizManager.h" />
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
