@@ -130,7 +130,7 @@ void ButtonLayout::loadWorldButtons()
 GameState ButtonLayout::loadButtonClicked(const sf::Vector2i& mousePos)
 {
 	if (seaWorldButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::AMPHITRITE_STAGE;
+		return GameState::SEAWORLD;
 	}
 	else if (underWorldButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::UNDERWORLD;

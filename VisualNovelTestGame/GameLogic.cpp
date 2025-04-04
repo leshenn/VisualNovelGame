@@ -54,7 +54,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         layout.loadWorldButtons();
         break;
 
-    case GameState::AMPHITRITE_STAGE:
+    case GameState::SEAWORLD:
         window.clear();
         loadSprites.loadGameScreen("Backgrounds/PoseidonBackground.jpg", "Characters/Poseidon.png", "Characters/MainCharacter.png", "Acessories/Scroll.png");
         window.draw(loadSprites.gameBackgroundSprite);
