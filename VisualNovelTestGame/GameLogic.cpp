@@ -18,7 +18,6 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
 
-
         // Show the necessary sprites and buttons
         window.clear();
 
