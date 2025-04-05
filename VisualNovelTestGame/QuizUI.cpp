@@ -12,7 +12,7 @@ using namespace sf;
 QuizUI::QuizUI(RenderWindow& window, GameState& state) : window(window), currentState(state) {
 
 	// Load questions
-	font.loadFromFile("Robot_Font.otf");
+	font.loadFromFile("Fonts/norse/Norsebold.otf");
 	manager.loadQuestions(currentState);
 
 	// Score display configuration

@@ -23,7 +23,7 @@ int main()
 	LoadSprites loadSprites;
 	GameState currentState;
 	Font newFont;
-	newFont.loadFromFile("Robot_Font.otf");
+	newFont.loadFromFile("Fonts/norse/Norsebold.otf");
 	Audio audio;
 	audio.playBackgroundSound();
 

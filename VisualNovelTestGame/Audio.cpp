@@ -6,7 +6,7 @@ using namespace sf;
 using namespace std;
 
 void Audio::playBackgroundSound() {
-	if (!backgroundBuffer.loadFromFile("Audio/Background.mp3")) {
+	if (!backgroundBuffer.loadFromFile("Audio/Background.wav")) {
 		cout << "Cannot find background audio";
 	}
 
@@ -18,7 +18,7 @@ void Audio::playBackgroundSound() {
 
 
 void Audio::playClickButtonSound() {
-	if (!clickButtonBuffer.loadFromFile("Audio/Click.mp3")) {
+	if (!clickButtonBuffer.loadFromFile("Audio/Click.wav")) {
 		cout << "Cannot find background audio";
 		return;
 	}
@@ -29,7 +29,7 @@ void Audio::playClickButtonSound() {
 
 
 void Audio::playCorrectAnswerSound() {
-	if (!correctAnswerBuffer.loadFromFile("Audio/Correct.mp3")) {
+	if (!correctAnswerBuffer.loadFromFile("Audio/Correct.wav")) {
 		cout << "Cannot find background audio";
 		return;
 	}
@@ -40,7 +40,7 @@ void Audio::playCorrectAnswerSound() {
 
 
 void Audio::playIncorrectAnswerSound() {
-	if (!incorrectAnswerBuffer.loadFromFile("Audio/Incorrect.mp3")) {
+	if (!incorrectAnswerBuffer.loadFromFile("Audio/Incorrect.wav")) {
 		cout << "Error: Cannot find Incorrect Answer audio" << endl;
 		return;
 	}
