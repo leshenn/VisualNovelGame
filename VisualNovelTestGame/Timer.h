@@ -8,6 +8,7 @@ class Timer {
 public:
 	Timer(float duration);
 	void start();
+	void stop();
 	void update(float deltaTime);
 	bool isFinished() const;
 	void reset();

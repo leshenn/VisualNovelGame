@@ -22,7 +22,9 @@ public:
     int getScore() const; // Get current score
     int getTotalQuestions() const; // Get total question count
     int getCurrentQuestionIndex() const; // Get current question index
-    //void update(float deltaTimer);
+
+    //TIMER
+    void update(float deltaTimer);
 
 private:
     std::vector<Question> questions; // Current set of questions
@@ -31,7 +33,7 @@ private:
     std::vector<Question> hadesQuestions; // All hades questions
     std::vector<Question> poseidonQuestions; // All poseidon questions
     std::vector<Question> dionysusQuestions; // All dionysus questions
-    //Timer questionTimer;
+    Timer questionTimer;
 
     // Helper methods
     void loadAmphitriteQuestions(); // Load Amphitrite questions

@@ -20,6 +20,11 @@ QuizUI::QuizUI(RenderWindow& window, GameState& state) : window(window), current
 	scoreText.setCharacterSize(45);
 	scoreText.setFillColor(sf::Color::White);
 
+	//Quiz timer text configuration
+	timerText.setFont(font);
+	timerText.setCharacterSize(28);
+	timerText.setFillColor(sf::Color::Black);
+
 	// Result text configuration (correct/wrong feedback)
 	resultText.setFont(font);
 	resultText.setCharacterSize(32);
@@ -61,6 +66,16 @@ void QuizUI::refreshQuizUI()
 		// Push Button into the answerButtons vector
 		answerButtons.push_back(answerButton);
 	}
+
+	//initialize timer
+	timeRemaining = 10.0f;
+	quizTimer.restart();
+
+	//Timer text
+	timerText.setString("Time: " + std::to_string((int)timeRemaining) + "s");
+	sf::FloatRect timerBounds = timerText.getLocalBounds();
+	timerText.setOrigin(timerBounds.width / 2.0f, timerBounds.height / 2.0f);
+	timerText.setPosition(window.getSize().x / 2.f, 50.f); // Center horizontally, keep near top
 
 	// Position answer buttons
 	float yPosition = window.getSize().y * 0.4f;
@@ -168,7 +183,7 @@ void QuizUI::loadNextQuestion() {
 
 	if (manager.isQuizComplete()) {
 		showFinalScore();
-		//timerText.setString("");
+		timerText.setString("");
 	}
 	else {
 		refreshQuizUI(); // Set up UI for next question
@@ -206,7 +221,7 @@ void QuizUI::showFinalScore() {
 // Draw to window
 void QuizUI::render()
 {
-
+	window.draw(timerText);
 	window.draw(questionText);
 	window.draw(scoreText);
 
@@ -222,5 +237,22 @@ void QuizUI::render()
 	}
 	else if (manager.isQuizComplete()) {
 		nextButton.drawTo(window); // Show next button on final screen
+	}
+}
+
+void QuizUI::update() {
+	if (!manager.isQuizComplete()) {
+		if (currentState == GameState::SEAWORLD && !showingResult) {
+			timeRemaining -= quizTimer.restart().asSeconds(); // Subtract elapsed time
+			std::cout << timeRemaining << endl;
+
+			if (timeRemaining <= 0) {
+				showResult(false); // Auto-fail when time runs out
+				updateScoreText();
+			}
+
+			// Update timer display
+			timerText.setString("Time: " + std::to_string(std::max(0, (int)timeRemaining)) + "s");
+		}
 	}
 }

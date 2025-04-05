@@ -6,7 +6,7 @@
 #include <SFML/Window.hpp>
 #include "Audio.h"
 
-
+using namespace sf;
 
 class QuizUI
 {
@@ -23,11 +23,17 @@ public:
 	void render();
 	bool isQuizComplete() const { return manager.isQuizComplete(); }
 	bool isScoreShown() const { return scoreShown; }
+	void update();
 	
 	
 
 
 private:
+	//timer functions
+	float timeRemaining;
+	Clock quizTimer;
+	Text timerText;
+
 
 	RenderWindow& window;
 	vector<Button> answerButtons;

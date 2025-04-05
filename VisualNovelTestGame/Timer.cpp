@@ -8,6 +8,10 @@ void Timer::start() {
     running = true;
 }
 
+void Timer::stop() {
+    running = false;
+}
+
 void Timer::update(float deltaTime) {
     if (running && remainingTime > 0) {
         remainingTime -= deltaTime;

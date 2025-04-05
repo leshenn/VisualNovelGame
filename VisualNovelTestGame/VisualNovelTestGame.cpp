@@ -43,7 +43,8 @@ int main()
 
 			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz);
 		}
-
+		quiz.update();
+		renderGameScene(window, currentState, layout, loadSprites, quiz);
 	}
 
 	return 0;
