@@ -3,6 +3,7 @@
 #include "QuizManager.h"
 #include "GameState.h"
 #include <vector>
+#include "QuizUI.h"
 
 
 ButtonLayout::ButtonLayout(RenderWindow& window, Font& font) : window(window), font(font) {}

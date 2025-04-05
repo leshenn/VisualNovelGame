@@ -27,7 +27,7 @@ QuizUI::QuizUI(RenderWindow& window, GameState& state) : window(window), current
 
 	// Initialise question text
 	questionText.setFont(font);
-	questionText.setCharacterSize(26);
+	questionText.setCharacterSize(23);
 	questionText.setFillColor(Color::Black);
 
 	// Initialise Next Button
@@ -39,8 +39,9 @@ QuizUI::QuizUI(RenderWindow& window, GameState& state) : window(window), current
 	showingResult = false;
 }
 
-void QuizUI::initQuiz() {
+void QuizUI::initQuiz(GameState world) {
 	// ONLY CALL THIS WHEN STARTING A NEW QUIZ
+	currentState = world; // Update the current state
 	manager.loadQuestions(currentState);
 	refreshQuizUI();
 }
@@ -155,6 +156,7 @@ void QuizUI::handleEvent()
 	}
 	else if (nextButton.isMouseOver(window)) {
 		loadNextQuestion(); // Proceed to next question
+		audio.playClickButtonSound();
 	}
 }
 
@@ -198,6 +200,7 @@ void QuizUI::showFinalScore() {
 		window.getSize().y * 0.5f // Middle of screen vertically
 		});
 	answerButtons.push_back(finalScoreButton);
+	scoreShown = true;
 }
 
 // Draw to window

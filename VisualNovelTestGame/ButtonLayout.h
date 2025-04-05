@@ -3,6 +3,7 @@
 #include <vector>
 #include "Button.h"
 #include "GameState.h"
+#include "QuizUI.h"
 
 using namespace std;
 using namespace sf;

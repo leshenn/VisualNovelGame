@@ -17,6 +17,10 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites)
         loadSprites.loadInstructionScreen("Backgrounds/InstructionBackground.jpg", "Acessories/MenuScroll.png");
         break;
 
+    case GameState::NYX1:
+        loadSprites.loadGameScreen("Backgrounds/NyxBackground.png", "Characters/Nyx.png", "Characters/MainCharacter.png", "Acessories/Scroll.png");
+        break;
+
     case GameState::STAGE_ONE_MENU:
         loadSprites.loadMenuScreen("Backgrounds/MenuBackground00.png");
         break;
@@ -31,6 +35,14 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites)
 
     case GameState::COUNTRY_SIDE:
         loadSprites.loadGameScreen("Backgrounds/DionysusBackground.jpg", "Characters/Dionysus.png", "Characters/MainCharacter.png", "Acessories/Scroll.png");
+        break;
+
+    case GameState::NYX2:
+        loadSprites.loadGameScreen("Backgrounds/NyxBackground.png", "Characters/Nyx.png", "Characters/MainCharacter.png", "Acessories/Scroll.png");
+        break;
+
+    case GameState::STAGE_TWO_MENU:
+        loadSprites.loadMenuScreen("Backgrounds/MenuBackground00.png");
         break;
 
     default:
@@ -52,6 +64,16 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.instructionBackgroundSprite);
         window.draw(loadSprites.menuScrollSprite);
         layout.loadNextButton();
+        break;
+
+    case GameState::NYX1:
+        window.clear();
+        window.draw(loadSprites.gameBackgroundSprite);
+        window.draw(loadSprites.godSprite);
+        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.gameScrollSprite);
+        layout.loadNextButton();
+
         break;
 
     case GameState::STAGE_ONE_MENU:
@@ -93,6 +115,22 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
 
         break;
 
+    case GameState::NYX2:
+        window.clear();
+        window.draw(loadSprites.gameBackgroundSprite);
+        window.draw(loadSprites.godSprite);
+        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.gameScrollSprite);
+        layout.loadNextButton();
+
+        break;
+
+    case GameState::STAGE_TWO_MENU:
+        window.clear();
+        window.draw(loadSprites.menuBackgroundSprite);
+        layout.loadWorldButtons();
+        break;
+
     default:
         break;
     }
@@ -118,21 +156,38 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         if (event.type == Event::MouseButtonPressed) {
             if (layout.nextButtonClicked(window)) {
                 audio.playClickButtonSound();
+                currentState = GameState::NYX1;
+            }
+        }
+        loadGameAssets(currentState, loadSprites);
+        renderGameScene(window, currentState, layout, loadSprites, quiz);
+        break;
+    
+    case GameState::NYX1:
+        if (event.type == Event::MouseButtonPressed) {
+            if (layout.nextButtonClicked(window)) {
+                audio.playClickButtonSound();
                 currentState = GameState::STAGE_ONE_MENU;
             }
         }
         loadGameAssets(currentState, loadSprites);
         renderGameScene(window, currentState, layout, loadSprites, quiz);
         break;
+   
 
     case GameState::STAGE_ONE_MENU:
         if (event.type == Event::MouseButtonPressed) {
             audio.playClickButtonSound();
             Vector2i mousePos = Mouse::getPosition(window);
-            currentState = layout.loadButtonClicked(mousePos);
+            GameState newState = layout.loadButtonClicked(mousePos);
 
-            quiz.initQuiz();
-
+            if (newState == GameState::SEAWORLD ||
+                newState == GameState::UNDERWORLD ||
+                newState == GameState::COUNTRY_SIDE) {
+                quiz.initQuiz(newState); // Initialize with the selected world
+            }
+            currentState = newState;
+            
         }
         loadGameAssets(currentState, loadSprites);
         renderGameScene(window, currentState, layout, loadSprites, quiz);
@@ -143,14 +198,32 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
     case GameState::COUNTRY_SIDE:
         loadGameAssets(currentState, loadSprites);
 
-        // Handle quiz event
-        if (event.type == Event::MouseButtonPressed)
-        {
-            quiz.handleEvent();
+        // Handle quiz events
+        if (event.type == Event::MouseButtonPressed) {
+            if (!quiz.isQuizComplete()) {
+                quiz.handleEvent(); // Normal quiz handling
+            }
+            else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
+                // Only proceed if quiz is complete AND Next is clicked
+                audio.playClickButtonSound();
+                currentState = GameState::NYX2;
+            }
         }
 
         renderGameScene(window, currentState, layout, loadSprites, quiz);
         break;
+
+    case GameState::NYX2:
+        if (event.type == Event::MouseButtonPressed) {
+            if (layout.nextButtonClicked(window)) {
+                audio.playClickButtonSound();
+                currentState = GameState::STAGE_ONE_MENU;
+            }
+        }
+        loadGameAssets(currentState, loadSprites);
+        renderGameScene(window, currentState, layout, loadSprites, quiz);
+        break;
+
 
     default:
         break;

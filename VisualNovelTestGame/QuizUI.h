@@ -13,7 +13,7 @@ class QuizUI
 public:
 
 	QuizUI(RenderWindow& window, GameState& state);
-	void initQuiz();  // Loads questions ONLY on first start
+	void initQuiz(GameState world);  // Loads questions ONLY on first start
 	void refreshQuizUI(); // Updates UI without resetting questions
 	void loadNextQuestion();
 	void handleEvent();
@@ -21,6 +21,8 @@ public:
 	void showResult(bool isCorrect);
 	void showFinalScore();
 	void render();
+	bool isQuizComplete() const { return manager.isQuizComplete(); }
+	bool isScoreShown() const { return scoreShown; }
 	
 	
 
@@ -40,6 +42,7 @@ private:
 	Button nextButton;
 	bool showingResult;
 	Audio audio;		// Create audio file
+	bool scoreShown = false;
 
 };
 
