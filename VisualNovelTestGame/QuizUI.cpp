@@ -242,7 +242,7 @@ void QuizUI::render()
 
 void QuizUI::update() {
 	if (!manager.isQuizComplete()) {
-		if (currentState == GameState::SEAWORLD && !showingResult) {
+		if (!showingResult) {
 			timeRemaining -= quizTimer.restart().asSeconds(); // Subtract elapsed time
 			std::cout << timeRemaining << endl;
 
