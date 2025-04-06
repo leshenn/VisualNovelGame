@@ -45,6 +45,14 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites)
         loadSprites.loadMenuScreen("Backgrounds/MenuBackground00.png");
         break;
 
+    case GameState::ATHENS:
+        loadSprites.loadGameScreen("Backgrounds/AthenaBackground.png", "Characters/Athena.png", "Characters/MainCharacter.png", "Acessories/Scroll.png");
+        break;
+
+    case GameState::DELPHI:
+        loadSprites.loadGameScreen("Backgrounds/ApolloBackground.png", "Characters/Apollo.png", "Characters/MainCharacter.png", "Acessories/Scroll.png");
+        break;
+
     default:
         break;
     }
@@ -79,7 +87,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
     case GameState::STAGE_ONE_MENU:
         window.clear();
         window.draw(loadSprites.menuBackgroundSprite);
-        layout.loadWorldButtons();
+        layout.loadStageOneButtons();
         break;
 
     case GameState::SEAWORLD:
@@ -128,7 +136,30 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
     case GameState::STAGE_TWO_MENU:
         window.clear();
         window.draw(loadSprites.menuBackgroundSprite);
-        layout.loadWorldButtons();
+        layout.loadStageTwoButtons();
+        break;
+
+
+    case GameState::ATHENS:
+        window.clear();
+        window.draw(loadSprites.gameBackgroundSprite);
+        window.draw(loadSprites.godSprite);
+        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.gameScrollSprite);
+
+        quiz.render();
+
+        break;
+
+    case GameState::DELPHI:
+        window.clear();
+        window.draw(loadSprites.gameBackgroundSprite);
+        window.draw(loadSprites.godSprite);
+        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.gameScrollSprite);
+
+        quiz.render();
+
         break;
 
     default:
@@ -179,7 +210,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         if (event.type == Event::MouseButtonPressed) {
             audio.playClickButtonSound();
             Vector2i mousePos = Mouse::getPosition(window);
-            GameState newState = layout.loadButtonClicked(mousePos);
+            GameState newState = layout.loadStageOneButtonClicked(mousePos);
 
             if (newState == GameState::SEAWORLD ||
                 newState == GameState::UNDERWORLD ||
@@ -217,13 +248,51 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         if (event.type == Event::MouseButtonPressed) {
             if (layout.nextButtonClicked(window)) {
                 audio.playClickButtonSound();
-                currentState = GameState::STAGE_ONE_MENU;
+                quiz.resetQuiz();  // Reset the quiz state before moving to stage 2
+                currentState = GameState::STAGE_TWO_MENU;
             }
         }
         loadGameAssets(currentState, loadSprites);
         renderGameScene(window, currentState, layout, loadSprites, quiz);
         break;
 
+
+    case GameState::STAGE_TWO_MENU:
+        if (event.type == Event::MouseButtonPressed) {
+            audio.playClickButtonSound();
+            Vector2i mousePos = Mouse::getPosition(window);
+            GameState newState = layout.loadStageTwoButtonClicked(mousePos);
+
+            if (newState == GameState::ATHENS ||
+                newState == GameState::DELPHI) {
+                quiz.resetQuiz();  // Ensure quiz is reset before initialization
+                quiz.initQuiz(newState); // Initialize with the selected world
+            }
+            currentState = newState;
+
+        }
+        loadGameAssets(currentState, loadSprites);
+        renderGameScene(window, currentState, layout, loadSprites, quiz);
+        break;
+
+    case GameState::ATHENS:
+    case GameState::DELPHI:
+        loadGameAssets(currentState, loadSprites);
+
+        // Handle quiz events
+        if (event.type == Event::MouseButtonPressed) {
+            if (!quiz.isQuizComplete()) {
+                quiz.handleEvent(); // Normal quiz handling
+            }
+            else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
+                // Only proceed if quiz is complete AND Next is clicked
+                audio.playClickButtonSound();
+                currentState = GameState::NYX2;
+            }
+        }
+
+        renderGameScene(window, currentState, layout, loadSprites, quiz);
+        break;
 
     default:
         break;

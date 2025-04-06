@@ -18,11 +18,15 @@ public:
 	void loadNextButton();
 	bool nextButtonClicked(RenderWindow& window);
 	Button& getNextButton();
-	void loadWorldButtons();
+	void loadStageOneButtons();
 	Button& getUnderworldButton();
 	Button& getSeaWorldButton();
 	Button& getCountrySideButton();
-	GameState loadButtonClicked(const sf::Vector2i& mousePos);
+	void loadStageTwoButtons();
+	Button& getAthensButton();
+	Button& getDelphiButton();
+	GameState loadStageOneButtonClicked(const sf::Vector2i& mousePos);
+	GameState loadStageTwoButtonClicked(const sf::Vector2i& mousePos);
 	void loadQuizButtons(GameState& currentState);
 
 private:
@@ -32,6 +36,7 @@ private:
 	Button playButton;  // Store Play button
 	Button nextButton;  // Store Next button
 	vector<Button> answerButtons; // Store Answer buttons
-	Button underWorldButton, seaWorldButton, countrySideButton; // Store World buttons
+	Button underWorldButton, seaWorldButton, countrySideButton; // Store stage one buttons
+	Button athensButton, delphiButton;		// Store stage two buttons
 };
 

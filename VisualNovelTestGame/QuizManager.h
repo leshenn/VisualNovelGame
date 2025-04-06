@@ -17,6 +17,7 @@ public:
     bool answerCurrentQuestion(int answerIndex); // Answer current question
     void nextQuestion(); // Move to next question
     bool isQuizComplete() const; // Check if quiz is finished
+    void setComplete(bool complete) { quizComplete = complete; }
 
     // Getters
     int getScore() const; // Get current score
@@ -25,6 +26,7 @@ public:
 
     //TIMER
     void update(float deltaTimer);
+    void reset();
 
 private:
     std::vector<Question> questions; // Current set of questions
@@ -33,12 +35,16 @@ private:
     std::vector<Question> hadesQuestions; // All hades questions
     std::vector<Question> poseidonQuestions; // All poseidon questions
     std::vector<Question> dionysusQuestions; // All dionysus questions
+    std::vector<Question> athenaQuestions; // All dionysus questions
+    std::vector<Question> apolloQuestions; // All dionysus questions
     Timer questionTimer;
+    bool quizComplete;
 
     // Helper methods
-    void loadAmphitriteQuestions(); // Load Amphitrite questions
     void loadHadesQuestions(); // Load Hades questions
     void loadPoseidonQuestions(); // Load Poseidon questions
     void loadDionysusQuestions(); // Load Dionysus questions
+    void loadAthenaQuestions();   // Load Athena questions
+    void loadApolloQuestions();   // Load Athena questions
     void selectRandomQuestions(int count); // Select random subset of questions
 };

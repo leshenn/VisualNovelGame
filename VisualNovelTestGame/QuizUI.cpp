@@ -9,7 +9,7 @@ using namespace std;
 using namespace sf;
 
 
-QuizUI::QuizUI(RenderWindow& window, GameState& state) : window(window), currentState(state) {
+QuizUI::QuizUI(RenderWindow& window, GameState& state) : window(window), currentState(state), scoreShown(false), showingResult(false) {
 
 	// Load questions
 	font.loadFromFile("Fonts/norse/Norsebold.otf");
@@ -255,4 +255,23 @@ void QuizUI::update() {
 			timerText.setString("Time: " + std::to_string(std::max(0, (int)timeRemaining)) + "s");
 		}
 	}
+}
+
+void QuizUI::resetQuiz() {
+	// Reset all state variables
+	scoreShown = false;
+	showingResult = false;
+
+	// Fully reset the manager
+	manager.reset();
+	manager.setComplete(false); // Explicitly mark as not complete
+
+	// Reset UI elements
+	timeRemaining = 10.0f;
+	quizTimer.restart();
+	answerButtons.clear();
+	questionText.setCharacterSize(23);
+
+	// Reload questions
+	manager.loadQuestions(currentState);
 }

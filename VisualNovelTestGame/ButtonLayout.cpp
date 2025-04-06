@@ -98,7 +98,7 @@ Button& ButtonLayout::getNextButton() {
 }
 
 // Create and load buttons for user to choose
-void ButtonLayout::loadWorldButtons()
+void ButtonLayout::loadStageOneButtons()
 {
 	// Underworld
 	underWorldButton = Button("Underworld", Vector2f(200.f, 60.f), 24, Color(128, 0, 128), Color::White);
@@ -127,8 +127,33 @@ void ButtonLayout::loadWorldButtons()
 	countrySideButton.drawTo(window);
 }
 
+
+// Create and load buttons for user to choose
+void ButtonLayout::loadStageTwoButtons()
+{
+	// Athens
+	athensButton = Button("Athens", Vector2f(200.f, 60.f), 24, Color(128, 0, 128), Color::White);
+	athensButton.setFont(font);
+
+	// Delphi
+	delphiButton = Button("Delphi", Vector2f(200.f, 60.f), 24, Color(34, 139, 34), Color::White);
+	delphiButton.setFont(font);
+
+	// Set position of buttons
+	float buttonSpacing = 30.f;
+	float width = athensButton.getSize().x + delphiButton.getSize().x + 2 * buttonSpacing;
+	float xPosition = (window.getSize().x - width) / 2.f;
+
+	athensButton.setPosition({ xPosition, window.getSize().y - 120.f });
+	delphiButton.setPosition({ xPosition + athensButton.getSize().x + buttonSpacing, window.getSize().y - 120.f });
+
+
+	athensButton.drawTo(window);
+	delphiButton.drawTo(window);
+}
+
 // Check if a button is clicked based on mouse position
-GameState ButtonLayout::loadButtonClicked(const sf::Vector2i& mousePos)
+GameState ButtonLayout::loadStageOneButtonClicked(const sf::Vector2i& mousePos)
 {
 	if (seaWorldButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::SEAWORLD;
@@ -146,6 +171,21 @@ GameState ButtonLayout::loadButtonClicked(const sf::Vector2i& mousePos)
 		
 }
 
+GameState ButtonLayout::loadStageTwoButtonClicked(const sf::Vector2i& mousePos)
+{
+
+	if (athensButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+		return GameState::ATHENS;
+	}
+	else if (delphiButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+		return GameState::DELPHI;
+	}
+	else {
+		return GameState::STAGE_TWO_MENU;
+	}
+
+}
+
 
 //Allows user to access which button was clicked(underWorld/seaWorld/countrySide)
 Button& ButtonLayout::getUnderworldButton() { 
@@ -158,4 +198,12 @@ Button& ButtonLayout::getSeaWorldButton() {
 
 Button& ButtonLayout::getCountrySideButton() { 
 	return countrySideButton;
+}
+
+Button& ButtonLayout::getAthensButton() {
+	return athensButton;
+}
+
+Button& ButtonLayout::getDelphiButton() {
+	return delphiButton;
 }

@@ -1,0 +1,54 @@
+{
+    "apolloQuestions": [
+        {
+            "question": "What is Apollo the god of?",
+            "options": [ "Sun, Music, and Prophecy", "War and Wisdom", "The Underworld", "The Sea" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "What is Apollo's main sacred symbol?",
+            "options": [ "Lyre", "Trident", "Helmet", "Spear" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Who is Apollo's twin sister?",
+            "options": [ "Artemis", "Athena", "Aphrodite", "Demeter" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Which oracle was dedicated to Apollo?",
+            "options": [ "Delphi", "Dodona", "Ephesus", "Olympia" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Who was Apollo's father?",
+            "options": [ "Zeus", "Poseidon", "Hades", "Ares" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "What was Apollo's role in the Trojan War?",
+            "options": [ "He sent a plague on the Greeks", "He fought alongside Achilles", "He built the Trojan Horse", "He led the Greek army" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "What creature did Apollo slay at Delphi?",
+            "options": [ "Python", "Chimera", "Cerberus", "Hydra" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "What was the name of Apollo's most famous mortal lover?",
+            "options": [ "Daphne", "Helen", "Andromeda", "Eurydice" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Which famous Greek hero did Apollo help guide home?",
+            "options": [ "Odysseus", "Theseus", "Hercules", "Perseus" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Apollo is often associated with which celestial body?",
+            "options": [ "The Sun", "The Moon", "Venus", "Mars" ],
+            "correct_answer": 0
+        }
+    ]
+}

@@ -68,7 +68,7 @@ void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string&
         gameBackgroundTexture.getSize().y, gameBackgroundSprite);
 
     //Position main Character
-    mainCharacterSprite.setPosition(10, 100);
+    mainCharacterSprite.setPosition(0, 140);
     mainCharacterSprite.setScale(1, 1);
 
     //Position god
