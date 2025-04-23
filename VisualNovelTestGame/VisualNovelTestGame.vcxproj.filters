@@ -48,6 +48,9 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DialogManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="test.json" />
@@ -57,6 +60,7 @@
     <None Include="dionysus_questions.json" />
     <None Include="athena_questions.json" />
     <None Include="apollo_questions.json" />
+    <None Include="nyx1_dialog.json" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h">
@@ -87,6 +91,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

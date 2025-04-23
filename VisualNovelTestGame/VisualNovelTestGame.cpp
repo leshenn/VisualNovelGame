@@ -10,6 +10,7 @@
 #include "GameLogic.h"
 #include "Audio.h"
 #include "QuizUI.h"
+#include "DialogManager.h"
 
 using json = nlohmann::json;
 using namespace sf;
@@ -26,6 +27,10 @@ int main()
 	newFont.loadFromFile("Fonts/norse/Norsebold.otf");
 	Audio audio;
 	audio.playBackgroundSound();
+	DialogManager dialog;
+
+	//Store the male and female character
+	loadSprites.loadCharacterOptions("Characters/MainCharacter.png", "Characters/Athena.png");
 
 	//This is the play button
 	ButtonLayout layout(window, newFont);
@@ -41,10 +46,10 @@ int main()
 			if (event.type == Event::Closed)
 				window.close();
 
-			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz);
+			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz, dialog);
 		}
 		quiz.update();
-		renderGameScene(window, currentState, layout, loadSprites, quiz);
+		renderGameScene(window, currentState, layout, loadSprites, quiz, dialog);
 	}
 
 	return 0;

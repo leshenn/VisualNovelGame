@@ -16,7 +16,9 @@ public:
 	Texture gameBackgroundTexture;
 	Texture instructionBackgroundTexture;
 	Texture godTexture;
-	Texture mainCharacterTexture;
+	Texture maleCharacterTexture;
+	Texture femaleCharacterTexture;
+	bool isMaleCharacterSelected;
 	Texture gameScrollTexture;
 	Texture menuScrollTexture;
 
@@ -34,8 +36,18 @@ public:
 
 	void loadInstructionScreen(const string& insrtuctionBackgroundPath, const string& menuScrollPath);
 
-	void loadGameScreen(const string& gameBackgroundPath,const string& godPath,
-						const string& mainCharacterPath, const string& gameScrollPath);
+	void setCharacterGender(bool isMale);
+	
+	void loadCharacterSelectionScreen(const string& backgroundPath);
+
+	void loadCharacterOptions(const string& maleCharcter, const string& femaleCharcter);
+
+	void selectCharacter(bool isMale);
+
+	void updateMainCharacterDisplay();
+
+	void loadGameScreen(const string& gameBackgroundPath,const string& godPath
+						, const string& gameScrollPath);
 	
 	void fitBackground(float winWidth, float winHeight, 
 		float textureX, float textureY, Sprite& menuBackgroundSprite);

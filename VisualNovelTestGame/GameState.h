@@ -4,13 +4,13 @@
 enum class GameState {
     MENU,                   // Main menu screen
     INTRO,                  // Introduction screen (unused in current implementation)
+    CHOOSE_CHARACTER,       // Choose gender of character
     CUTSCENE,               // This is where the cutscene would be held
     NYX1,                   // Conversation with nyx
     STAGE_ONE_MENU,         // World selection screen
     SEAWORLD,               // Poesidon Stage
     UNDERWORLD,             // Hades stage
     COUNTRY_SIDE,           // Dionysus stage
-    AMPHITRITE_STAGE,   
     NYX2,                   // Conversation with nyx
     STAGE_TWO_MENU,         // World selection screen
     ATHENS,                 // Athena stage

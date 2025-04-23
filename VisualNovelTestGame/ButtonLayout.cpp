@@ -60,6 +60,7 @@ void ButtonLayout::loadPlayButton()
 	playButton.drawTo(window);
 }
 
+
 // Check if the play button is clicked
 bool ButtonLayout::playButtonClicked(RenderWindow& window) {
 	Vector2i mousePos = Mouse::getPosition(window);

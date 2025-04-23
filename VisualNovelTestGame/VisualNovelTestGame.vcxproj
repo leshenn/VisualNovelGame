@@ -137,6 +137,7 @@
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonLayout.cpp" />
+    <ClCompile Include="DialogManager.cpp" />
     <ClCompile Include="GameLogic.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="LoadSprites.cpp" />
@@ -152,6 +153,7 @@
     <None Include="athena_questions.json" />
     <None Include="dionysus_questions.json" />
     <None Include="hades_questions.json" />
+    <None Include="nyx1_dialog.json" />
     <None Include="poseidon_questions.json" />
     <None Include="test.json" />
   </ItemGroup>
@@ -159,6 +161,7 @@
     <ClInclude Include="Audio.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonLayout.h" />
+    <ClInclude Include="DialogManager.h" />
     <ClInclude Include="GameLogic.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="LoadSprites.h" />
