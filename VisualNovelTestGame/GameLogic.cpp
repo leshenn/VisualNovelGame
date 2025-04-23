@@ -223,6 +223,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         else if (event.type == Event::MouseButtonPressed && !audio.isIntroductionSoundPlaying()) {
             if (layout.nextButtonClicked(window)) {
                 dialog.clearText();
+                isDialogLoaded = false;
                 audio.playClickButtonSound();
                 currentState = GameState::NYX1;
             }
@@ -233,11 +234,11 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         break;
 
     case GameState::NYX1:
-        isDialogLoaded = false;
-        dialog.reset();
         if (!isDialogLoaded) {
-            dialog.loadDialog("nyx1_dialog.json", "nyx_intro");
-            isDialogLoaded = true;  // Mark dialog as loaded
+            dialog.reset();  // Clear old dialog first
+            if (dialog.loadDialog("nyx1_dialog.json", "nyx_intro")) {
+                isDialogLoaded = true;
+            }
         }
         if (event.type == Event::KeyReleased && event.key.code == Keyboard::F) {
             if (dialog.hasMoreLines()) {
@@ -307,45 +308,18 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
                 int currentScore = quiz.getScore();
                 quiz.resetQuiz();  // Reset the quiz state before moving to stage
-                totalScore = 5;
-
-                
-
-                if(totalScore != 5)
-                {
-                    
-                    currentState = GameState::DELPHI;
-                    quiz.initQuiz(currentState);
-
-                }
-                else
+                                
+                if(currentScore < 4)
                 {
                     currentState = GameState::ATHENS;
                     quiz.initQuiz(currentState);
                 }
-                
-
-              
+                else
+                {
+                    currentState = GameState::DELPHI;
+                    quiz.initQuiz(currentState);
+                }
             }
-        }
-        loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
-        break;
-
-
-    case GameState::STAGE_TWO_MENU:
-        if (event.type == Event::MouseButtonPressed) {
-            audio.playClickButtonSound();
-            Vector2i mousePos = Mouse::getPosition(window);
-            GameState newState = layout.loadStageTwoButtonClicked(mousePos);
-
-            if (newState == GameState::ATHENS ||
-                newState == GameState::DELPHI) {
-                quiz.resetQuiz();  // Ensure quiz is reset before initialization
-                quiz.initQuiz(newState); // Initialize with the selected world
-            }
-            currentState = newState;
-
         }
         loadGameAssets(currentState, loadSprites, dialog);
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
@@ -367,6 +341,62 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
 
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        break;
+
+    case GameState::NYX3:
+        if (event.type == Event::MouseButtonPressed) {
+            if (layout.nextButtonClicked(window)) {
+                audio.playClickButtonSound();
+                int currentScore = quiz.getScore();
+                quiz.resetQuiz();  // Reset the quiz state before moving to stage
+
+                if (currentScore < 5)
+                {
+                    currentState = GameState::THRACE;
+                    quiz.initQuiz(currentState);
+                }
+                else
+                {
+                    currentState = GameState::RHAMNOUS;
+                    quiz.initQuiz(currentState);
+                }
+            }
+        }
+        loadGameAssets(currentState, loadSprites, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        break;
+
+    
+    case GameState::THRACE:
+    case GameState::RHAMNOUS:
+        loadGameAssets(currentState, loadSprites, dialog);
+
+        // Handle quiz events
+        if (event.type == Event::MouseButtonPressed) {
+            if (!quiz.isQuizComplete()) {
+                quiz.handleEvent(); // Normal quiz handling
+            }
+            else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
+                // Only proceed if quiz is complete AND Next is clicked
+                audio.playClickButtonSound();
+                currentState = GameState::NYX4;
+            }
+        }
+
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        break;
+
+
+    case GameState::NYX4:
+        if (event.type == Event::MouseButtonPressed) {
+            if (layout.nextButtonClicked(window)) {
+                audio.playClickButtonSound();
+                currentState = GameState::CRETE;
+                quiz.resetQuiz();  // Reset the quiz state before moving to stage
+            }
+        }
+        loadGameAssets(currentState, loadSprites, dialog);
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
         break;
 

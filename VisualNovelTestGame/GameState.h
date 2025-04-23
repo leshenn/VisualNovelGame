@@ -25,5 +25,7 @@ enum class GameState {
     LETHE,                  // Hypnos stage
     ARGOS,                  // Hera stage
     MOUNT_CYLLENE,          // Hermes stage
+    NYX4,
+    NYX5,
     NONE
 };
