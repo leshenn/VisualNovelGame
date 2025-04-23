@@ -40,7 +40,7 @@ void QuizManager::loadQuestions(GameState world) {
     }
 
     // Select 8 random questions
-    selectRandomQuestions(8);
+    selectRandomQuestions(10);
     questionTimer.start();
 }
 
@@ -147,6 +147,7 @@ void QuizManager::loadDionysusQuestions() {
 void QuizManager::loadAthenaQuestions() {
     athenaQuestions.clear();
     ifstream file("athena_questions.json");
+    int amountQuestions = 8;
 
     if (!file.is_open()) {
         cerr << "Error: Unable to open athena_questions.json" << endl;
@@ -158,6 +159,7 @@ void QuizManager::loadAthenaQuestions() {
     file.close();
 
     try {
+        
         for (const auto& item : jsonData["athenaQuestions"]) {
             athenaQuestions.emplace_back(
                 item["question"].get<string>(),
@@ -165,6 +167,7 @@ void QuizManager::loadAthenaQuestions() {
                 item["correct_answer"].get<int>()
             );
         }
+        
     }
     catch (const json::exception& e) {
         cerr << "JSON parsing error: " << e.what() << endl;

@@ -49,6 +49,46 @@
             "question": "Apollo is often associated with which celestial body?",
             "options": [ "The Sun", "The Moon", "Venus", "Mars" ],
             "correct_answer": 0
+        },
+        {
+            "question": "Apollo is the god of healing and disease.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Apollo's sacred animal is the dolphin.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Apollo was born on the island of Delos.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Apollo had no children.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 1
+        },
+        {
+            "question": "Apollo drove a chariot across the sky, pulling the sun.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Apollo was one of the Twelve Olympians.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Apollo’s bow could cause sudden death and disease.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Apollo is often depicted as an old and wise man.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 1
         }
     ]
 }

@@ -99,6 +99,46 @@
             "question": "Which famous playwrights wrote plays dedicated to Dionysus?",
             "options": [ "A) Homer and Hesiod", "B) Aeschylus, Sophocles, and Euripides", "C) Plato and Socrates", "D) Herodotus and Thucydides" ],
             "correct_answer": 1
+        },
+        {
+            "question": "Dionysus is the youngest of the Olympian gods.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Dionysus was once captured by pirates and turned them into birds.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 1
+        },
+        {
+            "question": "Dionysus' festivals were known for inspiring the birth of Greek theatre.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Dionysus is often depicted riding a chariot pulled by lions or panthers.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Dionysus was never recognized as a true Olympian by Zeus.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 1
+        },
+        {
+            "question": "The Maenads were peaceful priestesses who served Dionysus through prayer.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 1
+        },
+        {
+            "question": "Dionysus can bring madness or ecstasy to his followers.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Dionysus' birth involved being sewn into Zeus' thigh.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 0
         }
     ]
 }

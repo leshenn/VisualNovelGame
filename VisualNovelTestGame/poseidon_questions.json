@@ -49,6 +49,46 @@
             "question": "What was Poseidon's role in the Trojan War?",
             "options": [ "A) He fought for the Trojans", "B) He remained neutral", "C) He fought for the Greeks", "D) He did not participate" ],
             "correct_answer": 2
+        },
+        {
+            "question": "Poseidon is one of the Twelve Olympians.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Poseidon is the youngest of Cronus and Rhea’s children.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 1
+        },
+        {
+            "question": "Poseidon was swallowed by his father Cronus.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Poseidon’s trident can cause earthquakes.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Poseidon ruled Mount Olympus.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 1
+        },
+        {
+            "question": "Poseidon helped build the walls of Troy.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 0
+        },
+        {
+            "question": "Poseidon is often depicted riding a dolphin.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 1
+        },
+        {
+            "question": "Poseidon's symbol is a lightning bolt.",
+            "options": [ "A) True", "B) False" ],
+            "correct_answer": 1
         }
     ]
 }
