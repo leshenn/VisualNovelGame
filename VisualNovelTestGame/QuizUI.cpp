@@ -73,9 +73,7 @@ void QuizUI::refreshQuizUI()
 
 	//Timer text
 	timerText.setString("Time: " + std::to_string((int)timeRemaining) + "s");
-	sf::FloatRect timerBounds = timerText.getLocalBounds();
-	timerText.setOrigin(timerBounds.width / 2.0f, timerBounds.height / 2.0f);
-	timerText.setPosition(window.getSize().x / 2.f, 50.f); // Center horizontally, keep near top
+	centerPosition(timerText, 50.f);
 
 	// Position answer buttons
 	float yPosition = window.getSize().y * 0.4f;
@@ -97,11 +95,7 @@ void QuizUI::refreshQuizUI()
 	}
 
 	questionText.setString(currentQuestion.getQuestionText());
-	FloatRect questionBounds = questionText.getLocalBounds();
-	// Center text origin
-	questionText.setOrigin(questionBounds.left + questionBounds.width / 2.0f,
-		questionBounds.top + questionBounds.height / 2.0f);
-	questionText.setPosition(window.getSize().x / 2.f, window.getSize().y * 0.68f);
+	centerPosition(questionText, window.getSize().y * 0.68f);
 
 	updateScoreText(); // Refresh score display
 	scoreText.setPosition(1000.f, 20.f); // Top-left position
@@ -140,10 +134,7 @@ void QuizUI::showResult(bool isCorrect) {
 	}
 
 	// Center the result text above the question
-	sf::FloatRect resultBounds = resultText.getLocalBounds();
-	resultText.setOrigin(resultBounds.left + resultBounds.width / 2.0f,
-		resultBounds.top + resultBounds.height / 2.0f);
-	resultText.setPosition(window.getSize().x / 2.f, window.getSize().y * 0.2f);
+	centerPosition(resultText, window.getSize().y * 0.2f);
 }
 
 // Handle Quiz event

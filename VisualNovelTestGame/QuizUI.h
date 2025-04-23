@@ -27,7 +27,13 @@ public:
 	void resetQuiz();
 	int getScore() { return manager.getScore(); }
 	
-	
+	// Function template to center elements
+	template<typename T>
+	void centerPosition(T& element, float yPosition) {
+		FloatRect bounds = element.getLocalBounds();
+		element.setOrigin(bounds.left + bounds.width / 2.0f, bounds.top + bounds.height / 2.0f);
+		element.setPosition(window.getSize().x / 2.f, yPosition);
+	}
 
 
 private:
