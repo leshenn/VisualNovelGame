@@ -15,6 +15,12 @@ QuizUI::QuizUI(RenderWindow& window, GameState& state) : window(window), current
 	font.loadFromFile("Fonts/norse/Norsebold.otf");
 	manager.loadQuestions(currentState);
 
+	//intialise progress bar
+	progressbar.setFillColor(Color::Red);
+
+	progressbarOutline.setFillColor(Color::Transparent);
+	progressbarOutline.setOutlineColor(Color::Black);
+
 	// Score display configuration
 	scoreText.setFont(font);
 	scoreText.setCharacterSize(45);
@@ -70,10 +76,24 @@ void QuizUI::refreshQuizUI()
 	//initialize timer
 	timeRemaining = 10.0f;
 	quizTimer.restart();
+	progressbarOutline.setSize(Vector2f(50*timeRemaining, 30));
+	progressbarOutline.setOutlineThickness(2);
 
-	//Timer text
+
+	//Timer related position code
 	timerText.setString("Time: " + std::to_string((int)timeRemaining) + "s");
-	centerPosition(timerText, 50.f);
+	FloatRect timerBounds = timerText.getLocalBounds();
+	progressbar.setOrigin(timerBounds.width / 2.0f, timerBounds.height / 2.0f);
+	progressbar.setPosition((window.getSize().x / 2.f)-250.f, 50.f);
+
+	progressbarOutline.setOrigin(timerBounds.width / 2.0f, timerBounds.height / 2.0f);
+	progressbarOutline.setPosition((window.getSize().x / 2.f)-250.f, 50.f);
+
+	timerText.setOrigin(timerBounds.width / 2.0f, timerBounds.height / 2.0f);
+	timerText.setPosition((window.getSize().x / 2.f), 50.f);
+
+	
+
 
 	// Position answer buttons
 	float yPosition = window.getSize().y * 0.4f;
@@ -183,6 +203,11 @@ void QuizUI::loadNextQuestion() {
 
 // Show final score screen
 void QuizUI::showFinalScore() {
+
+	//hide progress bar
+	progressbarOutline.setOutlineThickness(0);
+	progressbar.setSize(Vector2f(0 , 0));
+
 	questionText.setString("Quiz Complete!");
 	questionText.setCharacterSize(50);
 	// Center the text horizontally and position it vertically
@@ -212,7 +237,10 @@ void QuizUI::showFinalScore() {
 // Draw to window
 void QuizUI::render()
 {
+	window.draw(progressbarOutline);
+	window.draw(progressbar);
 	window.draw(timerText);
+	
 	window.draw(questionText);
 	window.draw(scoreText);
 
@@ -235,7 +263,7 @@ void QuizUI::update() {
 	if (!manager.isQuizComplete()) {
 		if (!showingResult) {
 			timeRemaining -= quizTimer.restart().asSeconds(); // Subtract elapsed time
-			std::cout << timeRemaining << endl;
+			//std::cout << timeRemaining << endl;
 
 			if (timeRemaining <= 0) {
 				showResult(false); // Auto-fail when time runs out
@@ -244,6 +272,7 @@ void QuizUI::update() {
 
 			// Update timer display
 			timerText.setString("Time: " + std::to_string(std::max(0, (int)timeRemaining)) + "s");
+			progressbar.setSize(Vector2f(50 * timeRemaining, 30));
 		}
 	}
 }

@@ -46,6 +46,7 @@ int main()
 			if (event.type == Event::Closed)
 				window.close();
 
+			quiz.update();
 			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz, dialog);
 		}
 		quiz.update();

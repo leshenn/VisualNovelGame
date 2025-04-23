@@ -41,6 +41,8 @@ private:
 	float timeRemaining;
 	Clock quizTimer;
 	Text timerText;
+	RectangleShape progressbar;
+	RectangleShape progressbarOutline;
 
 
 	RenderWindow& window;
