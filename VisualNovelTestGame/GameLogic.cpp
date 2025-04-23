@@ -54,6 +54,9 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         loadSprites.loadGameScreen("Backgrounds/ApolloBackground.png", "Characters/Apollo.png", "Acessories/Scroll.png");
         break;
 
+    case GameState::THRACE:
+        break;
+
     default:
         break;
     }
@@ -169,6 +172,11 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.gameScrollSprite);
 
         quiz.render();
+
+        break;
+
+    case GameState::THRACE:
+        
 
         break;
 
