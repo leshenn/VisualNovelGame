@@ -25,6 +25,7 @@ public:
 	bool isScoreShown() const { return scoreShown; }
 	void update();
 	void resetQuiz();
+	int getScore() { return manager.getScore(); }
 	
 	
 

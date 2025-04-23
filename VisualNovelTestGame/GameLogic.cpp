@@ -272,8 +272,26 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         if (event.type == Event::MouseButtonPressed) {
             if (layout.nextButtonClicked(window)) {
                 audio.playClickButtonSound();
-                quiz.resetQuiz();  // Reset the quiz state before moving to stage 2
-                currentState = GameState::STAGE_TWO_MENU;
+
+                int currentScore = quiz.getScore();
+                quiz.resetQuiz();  // Reset the quiz state before moving to stage
+                
+
+                if(currentScore < 6)
+                {
+                    
+                    currentState = GameState::DELPHI;
+                    quiz.initQuiz(currentState);
+
+                }
+                else
+                {
+                    currentState = GameState::ATHENS;
+                    quiz.initQuiz(currentState);
+                }
+                
+
+              
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);

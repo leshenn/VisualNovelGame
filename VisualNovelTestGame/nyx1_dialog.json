@@ -1,24 +1,5 @@
 {
     "nyx_intro": [
-        "Nyx (mockingly gentle): Awake, little godling. Does mortality feel as fragile as they say? \nA heartbeat, a breath... so easily snuffed.",
-        "Player (groggily): Where... am I? Who are you?",
-        "Nyx (laughing softly): A guardian of shadows. A savior. Your savior. Ask the better question: Why are you here?",
-        "Player (clutching their head): I... don't remember. Why can't I remember...? What happened to me?",
-        "Nyx (feigning pity): Oh, you poor mortal. How could he have done this to you...? Don't worry, \nI'll give you the means for revenge.",
-        "Player (angry): Can you stop speaking in riddles and tell me what is going on!",
-        "Nyx (calm, pacing): You were just a child, so fueled with rage to gain power. Greedy. Bloodlusted.",
-        "Nyx (dramatic): And oh, the blood price! A contract binding your soul to eternal servitude.",
-        "Nyx (icy grip): But I saved you. Your soul is mine now.",
-        "Player (pulling away): Let go! I don't feel dead... or bound!",
-        "Nyx (smirking): Mortals never do. But you will. Unless you free yourself.",
-        "Nyx (tosses sword): Take this blade. Sever your ties to Ares. Confront him on Olympus... and I will \nensure your freedom.",
-        "Player (overwhelmed): Was I really that stupid? To make such a trade...",
-        "Nyx (dismissive): Youth is folly. Now choose.",
-        "Scene (background change): Three doorways appear.",
-        "Nyx (gesturing to portals): - Blue: Stormy seas with a weathered ship. - Black/Purple: A misty river \nflowing into a cavern. - Green: Sunlit plains with a grazing Pegasus.",
-        "Nyx (to blue portal): Would you cross the stormy, unforgiving�yet peaceful and beautiful�waters of Greece \non a vessel marked with my gratitude?",
-        "Nyx (to black/purple portal): Or brave the Underworld's domain via the River Styx? Sacrifice comfort for \na *timely* arrival.",
-        "Nyx (to green portal): Finally, traverse the vast, lush Plateaus of Greece astride the Pegasus \nMelanopter-marked with my loyalty.",
         "Nyx (fading voice): Good luck, child. And don't die."
     ],
     "poseidon_trial": [

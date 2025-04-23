@@ -211,16 +211,16 @@ void QuizManager::loadApolloQuestions() {
 
 // Select a random subset of questions
 void QuizManager::selectRandomQuestions(int count) {
-    if (questions.size() > count) {
-        std::random_device rd;   // Get a random seed
-        std::mt19937 rng(rd());  // Seed the random number generator
+    
+    std::random_device rd;   // Get a random seed
+    std::mt19937 rng(rd());  // Seed the random number generator
 
-        // Shuffle all questions
-        std::shuffle(questions.begin(), questions.end(), rng);
+    // Shuffle all questions
+    std::shuffle(questions.begin(), questions.end(), rng);
 
-        // Trim to desired count
-        questions.resize(count);
-    }
+    // Trim to desired count
+    questions.resize(count);
+
 }
 
 // Get the current question
