@@ -35,8 +35,8 @@ private:
     std::vector<Question> hadesQuestions; // All hades questions
     std::vector<Question> poseidonQuestions; // All poseidon questions
     std::vector<Question> dionysusQuestions; // All dionysus questions
-    std::vector<Question> athenaQuestions; // All dionysus questions
-    std::vector<Question> apolloQuestions; // All dionysus questions
+    std::vector<Question> athenaQuestions; // All ATHENA questions
+    std::vector<Question> apolloQuestions; // All apollo questions
     Timer questionTimer;
     bool quizComplete;
 

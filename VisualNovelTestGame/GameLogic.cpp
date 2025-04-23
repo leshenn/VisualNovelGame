@@ -197,7 +197,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
     case GameState::INTRO:
         if (!isDialogLoaded) {
             dialog.loadIntroDialog("nyx1_dialog.json", "instruction_screen");
-            audio.playIntroductionSound();
+           // audio.playIntroductionSound();
             isDialogLoaded = true;  // Mark dialog as loaded
         }
 
