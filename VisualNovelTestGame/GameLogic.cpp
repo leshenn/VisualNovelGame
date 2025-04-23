@@ -54,12 +54,20 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         loadSprites.loadGameScreen("Backgrounds/NemesisBackground.png", "Characters/Nemesis.png", "Acessories/Scroll.png");
         break;
 
+    case GameState::NYX3:
+        loadSprites.loadGameScreen("Backgrounds/NyxBackground.png", "Characters/Nyx.png", "Acessories/Scroll.png");
+        break;
+
     case GameState::DELPHI:
         loadSprites.loadGameScreen("Backgrounds/ApolloBackground.png", "Characters/Apollo.png", "Acessories/Scroll.png");
         break;
 
     case GameState::THRACE:
         loadSprites.loadGameScreen("Backgrounds/AresBackground.png", "Characters/Ares.png", "Acessories/Scroll.png");
+        break;
+
+    case GameState::NYX4:
+        loadSprites.loadGameScreen("Backgrounds/NyxBackground.png", "Characters/Nyx.png", "Acessories/Scroll.png");
         break;
 
     default:
@@ -180,6 +188,16 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         
         break;
 
+    case GameState::NYX3:
+        window.clear();
+        window.draw(loadSprites.gameBackgroundSprite);
+        window.draw(loadSprites.godSprite);
+        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.gameScrollSprite);
+        layout.loadNextButton();
+
+        break;
+
     case GameState::DELPHI:
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
@@ -199,6 +217,16 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.gameScrollSprite);
 
         quiz.render();
+
+        break;
+
+    case GameState::NYX4:
+        window.clear();
+        window.draw(loadSprites.gameBackgroundSprite);
+        window.draw(loadSprites.godSprite);
+        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.gameScrollSprite);
+        layout.loadNextButton();
 
         break;
 
@@ -353,7 +381,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
                 // Only proceed if quiz is complete AND Next is clicked
                 audio.playClickButtonSound();
-                currentState = GameState::NYX2;
+                currentState = GameState::NYX3;
             }
         }
 
