@@ -211,6 +211,70 @@ void QuizManager::loadApolloQuestions() {
     questions = apolloQuestions;
 }
 
+// Nemesis question bank
+void QuizManager::loadNemesisQuestions() {
+    nemesisQuestions.clear();
+    ifstream file("nemesis_questions.json");
+
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open hades_questions.json" << endl;
+        return;
+    }
+
+    json jsonData;
+    file >> jsonData;
+    file.close();
+
+    try {
+        for (const auto& item : jsonData["nemesisQuestions"]) {
+            nemesisQuestions.emplace_back(
+                item["question"].get<string>(),
+                item["options"].get<vector<string>>(),
+                item["correct_answer"].get<int>()
+            );
+        }
+    }
+    catch (const json::exception& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return;
+    }
+
+    // Copy questions to the main question bank
+    questions = nemesisQuestions;
+}
+
+// Ares question bank
+void QuizManager::loadAresQuestions() {
+    aresQuestions.clear();
+    ifstream file("ares_questions.json");
+
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open hades_questions.json" << endl;
+        return;
+    }
+
+    json jsonData;
+    file >> jsonData;
+    file.close();
+
+    try {
+        for (const auto& item : jsonData["aresQuestions"]) {
+            aresQuestions.emplace_back(
+                item["question"].get<string>(),
+                item["options"].get<vector<string>>(),
+                item["correct_answer"].get<int>()
+            );
+        }
+    }
+    catch (const json::exception& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return;
+    }
+
+    // Copy questions to the main question bank
+    questions = aresQuestions;
+}
+
 
 // Select a random subset of questions
 void QuizManager::selectRandomQuestions(int count) {

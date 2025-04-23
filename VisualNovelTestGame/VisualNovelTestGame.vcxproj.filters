@@ -61,6 +61,8 @@
     <None Include="athena_questions.json" />
     <None Include="apollo_questions.json" />
     <None Include="nyx1_dialog.json" />
+    <None Include="ares_questions.json" />
+    <None Include="nemesis_questions.json" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h">

@@ -51,6 +51,7 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         break;
 
     case GameState::RHAMNOUS:
+        loadSprites.loadGameScreen("Backgrounds/NemesisBackground.png", "Characters/Nemesis.png", "Acessories/Scroll.png");
         break;
 
     case GameState::DELPHI:
@@ -58,6 +59,7 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         break;
 
     case GameState::THRACE:
+        loadSprites.loadGameScreen("Backgrounds/AresBackground.png", "Characters/Ares.png", "Acessories/Scroll.png");
         break;
 
     default:
@@ -168,6 +170,14 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         break;
 
     case GameState::RHAMNOUS:
+        window.clear();
+        window.draw(loadSprites.gameBackgroundSprite);
+        window.draw(loadSprites.godSprite);
+        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.gameScrollSprite);
+
+        quiz.render();
+        
         break;
 
     case GameState::DELPHI:
@@ -182,7 +192,13 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         break;
 
     case GameState::THRACE:
-        
+        window.clear();
+        window.draw(loadSprites.gameBackgroundSprite);
+        window.draw(loadSprites.godSprite);
+        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.gameScrollSprite);
+
+        quiz.render();
 
         break;
 

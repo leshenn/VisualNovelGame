@@ -37,6 +37,8 @@ private:
     std::vector<Question> dionysusQuestions; // All dionysus questions
     std::vector<Question> athenaQuestions; // All ATHENA questions
     std::vector<Question> apolloQuestions; // All apollo questions
+    std::vector<Question> nemesisQuestions; // All nemesis questions
+    std::vector<Question> aresQuestions;    // All ares questions
     Timer questionTimer;
     bool quizComplete;
 
@@ -46,5 +48,7 @@ private:
     void loadDionysusQuestions(); // Load Dionysus questions
     void loadAthenaQuestions();   // Load Athena questions
     void loadApolloQuestions();   // Load Athena questions
+    void loadNemesisQuestions(); // Load Nemesis questions
+    void loadAresQuestions();    // Load Ares Questions
     void selectRandomQuestions(int count); // Select random subset of questions
 };
