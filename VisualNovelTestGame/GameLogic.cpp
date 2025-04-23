@@ -50,8 +50,14 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         loadSprites.loadGameScreen("Backgrounds/AthenaBackground.png", "Characters/Athena.png", "Acessories/Scroll.png");
         break;
 
+    case GameState::RHAMNOUS:
+        break;
+
     case GameState::DELPHI:
         loadSprites.loadGameScreen("Backgrounds/ApolloBackground.png", "Characters/Apollo.png", "Acessories/Scroll.png");
+        break;
+
+    case GameState::THRACE:
         break;
 
     default:
@@ -161,6 +167,9 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
 
         break;
 
+    case GameState::RHAMNOUS:
+        break;
+
     case GameState::DELPHI:
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
@@ -169,6 +178,11 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.gameScrollSprite);
 
         quiz.render();
+
+        break;
+
+    case GameState::THRACE:
+        
 
         break;
 
