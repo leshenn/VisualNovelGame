@@ -37,6 +37,13 @@ void QuizManager::loadQuestions(GameState world) {
     }
     else if (world == GameState::DELPHI) {
         loadApolloQuestions();
+    } else if (world == GameState::RHAMNOUS)
+    { 
+        loadNemesisQuestions();
+    }
+    else if (world == GameState::THRACE)
+    {
+        loadAresQuestions();
     }
 
     // Select 8 random questions
