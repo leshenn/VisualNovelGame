@@ -19,6 +19,7 @@ public:
     bool loadDialog(const std::string& filename, const std::string& dialogId);
     bool loadIntroDialog(const std::string& filename, const std::string& dialogId);
     void nextLine();
+    void introNextLine();
     bool hasMoreLines() const;
     void draw(sf::RenderWindow& window);
     void reset();

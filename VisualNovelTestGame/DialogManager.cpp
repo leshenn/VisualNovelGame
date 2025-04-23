@@ -102,6 +102,17 @@ bool DialogManager::loadIntroDialog(const std::string& filename, const std::stri
 }
 
 void DialogManager::nextLine() {
+    if (hasMoreLines()) {
+        currentIndex++;
+        dialogText.setString(currentLines[currentIndex]);
+    }
+    if (!hasMoreLines()) {
+        isDialogComplete = true;  // Mark as complete when no more lines
+
+    }
+}
+
+void DialogManager::introNextLine() {
     if (!hasMoreLines()) {
         isDialogComplete = true;  // Mark complete FIRST
         dialogText.setString("");  // Clear text immediately

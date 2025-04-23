@@ -204,7 +204,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         
        
         if (dialog.hasMoreLines()) {
-            dialog.nextLine();
+            dialog.introNextLine();
         }
         else if (event.type == Event::MouseButtonPressed && !audio.isIntroductionSoundPlaying()) {
             if (layout.nextButtonClicked(window)) {
@@ -225,8 +225,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             dialog.loadDialog("nyx1_dialog.json", "nyx_intro");
             isDialogLoaded = true;  // Mark dialog as loaded
         }
-        if (event.type == Event::KeyPressed && event.key.code == Keyboard::F)
-        {
+        if (event.type == Event::KeyReleased && event.key.code == Keyboard::F) {
             if (dialog.hasMoreLines()) {
                 dialog.nextLine();
             }
