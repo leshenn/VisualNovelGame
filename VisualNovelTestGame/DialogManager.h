@@ -17,9 +17,11 @@ private:
 public:
     DialogManager();
     bool loadDialog(const std::string& filename, const std::string& dialogId);
+    bool loadIntroDialog(const std::string& filename, const std::string& dialogId);
     void nextLine();
     bool hasMoreLines() const;
     void draw(sf::RenderWindow& window);
     void reset();
     bool isDialogFinished() const;
+    void clearText();
 };

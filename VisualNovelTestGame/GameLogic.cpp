@@ -73,6 +73,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.instructionBackgroundSprite);
         window.draw(loadSprites.menuScrollSprite);
         layout.loadNextButton();
+        dialog.draw(window);
         break;
 
 
@@ -191,17 +192,29 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         break;
 
     case GameState::INTRO:
-        if (event.type == Event::MouseButtonPressed) {
+        if (!isDialogLoaded) {
+            dialog.loadIntroDialog("nyx1_dialog.json", "instruction_screen");
+            isDialogLoaded = true;  // Mark dialog as loaded
+        }
+       
+        if (dialog.hasMoreLines()) {
+            dialog.nextLine();
+        }
+        else if (event.type == Event::MouseButtonPressed) {
             if (layout.nextButtonClicked(window)) {
+                dialog.clearText();
                 audio.playClickButtonSound();
                 currentState = GameState::NYX1;
             }
         }
+        
         loadGameAssets(currentState, loadSprites, dialog);
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog);
         break;
 
     case GameState::NYX1:
+        isDialogLoaded = false;
+        dialog.reset();
         if (!isDialogLoaded) {
             dialog.loadDialog("nyx1_dialog.json", "nyx_intro");
             isDialogLoaded = true;  // Mark dialog as loaded
@@ -275,9 +288,11 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
                 int currentScore = quiz.getScore();
                 quiz.resetQuiz();  // Reset the quiz state before moving to stage
+                totalScore = 5;
+
                 
 
-                if(currentScore < 6)
+                if(totalScore != 5)
                 {
                     
                     currentState = GameState::DELPHI;

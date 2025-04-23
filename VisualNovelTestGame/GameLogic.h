@@ -22,3 +22,5 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
 
 void handleGameLogic(RenderWindow& window, GameState& currentState, 
 	ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog);
+
+static int totalScore = 0;

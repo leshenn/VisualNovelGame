@@ -104,7 +104,7 @@ void QuizUI::refreshQuizUI()
 	questionText.setPosition(window.getSize().x / 2.f, window.getSize().y * 0.68f);
 
 	updateScoreText(); // Refresh score display
-	scoreText.setPosition(20.f, 20.f); // Top-left position
+	scoreText.setPosition(1000.f, 20.f); // Top-left position
 
 	// Position next button in bottom-right corner
 	nextButton.setPosition({

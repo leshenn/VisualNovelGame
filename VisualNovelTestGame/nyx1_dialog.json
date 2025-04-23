@@ -5,5 +5,21 @@
     "poseidon_trial": [
         "To meet Poseidon, answer my riddle.",
         "What walks on four legs in the morning..."
+    ],
+    "instruction_screen": [
+        "You are a demigod seeking revenge after Hades destroyed your family. To",
+        "\nreach Olympus and confront him, you must collect 3 keys by mini-games",
+        "\ncompleting quizzes that test your knowledge and wit. Along the way, play",
+        "\nto earn power-ups that boost your strength, speed, and abilities in battle.",
+        "\n\n",
+        "Objective:",
+        "\nCollect 3 keys to unlock the gates of Olympus and defeat Hades.",
+        "\n\n",
+        "How to Play:",
+        "\n1. Complete Quizzes - Earn 1 key for every quiz you pass.",
+        "\n2. Play Mini-Games - Win power-ups to aid you in your final battle.",
+        "\n3. Enter Olympus - Once you have all 3 keys, face Hades in an epic showdown.",
+        "\n\n",
+        "Use your skills, think fast, and claim your destiny!"
     ]
 }
