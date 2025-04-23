@@ -48,3 +48,17 @@ void Audio::playIncorrectAnswerSound() {
 	incorrectAnswerSound.setBuffer(incorrectAnswerBuffer); // Use existing member
 	incorrectAnswerSound.play();
 }
+
+void Audio::playIntroductionSound() {
+	if (!introductionBuffer.loadFromFile("Audio/Instruction.mp3")) {
+		cout << "Error: Cannot find Incorrect Answer audio" << endl;
+		return;
+	}
+
+	introductionSound.setBuffer(introductionBuffer); // Use existing member
+	introductionSound.play();
+}
+
+bool Audio::isIntroductionSoundPlaying() const {
+	return (introductionSound.getStatus() == sf::Sound::Playing);
+}

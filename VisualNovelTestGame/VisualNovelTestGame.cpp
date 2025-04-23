@@ -49,7 +49,7 @@ int main()
 			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz, dialog);
 		}
 		quiz.update();
-		renderGameScene(window, currentState, layout, loadSprites, quiz, dialog);
+		renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
 	}
 
 	return 0;

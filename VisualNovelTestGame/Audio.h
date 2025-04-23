@@ -11,12 +11,14 @@ private:
 	SoundBuffer clickButtonBuffer;
 	SoundBuffer correctAnswerBuffer;
 	SoundBuffer incorrectAnswerBuffer;
+	SoundBuffer introductionBuffer;
 
 	//Create the sound to play the sound
 	Sound backgroundSound;
 	Sound clickButtonSound;
 	Sound correctAnswerSound;
 	Sound incorrectAnswerSound;
+	Sound introductionSound;
 public:
 	//Create the functions for wach sound
 	void playBackgroundSound();
@@ -26,5 +28,9 @@ public:
 	void playCorrectAnswerSound();
 	
 	void playIncorrectAnswerSound();
+
+	void playIntroductionSound();
+
+	bool isIntroductionSoundPlaying() const;
 
 };
