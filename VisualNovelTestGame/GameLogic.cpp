@@ -355,12 +355,12 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                                 
                 if(currentScore < 4)
                 {
-                    currentState = GameState::ATHENS;
+                    currentState = GameState::DELPHI;
                     quiz.initQuiz(currentState);
                 }
                 else
                 {
-                    currentState = GameState::DELPHI;
+                    currentState = GameState::ATHENS;
                     quiz.initQuiz(currentState);
                 }
             }
