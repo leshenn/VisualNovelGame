@@ -62,7 +62,7 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
     }
 }
 
-void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout& layout, LoadSprites& loadSprites, QuizUI& quiz, DialogManager& dialog)
+void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout& layout, LoadSprites& loadSprites, QuizUI& quiz, DialogManager& dialog, Audio& audio)
 {
     switch (currentState) {
     case GameState::MENU:
@@ -75,7 +75,10 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.clear();
         window.draw(loadSprites.instructionBackgroundSprite);
         window.draw(loadSprites.menuScrollSprite);
-        layout.loadNextButton();
+        if (!audio.isIntroductionSoundPlaying()) {
+            layout.loadNextButton();
+        }
+        
         dialog.draw(window);
         break;
 
@@ -196,19 +199,22 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
         break;
 
     case GameState::INTRO:
         if (!isDialogLoaded) {
             dialog.loadIntroDialog("nyx1_dialog.json", "instruction_screen");
+            audio.playIntroductionSound();
             isDialogLoaded = true;  // Mark dialog as loaded
         }
+
+        
        
         if (dialog.hasMoreLines()) {
             dialog.nextLine();
         }
-        else if (event.type == Event::MouseButtonPressed) {
+        else if (event.type == Event::MouseButtonPressed && !audio.isIntroductionSoundPlaying()) {
             if (layout.nextButtonClicked(window)) {
                 dialog.clearText();
                 audio.playClickButtonSound();
@@ -217,7 +223,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         }
         
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
         break;
 
     case GameState::NYX1:
@@ -245,7 +251,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
         break;
    
 
@@ -266,7 +272,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             
         }
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
         break;
 
     case GameState::SEAWORLD:
@@ -286,7 +292,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
 
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
         break;
 
     case GameState::NYX2:
@@ -318,7 +324,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
         break;
 
 
@@ -337,7 +343,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
         }
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
         break;
 
     case GameState::ATHENS:
@@ -356,7 +362,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
 
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
         break;
 
     default:

@@ -18,7 +18,7 @@ static bool getPlayerGender() { return playerIsMale; }
 
 void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogManager& dialog);
 
-void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout& layout, LoadSprites& loadSprites, QuizUI& quiz, DialogManager& dialog);
+void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout& layout, LoadSprites& loadSprites, QuizUI& quiz, DialogManager& dialog, Audio& audio);
 
 void handleGameLogic(RenderWindow& window, GameState& currentState, 
 	ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog);
