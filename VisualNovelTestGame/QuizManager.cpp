@@ -37,7 +37,8 @@ void QuizManager::loadQuestions(GameState world) {
     }
     else if (world == GameState::DELPHI) {
         loadApolloQuestions();
-    } else if (world == GameState::RHAMNOUS)
+    }
+    else if (world == GameState::RHAMNOUS)
     { 
         loadNemesisQuestions();
     }
@@ -47,6 +48,22 @@ void QuizManager::loadQuestions(GameState world) {
     }
     else if (world == GameState::CRETE) {
         loadDaedalusQuestions();
+    }
+    else if (world == GameState::CYPRUS)
+    {
+        loadAproditeQuestions();
+    }
+    else if (world == GameState::OLYMPUS) {
+        loadZeusQuestions();
+    }
+    else if (world == GameState::LETHE) {
+        loadHypnosQuestions();
+    }
+    else if (world == GameState::MOUNT_CYLLENE) {
+        loadHermesQuestions();
+    }
+    else if (world == GameState::ARGOS) {
+        loadHeraQuestions();
     }
 
     // Select 8 random questions
@@ -316,6 +333,165 @@ void QuizManager::loadDaedalusQuestions() {
 
     // Copy questions to the main question bank
     questions = daedalusQuestions;
+}
+
+// aphrodite question bank
+void QuizManager::loadAproditeQuestions() {
+    aphroditeQuestions.clear();
+    ifstream file("aphrodite_questions.json");
+
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open aphrodite_questions.json" << endl;
+        return;
+    }
+
+    json jsonData;
+    file >> jsonData;
+    file.close();
+
+    try {
+        for (const auto& item : jsonData["aphroditeQuestions"]) {
+            aphroditeQuestions.emplace_back(
+                item["question"].get<string>(),
+                item["options"].get<vector<string>>(),
+                item["correct_answer"].get<int>()
+            );
+        }
+    }
+    catch (const json::exception& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return;
+    }
+
+    // Copy questions to the main question bank
+    questions = aphroditeQuestions;
+}
+
+// zeus question bank
+void QuizManager::loadZeusQuestions() {
+    zeusQuestions.clear();
+    ifstream file("zeus_questions.json");
+
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open zeus_questions.json" << endl;
+        return;
+    }
+
+    json jsonData;
+    file >> jsonData;
+    file.close();
+
+    try {
+        for (const auto& item : jsonData["zeusQuestions"]) {
+            zeusQuestions.emplace_back(
+                item["question"].get<string>(),
+                item["options"].get<vector<string>>(),
+                item["correct_answer"].get<int>()
+            );
+        }
+    }
+    catch (const json::exception& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return;
+    }
+
+    // Copy questions to the main question bank
+    questions = zeusQuestions;
+}
+
+void QuizManager::loadHypnosQuestions() {
+    hypnosQuestions.clear();
+    ifstream file("hypnos_questions.json");
+
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open hypnos_questions.json" << endl;
+        return;
+    }
+
+    json jsonData;
+    file >> jsonData;
+    file.close();
+
+    try {
+        for (const auto& item : jsonData["hypnosQuestions"]) {
+            hypnosQuestions.emplace_back(
+                item["question"].get<string>(),
+                item["options"].get<vector<string>>(),
+                item["correct_answer"].get<int>()
+            );
+        }
+    }
+    catch (const json::exception& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return;
+    }
+
+    // Copy questions to the main question bank
+    questions = hypnosQuestions;
+}
+
+// hermes question bank
+void QuizManager::loadHermesQuestions() {
+    hermesQuestions.clear();
+    ifstream file("hermes_questions.json");
+
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open hermes_questions.json" << endl;
+        return;
+    }
+
+    json jsonData;
+    file >> jsonData;
+    file.close();
+
+    try {
+        for (const auto& item : jsonData["hermesQuestions"]) {
+            hermesQuestions.emplace_back(
+                item["question"].get<string>(),
+                item["options"].get<vector<string>>(),
+                item["correct_answer"].get<int>()
+            );
+        }
+    }
+    catch (const json::exception& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return;
+    }
+
+    // Copy questions to the main question bank
+    questions = hermesQuestions;
+}
+
+// hera question bank
+void QuizManager::loadHeraQuestions() {
+    heraQuestions.clear();
+    ifstream file("hera_questions.json");
+
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open hera_questions.json" << endl;
+        return;
+    }
+
+    json jsonData;
+    file >> jsonData;
+    file.close();
+
+    try {
+        for (const auto& item : jsonData["heraQuestions"]) {
+            heraQuestions.emplace_back(
+                item["question"].get<string>(),
+                item["options"].get<vector<string>>(),
+                item["correct_answer"].get<int>()
+            );
+        }
+    }
+    catch (const json::exception& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return;
+    }
+
+    // Copy questions to the main question bank
+    questions = heraQuestions;
 }
 
 

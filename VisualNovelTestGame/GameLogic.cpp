@@ -74,7 +74,7 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         break;
 
     case GameState::CYPRUS:
-        loadSprites.loadGameScreen("Backgrounds/AphroditeBackground.png", "Characters/AphroditePlaceHolder.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/AphroditeBackground.png", "Characters/Aphrodite.png", "Acessories/Scroll.png");
         break;
 
     case GameState::LETHE:

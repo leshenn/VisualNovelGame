@@ -181,9 +181,6 @@ GameState ButtonLayout::loadStageTwoButtonClicked(const sf::Vector2i& mousePos)
 	else if (delphiButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::DELPHI;
 	}
-	else {
-		return GameState::STAGE_TWO_MENU;
-	}
 
 }
 

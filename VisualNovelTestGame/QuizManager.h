@@ -40,6 +40,11 @@ private:
     std::vector<Question> nemesisQuestions; // All nemesis questions
     std::vector<Question> aresQuestions;    // All ares questions
     std::vector<Question> daedalusQuestions;    // All ares questions
+    std::vector<Question> aphroditeQuestions;    // All aphrodite questions
+    std::vector<Question> zeusQuestions;    // All zeus questions
+    std::vector<Question> hypnosQuestions;    // All hypnos questions
+    std::vector<Question> hermesQuestions;  //All hermes questions
+    std::vector<Question> heraQuestions;    //All hera questions
     Timer questionTimer;
     bool quizComplete;
 
@@ -52,5 +57,10 @@ private:
     void loadNemesisQuestions(); // Load Nemesis questions
     void loadAresQuestions();    // Load Ares Questions
     void loadDaedalusQuestions();    // Load Ares Questions
+    void loadAproditeQuestions();    // Load Aphrodite Questions
+    void loadZeusQuestions();    // Load Zeus Questions
+    void loadHypnosQuestions();    // Load hypnos Questions
+    void loadHermesQuestions(); //Load all hermes Questions
+    void loadHeraQuestions(); //Load all Hera Questions
     void selectRandomQuestions(int count); // Select random subset of questions
 };
