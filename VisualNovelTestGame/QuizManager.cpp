@@ -49,6 +49,9 @@ void QuizManager::loadQuestions(GameState world) {
     {
         loadAproditeQuestions();
     }
+    else if (world == GameState::OLYMPUS) {
+        loadZeusQuestions();
+    }
 
     // Select 8 random questions
     selectRandomQuestions(10);
@@ -316,6 +319,38 @@ void QuizManager::loadAproditeQuestions() {
 
     // Copy questions to the main question bank
     questions = aphroditeQuestions;
+}
+
+// aphrodite question bank
+void QuizManager::loadZeusQuestions() {
+    zeusQuestions.clear();
+    ifstream file("zeus_questions.json");
+
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open zeus_questions.json" << endl;
+        return;
+    }
+
+    json jsonData;
+    file >> jsonData;
+    file.close();
+
+    try {
+        for (const auto& item : jsonData["zeusQuestions"]) {
+            zeusQuestions.emplace_back(
+                item["question"].get<string>(),
+                item["options"].get<vector<string>>(),
+                item["correct_answer"].get<int>()
+            );
+        }
+    }
+    catch (const json::exception& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return;
+    }
+
+    // Copy questions to the main question bank
+    questions = zeusQuestions;
 }
 
 

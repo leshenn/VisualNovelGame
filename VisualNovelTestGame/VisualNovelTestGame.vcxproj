@@ -159,6 +159,7 @@
     <None Include="nyx1_dialog.json" />
     <None Include="poseidon_questions.json" />
     <None Include="test.json" />
+    <None Include="zeus_questions.json" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h" />

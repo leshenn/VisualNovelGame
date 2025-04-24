@@ -12,6 +12,7 @@ void LoadSprites::loadCharacterOptions(const string& malePath, const string& fem
             throw runtime_error("Failed to load male character texture.");
         }
     }
+
     if (femaleCharacterTexture.getSize() == sf::Vector2u(0, 0)) {
         if (!femaleCharacterTexture.loadFromFile(femalePath)) {
             throw runtime_error("Failed to load female character texture.");
