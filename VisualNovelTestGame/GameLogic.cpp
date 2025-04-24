@@ -79,6 +79,13 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         break;
     case GameState:: LETHE: 
         loadSprites.loadGameScreen("Backgrounds/HypnosBackground.png", "Characters/Hypnos.png", "Acessories/Scroll.png");
+        break;
+    case GameState::MOUNT_CYLLENE:
+        loadSprites.loadGameScreen("Backgrounds/HermesBackground.jpg", "Characters/Hermes.png", "Acessories/Scroll.png");
+        break;
+    case GameState::ARGOS:
+        loadSprites.loadGameScreen("Backgrounds/HeraBackground.png", "Characters/Hera.png", "Acessories/Scroll.png");
+        break;
     default:
         break;
     }
@@ -270,6 +277,26 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         quiz.render();
 
         break;
+    case GameState::MOUNT_CYLLENE:
+        window.clear();
+        window.draw(loadSprites.gameBackgroundSprite);
+        window.draw(loadSprites.godSprite);
+        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.gameScrollSprite);
+
+        quiz.render();
+
+        break;
+    case GameState::ARGOS:
+        window.clear();
+        window.draw(loadSprites.gameBackgroundSprite);
+        window.draw(loadSprites.godSprite);
+        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.gameScrollSprite);
+
+        quiz.render();
+
+        break;
 
 
     default:
@@ -311,8 +338,8 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 dialog.clearText();
                 isDialogLoaded = false;
                 audio.playClickButtonSound();
-                currentState = GameState::LETHE;
-                quiz.initQuiz(GameState::LETHE);
+                currentState = GameState::ARGOS;
+                quiz.initQuiz(GameState::ARGOS);
                 //quiz.initQuiz(GameState::OLYMPUS);///////////////////////////////////////////////////////////////FOR TESTING IF CODE WORKS DELETE LATER
             }
         }
@@ -524,6 +551,40 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
         break;
     case GameState::LETHE:
+        loadGameAssets(currentState, loadSprites, dialog);
+
+        // Handle quiz events
+        if (event.type == Event::MouseButtonPressed) {
+            if (!quiz.isQuizComplete()) {
+                quiz.handleEvent(); // Normal quiz handling
+            }
+            else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
+                // Only proceed if quiz is complete AND Next is clicked
+                audio.playClickButtonSound();
+                currentState = GameState::NYX1;
+            }
+        }
+
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        break;
+    case GameState::MOUNT_CYLLENE:
+        loadGameAssets(currentState, loadSprites, dialog);
+
+        // Handle quiz events
+        if (event.type == Event::MouseButtonPressed) {
+            if (!quiz.isQuizComplete()) {
+                quiz.handleEvent(); // Normal quiz handling
+            }
+            else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
+                // Only proceed if quiz is complete AND Next is clicked
+                audio.playClickButtonSound();
+                currentState = GameState::NYX1;
+            }
+        }
+
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        break;
+    case GameState::ARGOS:
         loadGameAssets(currentState, loadSprites, dialog);
 
         // Handle quiz events

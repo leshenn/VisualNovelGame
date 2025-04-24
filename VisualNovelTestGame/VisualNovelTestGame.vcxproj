@@ -155,6 +155,8 @@
     <None Include="athena_questions.json" />
     <None Include="dionysus_questions.json" />
     <None Include="hades_questions.json" />
+    <None Include="hera_questions.json" />
+    <None Include="hermes_questions.json" />
     <None Include="hypnos_questions.json" />
     <None Include="nemesis_questions.json" />
     <None Include="nyx1_dialog.json" />
