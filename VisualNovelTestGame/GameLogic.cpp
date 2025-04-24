@@ -69,6 +69,10 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
     case GameState::NYX4:
         loadSprites.loadGameScreen("Backgrounds/NyxBackground.png", "Characters/Nyx.png", "Acessories/Scroll.png");
         break;
+    
+    case GameState::CYPRUS:
+        loadSprites.loadGameScreen("Backgrounds/ApolloBackground.png", "Characters/Aphrodite.png", "Acessories/Scroll.png");
+        break;
 
     default:
         break;
@@ -229,6 +233,17 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         layout.loadNextButton();
 
         break;
+    
+    case GameState::CYPRUS:
+        window.clear();
+        window.draw(loadSprites.gameBackgroundSprite);
+        window.draw(loadSprites.godSprite);
+        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.gameScrollSprite);
+
+       quiz.render();
+
+        break;
 
     default:
         break;
@@ -270,6 +285,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 isDialogLoaded = false;
                 audio.playClickButtonSound();
                 currentState = GameState::NYX1;
+               // quiz.initQuiz(GameState::CYPRUS);///////////////////////////////////////////////////////////////FOR TESTING IF CODE WORKS CHANGE LATER
             }
         }
         
@@ -441,6 +457,24 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        break;
+
+    case GameState::CYPRUS:
+        loadGameAssets(currentState, loadSprites, dialog);
+        
+        // Handle quiz events
+        if (event.type == Event::MouseButtonPressed) {
+            if (!quiz.isQuizComplete()) {
+                quiz.handleEvent(); // Normal quiz handling
+            }
+            else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
+                // Only proceed if quiz is complete AND Next is clicked
+                audio.playClickButtonSound();
+                currentState = GameState::NYX1;
+            }
+        }
+
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
         break;
 

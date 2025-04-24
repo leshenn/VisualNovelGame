@@ -149,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="amphitrite_questions.json" />
+    <None Include="aphrodite_questions.json" />
     <None Include="apollo_questions.json" />
     <None Include="ares_questions.json" />
     <None Include="athena_questions.json" />

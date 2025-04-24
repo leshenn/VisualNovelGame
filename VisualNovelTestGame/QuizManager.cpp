@@ -45,6 +45,10 @@ void QuizManager::loadQuestions(GameState world) {
     {
         loadAresQuestions();
     }
+    else if (world == GameState::CYPRUS)
+    {
+        loadAproditeQuestions();
+    }
 
     // Select 8 random questions
     selectRandomQuestions(10);
@@ -280,6 +284,38 @@ void QuizManager::loadAresQuestions() {
 
     // Copy questions to the main question bank
     questions = aresQuestions;
+}
+
+// aphrodite question bank
+void QuizManager::loadAproditeQuestions() {
+    aphroditeQuestions.clear();
+    ifstream file("aphrodite_questions.json");
+
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open aphrodite_questions.json" << endl;
+        return;
+    }
+
+    json jsonData;
+    file >> jsonData;
+    file.close();
+
+    try {
+        for (const auto& item : jsonData["aphroditeQuestions"]) {
+            aphroditeQuestions.emplace_back(
+                item["question"].get<string>(),
+                item["options"].get<vector<string>>(),
+                item["correct_answer"].get<int>()
+            );
+        }
+    }
+    catch (const json::exception& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return;
+    }
+
+    // Copy questions to the main question bank
+    questions = aphroditeQuestions;
 }
 
 
