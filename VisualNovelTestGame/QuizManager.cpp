@@ -52,6 +52,10 @@ void QuizManager::loadQuestions(GameState world) {
     else if (world == GameState::OLYMPUS) {
         loadZeusQuestions();
     }
+    else if (world == GameState::LETHE) {
+        loadHypnosQuestions();
+    }
+
 
     // Select 8 random questions
     selectRandomQuestions(10);
@@ -351,6 +355,36 @@ void QuizManager::loadZeusQuestions() {
 
     // Copy questions to the main question bank
     questions = zeusQuestions;
+}
+void QuizManager::loadHypnosQuestions() {
+    hypnosQuestions.clear();
+    ifstream file("hypnos_questions.json");
+
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open hypnos_questions.json" << endl;
+        return;
+    }
+
+    json jsonData;
+    file >> jsonData;
+    file.close();
+
+    try {
+        for (const auto& item : jsonData["hypnosQuestions"]) {
+            hypnosQuestions.emplace_back(
+                item["question"].get<string>(),
+                item["options"].get<vector<string>>(),
+                item["correct_answer"].get<int>()
+            );
+        }
+    }
+    catch (const json::exception& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return;
+    }
+
+    // Copy questions to the main question bank
+    questions = hypnosQuestions;
 }
 
 

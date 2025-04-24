@@ -41,6 +41,7 @@ private:
     std::vector<Question> aresQuestions;    // All ares questions
     std::vector<Question> aphroditeQuestions;    // All aphrodite questions
     std::vector<Question> zeusQuestions;    // All zeus questions
+    std::vector<Question> hypnosQuestions;    // All hypnos questions
     Timer questionTimer;
     bool quizComplete;
 
@@ -54,5 +55,6 @@ private:
     void loadAresQuestions();    // Load Ares Questions
     void loadAproditeQuestions();    // Load Aphrodite Questions
     void loadZeusQuestions();    // Load Zeus Questions
+    void loadHypnosQuestions();    // Load hypnos Questions
     void selectRandomQuestions(int count); // Select random subset of questions
 };
