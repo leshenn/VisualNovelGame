@@ -98,7 +98,7 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         break;
 
     case GameState::MOUNT_CYLLENE:
-        loadSprites.loadGameScreen("Backgrounds/HermesBackground.jpg", "Characters/Hermes.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/HermesBackground.png", "Characters/Hermes.png", "Acessories/Scroll.png");
         break;
 
     case GameState::NYX8:
