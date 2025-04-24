@@ -12,20 +12,22 @@ enum class GameState {
     UNDERWORLD,             // Hades stage
     COUNTRY_SIDE,           // Dionysus stage
     NYX2,                   // Conversation with nyx
-    STAGE_TWO_MENU,         // World selection screen
+    //STAGE_TWO_MENU,         // World selection screen
     ATHENS,                 // Athena stage
-    THRACE,                 // Ares stage
     DELPHI,                 // Apollo stage
-    RHAMNOUS,               // Nemisis stage
-    CRETE,                  // Deadalus stage
     NYX3,
-    STAGE_THREE_MENU,       // World selection screen
-    CYPRUS,                 // Aphrodite stage
-    OLYMPUS,                // Zeus stage
-    LETHE,                  // Hypnos stage
-    ARGOS,                  // Hera stage
-    MOUNT_CYLLENE,          // Hermes stage
+    THRACE,                 // Ares stage
+    RHAMNOUS,               // Nemisis stage
     NYX4,
+    CRETE,                  // Deadalus stage
     NYX5,
+    CYPRUS,                 // Aphrodite stage
+    LETHE,                  // Hypnos stage
+    NYX6,
+    OLYMPUS,                // Zeus stage
+    ARGOS,                  // Hera stage
+    NYX7,
+    MOUNT_CYLLENE,          // Hermes stage
+    NYX8,
     NONE
 };
