@@ -69,6 +69,10 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
     case GameState::NYX4:
         loadSprites.loadGameScreen("Backgrounds/NyxBackground.png", "Characters/Nyx.png", "Acessories/Scroll.png");
         break;
+    
+    case GameState::CRETE:
+        loadSprites.loadGameScreen("Backgrounds/DaedalusBackground.png", "Characters/Daedalus.png", "Acessories/Scroll.png");
+        break;
 
     default:
         break;
@@ -227,6 +231,17 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
         layout.loadNextButton();
+
+        break;
+
+    case GameState::CRETE:
+        window.clear();
+        window.draw(loadSprites.gameBackgroundSprite);
+        window.draw(loadSprites.godSprite);
+        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.gameScrollSprite);
+
+        quiz.render();
 
         break;
 
@@ -436,11 +451,33 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         if (event.type == Event::MouseButtonPressed) {
             if (layout.nextButtonClicked(window)) {
                 audio.playClickButtonSound();
-                currentState = GameState::CRETE;
                 quiz.resetQuiz();  // Reset the quiz state before moving to stage
+                currentState = GameState::CRETE;
+                quiz.initQuiz(currentState);
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        break;
+
+    case GameState::CRETE:
+        loadGameAssets(currentState, loadSprites, dialog);
+
+        // Handle quiz events
+        if (event.type == Event::MouseButtonPressed) {
+            if (!quiz.isQuizComplete()) {
+                quiz.handleEvent(); // Normal quiz handling
+            }
+            else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
+                // Only proceed if quiz is complete AND Next is clicked
+                audio.playClickButtonSound();
+                currentState = GameState::NYX4;
+            }
+        }
+
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        break;
+
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
         break;
 

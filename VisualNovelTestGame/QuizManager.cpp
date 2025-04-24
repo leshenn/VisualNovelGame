@@ -45,6 +45,9 @@ void QuizManager::loadQuestions(GameState world) {
     {
         loadAresQuestions();
     }
+    else if (world == GameState::CRETE) {
+        loadDaedalusQuestions();
+    }
 
     // Select 8 random questions
     selectRandomQuestions(10);
@@ -256,7 +259,7 @@ void QuizManager::loadAresQuestions() {
     ifstream file("ares_questions.json");
 
     if (!file.is_open()) {
-        cerr << "Error: Unable to open hades_questions.json" << endl;
+        cerr << "Error: Unable to open ares_questions.json" << endl;
         return;
     }
 
@@ -280,6 +283,39 @@ void QuizManager::loadAresQuestions() {
 
     // Copy questions to the main question bank
     questions = aresQuestions;
+}
+
+
+// Daedalus question bank
+void QuizManager::loadDaedalusQuestions() {
+    daedalusQuestions.clear();
+    ifstream file("daedalus_questions.json");
+
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open daedalus_questions.json" << endl;
+        return;
+    }
+
+    json jsonData;
+    file >> jsonData;
+    file.close();
+
+    try {
+        for (const auto& item : jsonData["daedalusQuestions"]) {
+            daedalusQuestions.emplace_back(
+                item["question"].get<string>(),
+                item["options"].get<vector<string>>(),
+                item["correct_answer"].get<int>()
+            );
+        }
+    }
+    catch (const json::exception& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return;
+    }
+
+    // Copy questions to the main question bank
+    questions = daedalusQuestions;
 }
 
 

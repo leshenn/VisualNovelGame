@@ -152,6 +152,7 @@
     <None Include="apollo_questions.json" />
     <None Include="ares_questions.json" />
     <None Include="athena_questions.json" />
+    <None Include="daedalus_questions.json" />
     <None Include="dionysus_questions.json" />
     <None Include="hades_questions.json" />
     <None Include="nemesis_questions.json" />
