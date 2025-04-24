@@ -1,104 +1,104 @@
 {
   "hypnosQuestions": [
     {
-      "question": "What is Zeus the god of?",
-      "options": [ "The sky and thunder", "The sea", "The underworld", "Love" ],
+      "question": "What is Hypnos the god of?",
+      "options": [ "The underworld", "Dreams", "Sleep", "Healing" ],
+      "correct_answer": 2
+    },
+    {
+      "question": "Who is the mother of Hypnos?",
+      "options": [ "Rhea", "Gaia", "Nyx", "Hera" ],
+      "correct_answer": 2
+    },
+    {
+      "question": "Which Roman god is equivalent to Hypnos?",
+      "options": [ "Somnia", "Somnus", "Morpheus", "Nocturnus" ],
+      "correct_answer": 1
+    },
+    {
+      "question": "What is Hypnos often depicted holding?",
+      "options": [ "A poppy flower", "A mirror", "A torch", "A scroll" ],
       "correct_answer": 0
     },
     {
-      "question": "Who are the parents of Zeus?",
-      "options": [ "Cronus and Rhea", "Zeus and Hera", "Uranus and Gaia", "Poseidon and Demeter" ],
-      "correct_answer": 0
-    },
-    {
-      "question": "Which Roman god is equivalent to Zeus?",
-      "options": [ "Jupiter", "Mars", "Neptune", "Saturn" ],
-      "correct_answer": 0
-    },
-    {
-      "question": "What animals are sacred to Zeus?",
-      "options": [ "Eagle and bull", "Dove and swan", "Lion and horse", "Owl and serpent" ],
-      "correct_answer": 0
-    },
-    {
-      "question": "Who is Zeus' wife and sister?",
-      "options": [ "Hera", "Athena", "Demeter", "Aphrodite" ],
-      "correct_answer": 0
-    },
-    {
-      "question": "Who overthrew Cronus to become king of the gods?",
-      "options": [ "Zeus", "Poseidon", "Hades", "Hermes" ],
-      "correct_answer": 0
-    },
-    {
-      "question": "In which epic poem does Zeus play a central role?",
-      "options": [ "The Iliad", "The Odyssey", "Metamorphoses", "Argonautica" ],
-      "correct_answer": 0
-    },
-    {
-      "question": "Which of these is one of Zeus' children?",
-      "options": [ "Athena", "Hermes", "Apollo", "All of the above" ],
+      "question": "Who is the twin brother of Hypnos?",
+      "options": [ "Erebus", "Morpheus", "Phobos", "Thanatos" ],
       "correct_answer": 3
     },
     {
-      "question": "How was Zeus viewed by the ancient Greeks?",
-      "options": [ "Powerful and just", "Cruel and violent", "Playful and lazy", "Silent and aloof" ],
-      "correct_answer": 0
+      "question": "Where did Hypnos reside according to Greek mythology?",
+      "options": [ "On the moon", "On Mount Olympus", "In a cave in the underworld", "In the Aegean Sea" ],
+      "correct_answer": 2
     },
     {
-      "question": "What is the main symbol associated with Zeus?",
-      "options": [ "Lightning bolt", "Trident", "Lyre", "Sword" ],
-      "correct_answer": 0
+      "question": "Which goddess asked Hypnos to put Zeus to sleep?",
+      "options": [ "Demeter", "Hera", "Artemis", "Aphrodite" ],
+      "correct_answer": 1
     },
     {
-      "question": "Zeus is the god of war.",
+      "question": "Who is Hypnos' son that shaped dreams?",
+      "options": [ "Pan", "Phantasos", "Morpheus", "Eros" ],
+      "correct_answer": 2
+    },
+    {
+      "question": "How was Hypnos generally viewed by the Greeks?",
+      "options": [ "Mysterious and dark", "Jealous and angry", "Gentle and calming", "Violent and vengeful" ],
+      "correct_answer": 2
+    },
+    {
+      "question": "What plant is commonly associated with Hypnos?",
+      "options": [ "Rose", "Olive", "Laurel", "Poppy" ],
+      "correct_answer": 3
+    },
+    {
+      "question": "Hypnos is the god of sleep.",
+      "options": [ "A) False", "B) True" ],
+      "correct_answer": 1
+    },
+    {
+      "question": "Hypnos lived on Mount Olympus.",
       "options": [ "A) True", "B) False" ],
       "correct_answer": 1
     },
     {
-      "question": "Zeus was the youngest of the Olympian siblings.",
-      "options": [ "A) True", "B) False" ],
+      "question": "Thanatos and Hypnos were twins.",
+      "options": [ "A) False", "B) True" ],
+      "correct_answer": 1
+    },
+    {
+      "question": "Hypnos had the power to put even Zeus to sleep.",
+      "options": [ "A) False", "B) True" ],
+      "correct_answer": 1
+    },
+    {
+      "question": "Hypnos is the father of Morpheus.",
+      "options": [ "A) False", "B) True" ],
+      "correct_answer": 1
+    },
+    {
+      "question": "Hypnos ruled over dreams.",
+      "options": [ "A) False", "B) True" ],
       "correct_answer": 0
     },
     {
-      "question": "Zeus had no mortal children.",
+      "question": "Hypnos is often associated with the moon.",
       "options": [ "A) True", "B) False" ],
       "correct_answer": 1
     },
     {
-      "question": "Zeus is the king of Mount Olympus.",
+      "question": "Hypnos was considered dangerous and feared by the gods.",
+      "options": [ "A) False", "B) True" ],
+      "correct_answer": 0
+    },
+    {
+      "question": "Hypnos' cave was surrounded by poppies and other sleep-inducing plants.",
       "options": [ "A) True", "B) False" ],
       "correct_answer": 0
     },
     {
-      "question": "Zeus gave birth to Athena from his forehead.",
-      "options": [ "A) True", "B) False" ],
+      "question": "Hypnos is one of the Twelve Olympians.",
+      "options": [ "A) False", "B) True" ],
       "correct_answer": 0
-    },
-    {
-      "question": "Zeus was overthrown by his son Apollo.",
-      "options": [ "A) True", "B) False" ],
-      "correct_answer": 1
-    },
-    {
-      "question": "Zeus ruled over both gods and men.",
-      "options": [ "A) True", "B) False" ],
-      "correct_answer": 0
-    },
-    {
-      "question": "Zeus is often depicted holding a lightning bolt.",
-      "options": [ "A) True", "B) False" ],
-      "correct_answer": 0
-    },
-    {
-      "question": "Zeus imprisoned the Titans after the Titanomachy.",
-      "options": [ "A) True", "B) False" ],
-      "correct_answer": 0
-    },
-    {
-      "question": "Zeus is not one of the Twelve Olympians.",
-      "options": [ "A) True", "B) False" ],
-      "correct_answer": 1
     }
   ]
 }
