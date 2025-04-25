@@ -1,40 +1,25 @@
-#ifndef BOSSGAME_H
-#define BOSSGAME_H
+#pragma once
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include <iostream>
-#include <vector>
 #include <map>
 #include <string>
-#include <cmath>
-#include <random>
 #include <list>
+#include <vector>
+#include <random>
 
-// ### Animation State Enum
-enum class AnimationState {
-    // Player States
-    Idle, Run, Jump, Attack1, Attack2, Attack3, Parry, Dash, Dead, Hurt, Shoot,
-    // Boss States
-    BossIdle, BossAttack1, BossAttack2, BossAttack3, BossUltimate, BossHurt, BossDead,
-    None
-};
-
-// ### Texture Manager Class
+// --- TextureManager ---
 class TextureManager {
     std::map<std::string, sf::Texture> textures;
-
 public:
     static TextureManager& instance();
     bool load(const std::string& id, const std::string& path);
     sf::Texture* get(const std::string& id);
 };
 
-// ### Sound Manager Class
-class SoundManager {
-    std::map<std::string, sf::SoundBuffer> soundBuffers;
-    std::list<sf::Sound> sounds;
 
+// --- SoundManager ---
+class SoundManager {
 public:
     static SoundManager& instance();
     bool load(const std::string& id, const std::string& filename);
@@ -43,19 +28,30 @@ public:
     void setLoop(const std::string& id, bool loop);
 
 private:
-    SoundManager();
-    ~SoundManager();
+    SoundManager() = default;
+    ~SoundManager() = default;
+    std::map<std::string, sf::SoundBuffer> soundBuffers;
+    std::list<sf::Sound> sounds;
 };
 
-// ### Animation Component Class
+// --- AnimationState ---
+enum class AnimationState {
+    //player states
+    Idle, Run, Jump, Attack1, Attack2, Attack3, Parry, Dash, Dead, Hurt, Shoot,
+    //boss state
+    BossIdle, BossAttack1, BossAttack2, BossAttack3, BossUltimate, BossHurt, BossDead,
+    None
+};
+
+// --- AnimationComponent ---
 class AnimationComponent {
 public:
     struct Animation {
         const sf::Texture* texture = nullptr;
-        int frameCount = 0;
-        float frameDuration = 0.1f;
-        sf::Vector2i frameSize = { 0, 0 };
-        bool loops = true;
+        int frameCount;
+        float frameDuration;
+        sf::Vector2i frameSize;
+        bool loops;
     };
 
     AnimationComponent();
@@ -78,7 +74,7 @@ private:
     bool _isDone = false;
 };
 
-// ### Projectile Class
+// --- Projectile ---
 class Projectile {
 public:
     enum class Owner { PLAYER, BOSS };
@@ -103,15 +99,14 @@ private:
     bool active;
 };
 
-// ### Player Class
+// --- Player ---
 class Player {
 public:
     Player(int maxHealth = 100, int currentHealth = 100,
         bool enableDash = true, float parrySuccessTime = 0.8f,
-        int baseAttackDamage = 20, float defensePercent = 0.0f,
+        int baseAttackDamage = 15, float defensePercent = 0.0f,
         bool enableShoot = true);
-    void loadResources();
-    void initAnimations();
+
     void update(float dt);
     sf::Vector2f getPosition() const;
     void move(sf::Vector2f direction);
@@ -129,79 +124,96 @@ public:
     bool isAlive() const;
     sf::FloatRect getGlobalBounds() const;
     void draw(sf::RenderTarget& target) const;
-    bool getFaceingRight();
+    bool getFacingRight() const;
     bool isAttacking() const;
     bool isParryProtected() const;
+    //copy constructor
+    Player(const Player& other);
+    //operator
+    Player& operator=(const Player& other);
 
 private:
+    void loadResources();
+    void initAnimations();
+    void handleMovement(float dt);
+    void handleAnimations();
+    void updateTimers(float dt);
+
     AnimationComponent animations;
     sf::Vector2f position = { 0.f, 0.f };
     sf::Vector2f velocity = { 0.f, 0.f };
     bool facingRight = true;
     bool isGrounded = true;
     const float LEFT_BOUNDARY = 1.0f;
+    //input health from constructor
     int maxHealth;
     int currentHealth;
+
     const float moveSpeed = 300.f;
     const float jumpForce = 700.f;
     const float gravity = 1800.f;
     const float groundLevel = 485.f;
+
     bool canDash = true;
     float dashSpeed = 800.f;
     float dashDuration = 0.15f;
     float dashTimer = 0.f;
     float dashCooldown = 0.4f;
     float dashCooldownTimer = 0.f;
+
     bool canAttack = true;
     float attackCooldown = 0.4f;
     float attackTimer = 0.f;
+
     bool canShoot = true;
     float shootCooldown = 1.f;
     float shootTimer = 0.f;
     bool shootTriggered = false;
     bool hasShotDuringAnimation = false;
-    const int SHOOT_FRAME_TRIGGER = 10;
+    const int SHOOT_FRAME_TRIGGER = 10; // Frame to trigger shooting
+
     bool canParry = true;
     float parryCooldown = 0.8f;
     float parryTimer = 0.f;
     float parrySuccessWindow = 0.0f;
+
+    //constructor changeable variables
     float parrySuccessDuration;
     int attackDamage;
     float defensePercent;
     bool enableShoot;
     bool enableDash;
-    float knockbackForceX = 60.f;
-    float knockbackForceY = -300.f;
+
+    float knockbackForceX = 60.f; // Horizontal knockback speed
+    float knockbackForceY = -300.f; // Vertical knockback speed (up)
+
     bool isHurt = false;
     float hurtDuration = 0.4f;
     float hurtTimer = 0.f;
     float hurtFlashInterval = 0.08f;
     float hurtFlashIntervalTimer = 0.f;
     sf::Color defaultColor = sf::Color::White;
-    sf::Color damageColor = sf::Color(255, 80, 80, 230);
+    sf::Color damageColor = sf::Color(255, 80, 80, 230); // Red tint
+
+    std::random_device rd;
     std::mt19937 rng;
     std::uniform_int_distribution<int> attackDistribution;
     std::vector<AnimationState> attackStates;
 
-    void handleMovement(float dt);
-    void handleAnimations();
-    void updateTimers(float dt);
 };
 
-// ### Boss Class
+// --- Boss ---
 class Boss {
 public:
-    enum class BossState {
-        Idle, Attacking1, Attacking2, Attacking3, Ultimate, Dead
-    };
+    enum class BossState { Idle, Attacking1, Attacking2, Attacking3, Ultimate, Dead };
 
-    Boss(sf::Vector2f startPos, Player* playerTarget, float bLeft, float bRight, int maxHealth = 500);
-    void loadResources();
-    void initAnimations();
+    Boss(sf::Vector2f startPos, Player* playerTarget, float leftBoundary, float rightBoundary, int maxHealth = 500);
+
     void update(float dt);
     void takeDamage(int amount);
     void death();
     void draw(sf::RenderTarget& target) const;
+
     sf::FloatRect getAttackHitbox() const;
     sf::FloatRect getGlobalBounds() const;
     sf::Vector2f getPosition() const;
@@ -218,6 +230,20 @@ public:
     void resetRainProjectileRequest();
 
 private:
+    void loadResources();
+    void initAnimations();
+    void updateTimers(float dt);
+    void handleFlashing(float dt);
+    void chooseNextAction();
+    void performAttack1();
+    void performAttack2();
+    void performAttack3();
+    void performUltimate();
+    void startActionDelay();
+    void setState(BossState newState);
+    void checkAttackTiming();
+    bool isInvulnerable() const;
+
     AnimationComponent animations;
     sf::Vector2f position;
     sf::Vector2f velocity = { 0.f, 0.f };
@@ -227,67 +253,82 @@ private:
     int maxHealth;
     int currentHealth;
     BossState currentState = BossState::Idle;
+
+    // Combat parameters
     float currentActionDelay = 2.0f;
     float attackCooldown1 = 1.5f;
     float attackCooldown2 = 2.5f;
     float attackCooldown3 = 3.0f;
     float ultimateCooldown = 8.0f;
     const sf::Vector2f NORMAL_HITBOX = { 150.f, 200.f };
-    const sf::Vector2f ATTACK_HITBOX = { 220.f, 200.f };
+    const sf::Vector2f ATTACK_HITBOX = { 220.f, 200.f }; // Wider hitbox for attacks
+
+    //Tracker variables
     float timeSinceLastAction = 0.f;
     float currentAttackCooldown1 = 0.f;
     float currentAttackCooldown2 = 0.f;
     float currentAttackCooldown3 = 0.f;
     float currentUltimateCooldown = 0.f;
     bool attackActive = false;
+
+    // Ground Attack variables
     float groundAttackTimer = 0.f;
     const float groundAttackIntervalMin = 4.0f;
     const float groundAttackIntervalMax = 8.0f;
     std::uniform_real_distribution<float> groundAttackIntervalDistribution;
     bool triggerGroundProjectile = false;
     bool triggerMidProjectile = false;
-    bool triggerRainProjectile = false;
-    float rainSpawnTimer = 0.f;
-    const float rainSpawnInterval = 0.15f;
+    bool triggerRainProjectile = false; // Flag to signal spawn
+    float rainSpawnTimer = 0.f; // Timer within ultimate to spawn projectiles
+    const float rainSpawnInterval = 0.15f; //how much delay after animation
+
+    // Flash effect
     float flashTimer = 0.f;
     const float flashDuration = 0.3f;
     const float flashInterval = 0.08f;
     float flashIntervalTimer = 0.f;
     sf::Color defaultColor = sf::Color::White;
     sf::Color damageColor = sf::Color(200, 80, 80, 200);
+
+    // Random number generation
+    std::random_device rd; //Creates a non-deterministic random bit generator
     std::mt19937 rng;
     std::uniform_int_distribution<int> actionChoiceDistribution;
-
-    bool isInvulnerable() const;
-    void setState(BossState newState);
-    void startActionDelay();
-    void chooseNextAction();
-    void performAttack1();
-    void performAttack2();
-    void performAttack3();
-    void performUltimate();
-    void updateTimers(float dt);
-    void handleFlashing(float dt);
-    void checkAttackTiming();
+    std::uniform_int_distribution<int> attackChoiceDistribution;
 };
 
-// ### Boss Game Class
 class BossGame {
 public:
-    BossGame();
+    BossGame(Player player); 
     void run();
-    bool playerWin();
+    bool playerWin() const;
     sf::Time finalTime;
 
 private:
+    void initBackground();
+    void setupUI();
+    void processInput();
+    void handleCollisions();
+    void updateUI();
+    void spawnPlayerProjectile();
+    void spawnBossProjectile(const std::string& textureId, sf::Vector2f startPos, sf::Vector2f velocity, int damage);
+    void update(float dt);
+    void render();
+    sf::FloatRect getPlayerHitbox() const;
+    sf::FloatRect getBossHitbox() const;
+
+    // Core  
     sf::RenderWindow window;
-    sf::View gameView;
+    sf::View gameView = window.getDefaultView();;
     sf::Sprite background;
     Player player;
     Boss boss;
     std::list<Projectile> projectiles;
+    std::random_device rd; // Obtain a random seed
     std::mt19937 gameRng;
     bool showDebugBoxes = false;
+
+    // UI elements
     sf::RectangleShape playerHealthBarBackground;
     sf::RectangleShape playerHealthBarFill;
     const float HEALTH_BAR_WIDTH = 300.f;
@@ -295,16 +336,19 @@ private:
     const float HEALTH_BAR_PADDING = 10.f;
     const float HEALTH_BAR_POS_X = 25.f;
     const float HEALTH_BAR_POS_Y = 25.f;
-    sf::Clock gameClock;
+    sf::Clock gameClock; // play time
     sf::Text timerText;
     sf::Time endScreen = sf::seconds(5);
     sf::Text endGameText;
+
     sf::RectangleShape bossHealthBarBackground;
     sf::RectangleShape bossHealthBarFill;
     const float BOSS_HEALTH_BAR_WIDTH = 400.f;
     const float BOSS_HEALTH_BAR_HEIGHT = 25.f;
     const float BOSS_HEALTH_BAR_POS_X = 1280.f - BOSS_HEALTH_BAR_WIDTH - 25.f;
     const float BOSS_HEALTH_BAR_POS_Y = 25.f;
+
+    //hitboxes
     const sf::Vector2f PLAYER_HITBOX_SIZE = { 60.f, 80.f };
     const sf::Vector2f BOSS_HITBOX_SIZE = { 150.f, 200.f };
 
@@ -319,18 +363,5 @@ private:
     sf::Font font;
     sf::Text playerHealthText;
     sf::Text bossHealthText;
-
-    void initBackground();
-    void setupUI();
-    sf::FloatRect getPlayerHitbox() const;
-    sf::FloatRect getBossHitbox() const;
-    void processInput();
-    void handleCollisions();
-    void updateUI();
-    void spawnPlayerProjectile();
-    void spawnBossProjectile(const std::string& textureId, sf::Vector2f startPos, sf::Vector2f velocity, int damage);
-    void update(float dt);
-    void render();
 };
-
-#endif // BOSSGAME_H
+  

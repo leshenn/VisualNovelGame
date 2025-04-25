@@ -385,7 +385,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         if (event.type == Event::MouseButtonPressed) {
             if (layout.playButtonClicked(window)) {
                 audio.playClickButtonSound();
-                currentState = GameState::INTRO; // Change state when Play button is clicked
+                currentState = GameState::NYX1; // Change state when Play button is clicked
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
@@ -730,7 +730,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
                 // Only proceed if quiz is complete AND Next is clicked
                 audio.playClickButtonSound();
-                currentState = GameState::NYX7;
+                currentState = GameState::NYX8;
             }
         }
 
@@ -744,11 +744,15 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 quiz.resetQuiz();  // Reset the quiz state before moving to stage
                 currentState = GameState::MOUNT_CYLLENE;
                 quiz.initQuiz(currentState);
-                
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+        break;
+
+	case GameState::BOSS_GAME:
+
+
         break;
 
     default:
