@@ -48,7 +48,7 @@ void BubbleGame::shootBubble()
     dir /= length;
 
     currentShot = new Bubble(shooterPos.x + 15, shooterPos.y, 15, shooter.getFillColor());
-    shotVelocity = dir * 5.0f; // Set speed
+    shotVelocity = dir * 2.0f; // Set speed
 }
 
 void BubbleGame::setUpBubble()
@@ -77,15 +77,22 @@ void BubbleGame::setUpBubble()
 
 void BubbleGame::update()
 {
+    if (gameOver) return;  // If the game is over, stop updating
+
+    // Check if 90 seconds have passed
+    float elapsedTime = gameClock.getElapsedTime().asSeconds();
+    if (elapsedTime >= timeLimit) {
+        gameOver = true;  // Mark the game as lost
+    }
+
     if (currentShot) {
-        currentShot->shape.move(shotVelocity); // Move the bubble
+        currentShot->shape.move(shotVelocity);  // Move the bubble
 
         sf::Vector2f pos = currentShot->shape.getPosition();
 
         // Wall bounce logic
         if (pos.x <= 0 || pos.x + currentShot->shape.getRadius() * 2 >= 800) {
             shotVelocity.x = -shotVelocity.x;  // Reverse the X velocity on collision
-            // No need to move the bubble again after changing the velocity
         }
 
         // Top of screen = miss
@@ -118,10 +125,14 @@ void BubbleGame::update()
             }
         }
     }
+
+    // Check if all bubbles are popped and the game is won
     if (!BubbleGameWon && bubbles.empty()) {
         BubbleGameWon = true;
     }
 }
+
+
 void BubbleGame::setUpLevel()
 {
     float radius = 15.f;
@@ -160,7 +171,7 @@ void BubbleGame::render()
 {
     window.clear();
 
-    window.draw(backgroundSprite); // Draw the background first
+    window.draw(backgroundSprite);  // Draw the background first
 
     window.draw(shooter);  // Draw the shooter
 
@@ -192,8 +203,21 @@ void BubbleGame::render()
         }
     }
 
+    // Draw lose message if the game is lost
+    if (gameOver) {
+        sf::Font font;
+        if (font.loadFromFile("assets/arial.ttf")) {
+            sf::Text loseText("You Lose!", font, 50);
+            loseText.setFillColor(sf::Color::Red);
+            loseText.setStyle(sf::Text::Bold);
+            loseText.setPosition(800 / 2 - 100, 600 / 2 - 50);
+            window.draw(loseText);
+        }
+    }
+
     window.display();
 }
+
 
 
 void BubbleGame::handling()
