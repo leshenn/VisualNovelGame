@@ -169,7 +169,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h" />
-    <ClInclude Include="BubbleGame.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonLayout.h" />
     <ClInclude Include="DialogManager.h" />
