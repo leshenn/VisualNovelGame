@@ -35,19 +35,19 @@ int main()
 {
 
 	//Rhythm game construction
-	RhythmGame rhythmGame;
+	/*RhythmGame rhythmGame;
 	rhythmGame.run();
-	cout << rhythmGame.getScore() << endl;
+	cout << rhythmGame.getScore() << endl;*/
 	//(50-150) score
 	//1.5s max added parry time
-	float score = rhythmGame.getScore();
+	/*float score = rhythmGame.getScore();
 	float ratio = (score - 50) / 100;
 	float parryTime = (0.75f * ratio);
 	if (parryTime < 0) {
 		parryTime = 0;
 	}
-	cout <<"parry time "<< parryTime << endl;
-
+	cout <<"parry time "<< parryTime << endl;*/
+	
 	//WordGame wordGame;
 	//wordGame.run();
 	//cout<<"Word game score "<<wordGame.getFinalScore();
@@ -60,17 +60,17 @@ int main()
 	//Boss game construction
 	/*Player player1(100, 100, true, 0.75f, 20, 0.0f, true);
 	player = player1;*/
-	Player player(100, 100, true, 0.75f+parryTime, 13, 0.0f, true);
+	/*Player player(100, 100, true, 0.75f+parryTime, 13, 0.0f, true);
 	BossGame game(player);
-	game.run();
+	game.run();*/
 
 	//Bubble game construction
-	/*BubbleGame bubble;
+	BubbleGame bubble;
 	while (bubble.isRunning()) {
 		bubble.handling();
 		bubble.update();
 		bubble.render();
-	}*/
+	}
 
 	    //Word game construction
 		//WordGame Wordgame;

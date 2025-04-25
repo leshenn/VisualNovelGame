@@ -15,7 +15,7 @@ BubbleGame::BubbleGame()
     shooter.setFillColor(randomColor());
     setUpBubble();
 
-    if (!backgroundTexture.loadFromFile("assets/BBBubbleGame.jpg")) {
+    if (!backgroundTexture.loadFromFile("BubbleAssets/BBGame.jpg")) {
         cout << "Failed to load background image!" << std::endl;
     }
     backgroundSprite.setTexture(backgroundTexture);
