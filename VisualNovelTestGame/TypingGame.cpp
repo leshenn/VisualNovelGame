@@ -16,7 +16,7 @@ WordGame::WordGame() :
     MAX_SPAWN_INTERVAL(2.0f),
     spawnInterval(2.0f),
     minSpawnInterval(0.55f),
-    spawnAcceleration(0.96f),
+    spawnAcceleration(0.98f), //2% faster each time
     speed(spawnInterval),
     window(sf::VideoMode(600, 700), "Word Game"),
     gridCells{},
@@ -35,41 +35,21 @@ WordGame::WordGame() :
     correctSound.setBuffer(correctBuffer);
     wrongSound.setBuffer(wrongBuffer);
 
-    if (!font.loadFromFile("arial.ttf")) {
+    if (!font.loadFromFile("RhythmAssets/Font/roboto.ttf")) {
         throw std::runtime_error("Failed to load font");
     }
     window.setFramerateLimit(60);
 
    
     wordList = {
-        "the", "of", "and", "to", "in", "that", "is", "was", "he", "for", "it", "with", "as", "his", "on", "be", "at","by", "this", "had", "not", "are", "but", "from",
-        "or", "have", "an", "they", "which", "one", "you", "were", "her","all", "she", "there", "would", "their", "we", "him", "been", "has", "when", "who", "will", "no",
-        "more", "if", "out", "so","said", "what", "up", "its", "about", "into", "than", "them", "can", "only", "other", "new", "some", "could", "time", "these",
-        "two", "may", "then", "do", "first", "any", "my", "now", "such", "like", "our", "over", "man", "me", "even", "most", "made", "after",
-        "also", "did", "many", "before", "must", "through", "back", "years", "where", "much", "your", "way", "well", "down", "should", "because",
-        "each", "just", "those", "people", "mr", "how", "too", "little", "state", "good", "very", "make", "world", "still", "own", "see", "men",
-        "work", "long", "get", "here", "between", "both", "life", "being", "under", "never", "day", "same", "another", "know", "while", "last",
-        "might", "us", "great", "old", "year", "off", "come", "since", "against", "go", "came", "right", "used", "take", "three", "place", "himself",
-        "look", "few", "general", "hand", "school", "part", "small", "american", "home", "during", "number", "again", "mrs", "around", "thought", "went",
-        "without", "however", "govern", "don't", "does", "got", "public", "united", "point", "end", "become", "head", "once", "course", "fact", "upon",
-        "need", "system", "set", "every", "trend", "war", "put", "form", "water", "took", "program", "present", "government", "thing", "told", "possible",
-        "group", "large", "until", "always", "city", "didn't", "order", "away", "called", "want", "eyes", "something", "unite", "going", "face", "far",
-        "asked", "interest", "later", "show", "knew", "though", "less", "night", "early", "almost", "let", "open", "enough", "side", "case", "days",
-        "yet", "better", "nothing", "tell", "problem", "toward", "given", "why", "national", "room", "young", "social", "light", "business", "president",
-        "help", "power", "country", "next", "things", "word", "looked", "real", "john", "line", "second", "church", "seem", "certain", "big", "four",
-        "felt", "several", "children", "service", "feel", "important", "rather", "name", "per", "among", "often", "turn", "development", "keep", "family",
-        "seemed", "white", "company", "mind", "members", "others", "within", "done", "along", "turned", "god", "sense", "week", "best", "change", "kind",
-        "began", "child", "ever", "law", "matter", "least", "means", "question", "act", "close", "mean", "leave", "itself", "force", "study", "york", "action",
-        "door", "experience", "human", "result", "times", "run", "different", "car", "example", "hands", "whole", "center", "although", "call", "five",
-        "inform", "gave", "plan", "woman", "boy", "feet", "provide", "taken", "thus", "body", "play", "seen", "today", "having", "cost", "perhaps", "field", "local",
-        "really", "am", "increase", "reason", "themselves", "clear", "i'm", "information", "figure", "late", "above", "history", "love", "girl", "held", "special", "move",
-        "person", "whether", "college", "sure", "probably", "either", "seems", "cannot", "art", "free", "across", "death", "quite", "street", "value", "anything", "making",
-        "past", "brought", "moment", "control", "office", "heard", "problems", "became", "full", "near", "half", "nature", "hold", "live", "available", "known", "board", "effect",
-        "already", "economic", "money", "position", "believe", "age", "together", "shall", "true", "political", "court", "report", "level", "rate", "air", "pay", "community", "complete",
-        "music", "necessary", "society", "behind", "type", "read", "idea", "wanted", "land", "party", "class", "organize", "return", "department", "education", "following", "mother", "sound",
-        "ago", "nation", "voice", "six", "bring", "wife", "common", "south", "strong", "town", "book", "students", "hear", "hope", "able", "industry", "stand", "tax", "west", "meet", "particular",
-        "cut", "short", "stood", "university", "spirit", "start", "total", "future", "front", "low", "century", "washington", "usually", "care", "recent", "evidence", "further", "million", "simple",
-        "road", "sometimes", "support", "view", "fire", "says", "hard", "morning", "table", "left", "situation", "try", "outside", "lines", "surface", "ask", "modern", "top", "peace"
+        "Zeus", "Hera", "Poseidon", "Demeter", "Athena", "Apollo", "Artemis", "Ares", "Hephaestus", "Aphrodite", "Hermes", "Dionysus", "Hestia", "Hades", "Persephone", "Cronus", "Rhea", "Oceanus",
+        "Tethys", "Hyperion", "Theia", "Iapetus", "Mnemosyne", "Prometheus", "Epimetheus", "Atlas", "Gaia", "Uranus", "Chaos", "Nyx", "Tartarus", "Erebus", "Eros", "Aether", "Hemera", "Pontus", "Helios",
+        "Selene", "Aeolus", "Nike", "Nemesis", "Tyche", "Hypnos", "Thanatos", "Iris", "Hecate", "Charon", "Cerberus", "Talos", "Minotaur", "Hydra", "Chimera", "Cyclops", "Gorgon", "Siren", "Harpy", "Satyr",
+        "Centaur", "Nymph", "Dryad", "Nyx", "Scylla", "Sphinx", "Phoenix", "Griffin", "Pegasus", "Basilisk", "Orpheus", "Heracles", "Perseus", "Theseus", "Jason", "Achilles",
+        "Odysseus", "Ajax", "Hector", "Paris", "Agamemnon", "Menelaus", "Cadmus", "Meleager", "Atalanta", "Antigone", "Oedipus", "Medea", "Pandora", "Tantalus", "Sisyphus", "Tiresias", "Penelope", "Nouth", "Strong",
+       "Colosseum", "Pantheon", "Basilica", "Forum", "Aqueduct", "Temple", "Baths", "Arch", "Dome", "Vault", "Column", "Hypocaust", "Atrium", "Porticus", "Insula", "Domus",
+       "Mosaic", "Fresco", "Stucco", "Tessera", "Sgraffito", "Coffering", "Lacunar", "Spolia", "Sima", "Mutule",
+        "Obelisk", "Mausoleum", "Colosseum", "Thermae", "Cloaca", "Aqueduct", "Pons", "Xystus", "Groma", "Oculum", "Cellarium", "Umbilicus", "Cavum"
     };
 }
 

@@ -137,9 +137,11 @@
   <ItemGroup>
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="BossFight.cpp" />
+    <ClCompile Include="Bubble.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonLayout.cpp" />
     <ClCompile Include="DialogManager.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameLogic.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="LoadSprites.cpp" />
@@ -173,9 +175,11 @@
   <ItemGroup>
     <ClInclude Include="Audio.h" />
     <ClInclude Include="BossFight.h" />
+    <ClInclude Include="Bubble.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonLayout.h" />
     <ClInclude Include="DialogManager.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GameLogic.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="LoadSprites.h" />

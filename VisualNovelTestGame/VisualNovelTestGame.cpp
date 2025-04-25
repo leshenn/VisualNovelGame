@@ -21,6 +21,9 @@
 #include <random>
 #include <list>
 #include "RhythmGame.h"
+#include "Bubble.h"
+#include "Game.h"
+
 
 using json = nlohmann::json;
 using namespace sf;
@@ -30,20 +33,36 @@ const int WIN_HEIGHT = 720;
 
 int main()
 {
-	RhythmGame rhythmGame;
-	rhythmGame.run();
-   /* WordGame Wordgame;
-    Wordgame.run();
-    if (Wordgame.getGameOver()) {
+
+	//Rhythm game construction
+	//RhythmGame rhythmGame;
+	//rhythmGame.run();
+   
+
+
+
+	//boss game construction
+	//Player player(100, 100, true, 0.75f, 13, 0.0f, true);
+	//BossGame game(player);
+	//game.run();
+
+	//Bubble game construction
+	Game bubble;
+	while (bubble.isRunning()) {
+		bubble.handling();
+		bubble.update();
+		bubble.render();
+	}
+
+	    //Word game construction
+		//WordGame Wordgame;
+		//Wordgame.run();
+    
+   /* if (Wordgame.getGameOver()) {
 		cout << "Game Over!" << endl;
         cout << "final score is " << Wordgame.getFinalScore() << endl;
-	Player player(100, 100, true, 0.75f, 13, 0.0f, true);
-	BossGame game(player);
-	game.run();
     }*/
 
-	
-    
 	RenderWindow window(VideoMode(WIN_WIDTH, WIN_HEIGHT), "Visual Novel");
 	window.setFramerateLimit(30);
 	LoadSprites loadSprites;
