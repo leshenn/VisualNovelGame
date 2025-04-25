@@ -25,7 +25,7 @@
 #include "BubbleGame.h"
 #include "WinePlayer.h"
 #include "SwagBall.h"
-#include "Game.h"
+#include "WineGame.h"
 
 
 using json = nlohmann::json;
@@ -36,7 +36,7 @@ const int WIN_HEIGHT = 720;
 
 int main()
 {
-	Game game;
+	WineGame game;
 	while (game.running())
 	{
 		game.update();

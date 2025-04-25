@@ -1,6 +1,6 @@
-#include "Game.h"
+#include "WineGame.h"
 
-void Game::initVariables()
+void WineGame::initVariables()
 {
     this->endGame = false;
     this->spawnTimerMax = 5.f;
@@ -10,7 +10,7 @@ void Game::initVariables()
     this->damagingItems = 0;  // Track harmful items collected
 }
 
-void Game::initWindow()
+void WineGame::initWindow()
 {
 
     this->videoMode = sf::VideoMode(800, 600);
@@ -22,21 +22,21 @@ void Game::initWindow()
     for (const auto& device : devices) {
         std::cout << "- " << device << std::endl;
     }
-    // In Game::initWindow() - Add this after window creation
+    // In WineGame::initWindow() - Add this after window creation
     sf::SoundBuffer dummyBuffer;
     dummyBuffer.loadFromFile("WineAssets/grape_collect.wav"); // Force audio init
 
 }
 
-void Game::initFonts()
+void WineGame::initFonts()
 {
     if (!this->font.loadFromFile("WineAssets/PixellettersFull.ttf"))
     {
-        std::cout << " ! ERROR::GAME::INITFONTS::COULD NOT LOAD PixellettersFull.ttf" << "\n";
+        std::cout << " ! ERROR::WineGame::INITFONTS::COULD NOT LOAD PixellettersFull.ttf" << "\n";
     }
 }
 
-void Game::initText()
+void WineGame::initText()
 {
     // Gui text init
     this->guiText.setFont(this->font);
@@ -70,13 +70,13 @@ void Game::initText()
     
 }
 
-Game::Game()
+WineGame::WineGame()
 {
     this->initVariables();
     this->initWindow();
     this->initFonts();
     this->initText();
-    this->gameWon = false;
+    this->GameWon = false;
 
     if (grapeSoundBuffer.loadFromFile("WineAssets/grape_collect.wav")) {
         grapeSound.setBuffer(grapeSoundBuffer);
@@ -88,22 +88,22 @@ Game::Game()
     initSounds();
 }
 
-Game::~Game()
+WineGame::~WineGame()
 {
     delete this->window;
 }
 
-const bool& Game::getEndGame() const
+const bool& WineGame::getEndGame() const
 {
     return this->endGame;
 }
 
-const bool Game::running() const
+const bool WineGame::running() const
 {
     return this->window->isOpen();
 }
 
-void Game::pollEvents()
+void WineGame::pollEvents()
 {
     while (this->window->pollEvent(this->sfmlEvent))
     {
@@ -120,7 +120,7 @@ void Game::pollEvents()
     }
 }
 
-void Game::spawnSwagBalls()
+void WineGame::spawnSwagBalls()
 {
     if (this->spawnTimer < this->spawnTimerMax)
         this->spawnTimer += 1.f;
@@ -135,7 +135,7 @@ void Game::spawnSwagBalls()
     }
 }
 
-const int Game::randBallType() const
+const int WineGame::randBallType() const
 {
     int type = 0; // Default is grape
 
@@ -146,7 +146,7 @@ const int Game::randBallType() const
     return type;
 }
 
-void Game::updateWinePlayer()
+void WineGame::updateWinePlayer()
 {
     this->WinePlayer.update(this->window);
 
@@ -154,11 +154,11 @@ void Game::updateWinePlayer()
         this->endGame = true;
 }
 
-void Game::updateCollision()
+void WineGame::updateCollision()
 {
     if (this->points >= 50)
     {
-        this->gameWon = true;
+        this->GameWon = true;
     }
 
     for (size_t i = 0; i < this->swagBalls.size(); i++)
@@ -182,13 +182,13 @@ void Game::updateCollision()
                 break;
             }
 
-            // Remove the ball from the game
+            // Remove the ball from the WineGame
             this->swagBalls.erase(this->swagBalls.begin() + i);
         }
     }
 }
 
-void Game::updateGui()
+void WineGame::updateGui()
 {
     std::stringstream ss;
 
@@ -198,16 +198,16 @@ void Game::updateGui()
    
 }
 
-void Game::update()
+void WineGame::update()
 {
     this->pollEvents();
 
     float remainingTime = timeLimit - gameClock.getElapsedTime().asSeconds();
-    if (remainingTime <= 0 && !gameWon) {
+    if (remainingTime <= 0 && !GameWon) {
         gameLost = true; // Time's up!
     }
 
-    if (!endGame && !gameWon)
+    if (!endGame && !GameWon)
     {
         this->spawnSwagBalls();
         this->updateWinePlayer();
@@ -224,22 +224,22 @@ void Game::update()
 
 }
 
-void Game::renderGui(sf::RenderTarget* target)
+void WineGame::renderGui(sf::RenderTarget* target)
 {
     target->draw(this->guiText);
 }
 
-void Game::render()
+void WineGame::render()
 {
     this->window->clear();
 
     
 
-    // Render end game text if game is over
+    // Render end WineGame text if WineGame is over
     if (this->endGame == true)
         this->window->draw(this->endGameText);
 
-    if (gameWon) {
+    if (GameWon) {
         // Show win screen
         window->draw(winText);
     }
@@ -248,7 +248,7 @@ void Game::render()
         window->draw(loseText);
     }
     else {
-        // Normal gameplay rendering
+        // Normal WineGameplay rendering
         WinePlayer.render(window);
         for (auto& ball : swagBalls) {
             ball.render(*window);
@@ -258,7 +258,7 @@ void Game::render()
 
     this->window->display();
 
-    if (this->gameWon)
+    if (this->GameWon)
     {
         sf::Font font;
         if (!font.loadFromFile("WineAssets/arial.ttf")) // Replace with your font path
@@ -282,7 +282,7 @@ void Game::render()
         }
     }
 }
-void Game::initSounds() {
+void WineGame::initSounds() {
     if (!bgMusic.openFromFile("WineAssets/background_music.ogg")) {  // Use .ogg for music
         std::cerr << "ERROR: Failed to load background music!" << std::endl;
     }

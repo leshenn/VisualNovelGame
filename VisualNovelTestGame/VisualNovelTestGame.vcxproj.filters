@@ -158,7 +158,7 @@
     <ClInclude Include="SwagBall.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="WineGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
