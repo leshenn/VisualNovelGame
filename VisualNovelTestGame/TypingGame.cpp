@@ -30,7 +30,7 @@ WordGame::WordGame() :
     gridCells.fill(false);
 
     if (!correctBuffer.loadFromFile("correct.wav") || !wrongBuffer.loadFromFile("wrong.wav")) {
-        throw std::runtime_error("Failed to load sound files!");
+        cout << ("Failed to load sound files!") << endl;
     }
     correctSound.setBuffer(correctBuffer);
     wrongSound.setBuffer(wrongBuffer);

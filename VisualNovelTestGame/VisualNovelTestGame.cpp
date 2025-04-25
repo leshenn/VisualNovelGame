@@ -20,7 +20,7 @@
 #include <cmath>
 #include <random>
 #include <list>
-
+#include "RhythmGame.h"
 
 using json = nlohmann::json;
 using namespace sf;
@@ -30,13 +30,18 @@ const int WIN_HEIGHT = 720;
 
 int main()
 {
-   
+	RhythmGame rhythmGame;
+	rhythmGame.run();
    /* WordGame Wordgame;
     Wordgame.run();
     if (Wordgame.getGameOver()) {
 		cout << "Game Over!" << endl;
         cout << "final score is " << Wordgame.getFinalScore() << endl;
+	Player player(100, 100, true, 0.75f, 13, 0.0f, true);
+	BossGame game(player);
+	game.run();
     }*/
+
 	
     
 	RenderWindow window(VideoMode(WIN_WIDTH, WIN_HEIGHT), "Visual Novel");
@@ -56,24 +61,23 @@ int main()
 	//This is the play button
 	ButtonLayout layout(window, newFont);
 	
+	/*WordGame wordGame;
+	wordGame.run();
+	cout<<"Word game score "<<wordGame.getFinalScore();*/
 
 	currentState = GameState::MENU;
 	QuizUI quiz = QuizUI(window, currentState);
 	while (window.isOpen()) {
 
-        if (currentState == GameState::BOSS_GAME) {
-            /*Player player(100, 100, true, 0.75f, 13, 0.0f, true);
-            BossGame game(player);*/
-			Player player(100, 100, true, 0.75f, 13, 0.0f, true);
-			BossGame game(player);
-			game.run();
+      /*  if (currentState == GameState::BOSS_GAME) {   
+			
 			if (game.playerWin()) {
 				currentState = GameState::NYX1;
 			}
 			else {
 				currentState = GameState::NYX2;
 			}
-        }
+        }*/
 
 		Event event;
 		while (window.pollEvent(event)) {

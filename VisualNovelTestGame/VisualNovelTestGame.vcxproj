@@ -147,6 +147,7 @@
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="QuizManager.cpp" />
     <ClCompile Include="QuizUI.cpp" />
+    <ClCompile Include="RhythmGame.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TypingGame.cpp" />
     <ClCompile Include="VisualNovelTestGame.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="Question.h" />
     <ClInclude Include="QuizManager.h" />
     <ClInclude Include="QuizUI.h" />
+    <ClInclude Include="RhythmGame.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="WordGame.hpp" />
   </ItemGroup>

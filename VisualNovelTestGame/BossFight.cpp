@@ -328,18 +328,18 @@
 
     void Player::loadResources() {
         auto& tm = TextureManager::instance();
-        tm.load("player_idle", "../assets/player/Idle.png");
-        tm.load("player_run", "../assets/player/Run.png");
-        tm.load("player_attack1", "../assets/player/Attack_1.png");
-        tm.load("player_attack2", "../assets/player/Attack_2.png");
-        tm.load("player_attack3", "../assets/player/Attack_3.png");
-        tm.load("player_jump", "../assets/player/Jump.png");
-        tm.load("player_dash", "../assets/player/Dash.png");
-        tm.load("player_parry", "../assets/player/Parry.png");
-        tm.load("player_dead", "../assets/player/Dead.png");
-        tm.load("player_hurt", "../assets/player/Hurt.png");
-        tm.load("player_projectile", "../assets/player/Projectile.png");
-        tm.load("player_shoot", "../assets/player/Shoot.png");
+        tm.load("player_idle", "BossGameAssets/player/Idle.png");
+        tm.load("player_run", "BossGameAssets/player/Run.png");
+        tm.load("player_attack1", "BossGameAssets/player/Attack_1.png");
+        tm.load("player_attack2", "BossGameAssets/player/Attack_2.png");
+        tm.load("player_attack3", "BossGameAssets/player/Attack_3.png");
+        tm.load("player_jump", "BossGameAssets/player/Jump.png");
+        tm.load("player_dash", "BossGameAssets/player/Dash.png");
+        tm.load("player_parry", "BossGameAssets/player/Parry.png");
+        tm.load("player_dead", "BossGameAssets/player/Dead.png");
+        tm.load("player_hurt", "BossGameAssets/player/Hurt.png");
+        tm.load("player_projectile", "BossGameAssets/player/Projectile.png");
+        tm.load("player_shoot", "BossGameAssets/player/Shoot.png");
     }
 
     void Player::initAnimations() {
@@ -348,7 +348,7 @@
         animations.addAnimation(AnimationState::Run, "player_run", 8, 0.1f, { 160, 128 }, true);
         animations.addAnimation(AnimationState::Attack1, "player_attack1", 6, 0.05f, { 160, 128 }, false);
         animations.addAnimation(AnimationState::Attack2, "player_attack2", 10, 0.035f, { 160, 128 }, false);
-        animations.addAnimation(AnimationState::Attack3, "player_attack3", 16, 0.019f, { 160, 128 }, false);
+        animations.addAnimation(AnimationState::Attack3, "player_attack3", 16, 0.02f, { 160, 128 }, false);
         animations.addAnimation(AnimationState::Jump, "player_jump", 11, 0.08f, { 160, 128 }, false);
         animations.addAnimation(AnimationState::Dash, "player_dash", 5, 0.036f, { 160, 128 }, false);
         animations.addAnimation(AnimationState::Parry, "player_parry", 6, 0.08f, { 160, 128 }, false);
@@ -557,17 +557,17 @@
     // Added helper for collision detection logic
     bool Player::isAttacking() const {
         AnimationState current = animations.getCurrentState();
-        /* int currentFrame = animations.getCurrentFrameIndex();
-         if (current == AnimationState::Attack1 && currentFrame >= 0 && currentFrame <= 6 ||
+         int currentFrame = animations.getCurrentFrameIndex();
+         if (current == AnimationState::Attack1 && currentFrame >= 0 && currentFrame <= 5 ||
              current == AnimationState::Attack2 && currentFrame >= 0 && currentFrame <= 6 ||
-             current == AnimationState::Attack3 && currentFrame >= 0 && currentFrame <= 6) {
+             current == AnimationState::Attack3 && currentFrame >= 0 && currentFrame <= 9) {
              return true;
          }
-         else return false;*/
+         else return false;
 
-        return current == AnimationState::Attack1 ||
+        /*return current == AnimationState::Attack1 ||
             current == AnimationState::Attack2 ||
-            current == AnimationState::Attack3;
+            current == AnimationState::Attack3;*/
 
     }
 
@@ -779,15 +779,15 @@
 
     void Boss::loadResources() {
         auto& tm = TextureManager::instance();
-        tm.load("boss_idle", "../assets/boss/Idle.png");
-        tm.load("boss_attack1", "../assets/boss/Attack1.png");
-        tm.load("boss_attack2", "../assets/boss/Attack2.png");
-        tm.load("boss_attack3", "../assets/boss/Attack3.png");
-        tm.load("boss_ultimate", "../assets/boss/Ultimate.png");
-        tm.load("boss_dead", "../assets/boss/Dead.png");
-        tm.load("boss_projectile_ground", "../assets/boss/Projectile_Ground.png");
-        tm.load("boss_projectile_mid", "../assets/boss/Projectile_Mid.png");
-        tm.load("boss_projectile_rain", "../assets/boss/Projectile_Rain.png");
+        tm.load("boss_idle", "BossGameAssets/boss/Idle.png");
+        tm.load("boss_attack1", "BossGameAssets/boss/Attack1.png");
+        tm.load("boss_attack2", "BossGameAssets/boss/Attack2.png");
+        tm.load("boss_attack3", "BossGameAssets/boss/Attack3.png");
+        tm.load("boss_ultimate", "BossGameAssets/boss/Ultimate.png");
+        tm.load("boss_dead", "BossGameAssets/boss/Dead.png");
+        tm.load("boss_projectile_ground", "BossGameAssets/boss/Projectile_Ground.png");
+        tm.load("boss_projectile_mid", "BossGameAssets/boss/Projectile_Mid.png");
+        tm.load("boss_projectile_rain", "BossGameAssets/boss/Projectile_Rain.png");
     }
 
     void Boss::initAnimations() {
@@ -1094,15 +1094,15 @@
     {
   
         auto& sm = SoundManager::instance();
-        sm.load("background", "../assets/sounds/Bossbackground.ogg");
-        sm.load("player_shoot", "../assets/sounds/player_shoot.ogg");
-        sm.load("player_damaged", "../assets/sounds/player_damaged.ogg");
-        sm.load("player_jump", "../assets/sounds/player_jump.ogg");
-        sm.load("player_parry", "../assets/sounds/player_parry.ogg");
-        sm.load("player_attack", "../assets/sounds/player_attack.ogg");
-        sm.load("ground_attack", "../assets/sounds/ground_attack.ogg");
-        sm.load("fire_spray", "../assets/sounds/fire_spray.ogg");
-        sm.load("boss_attack", "../assets/sounds/boss_attack.ogg");
+        sm.load("background", "BossGameAssets/sounds/Bossbackground.ogg");
+        sm.load("player_shoot", "BossGameAssets/sounds/player_shoot.ogg");
+        sm.load("player_damaged", "BossGameAssets/sounds/player_damaged.ogg");
+        sm.load("player_jump", "BossGameAssets/sounds/player_jump.ogg");
+        sm.load("player_parry", "BossGameAssets/sounds/player_parry.ogg");
+        sm.load("player_attack", "BossGameAssets/sounds/player_attack.ogg");
+        sm.load("ground_attack", "BossGameAssets/sounds/ground_attack.ogg");
+        sm.load("fire_spray", "BossGameAssets/sounds/fire_spray.ogg");
+        sm.load("boss_attack", "BossGameAssets/sounds/boss_attack.ogg");
 
         SoundManager::instance().play("background", 10);
         SoundManager::instance().setLoop("background", true);
@@ -1131,7 +1131,7 @@
    
     void BossGame::initBackground() {
         // Load background using TextureManager
-        if (!TextureManager::instance().load("background", "../assets/background.png")) {
+        if (!TextureManager::instance().load("background", "BossGameAssets/background.png")) {
             std::cerr << "[Game] Failed to load background" << std::endl;
         }
         sf::Texture* bgTexture = TextureManager::instance().get("background");
@@ -1154,7 +1154,7 @@
 
     void BossGame::setupUI() {
 
-        if (!font.loadFromFile("../assets/arial.ttf")) {
+        if (!font.loadFromFile("BossGameAssets/arial.ttf")) {
             std::cerr << "Failed to load font!" << std::endl;
         }
         // Tutorial messages
