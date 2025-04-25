@@ -11,6 +11,7 @@
 #include "Audio.h"
 #include "QuizUI.h"
 #include "DialogManager.h"
+#include "ProgressBar.h"
 
 using json = nlohmann::json;
 using namespace sf;
@@ -28,6 +29,7 @@ int main()
 	Audio audio;
 	audio.playBackgroundSound();
 	DialogManager dialog;
+	ProgressBar progressBar(window);
 
 	//Store the male and female character
 	loadSprites.loadCharacterOptions("Characters/MainCharacter.png", "Characters/Athena.png");
@@ -47,10 +49,10 @@ int main()
 				window.close();
 
 			quiz.update();
-			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz, dialog);
+			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz, dialog,progressBar);
 		}
 		quiz.update();
-		renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+		renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio,progressBar);
 	}
 
 	return 0;
