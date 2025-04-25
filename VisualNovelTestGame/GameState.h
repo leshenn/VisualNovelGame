@@ -29,5 +29,7 @@ enum class GameState {
     NYX7,
     MOUNT_CYLLENE,          // Hermes stage
     NYX8,
+    BOSS_GAME,
+    TYPING_GAME,
     NONE
 };

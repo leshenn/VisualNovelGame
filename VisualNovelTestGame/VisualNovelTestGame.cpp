@@ -12,6 +12,15 @@
 #include "QuizUI.h"
 #include "DialogManager.h"
 #include "ProgressBar.h"
+#include "WordGame.hpp"
+#include "BossFight.h"
+#include <vector>
+#include <map>
+#include <string>
+#include <cmath>
+#include <random>
+#include <list>
+
 
 using json = nlohmann::json;
 using namespace sf;
@@ -21,8 +30,17 @@ const int WIN_HEIGHT = 720;
 
 int main()
 {
+   
+   /* WordGame Wordgame;
+    Wordgame.run();
+    if (Wordgame.getGameOver()) {
+		cout << "Game Over!" << endl;
+        cout << "final score is " << Wordgame.getFinalScore() << endl;
+    }*/
+	
+    
 	RenderWindow window(VideoMode(WIN_WIDTH, WIN_HEIGHT), "Visual Novel");
-	window.setFramerateLimit(60);
+	window.setFramerateLimit(30);
 	LoadSprites loadSprites;
 	GameState currentState;
 	Font newFont;
@@ -31,18 +49,31 @@ int main()
 	audio.playBackgroundSound();
 	DialogManager dialog;
 	ProgressBar progressBar(window);
-
+    
 	//Store the male and female character
 	loadSprites.loadCharacterOptions("Characters/MainCharacter.png", "Characters/Athena.png");
 
 	//This is the play button
 	ButtonLayout layout(window, newFont);
-
 	
 
 	currentState = GameState::MENU;
 	QuizUI quiz = QuizUI(window, currentState);
 	while (window.isOpen()) {
+
+        if (currentState == GameState::BOSS_GAME) {
+            /*Player player(100, 100, true, 0.75f, 13, 0.0f, true);
+            BossGame game(player);*/
+			Player player(100, 100, true, 0.75f, 13, 0.0f, true);
+			BossGame game(player);
+			game.run();
+			if (game.playerWin()) {
+				currentState = GameState::NYX1;
+			}
+			else {
+				currentState = GameState::NYX2;
+			}
+        }
 
 		Event event;
 		while (window.pollEvent(event)) {
