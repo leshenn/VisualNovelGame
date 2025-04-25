@@ -179,7 +179,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonLayout.h" />
     <ClInclude Include="DialogManager.h" />
-    <ClInclude Include="Game.h" />
+    <ClInclude Include="BubbleGame.h" />
     <ClInclude Include="GameLogic.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="LoadSprites.h" />

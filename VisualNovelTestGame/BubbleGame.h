@@ -4,14 +4,14 @@
 #include <vector>
 #include "Bubble.h"
 
-class Game {
+class BubbleGame {
 private:
     sf::RenderWindow window;
     sf::CircleShape shooter;
     sf::Vector2f shooterPos;
     sf::Texture backgroundTexture;
     sf::Sprite backgroundSprite;
-    bool gameWon = false;
+    bool BubbleGameWon = false;
 
 
     std::vector<Bubble> bubbles;  // Grid or stuck bubbles
@@ -20,7 +20,7 @@ private:
     sf::Vector2f shotVelocity;         // Direction & speed of the shot
 
 public:
-    Game();
+    BubbleGame();
 
     void spawnBubble(float x, float y, sf::Color color);
     void shootBubble();

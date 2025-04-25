@@ -1,11 +1,11 @@
-#include "Game.h"
+#include "BubbleGame.h"
 #include <cmath>
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
 using namespace std;
 
-Game::Game()
+BubbleGame::BubbleGame()
     : window(sf::VideoMode(800, 600), "Bubble Shooter"), shooterPos(400, 550)
 {
     shooter.setRadius(15);
@@ -15,7 +15,7 @@ Game::Game()
     shooter.setFillColor(randomColor());
     setUpBubble();
 
-    if (!backgroundTexture.loadFromFile("assets/BBGame.jpg")) {
+    if (!backgroundTexture.loadFromFile("assets/BBBubbleGame.jpg")) {
         cout << "Failed to load background image!" << std::endl;
     }
     backgroundSprite.setTexture(backgroundTexture);
@@ -29,14 +29,14 @@ Game::Game()
     );
 }
 
-void Game::spawnBubble(float x, float y, sf::Color color)
+void BubbleGame::spawnBubble(float x, float y, sf::Color color)
 {
     bubbles.push_back(Bubble(x, y, 15, color));
 }
 
-void Game::shootBubble()
+void BubbleGame::shootBubble()
 {
-    if (gameWon) return;  // Don't allow shooting if game is won
+    if (BubbleGameWon) return;  // Don't allow shooting if BubbleGame is won
 
     if (currentShot != nullptr) return; // Only one bubble can be in the air
 
@@ -51,7 +51,7 @@ void Game::shootBubble()
     shotVelocity = dir * 5.0f; // Set speed
 }
 
-void Game::setUpBubble()
+void BubbleGame::setUpBubble()
 {
     float radius = 15.0f;
     int rows = 5;
@@ -75,7 +75,7 @@ void Game::setUpBubble()
     }
 }
 
-void Game::update()
+void BubbleGame::update()
 {
     if (currentShot) {
         currentShot->shape.move(shotVelocity); // Move the bubble
@@ -118,11 +118,11 @@ void Game::update()
             }
         }
     }
-    if (!gameWon && bubbles.empty()) {
-        gameWon = true;
+    if (!BubbleGameWon && bubbles.empty()) {
+        BubbleGameWon = true;
     }
 }
-void Game::setUpLevel()
+void BubbleGame::setUpLevel()
 {
     float radius = 15.f;
     float diameter = radius * 2;
@@ -156,7 +156,7 @@ void Game::setUpLevel()
 }
 
 
-void Game::render()
+void BubbleGame::render()
 {
     window.clear();
 
@@ -181,7 +181,7 @@ void Game::render()
     window.draw(line, 2, sf::Lines);
 
     // Draw win message
-    if (gameWon) {
+    if (BubbleGameWon) {
         sf::Font font;
         if (font.loadFromFile("assets/arial.ttf")) { // You can use any font you have
             sf::Text winText("You Win!", font, 50);
@@ -196,7 +196,7 @@ void Game::render()
 }
 
 
-void Game::handling()
+void BubbleGame::handling()
 {
     sf::Event event;
     while (window.pollEvent(event)) {
@@ -210,13 +210,13 @@ void Game::handling()
     }
 }
 
-bool Game::isRunning()
+bool BubbleGame::isRunning()
 {
     return window.isOpen();
 }
 
 
-void Game::popMatchingBubbles(size_t index)
+void BubbleGame::popMatchingBubbles(size_t index)
 {
     if (index >= bubbles.size()) return;
 
@@ -258,7 +258,7 @@ void Game::popMatchingBubbles(size_t index)
         [](const Bubble& b) { return !b.isActive; }), bubbles.end());
 }
 
-sf::Color Game::randomColor()
+sf::Color BubbleGame::randomColor()
 {
     int r = rand() % 3;
     switch (r) {

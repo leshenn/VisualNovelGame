@@ -134,7 +134,7 @@
     <ClInclude Include="RhythmGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="BubbleGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Bubble.h">

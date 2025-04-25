@@ -22,7 +22,7 @@
 #include <list>
 #include "RhythmGame.h"
 #include "Bubble.h"
-#include "Game.h"
+#include "BubbleGame.h"
 
 
 using json = nlohmann::json;
@@ -41,13 +41,13 @@ int main()
 
 
 
-	//boss game construction
+	//Boss game construction
 	//Player player(100, 100, true, 0.75f, 13, 0.0f, true);
 	//BossGame game(player);
 	//game.run();
 
 	//Bubble game construction
-	Game bubble;
+	BubbleGame bubble;
 	while (bubble.isRunning()) {
 		bubble.handling();
 		bubble.update();
@@ -58,10 +58,10 @@ int main()
 		//WordGame Wordgame;
 		//Wordgame.run();
     
-   /* if (Wordgame.getGameOver()) {
-		cout << "Game Over!" << endl;
-        cout << "final score is " << Wordgame.getFinalScore() << endl;
-    }*/
+		/* if (Wordgame.getGameOver()) {
+			cout << "Game Over!" << endl;
+			cout << "final score is " << Wordgame.getFinalScore() << endl;
+		}*/
 
 	RenderWindow window(VideoMode(WIN_WIDTH, WIN_HEIGHT), "Visual Novel");
 	window.setFramerateLimit(30);
