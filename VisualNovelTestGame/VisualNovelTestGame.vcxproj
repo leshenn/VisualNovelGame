@@ -142,7 +142,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonLayout.cpp" />
     <ClCompile Include="DialogManager.cpp" />
-    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="BubbleGame.cpp" />
     <ClCompile Include="GameLogic.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="LoadSprites.cpp" />
