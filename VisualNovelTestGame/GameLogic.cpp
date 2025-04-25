@@ -111,7 +111,7 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
     }
 }
 
-void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout& layout, LoadSprites& loadSprites, QuizUI& quiz, DialogManager& dialog, Audio& audio)
+void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout& layout, LoadSprites& loadSprites, QuizUI& quiz, DialogManager& dialog, Audio& audio, ProgressBar& progressBar)
 {
     switch (currentState) {
     case GameState::MENU:
@@ -151,6 +151,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.clear();
         window.draw(loadSprites.menuBackgroundSprite);
         layout.loadStageOneButtons();
+      
         break;
 
 
@@ -160,7 +161,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
-      
+		progressBar.draw();
         quiz.render();
 
         break;
@@ -171,7 +172,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
-        
+        progressBar.draw();
         quiz.render();
 
         break;
@@ -182,7 +183,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
-        
+        progressBar.draw();
         quiz.render();
 
         break;
@@ -194,7 +195,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
         layout.loadNextButton();
-
+        progressBar.draw();
         break;
 
 
@@ -204,7 +205,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
-
+        progressBar.draw();
         quiz.render();
 
         break;
@@ -215,7 +216,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
-
+        progressBar.draw();
         quiz.render();
         
         break;
@@ -227,7 +228,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
         layout.loadNextButton();
-
+        progressBar.draw();
         break;
 
     case GameState::DELPHI:
@@ -236,7 +237,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
-
+        progressBar.draw();
         quiz.render();
 
         break;
@@ -247,7 +248,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
-
+        progressBar.draw();
         quiz.render();
 
         break;
@@ -259,7 +260,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
         layout.loadNextButton();
-
+		progressBar.draw();
         break;
 
     case GameState::CRETE:
@@ -268,7 +269,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
-
+        progressBar.draw();
         quiz.render();
 
         break;
@@ -280,7 +281,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
         layout.loadNextButton();
-
+        progressBar.draw();
         break;
 
     case GameState::CYPRUS:
@@ -289,7 +290,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
-
+        progressBar.draw();
         quiz.render();
 
         break;
@@ -301,7 +302,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
-
+        progressBar.draw();
         quiz.render();
 
         break;
@@ -313,7 +314,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
         layout.loadNextButton();
-
+        progressBar.draw();
         break;
 
     case GameState::OLYMPUS:
@@ -322,7 +323,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
-
+        progressBar.draw();
         quiz.render();
 
         break;
@@ -333,7 +334,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
-
+        progressBar.draw();
         quiz.render();
 
         break;
@@ -345,7 +346,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
         layout.loadNextButton();
-
+        progressBar.draw();
         break;
     
     case GameState::MOUNT_CYLLENE:
@@ -354,7 +355,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.godSprite);
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
-
+        progressBar.draw();
         quiz.render();
 
         break;
@@ -366,7 +367,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.mainCharacterSprite);
         window.draw(loadSprites.gameScrollSprite);
         layout.loadNextButton();
-
+        progressBar.draw();
         break;
     default:
         break;
@@ -375,9 +376,10 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
     window.display();  // Update the window with the newly drawn content
 }
 
-void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog)
+void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog,ProgressBar& progressBar)
 {   
     static bool isDialogLoaded = false;  // static to persist across frames
+	
     switch (currentState) {
     case GameState::MENU:
         if (event.type == Event::MouseButtonPressed) {
@@ -387,7 +389,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio,progressBar);
         break;
 
     case GameState::INTRO:
@@ -412,7 +414,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         }
         
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
     case GameState::NYX1:
@@ -439,13 +441,14 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
    
 
     case GameState::STAGE_ONE_MENU:
         isDialogLoaded = false;
         dialog.reset();
+        
         if (event.type == Event::MouseButtonPressed) {
             audio.playClickButtonSound();
             Vector2i mousePos = Mouse::getPosition(window);
@@ -458,29 +461,35 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
             currentState = newState;
             
+               
         }
+		
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+		
         break;
 
     case GameState::SEAWORLD:
     case GameState::UNDERWORLD:
     case GameState::COUNTRY_SIDE:
         loadGameAssets(currentState, loadSprites, dialog);
-
+        
         // Handle quiz events
         if (event.type == Event::MouseButtonPressed) {
             if (!quiz.isQuizComplete()) {
+				progressBar.update();
                 quiz.handleEvent(); // Normal quiz handling
             }
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
                 // Only proceed if quiz is complete AND Next is clicked
+                //progressBar.update();
                 audio.playClickButtonSound();
                 currentState = GameState::NYX2;
             }
         }
 
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
     case GameState::NYX2:
@@ -504,7 +513,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
     case GameState::ATHENS:
@@ -514,16 +523,18 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // Handle quiz events
         if (event.type == Event::MouseButtonPressed) {
             if (!quiz.isQuizComplete()) {
+				progressBar.update();
                 quiz.handleEvent(); // Normal quiz handling
             }
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
                 // Only proceed if quiz is complete AND Next is clicked
+				progressBar.update();
                 audio.playClickButtonSound();
                 currentState = GameState::NYX3;
             }
         }
 
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
     case GameState::NYX3:
@@ -545,8 +556,9 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 }
             }
         }
+        progressBar.draw();
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
     
@@ -557,16 +569,18 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // Handle quiz events
         if (event.type == Event::MouseButtonPressed) {
             if (!quiz.isQuizComplete()) {
+				progressBar.update();
                 quiz.handleEvent(); // Normal quiz handling
             }
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
                 // Only proceed if quiz is complete AND Next is clicked
+                progressBar.draw();
                 audio.playClickButtonSound();
                 currentState = GameState::NYX4;
             }
         }
 
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
 
@@ -579,8 +593,9 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 quiz.initQuiz(currentState);
             }
         }
+        progressBar.draw();
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
     case GameState::CRETE:
@@ -589,6 +604,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // Handle quiz events
         if (event.type == Event::MouseButtonPressed) {
             if (!quiz.isQuizComplete()) {
+				progressBar.update();
                 quiz.handleEvent(); // Normal quiz handling
             }
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
@@ -597,8 +613,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 currentState = GameState::NYX5;
             }
         }
-
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
 
@@ -622,7 +637,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
     case GameState::CYPRUS:
@@ -632,6 +647,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // Handle quiz events
         if (event.type == Event::MouseButtonPressed) {
             if (!quiz.isQuizComplete()) {
+				progressBar.update();
                 quiz.handleEvent(); // Normal quiz handling
             }
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
@@ -640,8 +656,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 currentState = GameState::NYX6;
             }
         }
-
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
 
@@ -665,7 +680,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
     case GameState::ARGOS:
@@ -675,6 +690,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // Handle quiz events
         if (event.type == Event::MouseButtonPressed) {
             if (!quiz.isQuizComplete()) {
+				progressBar.update();
                 quiz.handleEvent(); // Normal quiz handling
             }
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
@@ -684,7 +700,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
 
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
     case GameState::NYX7:
@@ -698,7 +714,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
 
@@ -708,6 +724,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // Handle quiz events
         if (event.type == Event::MouseButtonPressed) {
             if (!quiz.isQuizComplete()) {
+				progressBar.update();
                 quiz.handleEvent(); // Normal quiz handling
             }
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
@@ -717,7 +734,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
 
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
     case GameState::NYX8:
@@ -731,7 +748,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
     default:

@@ -64,6 +64,11 @@
     <None Include="ares_questions.json" />
     <None Include="nemesis_questions.json" />
     <None Include="daedalus_questions.json" />
+    <None Include="aphrodite_questions.json" />
+    <None Include="hera_questions.json" />
+    <None Include="hermes_questions.json" />
+    <None Include="hypnos_questions.json" />
+    <None Include="zeus_questions.json" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h">

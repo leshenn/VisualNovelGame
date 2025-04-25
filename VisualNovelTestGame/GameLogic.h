@@ -7,6 +7,7 @@
 #include "Audio.h"
 #include "QuizUI.h"
 #include "DialogManager.h"
+#include "ProgressBar.h"
 
 using namespace sf;
 
@@ -18,9 +19,9 @@ static bool getPlayerGender() { return playerIsMale; }
 
 void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogManager& dialog);
 
-void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout& layout, LoadSprites& loadSprites, QuizUI& quiz, DialogManager& dialog, Audio& audio);
+void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout& layout, LoadSprites& loadSprites, QuizUI& quiz, DialogManager& dialog, Audio& audio,ProgressBar& progressBar);
 
 void handleGameLogic(RenderWindow& window, GameState& currentState, 
-	ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog);
+	ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog,ProgressBar& progressBar);
 
 static int totalScore = 0;
