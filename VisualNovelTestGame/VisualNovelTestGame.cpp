@@ -21,6 +21,7 @@ const int WIN_HEIGHT = 720;
 int main()
 {
 	RenderWindow window(VideoMode(WIN_WIDTH, WIN_HEIGHT), "Visual Novel");
+	window.setFramerateLimit(60);
 	LoadSprites loadSprites;
 	GameState currentState;
 	Font newFont;
