@@ -21,7 +21,6 @@ private:
 
 public:
     BubbleGame();
-
     void spawnBubble(float x, float y, sf::Color color);
     void shootBubble();
     void setUpBubble();

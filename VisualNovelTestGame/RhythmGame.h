@@ -81,6 +81,7 @@ public:
  
      RhythmGame();
      ~RhythmGame();
+     int getScore();
 
  
 private:

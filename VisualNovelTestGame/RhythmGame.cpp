@@ -69,6 +69,8 @@ void RhythmGame::initializeArrows() {
     }
 }
 
+int RhythmGame::getScore(){return score;}
+
 void RhythmGame::initializeUI() {
     robotoFont.loadFromFile("RhythmAssets/Font/fnf.ttf");
     fnfFont.loadFromFile("RhythmAssets/Font/fnf.ttf");
