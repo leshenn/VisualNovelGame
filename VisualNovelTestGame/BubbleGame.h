@@ -53,7 +53,7 @@ public:
         shooter.setFillColor(randomColor());
         setUpBubble();
 
-        if (!backgroundTexture.loadFromFile("assets/BBGame.jpg")) {
+        if (!backgroundTexture.loadFromFile("Backgrounds/BBGame.jpg")) {
             std::cout << "Failed to load background image!" << std::endl;
         }
         backgroundSprite.setTexture(backgroundTexture);
