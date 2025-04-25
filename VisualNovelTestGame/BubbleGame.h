@@ -32,3 +32,4 @@ public:
 	void popMatchingBubbles(size_t index);
     sf::Color randomColor();
 };
+
