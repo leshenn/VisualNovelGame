@@ -485,7 +485,8 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 // Only proceed if quiz is complete AND Next is clicked
                 //progressBar.update();
                 audio.playClickButtonSound();
-                currentState = GameState::NYX2;
+                //currentState = GameState::NYX2;
+                currentState = GameState::TYPING_GAME;  //TESTING STATES
             }
         }
 

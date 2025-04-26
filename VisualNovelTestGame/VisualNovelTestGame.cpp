@@ -112,14 +112,12 @@ int main()
 	QuizUI quiz = QuizUI(window, currentState);
 	while (window.isOpen()) {
 
-      /*  if (currentState == GameState::BOSS_GAME) {   
-			if (game.playerWin()) {
-				currentState = GameState::NYX1;
-			}
-			else {
-				currentState = GameState::NYX2;
-			}
-        }*/
+      if (currentState == GameState::TYPING_GAME) {  
+		  WordGame wordGame;
+	      wordGame.run();
+		  currentState = GameState::NYX2;
+			
+        }
 
 		Event event;
 		while (window.pollEvent(event)) {
