@@ -46,10 +46,14 @@ WordGame::WordGame() :
         "Tethys", "Hyperion", "Theia", "Iapetus", "Mnemosyne", "Prometheus", "Epimetheus", "Atlas", "Gaia", "Uranus", "Chaos", "Nyx", "Tartarus", "Erebus", "Eros", "Aether", "Hemera", "Pontus", "Helios",
         "Selene", "Aeolus", "Nike", "Nemesis", "Tyche", "Hypnos", "Thanatos", "Iris", "Hecate", "Charon", "Cerberus", "Talos", "Minotaur", "Hydra", "Chimera", "Cyclops", "Gorgon", "Siren", "Harpy", "Satyr",
         "Centaur", "Nymph", "Dryad", "Nyx", "Scylla", "Sphinx", "Phoenix", "Griffin", "Pegasus", "Basilisk", "Orpheus", "Heracles", "Perseus", "Theseus", "Jason", "Achilles",
-        "Odysseus", "Ajax", "Hector", "Paris", "Agamemnon", "Menelaus", "Cadmus", "Meleager", "Atalanta", "Antigone", "Oedipus", "Medea", "Pandora", "Tantalus", "Sisyphus", "Tiresias", "Penelope", "Nouth", "Strong",
+        "Odysseus", "Ajax", "Hector", "Paris", "Agamemnon", "Menelaus", "Cadmus", "Meleager", "Atalanta", "Antigone", "Oedipus", "Medea", "Pandora", "Tantalus", "Sisyphus", "Tiresias", "Penelope", "Strong",
        "Colosseum", "Pantheon", "Basilica", "Forum", "Aqueduct", "Temple", "Baths", "Arch", "Dome", "Vault", "Column", "Hypocaust", "Atrium", "Porticus", "Insula", "Domus",
        "Mosaic", "Fresco", "Stucco", "Tessera", "Sgraffito", "Coffering", "Lacunar", "Spolia", "Sima", "Mutule",
-        "Obelisk", "Mausoleum", "Colosseum", "Thermae", "Cloaca", "Aqueduct", "Pons", "Xystus", "Groma", "Oculum", "Cellarium", "Umbilicus", "Cavum"
+        "Obelisk", "Mausoleum", "Colosseum", "Thermae", "Cloaca", "Aqueduct", "Pons", "Xystus", "Groma", "Oculum", "Cellarium", "Umbilicus",
+        "Cavum""Argus", "Circe", "Creon", "Ceres", "Doris", "Erato", "Helen", "Homer", "Lethe", "Midas", "Naiad", "Orion", "Priam", "Clio",
+        "Fauns", "Muses", "Styx", "Doric", "Ionic", "Attic", "Sigma", "Theta", "Vault", "Niche", "Oecus", "Porta", "Ethos", "Grace", "Ichor",
+        "Iliad", "Omega", "Oread", "Zeno", "Zeta", "Fauna", "Echid", "Aegis", "Eidos", "Lamia", "Ladon", "Eurus", "Zephy", "Notus", "Boreas",
+        "Aegir", "Ephyra", "Lotos", "Paean", "Psyche", "Silen", "Satyr"
     };
 }
 
@@ -197,7 +201,7 @@ WordGame::WordGame() :
     void  WordGame::run() {
         sf::SoundBuffer s;
         if (!s.loadFromFile("easy_cheesy.ogg")) {
-            throw std::runtime_error("easy_cheesy.ogg sound failed to load");
+            cout << ("easy_cheesy.ogg sound failed to load") << endl;
         }
         sf::Sound mysound;
         mysound.setBuffer(s);
