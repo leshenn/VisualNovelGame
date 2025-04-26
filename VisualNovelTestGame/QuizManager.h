@@ -11,6 +11,8 @@ class QuizManager {
 public:
     QuizManager(); // Constructor
 
+    friend class QuizUI;
+
     // Quiz control methods
     void loadQuestions(GameState world); // Load questions for specific world
     const Question& getCurrentQuestion() const; // Get current question

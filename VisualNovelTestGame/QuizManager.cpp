@@ -48,9 +48,11 @@ void QuizManager::loadQuestions(GameState world) {
     else if (world == GameState::CYPRUS)
     {
         loadAproditeQuestions();
+       
     }
     else if (world == GameState::OLYMPUS) {
         loadZeusQuestions();
+        
     }
     else if (world == GameState::LETHE) {
         loadHypnosQuestions();
@@ -59,14 +61,16 @@ void QuizManager::loadQuestions(GameState world) {
         loadHermesQuestions();
     }
     else if (world == GameState::ARGOS) {
+        questionTimer.setDuration(5.f);
         loadHeraQuestions();
+        
     }
 
 
 
     // Select 8 random questions
     selectRandomQuestions(10);
-    questionTimer.start();
+
 }
 
 
@@ -481,13 +485,6 @@ const Question& QuizManager::getCurrentQuestion() const {
 
 // Answer current question and update the score
 bool QuizManager::answerCurrentQuestion(int answerIndex) {
-    
-    if (questionTimer.isFinished()) {
-        cout << "Timer is up";
-        return false;
-    }
-    
-
     if (getCurrentQuestion().isCorrect(answerIndex)) {
         score++;
         return true;
@@ -503,14 +500,6 @@ void QuizManager::nextQuestion() {
         quizComplete = true; // Set completion flag
     }
     
-    if (!isQuizComplete()) {
-        questionTimer.reset();
-        questionTimer.start();
-    }
-    else {
-        questionTimer.stop();
-    }
-    
 }
 
 bool QuizManager::isQuizComplete() const {
@@ -520,10 +509,10 @@ bool QuizManager::isQuizComplete() const {
 
 void QuizManager::update(float deltaTime) {
     questionTimer.update(deltaTime);
-    if (questionTimer.isFinished()) {
 
+    if (questionTimer.isFinished()) {
         cout << "Timer fininshed " << endl;
-        nextQuestion();
+        questionTimer.stop();
     }
 }
 

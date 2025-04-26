@@ -1,5 +1,6 @@
 #include "Timer.h"
 #include <iomanip>
+#include <iostream>
 #include <sstream>
 
 Timer::Timer(float duration) : duration(duration), remainingTime(duration), running(false) {}
@@ -15,6 +16,7 @@ void Timer::stop() {
 void Timer::update(float deltaTime) {
     if (running && remainingTime > 0) {
         remainingTime -= deltaTime;
+        std::cout << remainingTime<<std::endl;
         if (remainingTime <= 0) {
             running = false;
             remainingTime = 0;
@@ -32,10 +34,20 @@ void Timer::reset() {
 }
 
 std::string Timer::getTimeString() const {
-    int minutes = static_cast<int>(remainingTime) / 60;
-    int seconds = static_cast<int>(remainingTime) % 60;
-    std::ostringstream ss;
-    ss << std::setw(2) << std::setfill('0') << minutes << ":" << std::setw(2) << std::setfill('0') << seconds;
+    std::string ss;
+    ss = "Time: " + std::to_string(std::max(0, (int)remainingTime)) + "s";
 
-    return ss.str();
+    return ss;
+}
+
+float Timer::getTimeRemaining() {
+    return remainingTime;
+}
+
+void Timer::setDuration(float time) {
+    duration= time;
+}
+
+void Timer::operator=(float time) {
+    duration = time;
 }

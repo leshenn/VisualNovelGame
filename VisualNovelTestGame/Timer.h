@@ -13,6 +13,9 @@ public:
 	bool isFinished() const;
 	void reset();
 	std::string getTimeString() const;
+	float getTimeRemaining();
+	void setDuration(float time);
+	void operator =(float time);
 
 private:
 	float duration;

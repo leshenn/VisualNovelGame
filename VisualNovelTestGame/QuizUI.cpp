@@ -74,9 +74,13 @@ void QuizUI::refreshQuizUI()
 	}
 
 	//initialize timer
-	timeRemaining = 10.0f;
+	//timeRemaining = 10.0f;
+	//quizTimer.restart();
+	manager.questionTimer.reset();
+	manager.questionTimer.start();
 	quizTimer.restart();
-	progressbarOutline.setSize(Vector2f(50*timeRemaining, 30));
+
+	progressbarOutline.setSize(Vector2f(50*manager.questionTimer.getTimeRemaining(), 30));
 	progressbarOutline.setOutlineThickness(2);
 
 
@@ -163,9 +167,11 @@ void QuizUI::handleEvent()
 	if (!showingResult && !manager.isQuizComplete()) {
 		// Check which answer button was clicked
 		for (size_t i = 0; i < answerButtons.size(); ++i) {
-			if (answerButtons[i].isMouseOver(window)) {
-				bool isCorrect = manager.answerCurrentQuestion(i);
-				
+
+
+			if (answerButtons[i].isMouseOver(window)) {	
+					bool isCorrect = manager.answerCurrentQuestion(i);
+					
 				if (isCorrect)
 				{
 					answerButtons[i].setBackColor(Color::Green);
@@ -191,6 +197,7 @@ void QuizUI::loadNextQuestion() {
 	refreshQuizUI();
 	manager.nextQuestion();
 	showingResult = false;
+
 
 	if (manager.isQuizComplete()) {
 		showFinalScore();
@@ -262,17 +269,16 @@ void QuizUI::render()
 void QuizUI::update() {
 	if (!manager.isQuizComplete()) {
 		if (!showingResult) {
-			timeRemaining -= quizTimer.restart().asSeconds(); // Subtract elapsed time
-			//std::cout << timeRemaining << endl;
+			manager.update(quizTimer.restart().asSeconds());
 
-			if (timeRemaining <= 0) {
+			if (manager.questionTimer.isFinished()) {
 				showResult(false); // Auto-fail when time runs out
 				updateScoreText();
 			}
 
 			// Update timer display
-			timerText.setString("Time: " + std::to_string(std::max(0, (int)timeRemaining)) + "s");
-			progressbar.setSize(Vector2f(50 * timeRemaining, 30));
+			timerText.setString(manager.questionTimer.getTimeString());
+			progressbar.setSize(Vector2f(50 * manager.questionTimer.getTimeRemaining(), 30));
 		}
 	}
 }
