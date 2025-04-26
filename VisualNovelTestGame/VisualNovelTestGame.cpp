@@ -36,12 +36,14 @@ const int WIN_HEIGHT = 720;
 
 int main()
 {
-	WineGame game;
-	while (game.running())
+	//wine game construction
+	/*WineGame Winegame;
+	while (Winegame.running())
 	{
-		game.update();
-		game.render();
-	}
+		Winegame.update();
+		Winegame.render();
+	}*/
+
 	//Rhythm game construction
 	/*RhythmGame rhythmGame;
 	rhythmGame.run();
