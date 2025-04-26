@@ -385,7 +385,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         if (event.type == Event::MouseButtonPressed) {
             if (layout.playButtonClicked(window)) {
                 audio.playClickButtonSound();
-                currentState = GameState::NYX1; // Change state when Play button is clicked
+                currentState = GameState::INTRO; // Change state when Play button is clicked
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
