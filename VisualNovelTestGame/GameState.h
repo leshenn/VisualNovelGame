@@ -33,5 +33,6 @@ enum class GameState {
     TYPING_GAME,
     BUBBLE_GAME,
 	RHYTHM_GAME,
+    WINE_GAME,
     NONE
 };
