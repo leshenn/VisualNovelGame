@@ -272,7 +272,7 @@
         shootTimer(other.shootTimer),
         dashCooldownTimer(other.dashCooldownTimer),
         parrySuccessWindow(other.parrySuccessWindow),
-        parrySuccessDuration(other.parrySuccessDuration), // Initialize parrySuccessDuration
+        parrySuccessDuration(other.parrySuccessDuration),
         attackDistribution(other.attackDistribution),
         rng(other.rng),
         facingRight(other.facingRight),
@@ -554,7 +554,7 @@
 
     bool Player::getFacingRight() const { return facingRight; }
 
-    // Added helper for collision detection logic
+    // helper for collision detection logic
     bool Player::isAttacking() const {
         AnimationState current = animations.getCurrentState();
          int currentFrame = animations.getCurrentFrameIndex();
@@ -661,7 +661,8 @@
 
 
         // Allow uninterruptible, non-looping animations (Attack, Dash, Parry, Jump) to finish
-        bool isUninterruptibleAction = isAttacking() || currentState == AnimationState::Dash || currentState == AnimationState::Parry || currentState == AnimationState::Shoot;
+        bool isUninterruptibleAction = isAttacking() || currentState == AnimationState::Dash ||
+            currentState == AnimationState::Parry || currentState == AnimationState::Shoot;
 
         if (isUninterruptibleAction) {
             if (animations.isDone()) {

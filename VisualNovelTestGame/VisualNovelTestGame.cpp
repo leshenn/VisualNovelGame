@@ -23,6 +23,9 @@
 #include "RhythmGame.h"
 #include "Bubble.h"
 #include "BubbleGame.h"
+#include "WinePlayer.h"
+#include "SwagBall.h"
+#include "WineGame.h"
 
 
 using json = nlohmann::json;
@@ -33,6 +36,13 @@ const int WIN_HEIGHT = 720;
 
 int main()
 {
+	//wine game construction
+	/*WineGame Winegame;
+	while (Winegame.running())
+	{
+		Winegame.update();
+		Winegame.render();
+	}*/
 
 	//Rhythm game construction
 	/*RhythmGame rhythmGame;
@@ -103,7 +113,6 @@ int main()
 	while (window.isOpen()) {
 
       /*  if (currentState == GameState::BOSS_GAME) {   
-			
 			if (game.playerWin()) {
 				currentState = GameState::NYX1;
 			}
