@@ -51,6 +51,27 @@
     <ClCompile Include="DialogManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BossFight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TypingGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RhythmGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bubble.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="test.json" />
@@ -64,6 +85,11 @@
     <None Include="ares_questions.json" />
     <None Include="nemesis_questions.json" />
     <None Include="daedalus_questions.json" />
+    <None Include="aphrodite_questions.json" />
+    <None Include="hera_questions.json" />
+    <None Include="hermes_questions.json" />
+    <None Include="hypnos_questions.json" />
+    <None Include="zeus_questions.json" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h">
