@@ -5,7 +5,7 @@ void WineGame::initVariables()
     this->endGame = false;
     this->spawnTimerMax = 5.f;
     this->spawnTimer = this->spawnTimerMax;
-    this->maxSwagBalls = 15;
+    this->maxSwagBalls = 20;
     this->points = 0;
     this->damagingItems = 0;  // Track harmful items collected
 }
@@ -17,14 +17,28 @@ void WineGame::initWindow()
     this->window = new sf::RenderWindow(this->videoMode, "Wine Collector", sf::Style::Close | sf::Style::Titlebar);
     this->window->setFramerateLimit(60);
 
+
+
+
+    if (!backgroundTexture.loadFromFile("WineAssets/winebackground.jpg")) {
+        std::cerr << "Error loading background.png" << std::endl;
+    }
+    backgroundSprite.setTexture(backgroundTexture);
+    // Calculate scale factors to fit the window size
+    float scaleX = 800.0f / backgroundTexture.getSize().x;
+    float scaleY = 600.0f / backgroundTexture.getSize().y;
+
+    // Apply the scaling
+    backgroundSprite.setScale(scaleX, scaleY);
+
+    // Audio init
     auto devices = sf::SoundRecorder::getAvailableDevices();
     std::cout << "Audio devices detected:\n";
     for (const auto& device : devices) {
         std::cout << "- " << device << std::endl;
     }
-    // In WineGame::initWindow() - Add this after window creation
     sf::SoundBuffer dummyBuffer;
-    dummyBuffer.loadFromFile("WineAssets/grape_collect.wav"); // Force audio init
+    dummyBuffer.loadFromFile("WineAssets/grape_collect.wav");
 
 }
 
@@ -67,7 +81,7 @@ void WineGame::initText()
         window->getSize().y / 2 - loseText.getLocalBounds().height / 2
     );
 
-    
+
 }
 
 WineGame::WineGame()
@@ -168,11 +182,20 @@ void WineGame::updateCollision()
             switch (this->swagBalls[i].getType())
             {
             case 0: // Grape
+            {
                 this->points++;
-                std::cout << "Grape collected! Attempting to play sound..." << std::endl;
-                grapeSound.stop();
-                grapeSound.play(); // Play sound
+                grapeSound.play();
+
+                // Create effect at player position - now in a scoped block
+                sf::CircleShape effect(10.f);
+                effect.setFillColor(sf::Color(255, 50, 50, 200)); // Gold color with transparency
+                effect.setPosition(
+                    WinePlayer.getPosition().x + WinePlayer.getSprite().getGlobalBounds().width / 2 - 10.f,
+                    WinePlayer.getPosition().y + WinePlayer.getSprite().getGlobalBounds().height / 2 - 10.f
+                );
+                collectionEffects.push_back(effect);
                 break;
+            }
             case 1: // Harmful item
                 this->damagingItems++;
                 harmfulSound.play();
@@ -195,7 +218,7 @@ void WineGame::updateGui()
     ss << " - Grapes: " << this->points << "\n"
         << " - Harmful Items Collected: " << this->damagingItems << " / 5" << "\n";
     guiText.setString(ss.str());
-   
+
 }
 
 void WineGame::update()
@@ -213,6 +236,21 @@ void WineGame::update()
         this->updateWinePlayer();
         this->updateCollision();
         this->updateGui();
+        for (auto& effect : collectionEffects) {
+            float radius = effect.getRadius();
+            if (radius > 0) {
+                effect.setRadius(radius - 0.3f);
+                sf::Color color = effect.getFillColor();
+                color.a = static_cast<sf::Uint8>(color.a * 0.9f); // Fade out
+                effect.setFillColor(color);
+            }
+        }
+
+        // Remove finished effects
+        collectionEffects.erase(
+            std::remove_if(collectionEffects.begin(), collectionEffects.end(),
+                [](const sf::CircleShape& effect) { return effect.getRadius() <= 0; }),
+            collectionEffects.end());
 
         // Check if the player has spoiled the wine (collected 5 harmful items)
         if (this->damagingItems >= 5)
@@ -233,8 +271,11 @@ void WineGame::render()
 {
     this->window->clear();
 
-    
+    window->draw(backgroundSprite);
 
+    for (const auto& effect : collectionEffects) {
+        window->draw(effect);
+    }
     // Render end WineGame text if WineGame is over
     if (this->endGame == true)
         this->window->draw(this->endGameText);
@@ -283,7 +324,7 @@ void WineGame::render()
     }
 }
 
-bool WineGame::getGameWin(){ return GameWon; };
+bool WineGame::getGameWin() { return GameWon; };
 
 void WineGame::initSounds() {
     if (!bgMusic.openFromFile("WineAssets/background_music.ogg")) {  // Use .ogg for music
@@ -314,4 +355,3 @@ void WineGame::initSounds() {
     bgMusic.setVolume(50.f); // 50% volume (0-100)
     grapeSound.setVolume(70.f);
 }
-

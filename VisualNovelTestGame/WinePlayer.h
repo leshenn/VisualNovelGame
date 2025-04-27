@@ -27,6 +27,7 @@ public:
     const int& getHpMax() const;
 
     // Functions
+    sf::Vector2f getPosition() const { return sprite.getPosition(); }
     void takeDamage(const int damage);
     void gainHealth(const int health);
     void updateInput();
@@ -34,10 +35,3 @@ public:
     void update(const sf::RenderTarget* target);
     void render(sf::RenderTarget* target);
 };
-
-
-
-
-
-
-

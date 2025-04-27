@@ -54,9 +54,9 @@ int main()
 
 
 	//Rhythm game construction
-	/*RhythmGame rhythmGame;
+	RhythmGame rhythmGame;
 	rhythmGame.run();
-	cout << rhythmGame.getScore() << endl;*/
+	cout << rhythmGame.getScore() << endl;
 	//(50-150) score
 	//1.5s max added parry time
 	/*float score = rhythmGame.getScore();
@@ -119,12 +119,12 @@ int main()
 	QuizUI quiz = QuizUI(window, currentState);
 	while (window.isOpen()) {
 
-     /* if (currentState == GameState::TYPING_GAME) {  
+      if (currentState == GameState::TYPING_GAME) {  
 		  WordGame wordGame;
 	      wordGame.run();
 		  currentState = GameState::NYX2;
 			
-        }*/
+        }
 
 		Event event;
 		while (window.pollEvent(event)) {
