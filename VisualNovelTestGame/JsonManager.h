@@ -39,10 +39,10 @@ public:
     [[nodiscard]] bool IsLoaded() const noexcept;
 
     /** Completely reset all state to “empty” */
-    void Clear() noexcept;
+    void ClearLoads() noexcept;
 
     /** Clear only the parsed JSON content */
-    void JsonClear() noexcept;
+    void ClearAll() noexcept;
 
 private:
     json    jsonCurrent_;

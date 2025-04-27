@@ -4,7 +4,7 @@
 
 void JsonManager::LoadJson(const std::string& jsonPath) noexcept
 {
-    Clear();
+    ClearAll();
 
     std::ifstream ifs{ jsonPath };
     if (!ifs.is_open()) {
@@ -67,7 +67,19 @@ bool JsonManager::IsLoaded() const noexcept
         && jsonCurrent_["data"].is_array();
 }
 
-void JsonManager::Clear() noexcept
+//Clear the asset variables
+void JsonManager::ClearLoads() noexcept
+{
+    line.clear();
+    backgroundSprite.clear();
+    leftSprite.clear();
+    rightSprite.clear();
+    audioPath.clear();
+    audioLoop = false;
+}
+
+//clear the json and asset variables
+void JsonManager::ClearAll() noexcept
 {
     jsonCurrent_.clear();
     currentIndex_ = 0;
@@ -79,12 +91,6 @@ void JsonManager::Clear() noexcept
     rightSprite.clear();
     audioPath.clear();
     audioLoop = false;
-}
-
-void JsonManager::JsonClear() noexcept
-{
-    jsonCurrent_.clear();
-    UpdateHasNext();
 }
 
 void JsonManager::UpdateHasNext() noexcept

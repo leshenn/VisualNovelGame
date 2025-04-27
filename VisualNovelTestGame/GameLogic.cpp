@@ -370,6 +370,11 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         layout.loadNextButton();
         progressBar.draw();
         break;
+
+	/*case GameState::NYXGREETING_SCENE:
+        
+        break;*/
+
     default:
         break;
     }
@@ -756,6 +761,43 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
 
         break;
+
+    case GameState::NYXGREETING_SCENE:
+        if (!jm.IsLoaded()) {
+            jm.LoadJson("Jsons/Intro/Introduction.json");
+        }
+
+        if (jm.HasNext()) {
+
+            if (event.type == Event::KeyReleased && event.key.code == Keyboard::F) {
+                jm.LoadData();  
+            }
+            else if (event.type == Event::MouseButtonPressed
+                && layout.nextButtonClicked(window))
+            {
+                audio.playClickButtonSound();
+                currentState = GameState::STAGE_ONE_MENU;
+            }
+
+            loadGameAssets(currentState, loadSprites, dialog);
+            renderGameScene(window, currentState, layout, loadSprites,
+                quiz, dialog, audio, progressBar, jm);
+        }
+        else {
+            currentState = GameState::STAGE_ONE_MENU;
+            jm.JsonClear();
+        }
+
+        // Allow skipping forward once dialog is fully finished
+        if (event.type == Event::MouseButtonPressed
+            && dialog.isDialogFinished()
+            && layout.nextButtonClicked(window))
+        {
+            audio.playClickButtonSound();
+            currentState = GameState::STAGE_ONE_MENU;
+        }
+
+        
 
     default:
         break;
