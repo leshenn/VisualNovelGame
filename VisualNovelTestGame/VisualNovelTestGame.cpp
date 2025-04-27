@@ -65,18 +65,16 @@ int main()
 	//WordGame wordGame;
 	//wordGame.run();
 	//cout<<"Word game score "<<wordGame.getFinalScore();
-	////150-275 divide points by 6 this will be health can get netagive score
-	//int health = wordGame.getFinalScore() / 6 + 100;
-	//if (health <= 0) {
-	//	health = 1;
-	//}
+	////150-275 average divide points by 6 this will be health, can get netagive score
+	//int health = wordGame.getFinalScore() / 6 + 85;
+	//health = (health <= 0) ? 1 : health;
 
 	//Boss game construction
-	//Player player1(100, 100, true, 0.75f, 20, 0.0f, true);
+	Player player1(100, 100, true, 0.75f, 11, 0.0f, true);
 	//player = player1;
-	//Player player(100, 100, true, 0.75f+parryTime, 13, 0.0f, true);
-	//BossGame game(player1);
-	//game.run();
+    //Player player(100, 100, true, 0.75f+parryTime, 13, 0.0f, true);
+	BossGame game(player1);
+	game.run();
 
 	//Bubble game construction
 	/*BubbleGame bubble;

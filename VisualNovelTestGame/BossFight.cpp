@@ -325,6 +325,9 @@
         return *this;
     }
 
+    bool Player::getEnableShoot() {return enableShoot;};
+    bool Player::getEnableDash() {return enableDash;};
+
     void Player::loadResources() {
         auto& tm = TextureManager::instance();
         tm.load("player_idle", "BossGameAssets/player/Idle.png");
@@ -1131,9 +1134,8 @@
    
     void BossGame::initBackground() {
         // Load background using TextureManager
-        if (!TextureManager::instance().load("background", "BossGameAssets/background.png")) {
-            std::cerr << "[Game] Failed to load background" << std::endl;
-        }
+        TextureManager::instance().load("background", "BossGameAssets/background.png");
+      
         sf::Texture* bgTexture = TextureManager::instance().get("background");
         if (bgTexture) {
             background.setTexture(*bgTexture);
@@ -1159,12 +1161,26 @@
         }
         // Tutorial messages
         std::vector<std::pair<std::string, float>> messageConfig = {
-        {"Move with A/D Space", 4.5},
-        {"Attack E,left click", 5.0},
-        {"Shoot with F", 5.5},
-        {"Dash with SHIFT", 6.},
-        {"Parry with Q or right click", 6.5}
+        {"Move with A/D Space", 5.0},
+        {"Attack E,left click", 5.5},
+        {"Parry with Q or right click", 6.0}
         };
+        if (player.getEnableShoot()) {
+            TextureManager::instance().load("water_icon", "BossGameAssets/player/Water_icon.png");
+            if (auto tex = TextureManager::instance().get("water_icon")) {
+                shootIcon.setTexture(*tex);
+                shootIcon.setPosition(0, 630);
+            }
+            messageConfig.emplace_back("Shoot with F", 6.5f);
+        }
+        if (player.getEnableDash()) {
+            TextureManager::instance().load("dash_icon", "BossGameAssets/player/Dash_icon.png");
+            if (auto tex = TextureManager::instance().get("dash_icon")) {
+                dashIcon.setTexture(*tex);
+                dashIcon.setPosition(70, 639);
+            }
+            messageConfig.emplace_back("Dash with SHIFT", 6.5f);
+        }
 
         float verticalPosition = 150.f;
         for (auto& [msg, duration] : messageConfig) {
@@ -1433,7 +1449,7 @@
 
         sf::Texture* tex = TextureManager::instance().get("player_projectile");
         if (!tex) {
-            std::cerr << "[Game] Player projectile texture not found!" << std::endl;
+            std::cout << "[Game] Player projectile texture not found!" << std::endl;
             return;
         }
 
@@ -1514,9 +1530,9 @@
         // Boss Rain Projectile (Ultimate)
         if (boss.wantsToShootRain()) {
             // Spawn at random X position above the screen
-            std::uniform_real_distribution<float> rainXDist(0.f, (float)window.getSize().x - 200);
+            std::uniform_real_distribution<float> rainXDist(100.f, (float)window.getSize().x - 200);
             sf::Vector2f startPos = { rainXDist(gameRng), -100.f }; // Start above screen
-            sf::Vector2f velocity = { 0.f, 600.f }; // Straight down
+            sf::Vector2f velocity = { -55.f, 600.f }; // goes left and down
             spawnBossProjectile("boss_projectile_rain", startPos, velocity, 12);
             boss.resetRainProjectileRequest();
         }
@@ -1589,6 +1605,13 @@
         boss.draw(window);
 
         window.draw(timerText); // Draw timer text
+
+        if (player.getEnableDash()) {
+            window.draw(dashIcon);
+        }
+        if (player.getEnableShoot()) {
+            window.draw(shootIcon);
+        }
 
         // Draw end game text
         if (!endGameText.getString().isEmpty()) {

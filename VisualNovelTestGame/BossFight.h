@@ -127,6 +127,8 @@ public:
     bool getFacingRight() const;
     bool isAttacking() const;
     bool isParryProtected() const;
+    bool getEnableShoot();
+    bool getEnableDash();
     //copy constructor
     Player(const Player& other);
     //operator
@@ -320,7 +322,7 @@ private:
     // Core  
     sf::RenderWindow window;
     sf::View gameView = window.getDefaultView();;
-    sf::Sprite background;
+    sf::Sprite background, dashIcon,shootIcon;
     Player player;
     Boss boss;
     std::list<Projectile> projectiles;
