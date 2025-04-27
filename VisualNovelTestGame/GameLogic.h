@@ -25,4 +25,5 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
 void handleGameLogic(RenderWindow& window, GameState& currentState, 
 	ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog,ProgressBar& progressBar, JsonManager& jm);
 
+void updateGameState(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog, ProgressBar& progressBar, JsonManager& jm, const string& jsonPath, GameState nextState);
 static int totalScore = 0;
