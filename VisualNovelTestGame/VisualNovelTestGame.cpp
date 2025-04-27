@@ -36,9 +36,11 @@ const int WIN_HEIGHT = 720;
 
 int main()
 {
-
-	ForgeGame game;
+	//Forge game construction
+	/*ForgeGame game;
 	game.run();
+	cout<<game.getScore();*/
+
 	//wine game construction
 	/*WineGame Winegame;
 	while (Winegame.running())
