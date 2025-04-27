@@ -26,7 +26,7 @@
 #include "WinePlayer.h"
 #include "SwagBall.h"
 #include "WineGame.h"
-
+#include "ForgeGame.h"
 
 using json = nlohmann::json;
 using namespace sf;
@@ -36,6 +36,11 @@ const int WIN_HEIGHT = 720;
 
 int main()
 {
+	//Forge game construction
+	/*ForgeGame game;
+	game.run();
+	cout<<game.getScore();*/
+
 	//wine game construction
 	/*WineGame Winegame;
 	while (Winegame.running())
@@ -70,11 +75,11 @@ int main()
 	//health = (health <= 0) ? 1 : health;
 
 	//Boss game construction
-	Player player1(100, 100, true, 0.75f, 11, 0.0f, true);
+	//Player player1(100, 100, true, 0.75f, 13, 0.0f, true);
 	//player = player1;
     //Player player(100, 100, true, 0.75f+parryTime, 13, 0.0f, true);
-	BossGame game(player1);
-	game.run();
+	//BossGame game(player1);
+	//game.run();
 
 	//Bubble game construction
 	/*BubbleGame bubble;
