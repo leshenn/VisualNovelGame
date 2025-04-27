@@ -1,55 +1,48 @@
-#ifndef JSONMANAGER_H
-#define JSONMANAGER_H
+#pragma once
 
 #include <string>
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 
-using json = nlohmann::json;
-
+// Manages loading and iterating through a dialogue JSON file
 class JsonManager {
 public:
+    using json = nlohmann::json;
+    JsonManager() = default;
+    ~JsonManager() = default;
+
+    // Load a new JSON file; resets internal state
+    void LoadJson(const std::string& jsonPath) noexcept;
+
+    // Load the next entry (line, sprites, audio) from the current JSON
+    void LoadData() noexcept;
+
+    // Check if a JSON file is currently loaded and valid
+    bool IsLoaded() const noexcept;
+
+    // Check if there is another entry to load
+    bool HasNext() const noexcept;
+
+    // Get the path of the currently loaded JSON file
+    std::string GetCurrentPath() const noexcept;
+
+    // Clear all loaded JSON and entry data
+    void ClearAll() noexcept;
+
     // Public fields populated by LoadData()
     std::string line;
     std::string backgroundSprite;
     std::string leftSprite;
     std::string rightSprite;
     std::string audioPath;
-    bool        audioLoop{ false };
-
-    JsonManager() = default;
-    ~JsonManager() = default;
-
-    /**
-     * @brief Load and parse a JSON file containing a top-level "data" array.
-     *        Resets iteration state.
-     * @param jsonPath Path to the JSON file.
-     */
-    void LoadJson(const std::string& jsonPath) noexcept;
-
-    /**
-     * @brief Advance to the next element in the JSON "data" array.
-     *        Populates public fields with values from that element.
-     */
-    void LoadData() noexcept;
-
-    /** True if LoadData() would fetch another entry */
-    [[nodiscard]] bool HasNext() const noexcept { return hasNext_; }
-
-    /** True if a JSON has been successfully loaded (and contains a data array) */
-    [[nodiscard]] bool IsLoaded() const noexcept;
-
-    /** Completely reset all state to “empty” */
-    void ClearLoads() noexcept;
-
-    /** Clear only the parsed JSON content */
-    void ClearAll() noexcept;
+    bool        audioLoop = false;
 
 private:
-    json    jsonCurrent_;
-    size_t  currentIndex_{ 0 };
-    bool    hasNext_{ false };
+    // Internal JSON representation and iteration state
+    nlohmann::json jsonCurrent_;
+    std::string    currentJsonPath_;
+    size_t         currentIndex_ = 0;
+    bool           hasNext_ = false;
 
+    // Update hasNext_ based on currentIndex_ and jsonCurrent_.
     void UpdateHasNext() noexcept;
 };
-
-#endif // JSONMANAGER_H

@@ -1,5 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include <fstream>
+#include <iostream>
 #include "LoadSprites.h"
 
 using namespace std;
@@ -124,10 +126,10 @@ void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string&
 
 }
 
-void LoadSprites::loadDialogueScreen(const string& gameBackgroundPath, const string& godPath, const string& playerPath
-    , const string& gameScrollPath) {
+void LoadSprites::loadDialogueScreen(const string& gameBackgroundPath, const string& godPath, const string& playerPath) {
     //Checks if there is a file to load
     if (!gameBackgroundPath.empty()) {
+        cout << gameBackgroundPath << endl;
         if (!gameBackgroundTexture.loadFromFile(gameBackgroundPath)) {
             throw runtime_error("Failed to load game background texture.");
         }
@@ -137,14 +139,13 @@ void LoadSprites::loadDialogueScreen(const string& gameBackgroundPath, const str
             gameBackgroundTexture.getSize().y, gameBackgroundSprite);
     }
 
-    if (!gameScrollPath.empty()) {
-        if (!gameScrollTexture.loadFromFile(gameScrollPath)) {
-            throw runtime_error("Failed to load game scroll texture.");
-        }
-        gameScrollSprite.setTexture(gameScrollTexture);
-        //position scroll
-        PositionScroll(gameScrollTexture.getSize().x, gameScrollTexture.getSize().y, gameScrollSprite);
+    if (!gameScrollTexture.loadFromFile("Acessories/Scroll.png")) {
+        throw runtime_error("Failed to load game scroll texture.");
     }
+    gameScrollSprite.setTexture(gameScrollTexture);
+    //position scroll
+    PositionScroll(gameScrollTexture.getSize().x, gameScrollTexture.getSize().y, gameScrollSprite);
+    
 
     //does god loading if it exists
     if (!godPath.empty()) {

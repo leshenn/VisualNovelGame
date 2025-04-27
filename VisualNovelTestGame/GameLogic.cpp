@@ -775,49 +775,57 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
 //func
 void updateGameState(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog, ProgressBar& progressBar, JsonManager& jm, const string& jsonPath, GameState nextState) {
-    // Load the JSON file if it is not already loaded
-    if (!jm.IsLoaded()) {
-        jm.ClearAll();
+    // 1. One-time JSON load + first line
+    if (!jm.IsLoaded() || jm.GetCurrentPath() != jsonPath) {
         jm.LoadJson(jsonPath);
-        cout << "Loaded Json" << endl;
-    }
-    // Load the next line of dialog
-    if (event.type == Event::KeyReleased && event.key.code == Keyboard::F) {
-        if (jm.HasNext()) {
+        if (jm.IsLoaded()) {
             jm.LoadData();
+            dialog.SetDialogueText(jm.line);
+            loadSprites.loadDialogueScreen(
+                jm.backgroundSprite,
+                jm.rightSprite,
+                jm.leftSprite );
+            audio.playSound(jm.audioPath, jm.audioLoop);
         }
-        else if (layout.nextButtonClicked(window)) {
-            audio.playClickButtonSound();
-            currentState = nextState;
-        }
-        cout << "next dialogue laoded" << endl;
+        /*else {
+            currentState = GameState::ERROR_STATE;
+            return;
+        }*/
     }
-    if (event.type == Event::MouseButtonPressed) {
-        // Only allow clicking Next if dialog is complete
-        if (dialog.isDialogFinished() && layout.nextButtonClicked(window)) {
-            audio.playClickButtonSound();
-            currentState = nextState;
-        }
-        cout << "button pressed" << endl;
-    }
-    cout << "Drawing" <<endl;
-    //Load Sprites from JsonManager
-    loadSprites.loadDialogueScreen(jm.backgroundSprite, jm.rightSprite, jm.leftSprite, "Acessories/Scroll.png");
 
-    //Draw window
+    // 2. Advance on F-key
+    if (event.type == Event::KeyReleased && event.key.code == Keyboard::F
+        && jm.HasNext() && dialog.isDialogFinished()) {
+        jm.LoadData();
+        dialog.SetDialogueText(jm.line);
+        loadSprites.loadDialogueScreen(
+            jm.backgroundSprite,
+            jm.rightSprite,
+            jm.leftSprite
+        );
+        audio.playSound(jm.audioPath, jm.audioLoop);
+    }
+
+    // 3. Show Next button after final line
+    bool nextVisible = !jm.HasNext() && dialog.isDialogFinished();
+    if (nextVisible) {
+        layout.loadNextButton();
+        if (event.type == Event::MouseButtonPressed
+            && event.mouseButton.button == Mouse::Left
+            && layout.nextButtonClicked(window)) {
+            audio.playClickButtonSound();
+            jm.ClearAll();
+            currentState = nextState;
+            return;
+        }
+    }
+
+    // 4. Draw sprites & dialog
     window.clear();
     window.draw(loadSprites.gameBackgroundSprite);
     window.draw(loadSprites.godSprite);
     window.draw(loadSprites.mainCharacterSprite);
     window.draw(loadSprites.gameScrollSprite);
-    //Draw the dialog text
     dialog.draw(window);
-    //Play Audio
-    audio.playSound(jm.audioPath, jm.audioLoop);
-    jm.ClearLoads();
-
-    // Only show Next button if dialog is complete
-    if (!jm.HasNext()) {
-        layout.loadNextButton();
-    }
+    window.display();
 }

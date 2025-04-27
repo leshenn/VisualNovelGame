@@ -17,20 +17,33 @@ enum class GameState {
     POSEIDON_OPENING_SCENE,
     POESEIDON_CHOICE,
     ATLANTIS_SCENE,             // Jump into Ocean
+    ATLANTIS_WIN_SCENE,
+    ATLANTIS_LOSE_SCENE,
     SHRINE_SCENE,               // Go to Shrine
+    SHRINE_WIN_SCENE,
+    SHRINE_LOSE_SCENE,
     POSEIDON_QUIZ,
 	POEIDON_ENCOUNTER_SCENE,    //Win Quiz + Call BUBBLE_GAME
-    POSEIDON_END_SCENE,         //Lose Quiz
+    POSEIDON_WIN_SCENE,
+    POSEIDON_LOSE_SCENE,
+    POSEIDON_END_SCENE,         //Lose Quiz || End
 
     // Dionysus' Path (Plateaus of Greece)
     DIONYSUS_OPENING_SCENE,
     DIONYSUS_CHOICE,
     KOMOS_SCENE,                // Talk to Stranger
+	KOMOS_WIN_SCENE,
+	KOMOS_LOSE_SCENE,
     FOREST_SCENE,               // Run after Pegasus
+	FOREST_WIN_SCENE,
+	FOREST_LOSE_SCENE,
     DIONYSUS_QUIZ,
 	DIONYSUS_ENCOUNTER_SCENE,   //Win Quiz + Call WINE_GAME
-    DIONYSUS_END_SCENE,         //Lose Quiz
-    PEGASUS_CATCH_SCENE,
+    DIONYSUS_LOSE_SCENE,         
+    DIONYSUS_WIN_SCENE,
+    PEGASUS_CATCH_SCENE,        //Lose Quiz
+	DIONYSUS_END_SCENE,         //End
+
 
     ATHENS_SCENE,
     STAGE_TWO_CHOICE,           // After Stage 1, choose next stage
@@ -40,8 +53,8 @@ enum class GameState {
     // Apollo's Path (Music)
     APOLLO_OPENING_SCENE,
     APOLLO_QUIZ,
-    APOLLO_DANCE_SCENE,         // Lose Quiz
-    APOLLO_BACKSTAGE_SCENE,     // Win Quiz + Call RHYTHM_GAME
+    APOLLO_DANCE_SCENE,         // Win Quiz
+    APOLLO_BACKSTAGE_SCENE,     // Lose Quiz + Call RHYTHM_GAME
 
     // Athena's Path (Smoke)
     ATHENA_OPENING_SCENE,
