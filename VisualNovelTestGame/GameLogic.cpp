@@ -776,9 +776,10 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 //func
 void updateGameState(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog, ProgressBar& progressBar, JsonManager& jm, const string& jsonPath, GameState nextState) {
     // Load the JSON file if it is not already loaded
-    if (jm.IsLoaded()) {
+    if (!jm.IsLoaded()) {
         jm.ClearAll();
         jm.LoadJson(jsonPath);
+        cout << "Loaded Json" << endl;
     }
     // Load the next line of dialog
     if (event.type == Event::KeyReleased && event.key.code == Keyboard::F) {
@@ -789,6 +790,7 @@ void updateGameState(RenderWindow& window, GameState& currentState, ButtonLayout
             audio.playClickButtonSound();
             currentState = nextState;
         }
+        cout << "next dialogue laoded" << endl;
     }
     if (event.type == Event::MouseButtonPressed) {
         // Only allow clicking Next if dialog is complete
@@ -796,7 +798,9 @@ void updateGameState(RenderWindow& window, GameState& currentState, ButtonLayout
             audio.playClickButtonSound();
             currentState = nextState;
         }
+        cout << "button pressed" << endl;
     }
+    cout << "Drawing" <<endl;
     //Load Sprites from JsonManager
     loadSprites.loadDialogueScreen(jm.backgroundSprite, jm.rightSprite, jm.leftSprite, "Acessories/Scroll.png");
 
@@ -810,6 +814,7 @@ void updateGameState(RenderWindow& window, GameState& currentState, ButtonLayout
     dialog.draw(window);
     //Play Audio
     audio.playSound(jm.audioPath, jm.audioLoop);
+    jm.ClearLoads();
 
     // Only show Next button if dialog is complete
     if (!jm.HasNext()) {

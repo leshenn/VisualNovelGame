@@ -18,7 +18,7 @@ void Audio::playBackgroundSound() {
 
 //play any sound and decide if it should be looped
 void Audio::playSound(const string& audioPath, bool loop) {
-	if (audioPath.empty() || audioPath == "") {
+	if (!audioPath.empty() && audioPath != "") {
 		if (!loadedBuffer.loadFromFile(audioPath)) {
 			cout << "Cannot find laoded audio";
 		}
