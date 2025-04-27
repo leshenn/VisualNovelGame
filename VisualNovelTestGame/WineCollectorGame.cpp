@@ -282,6 +282,9 @@ void WineGame::render()
         }
     }
 }
+
+bool WineGame::getGameWin(){ return GameWon; };
+
 void WineGame::initSounds() {
     if (!bgMusic.openFromFile("WineAssets/background_music.ogg")) {  // Use .ogg for music
         std::cerr << "ERROR: Failed to load background music!" << std::endl;
