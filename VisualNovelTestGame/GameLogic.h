@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include "JsonManager.h"
 #include "GameState.h"
 #include "ButtonLayout.h"
 #include "LoadSprites.h"
@@ -22,6 +23,6 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
 void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout& layout, LoadSprites& loadSprites, QuizUI& quiz, DialogManager& dialog, Audio& audio,ProgressBar& progressBar);
 
 void handleGameLogic(RenderWindow& window, GameState& currentState, 
-	ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog,ProgressBar& progressBar);
+	ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog,ProgressBar& progressBar, JsonManager& jm);
 
 static int totalScore = 0;
