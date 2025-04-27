@@ -17,7 +17,6 @@ public:
     sf::Texture* get(const std::string& id);
 };
 
-
 // --- SoundManager ---
 class SoundManager {
 public:

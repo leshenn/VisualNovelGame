@@ -26,7 +26,7 @@
 #include "WinePlayer.h"
 #include "SwagBall.h"
 #include "WineGame.h"
-
+#include "ForgeGame.h"
 
 using json = nlohmann::json;
 using namespace sf;
@@ -36,6 +36,9 @@ const int WIN_HEIGHT = 720;
 
 int main()
 {
+
+	ForgeGame game;
+	game.run();
 	//wine game construction
 	/*WineGame Winegame;
 	while (Winegame.running())
