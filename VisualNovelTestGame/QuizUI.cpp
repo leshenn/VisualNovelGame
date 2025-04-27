@@ -90,8 +90,7 @@ void QuizUI::refreshQuizUI()
 	progressbarOutline.setOrigin(timerBounds.width / 2.0f, timerBounds.height / 2.0f);
 	progressbarOutline.setPosition((window.getSize().x / 2.f)- (50 * manager.questionTimer.getTimeRemaining() / 2.f)+50.f, 675.f);
 
-	timerText.setOrigin(timerBounds.width / 2.0f, timerBounds.height / 2.0f);
-	timerText.setPosition((window.getSize().x / 2.f), 675.f);
+	centerPosition(timerText, 65.f);
 
 	
 
@@ -115,6 +114,7 @@ void QuizUI::refreshQuizUI()
 		answerButtons[i].setPosition({xPos ,yPos});
 	}
 
+	// Set the question text for the current question
 	questionText.setString(currentQuestion.getQuestionText());
 	centerPosition(questionText, window.getSize().y * 0.68f);
 
@@ -134,8 +134,8 @@ void QuizUI::refreshQuizUI()
 
 void QuizUI::updateScoreText()
 {
-	scoreText.setString("Score: " + std::to_string(manager.getScore()) +
-		" out of " + std::to_string(manager.getTotalQuestions()));
+	scoreText.setString("Score: " + to_string(manager.getScore()) +
+		" out of " + to_string(manager.getTotalQuestions()));
 }
 
 // Show result feedback (correct/wrong)
@@ -211,13 +211,7 @@ void QuizUI::showFinalScore() {
 
 	questionText.setString("Quiz Complete!");
 	questionText.setCharacterSize(50);
-	// Center the text horizontally and position it vertically
-	FloatRect bounds = questionText.getLocalBounds();
-	questionText.setOrigin(bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
-	questionText.setPosition(
-		window.getSize().x / 2.f,       // Center horizontally
-		window.getSize().y * 0.77f       // Position at 30% of screen height
-	);
+	centerPosition(questionText, window.getSize().y * 0.77f);
 
 	// Create final score display text
 	std::string resultStr = "Final Score: " + std::to_string(manager.getScore()) +
