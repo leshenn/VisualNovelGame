@@ -144,3 +144,10 @@ void DialogManager::clearText() {
     dialogText.setString("");
     isDialogComplete = true;
 }
+
+//Sets the text 
+void DialogManager::SetDialogueText(const std::string& newText)
+{
+    dialogText.setString(newText);
+}
+

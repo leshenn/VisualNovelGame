@@ -86,22 +86,73 @@ void LoadSprites::loadCharacterSelectionScreen(const string& backgroundPath) {
 }
 
 
-void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string& godPath
-                                ,const string& gameScrollPath) {
+void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string& godPath, const string& gameScrollPath) {
     //Checks if there is a file to load
     if (!gameBackgroundTexture.loadFromFile(gameBackgroundPath)) {
         throw runtime_error("Failed to load game background texture.");
-    }
-    if (!godTexture.loadFromFile(godPath)) {
-        throw runtime_error("Failed to load god texture.");
     }
     if (!gameScrollTexture.loadFromFile(gameScrollPath)) {
         throw runtime_error("Failed to load game scroll texture.");
     }
 
+    //does god loading if it exists
+    if (!godTexture.loadFromFile(godPath)) {
+        throw runtime_error("Failed to load god texture.");
+    }
+    else {
+        godSprite.setTexture(godTexture);
+    }
+
     //Sets the textures
     gameBackgroundSprite.setTexture(gameBackgroundTexture);
-    godSprite.setTexture(godTexture);
+
+    gameScrollSprite.setTexture(gameScrollTexture);
+
+    //Make the background fit the screen
+    fitBackground(WIN_WIDTH, WIN_HEIGHT, gameBackgroundTexture.getSize().x,
+        gameBackgroundTexture.getSize().y, gameBackgroundSprite);
+
+    // The main character will use whatever texture was selected
+    updateMainCharacterDisplay();
+
+    //Position god
+    godSprite.setPosition(730, 100);
+    godSprite.setScale(1, 1);
+
+    //position scroll
+    PositionScroll(gameScrollTexture.getSize().x, gameScrollTexture.getSize().y, gameScrollSprite);
+
+}
+
+void LoadSprites::loadDialogueScreen(const string& gameBackgroundPath, const string& godPath, const string& playerPath
+    , const string& gameScrollPath) {
+    //Checks if there is a file to load
+    if (!gameBackgroundTexture.loadFromFile(gameBackgroundPath)) {
+        throw runtime_error("Failed to load game background texture.");
+    }
+    if (!gameScrollTexture.loadFromFile(gameScrollPath)) {
+        throw runtime_error("Failed to load game scroll texture.");
+    }
+
+    //does god loading if it exists
+    if (!godTexture.loadFromFile(godPath)) {
+        throw runtime_error("Failed to load god texture.");
+    }
+    else {
+        godSprite.setTexture(godTexture);
+    }
+
+    //does player loading if it exists
+    if (!playerTexture.loadFromFile(playerPath)) {
+        throw runtime_error("Failed to load player texture.");
+    }
+    else {
+        mainCharacterSprite.setTexture(playerTexture);
+    }
+
+    //Sets the textures
+    gameBackgroundSprite.setTexture(gameBackgroundTexture);
+
     gameScrollSprite.setTexture(gameScrollTexture);
 
     //Make the background fit the screen

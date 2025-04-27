@@ -1,36 +1,36 @@
 #pragma once
+
 #include <SFML/Audio.hpp>
-
-using namespace sf;
-
+#include <string>               // <— add this
 
 class Audio {
 private:
-	//Create the sound buffers to store the file
-	SoundBuffer backgroundBuffer;
-	SoundBuffer clickButtonBuffer;
-	SoundBuffer correctAnswerBuffer;
-	SoundBuffer incorrectAnswerBuffer;
-	SoundBuffer introductionBuffer;
+    // sound buffers
+    sf::SoundBuffer backgroundBuffer;
+    sf::SoundBuffer clickButtonBuffer;
+    sf::SoundBuffer correctAnswerBuffer;
+    sf::SoundBuffer incorrectAnswerBuffer;
+    sf::SoundBuffer introductionBuffer;
+    sf::SoundBuffer loadedBuffer;
 
-	//Create the sound to play the sound
-	Sound backgroundSound;
-	Sound clickButtonSound;
-	Sound correctAnswerSound;
-	Sound incorrectAnswerSound;
-	Sound introductionSound;
+    // sounds
+    sf::Sound backgroundSound;
+    sf::Sound clickButtonSound;
+    sf::Sound correctAnswerSound;
+    sf::Sound incorrectAnswerSound;
+    sf::Sound introductionSound;
+    sf::Sound loadedSound;
+
 public:
-	//Create the functions for wach sound
-	void playBackgroundSound();
+    void playBackgroundSound();
 
-	void playClickButtonSound();
-	
-	void playCorrectAnswerSound();
-	
-	void playIncorrectAnswerSound();
+    // prefer passing bool by value rather than const-ref
+    void playSound(const std::string& audioPath, bool loop);
 
-	void playIntroductionSound();
+    void playClickButtonSound();
+    void playCorrectAnswerSound();
+    void playIncorrectAnswerSound();
+    void playIntroductionSound();
 
-	bool isIntroductionSoundPlaying() const;
-
+    bool isIntroductionSoundPlaying() const;
 };
