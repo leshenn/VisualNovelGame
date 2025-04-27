@@ -350,7 +350,7 @@
         animations.addAnimation(AnimationState::Run, "player_run", 8, 0.1f, { 160, 128 }, true);
         animations.addAnimation(AnimationState::Attack1, "player_attack1", 6, 0.05f, { 160, 128 }, false);
         animations.addAnimation(AnimationState::Attack2, "player_attack2", 10, 0.035f, { 160, 128 }, false);
-        animations.addAnimation(AnimationState::Attack3, "player_attack3", 16, 0.02f, { 160, 128 }, false);
+        animations.addAnimation(AnimationState::Attack3, "player_attack3", 16, 0.025f, { 160, 128 }, false);
         animations.addAnimation(AnimationState::Jump, "player_jump", 11, 0.08f, { 160, 128 }, false);
         animations.addAnimation(AnimationState::Dash, "player_dash", 5, 0.036f, { 160, 128 }, false);
         animations.addAnimation(AnimationState::Parry, "player_parry", 6, 0.08f, { 160, 128 }, false);
@@ -799,7 +799,7 @@
         animations.addAnimation(AnimationState::BossAttack2, "boss_attack2", 8, 0.12f, { 800, 800 }, false);
         animations.addAnimation(AnimationState::BossAttack3, "boss_attack3", 2, 0.4f, { 800, 800 }, false);
         animations.addAnimation(AnimationState::BossUltimate, "boss_ultimate", 2, 0.3f, { 800, 800 }, false);
-        animations.addAnimation(AnimationState::BossDead, "boss_dead", 9, 0.18f, { 800, 800 }, false);
+        animations.addAnimation(AnimationState::BossDead, "boss_dead", 7, 0.25f, { 800, 800 }, false);
         animations.play(AnimationState::BossIdle);
     }
 
