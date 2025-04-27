@@ -321,8 +321,7 @@
             damageColor = other.damageColor;
             knockbackForceX = other.knockbackForceX;
             knockbackForceY = other.knockbackForceY;
-            isGrounded = other.isGrounded;
-        
+            isGrounded = other.isGrounded;       
         return *this;
     }
 

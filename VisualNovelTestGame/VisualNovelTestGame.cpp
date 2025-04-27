@@ -42,7 +42,11 @@ int main()
 	{
 		Winegame.update();
 		Winegame.render();
+	}
+	if (Winegame.getGameWin()) {
+		cout << "you won" << endl;
 	}*/
+
 
 	//Rhythm game construction
 	/*RhythmGame rhythmGame;
@@ -68,11 +72,11 @@ int main()
 	//}
 
 	//Boss game construction
-	/*Player player1(100, 100, true, 0.75f, 20, 0.0f, true);
-	player = player1;*/
-	/*Player player(100, 100, true, 0.75f+parryTime, 13, 0.0f, true);
-	BossGame game(player);
-	game.run();*/
+	//Player player1(100, 100, true, 0.75f, 20, 0.0f, true);
+	//player = player1;
+	//Player player(100, 100, true, 0.75f+parryTime, 13, 0.0f, true);
+	//BossGame game(player1);
+	//game.run();
 
 	//Bubble game construction
 	/*BubbleGame bubble;
@@ -112,12 +116,12 @@ int main()
 	QuizUI quiz = QuizUI(window, currentState);
 	while (window.isOpen()) {
 
-      if (currentState == GameState::TYPING_GAME) {  
+     /* if (currentState == GameState::TYPING_GAME) {  
 		  WordGame wordGame;
 	      wordGame.run();
 		  currentState = GameState::NYX2;
 			
-        }
+        }*/
 
 		Event event;
 		while (window.pollEvent(event)) {

@@ -70,6 +70,7 @@ public:
   virtual ~WineGame();  
 
   // Functions  
+  bool getGameWin();
   void initSounds();  
   const bool& getEndGame() const;  
   const bool running() const;  
