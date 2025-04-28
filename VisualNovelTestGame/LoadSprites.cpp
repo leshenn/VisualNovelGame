@@ -169,9 +169,6 @@ void LoadSprites::loadDialogueScreen(const string& gameBackgroundPath, const str
             mainCharacterSprite.setTexture(playerTexture);
         }
     }
-
-    // The main character will use whatever texture was selected
-    updateMainCharacterDisplay();
 }
 
 void LoadSprites::fitBackground(float winWidth, float winHeight,

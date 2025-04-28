@@ -90,7 +90,6 @@ void JsonManager::ClearAll() noexcept {
 }
 
 void JsonManager::Clear() noexcept {
-    currentJsonPath_.clear();
     line.clear();
     backgroundSprite.clear();
     leftSprite.clear();

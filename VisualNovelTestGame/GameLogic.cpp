@@ -777,62 +777,77 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 //func
 void updateGameState(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog, ProgressBar& progressBar, JsonManager& jm, const string& jsonPath, GameState nextState) {
 
-    if ((event.type == Event::KeyReleased && event.key.code == Keyboard::F) || !jm.IsLoaded()) {
-		
-        // 1. Advance on F-key if json is loaded + not at end of json
-        if (event.type == Event::KeyReleased && event.key.code == Keyboard::F && !jm.IsLoaded() && jm.HasNext()) {
-            jm.Clear();
-            jm.LoadData();
-            dialog.SetDialogueText(jm.line);
-            cout << jm.line << " 1." << endl;
-            loadSprites.loadDialogueScreen(jm.backgroundSprite, jm.rightSprite, jm.leftSprite);
-            audio.playSound(jm.audioPath, jm.audioLoop);
-
-            //Draw sprites & dialog
-            window.clear();
-            window.draw(loadSprites.gameBackgroundSprite);
-            window.draw(loadSprites.godSprite);
-            window.draw(loadSprites.mainCharacterSprite);
-            window.draw(loadSprites.gameScrollSprite);
-            dialog.draw(window);
-            window.display();
-        }
-
-        // 2. One-time JSON load
+        // --- 1. JSON Initialization ---
         if (!jm.IsLoaded() || jm.GetCurrentPath() != jsonPath) {
+            cout << "updateGameState: Loading JSON '" << jsonPath << "' (Current: '" << jm.GetCurrentPath() << "')." << endl;
             jm.ClearAll();
             jm.LoadJson(jsonPath);
-            cout << jm.line << " 2." << endl;
 
-            //load data
-            jm.LoadData();
-            dialog.SetDialogueText(jm.line);
+            if (jm.IsLoaded()) {
+                jm.LoadData();
+                dialog.SetDialogueText(jm.line);
+            }
+            else {
+                cerr << "updateGameState: ERROR - Failed to load JSON. Transitioning to ERROR_STATE." << endl;
+                currentState = GameState::MENU;
+                return;
+            }
+        }
+
+        if (!jm.IsLoaded()) {
+            return; // Early exit if JSON still not loaded.
+        }
+
+        // --- 2. Handle Events ---
+        bool stateChanged = false;
+        bool needsRedraw = false;
+
+        // Advance dialogue on 'F' key
+        if (event.type == Event::KeyReleased && event.key.code == Keyboard::F) {
+            if (jm.HasNext() && dialog.isDialogFinished()) {
+                jm.LoadData();
+                dialog.SetDialogueText(jm.line);
+                needsRedraw = true;
+            }
+            else {
+                cout << "updateGameState: Cannot advance. HasNext=" << boolalpha << jm.HasNext()
+                    << ", DialogFinished=" << boolalpha << dialog.isDialogFinished() << endl;
+            }
+        }
+
+        // Transition to next state on "Next" button click
+        bool canTransition = !jm.HasNext() && dialog.isDialogFinished();
+
+        if (event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left) {
+            Vector2i mousePos = { event.mouseButton.x, event.mouseButton.y };
+            if (canTransition && layout.nextButtonClicked(window)) {
+                cout << "updateGameState: Next button clicked. Transitioning state." << endl;
+                audio.playClickButtonSound();
+                jm.ClearAll();
+                currentState = nextState;
+                stateChanged = true;
+                return;
+            }
+        }
+
+        // --- 3. Drawing ---
+        if (!stateChanged) {
             loadSprites.loadDialogueScreen(jm.backgroundSprite, jm.rightSprite, jm.leftSprite);
             audio.playSound(jm.audioPath, jm.audioLoop);
 
-            //Draw sprites & dialog
-            window.clear();
+            window.clear(Color::Black);
             window.draw(loadSprites.gameBackgroundSprite);
             window.draw(loadSprites.godSprite);
             window.draw(loadSprites.mainCharacterSprite);
             window.draw(loadSprites.gameScrollSprite);
             dialog.draw(window);
+
+            if (canTransition) {
+                layout.loadNextButton();
+            }
+
             window.display();
-
         }
+    
 
-        // 3. Show Next button after final line
-        if (!jm.HasNext()) {
-            layout.loadNextButton();
-            cout << jm.line << " 3." << endl;
-        }
-        if (event.type == Event::MouseButtonPressed && layout.nextButtonClicked(window)) {
-            audio.playClickButtonSound();
-            jm.ClearAll();
-            currentState = nextState;
-            cout << jm.line << " 4." << endl;
-            return;
-        }
-
-    }
 }
