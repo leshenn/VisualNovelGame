@@ -446,6 +446,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 currentState = GameState::STAGE_ONE_MENU;
             }
         }
+        cout << "nyx1 ran" << endl;
         loadGameAssets(currentState, loadSprites, dialog);
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
@@ -775,57 +776,63 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
 //func
 void updateGameState(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog, ProgressBar& progressBar, JsonManager& jm, const string& jsonPath, GameState nextState) {
-    // 1. One-time JSON load + first line
-    if (!jm.IsLoaded() || jm.GetCurrentPath() != jsonPath) {
-        jm.LoadJson(jsonPath);
-        if (jm.IsLoaded()) {
+
+    if ((event.type == Event::KeyReleased && event.key.code == Keyboard::F) || !jm.IsLoaded()) {
+		
+        // 1. Advance on F-key if json is loaded + not at end of json
+        if (event.type == Event::KeyReleased && event.key.code == Keyboard::F && !jm.IsLoaded() && jm.HasNext()) {
+            jm.Clear();
             jm.LoadData();
             dialog.SetDialogueText(jm.line);
-            loadSprites.loadDialogueScreen(
-                jm.backgroundSprite,
-                jm.rightSprite,
-                jm.leftSprite );
+            cout << jm.line << " 1." << endl;
+            loadSprites.loadDialogueScreen(jm.backgroundSprite, jm.rightSprite, jm.leftSprite);
             audio.playSound(jm.audioPath, jm.audioLoop);
+
+            //Draw sprites & dialog
+            window.clear();
+            window.draw(loadSprites.gameBackgroundSprite);
+            window.draw(loadSprites.godSprite);
+            window.draw(loadSprites.mainCharacterSprite);
+            window.draw(loadSprites.gameScrollSprite);
+            dialog.draw(window);
+            window.display();
         }
-        /*else {
-            currentState = GameState::ERROR_STATE;
-            return;
-        }*/
-    }
 
-    // 2. Advance on F-key
-    if (event.type == Event::KeyReleased && event.key.code == Keyboard::F
-        && jm.HasNext() && dialog.isDialogFinished()) {
-        jm.LoadData();
-        dialog.SetDialogueText(jm.line);
-        loadSprites.loadDialogueScreen(
-            jm.backgroundSprite,
-            jm.rightSprite,
-            jm.leftSprite
-        );
-        audio.playSound(jm.audioPath, jm.audioLoop);
-    }
+        // 2. One-time JSON load
+        if (!jm.IsLoaded() || jm.GetCurrentPath() != jsonPath) {
+            jm.ClearAll();
+            jm.LoadJson(jsonPath);
+            cout << jm.line << " 2." << endl;
 
-    // 3. Show Next button after final line
-    bool nextVisible = !jm.HasNext() && dialog.isDialogFinished();
-    if (nextVisible) {
-        layout.loadNextButton();
-        if (event.type == Event::MouseButtonPressed
-            && event.mouseButton.button == Mouse::Left
-            && layout.nextButtonClicked(window)) {
+            //load data
+            jm.LoadData();
+            dialog.SetDialogueText(jm.line);
+            loadSprites.loadDialogueScreen(jm.backgroundSprite, jm.rightSprite, jm.leftSprite);
+            audio.playSound(jm.audioPath, jm.audioLoop);
+
+            //Draw sprites & dialog
+            window.clear();
+            window.draw(loadSprites.gameBackgroundSprite);
+            window.draw(loadSprites.godSprite);
+            window.draw(loadSprites.mainCharacterSprite);
+            window.draw(loadSprites.gameScrollSprite);
+            dialog.draw(window);
+            window.display();
+
+        }
+
+        // 3. Show Next button after final line
+        if (!jm.HasNext()) {
+            layout.loadNextButton();
+            cout << jm.line << " 3." << endl;
+        }
+        if (event.type == Event::MouseButtonPressed && layout.nextButtonClicked(window)) {
             audio.playClickButtonSound();
             jm.ClearAll();
             currentState = nextState;
+            cout << jm.line << " 4." << endl;
             return;
         }
-    }
 
-    // 4. Draw sprites & dialog
-    window.clear();
-    window.draw(loadSprites.gameBackgroundSprite);
-    window.draw(loadSprites.godSprite);
-    window.draw(loadSprites.mainCharacterSprite);
-    window.draw(loadSprites.gameScrollSprite);
-    dialog.draw(window);
-    window.display();
+    }
 }

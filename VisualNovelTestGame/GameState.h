@@ -60,6 +60,7 @@ enum class GameState {
     ATHENA_OPENING_SCENE,
     ATHENA_QUIZ,
     ATHENA_WAITING_SCENE,       // Lose Quiz
+    ATHENA_REJECTION_SCENE,     // Win Quiz + Win BUBBLE_GAME
     ATHENA_STUDY_SCENE,         // Win Quiz + Call TYPING_GAME
 
     // Hephaestus' Path (Forge)
@@ -70,8 +71,20 @@ enum class GameState {
 
     // --- Stage 3 ---
 
-    HADES_OPENING_SCENE,
-    HADES_QUIZ,
+    // Hera's Path (Palace)
+	HERA_OPENING_SCENE,
+    HERA_QUIZ,
+	HERA_REJECTION_SCENE,
+    HERA_END_SCENE,
+
+
+    // Aphrodite's Path (Bedchamber)
+	APHRODITE_OPENING_SCENE,
+	APHRODITE_QUIZ,
+	APHRODITE_REJECTION_SCENE,
+	APHRODITE_END_SCENE,
+
+    // Hades' Path (Underworld)
     HADES_ENCOUNTER_SCENE,      //Call BOSS_GAME
 
     HADES_FALSE_ENDING,         // Lose Game
@@ -83,6 +96,7 @@ enum class GameState {
     BUBBLE_GAME,
     RHYTHM_GAME,
     WINE_GAME,
+    FORGE_GAME,
 
     // --- OLD STATES ---
     CHOOSE_CHARACTER,       // Choose gender of character

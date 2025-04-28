@@ -28,6 +28,9 @@ public:
     // Clear all loaded JSON and entry data
     void ClearAll() noexcept;
 
+    //Clear the jm data
+    void Clear() noexcept;
+
     // Public fields populated by LoadData()
     std::string line;
     std::string backgroundSprite;

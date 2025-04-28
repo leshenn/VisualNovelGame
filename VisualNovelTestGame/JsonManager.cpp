@@ -38,7 +38,6 @@ void JsonManager::LoadJson(const std::string& jsonPath) noexcept {
 }
 
 void JsonManager::LoadData() noexcept {
-    if (!hasNext_) return;
     const auto& arr = jsonCurrent_["data"];
     if (currentIndex_ >= arr.size()) {
         hasNext_ = false;
@@ -81,6 +80,16 @@ void JsonManager::ClearAll() noexcept {
     jsonCurrent_.clear();
     currentIndex_ = 0;
     hasNext_ = false;
+    currentJsonPath_.clear();
+    line.clear();
+    backgroundSprite.clear();
+    leftSprite.clear();
+    rightSprite.clear();
+    audioPath.clear();
+    audioLoop = false;
+}
+
+void JsonManager::Clear() noexcept {
     currentJsonPath_.clear();
     line.clear();
     backgroundSprite.clear();

@@ -1,0 +1,95 @@
+{
+  "data": [
+    {
+      "line": "*Applauds*",
+      "background_sprite": "Backgrounds/Vineyard.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Dionysus.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Sharp eyes for a mortal! Though I suspect Hades's blood helps.",
+      "background_sprite": "Backgrounds/Vineyard.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Dionysus.png",
+      "audio": { "path": "", "loop": false }
+    }, 
+    {
+      "line": "Hades's blood? But I thoguht I was a mortal?",
+      "background_sprite": "Backgrounds/Vineyard.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Tosses a glowing purple orb*",
+      "background_sprite": "Backgrounds/Vineyard.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Dionysus.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "What is this? It's... warm?",
+      "background_sprite": "Backgrounds/Vineyard.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Free this soul from Nyx's grasp when the time comes.",
+      "background_sprite": "Backgrounds/Vineyard.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Dionysus.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "How did you—",
+      "background_sprite": "Backgrounds/Vineyard.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "The vines whisper many things, demigod. More than you'd like, less than I know.",
+      "background_sprite": "Backgrounds/Vineyard.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Dionysus.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Stumbles in, hiccuping*",
+      "background_sprite": "Backgrounds/Vineyard.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Pegasus.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "You fed him wine grapes?!",
+      "background_sprite": "Backgrounds/Vineyard.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Just enough to make the flight... interesting.",
+      "background_sprite": "Backgrounds/Vineyard.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Dionysus.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Now off with you both before I change my mind and turn you into a particularly dramatic grapevine.",
+      "background_sprite": "Backgrounds/Vineyard.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Dionysus.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Flies away*",
+      "background_sprite": "Backgrounds/Vineyard.png",
+      "left_sprite": "Characters/Transparent.png",
+      "left_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    }
+  ]
+}
