@@ -12,14 +12,14 @@
 #include "QuizUI.h"
 #include "DialogManager.h"
 #include "ProgressBar.h"
-#include "WordGame.hpp"
-#include "BossFight.h"
 #include <vector>
 #include <map>
 #include <string>
 #include <cmath>
 #include <random>
 #include <list>
+#include "WordGame.hpp"
+#include "BossFight.h"
 #include "RhythmGame.h"
 #include "Bubble.h"
 #include "BubbleGame.h"
@@ -54,9 +54,9 @@ int main()
 
 
 	//Rhythm game construction
-	RhythmGame rhythmGame;
+	/*RhythmGame rhythmGame;
 	rhythmGame.run();
-	cout << rhythmGame.getScore() << endl;
+	cout << rhythmGame.getScore() << endl;*/
 	//(50-150) score
 	//1.5s max added parry time
 	/*float score = rhythmGame.getScore();
@@ -123,7 +123,7 @@ int main()
 		  WordGame wordGame;
 	      wordGame.run();
 		  currentState = GameState::NYX2;
-			
+		  window.setVisible(true);
         }
 
 		Event event;

@@ -751,8 +751,8 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
-	case GameState::BOSS_GAME:
-
+	case GameState::TYPING_GAME:
+        window.setVisible(false);
 
         break;
 
