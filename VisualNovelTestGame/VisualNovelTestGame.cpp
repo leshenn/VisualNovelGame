@@ -36,6 +36,15 @@ const int WIN_HEIGHT = 720;
 
 int main()
 {
+	/*int Health = 85;
+	bool DashPowerUp = false;
+	float parryTime = 0.f;
+	int baseAttack = 13;
+	float defense = 0.0f;
+	bool ShootPowerUp = false;*/
+
+   //Player player(100, 100, true, 0.75f+parryTime, 13, 0.0f, true);
+
 	//Forge game construction
 	/*ForgeGame game;
 	game.run();
@@ -77,7 +86,6 @@ int main()
 	//Boss game construction
 	//Player player1(100, 100, true, 0.75f, 13, 0.0f, true);
 	//player = player1;
-    //Player player(100, 100, true, 0.75f+parryTime, 13, 0.0f, true);
 	//BossGame game(player1);
 	//game.run();
 
