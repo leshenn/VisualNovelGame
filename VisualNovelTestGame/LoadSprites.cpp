@@ -14,11 +14,6 @@ void LoadSprites::loadCharacterOptions(const string& malePath, const string& fem
             throw runtime_error("Failed to load male character texture.");
         }
     }
-    if (femaleCharacterTexture.getSize() == sf::Vector2u(0, 0)) {
-        if (!femaleCharacterTexture.loadFromFile(femalePath)) {
-            throw runtime_error("Failed to load female character texture.");
-        }
-    }
 
     // Default to male character
     isMaleCharacterSelected = true;
@@ -150,6 +145,7 @@ void LoadSprites::loadDialogueScreen(const string& gameBackgroundPath, const str
     //does god loading if it exists
     if (!godPath.empty()) {
         if (!godTexture.loadFromFile(godPath)) {
+            cout << godPath << endl;
             throw runtime_error("Failed to load god texture.");
         }
         else {
