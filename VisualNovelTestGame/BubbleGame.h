@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <memory>
 #include <vector>
 #include "Bubble.h"  // Include Bubble class
@@ -23,6 +24,9 @@ private:
     std::unique_ptr<Bubble> currentShot = nullptr;
     sf::Vector2f shotVelocity;
     sf::Font font;
+    sf::SoundBuffer oceanBuffer;
+    sf::Sound oceanSound;
+    
 
 public:
     BubbleGame();
@@ -37,4 +41,5 @@ public:
     void popMatchingBubbles(size_t index);
     sf::Color randomColor();
     bool isGameOver() const { return gameOver; }
+    bool showInstructions;
 };

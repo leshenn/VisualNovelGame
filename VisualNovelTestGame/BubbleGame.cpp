@@ -9,10 +9,14 @@
 
 using namespace std;
 
+//For the bubble Shooter game I rendered the instructions on the screen before drawing the bubbles and other assets
+// and the game logic. The game starts when the user clicks the mouse button to dismiss the instructions.
 BubbleGame::BubbleGame()
     : window(sf::VideoMode(800, 600), "Bubble Shooter"), shooterPos(400, 550), timeLimit(90.0f),
     gameOver(false), BubbleGameWon(false), currentShot(nullptr)
+
 {
+	showInstructions = true; // Initialize showInstructions to true
     shooter.setRadius(15);
     shooter.setFillColor(sf::Color::Red);
     shooter.setPosition(shooterPos);
@@ -24,6 +28,17 @@ BubbleGame::BubbleGame()
         cout << "Failed to load background image!" << std::endl;
     }
     backgroundSprite.setTexture(backgroundTexture);
+
+    if (!oceanBuffer.loadFromFile("BubbleAssets/whale.wav")) {
+        std::cout << "Failed to load ocean sound!" << std::endl;
+    }
+    else {
+        oceanSound.setBuffer(oceanBuffer);
+        oceanSound.setLoop(true); // Loop the ocean sound
+        oceanSound.setVolume(40); // Adjust volume to avoid being too loud
+        oceanSound.play();
+    }
+
 
     // Scale background to fit window
     sf::Vector2u windowSize = window.getSize();
@@ -81,6 +96,8 @@ void BubbleGame::setUpBubble()
 
 void BubbleGame::update()
 {
+    if (showInstructions) return;
+
     float elapsedTime = gameClock.getElapsedTime().asSeconds();
 
     // Handle win or loss state
@@ -103,10 +120,12 @@ void BubbleGame::update()
     // Close the window 5 seconds after win or lose
     if ((BubbleGameWon || gameOver) && endTimerStarted) {
         if (endClock.getElapsedTime().asSeconds() >= 5.0f) {
+            oceanSound.stop();  // Stop the ocean sound
             window.close();
             return;
         }
     }
+
 
     // Skip updating game logic after win/loss
     if (BubbleGameWon || gameOver) return;
@@ -197,6 +216,19 @@ void BubbleGame::render()
     window.draw(backgroundSprite);
     window.draw(shooter);
 
+    if (showInstructions) {
+        sf::Text instructions;
+        instructions.setFont(font);
+        instructions.setCharacterSize(28);
+        instructions.setFillColor(sf::Color::White);
+        instructions.setStyle(sf::Text::Bold);
+        instructions.setString("Shoot all the bubbles in 90 seconds or lose!\n\nClick to begin...");
+        instructions.setPosition(100, 200);
+        window.draw(instructions);
+        window.display();
+        return; // Skip drawing rest of game until user clicks
+    }
+
     for (auto& bubble : bubbles) {
         bubble.render(window);
     }
@@ -258,11 +290,21 @@ void BubbleGame::handling()
 {
     sf::Event event;
     while (window.pollEvent(event)) {
-        if (event.type == sf::Event::Closed)
+        if (event.type == sf::Event::Closed) {
+            oceanSound.stop();
             window.close();
-        if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
-            shootBubble();
         }
+
+        if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+            if (showInstructions) {
+                showInstructions = false; // Start the game
+                gameClock.restart();      // Start the timer only after dismissing instructions
+            }
+            else {
+                shootBubble();
+            }
+        }
+
     }
 }
 
