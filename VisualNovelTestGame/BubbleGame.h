@@ -16,6 +16,8 @@ private:
     bool gameOver = false;
     sf::Clock gameClock;
     const float timeLimit = 90.0f;
+    sf::Clock endClock;
+    bool endTimerStarted = false;
 
     std::vector<Bubble> bubbles;
     std::unique_ptr<Bubble> currentShot = nullptr;

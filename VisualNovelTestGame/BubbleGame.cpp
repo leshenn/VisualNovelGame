@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <algorithm>
+#include <sstream>
 
 using namespace std;
 
@@ -32,7 +33,7 @@ BubbleGame::BubbleGame()
     float scale = std::max(scaleX, scaleY);
     backgroundSprite.setScale(scale, scale);
 
-    if (!font.loadFromFile("assets/arial.ttf")) {
+    if (!font.loadFromFile("Fonts/norse/Norsebold.otf")) {
         cout << "Failed to load font!" << std::endl;
     }
 
@@ -80,13 +81,35 @@ void BubbleGame::setUpBubble()
 
 void BubbleGame::update()
 {
-    if (gameOver || BubbleGameWon) return;
-
     float elapsedTime = gameClock.getElapsedTime().asSeconds();
-    if (elapsedTime >= timeLimit) {
+
+    // Handle win or loss state
+    if (!gameOver && elapsedTime >= timeLimit) {
         gameOver = true;
-        return;
+        if (!endTimerStarted) {
+            endClock.restart();
+            endTimerStarted = true;
+        }
     }
+
+    if (!BubbleGameWon && bubbles.empty()) {
+        BubbleGameWon = true;
+        if (!endTimerStarted) {
+            endClock.restart();
+            endTimerStarted = true;
+        }
+    }
+
+    // Close the window 5 seconds after win or lose
+    if ((BubbleGameWon || gameOver) && endTimerStarted) {
+        if (endClock.getElapsedTime().asSeconds() >= 5.0f) {
+            window.close();
+            return;
+        }
+    }
+
+    // Skip updating game logic after win/loss
+    if (BubbleGameWon || gameOver) return;
 
     if (currentShot) {
         currentShot->shape.move(shotVelocity);
@@ -123,10 +146,29 @@ void BubbleGame::update()
         }
     }
 
-    if (bubbles.empty() && !BubbleGameWon) {
+    // Check again if all bubbles are gone
+    if (!BubbleGameWon && bubbles.empty()) {
         BubbleGameWon = true;
+        if (!endTimerStarted) {
+            endClock.restart();
+            endTimerStarted = true;
+        }
+    }
+
+    // Instant loss if any bubble reaches the shooter's row
+    for (const auto& bubble : bubbles) {
+        float bubbleBottom = bubble.shape.getPosition().y + bubble.shape.getRadius() * 2;
+        if (bubbleBottom >= shooterPos.y) {
+            gameOver = true;
+            if (!endTimerStarted) {
+                endClock.restart();
+                endTimerStarted = true;
+            }
+            break;
+        }
     }
 }
+
 
 void BubbleGame::setUpLevel()
 {
@@ -163,6 +205,7 @@ void BubbleGame::render()
         currentShot->render(window);
     }
 
+    // Draw aiming line
     sf::Vertex line[] = {
         sf::Vertex(shooterPos + sf::Vector2f(15, 15), sf::Color::White),
         sf::Vertex((sf::Vector2f)sf::Mouse::getPosition(window), sf::Color::White)
@@ -187,8 +230,29 @@ void BubbleGame::render()
         window.draw(message);
     }
 
+    // --- Draw Timer in top right ---
+    float elapsedTime = gameClock.getElapsedTime().asSeconds();
+    float remainingTime = std::max(0.0f, timeLimit - elapsedTime);
+
+    sf::Text timerText;
+    timerText.setFont(font);
+    timerText.setCharacterSize(24);
+    timerText.setFillColor(sf::Color::White);
+
+    std::ostringstream ss;
+    ss << "Time: " << static_cast<int>(remainingTime);
+    timerText.setString(ss.str());
+
+    // Align to top right
+    sf::FloatRect textBounds = timerText.getLocalBounds();
+    timerText.setOrigin(textBounds.width, 0);  // Right-align
+    timerText.setPosition(790, 10);  // 10 pixels from right and top
+
+    window.draw(timerText);
+
     window.display();
 }
+
 
 void BubbleGame::handling()
 {
