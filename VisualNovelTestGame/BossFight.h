@@ -17,7 +17,6 @@ public:
     sf::Texture* get(const std::string& id);
 };
 
-
 // --- SoundManager ---
 class SoundManager {
 public:
@@ -127,6 +126,8 @@ public:
     bool getFacingRight() const;
     bool isAttacking() const;
     bool isParryProtected() const;
+    bool getEnableShoot();
+    bool getEnableDash();
     //copy constructor
     Player(const Player& other);
     //operator
@@ -302,7 +303,7 @@ public:
     BossGame(Player player); 
     void run();
     bool playerWin() const;
-    sf::Time finalTime;
+    sf::Time getFinalTime();
 
 private:
     void initBackground();
@@ -317,10 +318,11 @@ private:
     sf::FloatRect getPlayerHitbox() const;
     sf::FloatRect getBossHitbox() const;
 
+    sf::Time finalTime;
     // Core  
     sf::RenderWindow window;
     sf::View gameView = window.getDefaultView();;
-    sf::Sprite background;
+    sf::Sprite background, dashIcon,shootIcon;
     Player player;
     Boss boss;
     std::list<Projectile> projectiles;

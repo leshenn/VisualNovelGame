@@ -28,8 +28,7 @@ public:
     void render();
     void handling();
     bool isRunning();
-	void setUpLevel();
-	void popMatchingBubbles(size_t index);
+    void setUpLevel();
+    void popMatchingBubbles(size_t index);
     sf::Color randomColor();
 };
-

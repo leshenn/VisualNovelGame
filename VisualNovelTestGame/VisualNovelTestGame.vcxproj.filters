@@ -82,6 +82,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="JsonManager.cpp">
+    <ClCompile Include="ForgeGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EndScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -165,6 +169,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="JsonManager.h">
+    <ClInclude Include="ForgeGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EndScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

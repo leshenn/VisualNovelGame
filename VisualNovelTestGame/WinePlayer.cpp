@@ -3,7 +3,7 @@
 
 void WinePlayer::initVariables()
 {
-    this->movementSpeed = 7.f;
+    this->movementSpeed = 9.f;
     this->hpMax = 10;
     this->hp = hpMax;
 }
@@ -113,4 +113,3 @@ void WinePlayer::render(sf::RenderTarget* target)
 {
     target->draw(this->sprite);
 }
-

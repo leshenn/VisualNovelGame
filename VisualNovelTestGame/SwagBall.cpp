@@ -4,6 +4,7 @@
 sf::Texture SwagBall::grapeTexture;
 sf::Texture SwagBall::harmfulTexture;
 bool SwagBall::texturesLoaded = false;
+sf::Clock animationClock;
 
 SwagBall::SwagBall(const sf::RenderWindow& window, int type)
     : type(type)

@@ -758,9 +758,14 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
+
     case GameState::BOSS_GAME:
 
         break;
+
+	case GameState::TYPING_GAME:
+        window.setVisible(false);
+
 
     case GameState::NYXGREETING_SCENE:
         updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/Intro/Introduction.json", GameState::NYX1);

@@ -11,4 +11,3 @@ public:
 	Bubble(float x, float y, float radius, sf::Color color);
 	void render(sf::RenderWindow& window);
 };
-
