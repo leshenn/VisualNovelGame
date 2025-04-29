@@ -37,4 +37,5 @@ public:
     void popMatchingBubbles(size_t index);
     sf::Color randomColor();
     bool isGameOver() const { return gameOver; }
+    bool getBubbleGameWon();
 };
