@@ -212,7 +212,7 @@ void  WordGame::run() {
     sf::Sound mysound;
     mysound.setBuffer(s);
     mysound.setLoop(true); // Loop the sound
-    mysound.setVolume(10);
+    mysound.setVolume(50);
     mysound.play();
     while (window.isOpen()) {
         handleEvents();

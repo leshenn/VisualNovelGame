@@ -39,9 +39,9 @@ int main()
 {
 	int Health = 85;
 	bool DashPowerUp = false;
-	float parryTime = 0.f;
+	float parryTime = 0.75f;
 	int baseAttack = 13;
-	float defense = 0.0f;
+	float defense = 1.0f; //0 %
 	bool ShootPowerUp = false;
 
    //Player player(100, 100, true, 0.75f+parryTime, 13, 0.0f, true);
@@ -85,7 +85,7 @@ int main()
 	//health = (health <= 0) ? 1 : health;
 
 	//Boss game construction
-	//Player player1(100, 100, true, 0.75f, 13, 0.0f, true);
+	//Player player1(100, 100, true, 0.75f, 13, 1.0f, true);
 	//player = player1;
 	//BossGame game(player1);
 	//game.run();
@@ -130,19 +130,93 @@ int main()
 	QuizUI quiz = QuizUI(window, currentState);
 	while (window.isOpen()) {
 
-      if (currentState == GameState::TYPING_GAME) {  		  
-		  WordGame wordGame;
-		  wordGame.run();                           //-13 need 75 or higher for no penalty
-	      Health = (wordGame.getFinalScore() / 6) - 13 +85;
-	      Health = (Health <= 0) ? 1 : Health;
-		  if (wordGame.getGameOver()) {
-			  string text = (Health > 100) ? "This has granted you " : "I take ";
-			  text += Health + " health.";
-			  dialog.setMingameResult(text);
-			  currentState = GameState::NYX2;
-			  window.setVisible(true);
-		  }
+
+
+		if (currentState == GameState::TYPING_GAME) {
+			audio.toggleBackgroundSound();
+			WordGame wordGame;
+			wordGame.run();                           //-13 need 75 or higher for no penalty
+			Health = (wordGame.getFinalScore() / 6) - 13 + 85;
+			Health = (Health <= 0) ? 1 : Health;
+			if (wordGame.getGameOver()) {
+				string text = (Health > 100) ? "This has granted you " : "Failed you are down to ";
+				text += Health + " health.";
+				dialog.setMingameResult(text);
+				currentState = GameState::FORGE_GAME;
+				window.setVisible(true);
+			}
+			audio.toggleBackgroundSound();
+		}
+		if (currentState == GameState::FORGE_GAME){
+			audio.toggleBackgroundSound();
+			ForgeGame Forgegame;
+			Forgegame.run();
+			baseAttack = ((Forgegame.getScore() - 200) / 60) + 13;
+			string text = (baseAttack > 13) ? "You made a sharper knife + " : "You've dulled your knife -";
+            text += to_string((Forgegame.getScore() - 200) / 60) + " attack";
+			dialog.setMingameResult(text);
+			window.setVisible(true);
+			currentState = GameState::RHYTHM_GAME;
+			audio.toggleBackgroundSound();
         }
+		if (currentState == GameState::RHYTHM_GAME) {
+			audio.toggleBackgroundSound();
+			RhythmGame rhythmGame;
+			rhythmGame.run();
+			float score = rhythmGame.getScore();
+			float ratio = (score - 50) / 100;
+			parryTime += (0.75f * ratio);
+			string text = (parryTime > 0.75f) ? "You have mastered timing + " : "Bad rhythm -";
+			text += to_string(0.75f * ratio) + " parry time";
+			dialog.setMingameResult(text);
+			currentState = GameState::WINE_GAME;
+			window.setVisible(true);
+			audio.toggleBackgroundSound();
+		}
+		if (currentState == GameState::WINE_GAME) {
+			audio.toggleBackgroundSound();
+			WineGame Winegame;
+			while (Winegame.running()){
+				Winegame.update();
+				Winegame.render();
+			}
+			if (Winegame.getGameWin()) {
+				string text = "You have gained DRUNKEN DASH";
+				dialog.setMingameResult(text);
+				DashPowerUp = true;
+			}
+			currentState = GameState::BUBBLE_GAME;
+			window.setVisible(true);
+			audio.toggleBackgroundSound();
+		}
+		if (currentState == GameState::BUBBLE_GAME) {
+			audio.toggleBackgroundSound();
+			BubbleGame bubble;
+			while (bubble.isRunning()) {
+				bubble.handling();
+				bubble.update();
+				bubble.render();
+			}
+			if(bubble.getBubbleGameWon()){
+				string text = "You have gained shoot shoot";
+				dialog.setMingameResult(text);
+				ShootPowerUp = true;
+			}
+			currentState = GameState::BOSS_GAME;
+			window.setVisible(true);
+			audio.toggleBackgroundSound();
+		}
+		if (currentState == GameState::BOSS_GAME) {
+			audio.toggleBackgroundSound();
+			Player player1(Health, Health, DashPowerUp, parryTime, baseAttack, 1.0f, ShootPowerUp);
+			BossGame game(player1);
+			game.run();
+			currentState = GameState::NYX1;
+			window.setVisible(true);
+			audio.toggleBackgroundSound();
+		}
+
+
 
 		Event event;
 		while (window.pollEvent(event)) {

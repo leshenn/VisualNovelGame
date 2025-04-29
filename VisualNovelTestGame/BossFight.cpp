@@ -237,7 +237,7 @@
         enableDash(enableDash),
         parrySuccessDuration(parrySuccessTime),
         attackDamage(baseAttackDamage),
-        defensePercent(std::clamp(defensePercent, 0.0f, 1.0f)),
+        defensePercent(defensePercent),
         enableShoot(enableShoot),
         rng(std::random_device{}())
     {
@@ -517,7 +517,7 @@
             return;
         }
         SoundManager::instance().play("player_damaged");
-        int actualDamage = static_cast<int>(amount * (1 - defensePercent));
+        int actualDamage = static_cast<int>(amount * defensePercent);
         currentHealth -= actualDamage;
         currentHealth = std::max(0, currentHealth);
         std::cout << "[Player] Took " << actualDamage << " damage. Health: " << currentHealth << "/" << maxHealth << std::endl;
