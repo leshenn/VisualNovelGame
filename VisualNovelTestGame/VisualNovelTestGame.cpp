@@ -133,6 +133,8 @@ int main()
 			quiz.update();
 			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz, dialog,progressBar, jm);
 		}
+
+		//FIX DOUBLE LOADING
 		quiz.update();
 		renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio,progressBar);
 	}

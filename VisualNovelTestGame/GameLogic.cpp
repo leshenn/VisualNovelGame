@@ -800,14 +800,13 @@ void updateGameState(RenderWindow& window, GameState& currentState, ButtonLayout
 
         // --- 2. Handle Events ---
         bool stateChanged = false;
-        bool needsRedraw = false;
 
         // Advance dialogue on 'F' key
         if (event.type == Event::KeyReleased && event.key.code == Keyboard::F) {
             if (jm.HasNext() && dialog.isDialogFinished()) {
+                jm.Clear();
                 jm.LoadData();
                 dialog.SetDialogueText(jm.line);
-                needsRedraw = true;
             }
             else {
                 cout << "updateGameState: Cannot advance. HasNext=" << boolalpha << jm.HasNext()
@@ -818,20 +817,19 @@ void updateGameState(RenderWindow& window, GameState& currentState, ButtonLayout
         // Transition to next state on "Next" button click
         bool canTransition = !jm.HasNext() && dialog.isDialogFinished();
 
-        if (event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left) {
-            Vector2i mousePos = { event.mouseButton.x, event.mouseButton.y };
-            if (canTransition && layout.nextButtonClicked(window)) {
+        if (event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left && canTransition && layout.nextButtonClicked(window)) {
                 cout << "updateGameState: Next button clicked. Transitioning state." << endl;
                 audio.playClickButtonSound();
                 jm.ClearAll();
                 currentState = nextState;
                 stateChanged = true;
                 return;
-            }
+            
         }
 
         // --- 3. Drawing ---
         if (!stateChanged) {
+            cout << "drawn" << endl;
             loadSprites.loadDialogueScreen(jm.backgroundSprite, jm.rightSprite, jm.leftSprite);
             audio.playSound(jm.audioPath, jm.audioLoop);
 
