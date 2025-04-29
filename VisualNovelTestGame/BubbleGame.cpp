@@ -12,7 +12,7 @@ using namespace std;
 //For the bubble Shooter game I rendered the instructions on the screen before drawing the bubbles and other assets
 // and the game logic. The game starts when the user clicks the mouse button to dismiss the instructions.
 BubbleGame::BubbleGame()
-    : window(sf::VideoMode(800, 600), "Bubble Shooter"), shooterPos(400, 550), timeLimit(90.0f),
+    : window(sf::VideoMode(800, 600), "Bubble Shooter"), shooterPos(400, 550), timeLimit(120.0f),
     gameOver(false), BubbleGameWon(false), currentShot(nullptr)
 
 {
@@ -222,7 +222,7 @@ void BubbleGame::render()
         instructions.setCharacterSize(28);
         instructions.setFillColor(sf::Color::White);
         instructions.setStyle(sf::Text::Bold);
-        instructions.setString("Shoot all the bubbles in 90 seconds or lose!\n\nClick to begin...");
+        instructions.setString("Shoot all the bubbles in 120 seconds or lose!\n\nClick to begin...");
         instructions.setPosition(100, 200);
         window.draw(instructions);
         window.display();

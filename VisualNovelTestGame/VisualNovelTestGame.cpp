@@ -44,70 +44,6 @@ int main()
 	float defense = 1.0f; //0 %
 	bool ShootPowerUp = false;
 
-   //Player player(100, 100, true, 0.75f+parryTime, 13, 0.0f, true);
-
-	//Forge game construction
-	/*ForgeGame game;
-	game.run();
-	cout<<(game.getScore()-200) / 60;*/
-
-	//wine game construction
-	/*WineGame Winegame;
-	while (Winegame.running())
-	{
-		Winegame.update();
-		Winegame.render();
-	}
-	if (Winegame.getGameWin()) {
-		cout << "you won" << endl;
-	}*/
-
-
-	//Rhythm game construction
-	/*RhythmGame rhythmGame;
-	rhythmGame.run();
-	cout << rhythmGame.getScore() << endl;*/
-	//(50-150) score
-	//1.5s max added parry time
-	/*float score = rhythmGame.getScore();
-	float ratio = (score - 50) / 100;
-	float parryTime = (0.75f * ratio);
-	if (parryTime < 0) {
-		parryTime = 0;
-	}
-	cout <<"parry time "<< parryTime << endl;*/
-	
-	//WordGame wordGame;
-	//wordGame.run();
-	//cout<<"Word game score "<<wordGame.getFinalScore();
-	//150-275 average divide points by 6 this will be health, can get netagive score
-	//int health = wordGame.getFinalScore() / 6 + 85;
-	//health = (health <= 0) ? 1 : health;
-
-	//Boss game construction
-	//Player player1(100, 100, true, 0.75f, 13, 1.0f, true);
-	//player = player1;
-	//BossGame game(player1);
-	//game.run();
-
-	//Bubble game construction
-	 /* BubbleGame bubble;
-	  while (bubble.isRunning()) {
-		bubble.handling();
-		bubble.update();
-		bubble.render();
-	}
-	  bubble.getBubbleGameWon();*/
-
-	    //Word game construction
-		//WordGame Wordgame;
-		//Wordgame.run();
-    
-		/* if (Wordgame.getGameOver()) {
-			cout << "Game Over!" << endl;
-			cout << "final score is " << Wordgame.getFinalScore() << endl;
-		}*/
-
 	RenderWindow window(VideoMode(WIN_WIDTH, WIN_HEIGHT), "Visual Novel");
 	window.setFramerateLimit(30);
 	LoadSprites loadSprites;
@@ -215,8 +151,6 @@ int main()
 			window.setVisible(true);
 			audio.toggleBackgroundSound();
 		}
-
-
 
 		Event event;
 		while (window.pollEvent(event)) {
