@@ -91,12 +91,12 @@ int main()
 	//game.run();
 
 	//Bubble game construction
-	BubbleGame bubble;
-	while (bubble.isRunning()) {
-		bubble.handling();
-		bubble.update();
-		bubble.render();
-	}
+	//BubbleGame bubble;
+	//while (bubble.isRunning()) {
+	//	bubble.handling();
+	//	bubble.update();
+	//	bubble.render();
+	//}
 
 	    //Word game construction
 		//WordGame Wordgame;
