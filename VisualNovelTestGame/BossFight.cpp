@@ -1678,3 +1678,5 @@
         window.display();
     }
 
+    sf::Time BossGame::getFinalTime() {return finalTime;};
+

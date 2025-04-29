@@ -303,7 +303,7 @@ public:
     BossGame(Player player); 
     void run();
     bool playerWin() const;
-    sf::Time finalTime;
+    sf::Time getFinalTime();
 
 private:
     void initBackground();
@@ -318,6 +318,7 @@ private:
     sf::FloatRect getPlayerHitbox() const;
     sf::FloatRect getBossHitbox() const;
 
+    sf::Time finalTime;
     // Core  
     sf::RenderWindow window;
     sf::View gameView = window.getDefaultView();;
