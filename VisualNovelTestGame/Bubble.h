@@ -1,8 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-class Bubble
-{
+class Bubble {
 public:
     sf::CircleShape shape;
     sf::Color color;

@@ -1,15 +1,16 @@
 #include "BubbleGame.h"
-
 #include "Bubble.h"
 
 #include <cmath>
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
 BubbleGame::BubbleGame()
-    : window(sf::VideoMode(800, 600), "Bubble Shooter"), shooterPos(400, 550)
+    : window(sf::VideoMode(800, 600), "Bubble Shooter"), shooterPos(400, 550), timeLimit(90.0f),
+    gameOver(false), BubbleGameWon(false), currentShot(nullptr)
 {
     shooter.setRadius(15);
     shooter.setFillColor(sf::Color::Red);
@@ -23,19 +24,19 @@ BubbleGame::BubbleGame()
     }
     backgroundSprite.setTexture(backgroundTexture);
 
-    // Scale to window size and preserve aspect ratio
+    // Scale background to fit window
     sf::Vector2u windowSize = window.getSize();
     sf::Vector2u textureSize = backgroundTexture.getSize();
     float scaleX = static_cast<float>(windowSize.x) / textureSize.x;
     float scaleY = static_cast<float>(windowSize.y) / textureSize.y;
-    float scale = std::max(scaleX, scaleY);  // To preserve aspect ratio
-
+    float scale = std::max(scaleX, scaleY);
     backgroundSprite.setScale(scale, scale);
 
-    // Load the font once for win/lose messages
     if (!font.loadFromFile("assets/arial.ttf")) {
         cout << "Failed to load font!" << std::endl;
     }
+
+    gameClock.restart();
 }
 
 void BubbleGame::spawnBubble(float x, float y, sf::Color color)
@@ -45,22 +46,16 @@ void BubbleGame::spawnBubble(float x, float y, sf::Color color)
 
 void BubbleGame::shootBubble()
 {
-
-    if (BubbleGameWon || gameOver) return;  // Don't allow shooting if the game is won or over
-
-    if (currentShot != nullptr) return;  // Only one bubble can be in the air
-
+    if (BubbleGameWon || gameOver || currentShot) return;
 
     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
     sf::Vector2f dir(mousePos.x - shooterPos.x, mousePos.y - shooterPos.y);
     float length = std::sqrt(dir.x * dir.x + dir.y * dir.y);
+    if (length == 0) return;
 
-    if (length == 0) return;  // Avoid division by zero
     dir /= length;
-
     currentShot = std::make_unique<Bubble>(shooterPos.x + 15, shooterPos.y, 15, shooter.getFillColor());
-    shotVelocity = dir * 2.0f;  // Set speed
-
+    shotVelocity = dir * 2.0f;
 }
 
 void BubbleGame::setUpBubble()
@@ -68,21 +63,16 @@ void BubbleGame::setUpBubble()
     float radius = 15.0f;
     int rows = 5;
     int cols = 6;
-
     float bubbleSpacing = radius * 2;
     float totalWidth = cols * bubbleSpacing;
-    float startX = (800 - totalWidth) / 2.0f;  // Center the grid
-    float startY = 50.0f; // Starting near top
-
+    float startX = (800 - totalWidth) / 2.0f;
+    float startY = 50.0f;
 
     for (int row = 0; row < rows; ++row) {
         for (int col = 0; col < cols; ++col) {
             float x = startX + col * bubbleSpacing;
             float y = startY + row * bubbleSpacing;
-
-            // Offset every other row to form a triangle pattern
             if (row % 2 == 1) x += radius;
-
             bubbles.push_back(Bubble(x, y, radius, randomColor()));
         }
     }
@@ -90,35 +80,28 @@ void BubbleGame::setUpBubble()
 
 void BubbleGame::update()
 {
+    if (gameOver || BubbleGameWon) return;
 
-    if (gameOver || BubbleGameWon) return;  // Don't update if the game is over or won
-
-    // Check if 90 seconds have passed
     float elapsedTime = gameClock.getElapsedTime().asSeconds();
     if (elapsedTime >= timeLimit) {
-        gameOver = true;  // Mark the game as over
+        gameOver = true;
+        return;
     }
 
     if (currentShot) {
-        currentShot->shape.move(shotVelocity);  // Move the bubble
-
-
+        currentShot->shape.move(shotVelocity);
         sf::Vector2f pos = currentShot->shape.getPosition();
 
-        // Wall bounce logic
         if (pos.x <= 0 || pos.x + currentShot->shape.getRadius() * 2 >= 800) {
-            shotVelocity.x = -shotVelocity.x;  // Reverse the X velocity on collision
+            shotVelocity.x = -shotVelocity.x;
         }
 
-        // Top of screen = miss
         if (pos.y < 0) {
-            currentShot.reset();  // Clear current shot using unique_ptr
-
+            currentShot.reset();
             shooter.setFillColor(randomColor());
             return;
         }
 
-        // Collision with bubbles
         for (size_t i = 0; i < bubbles.size(); ++i) {
             float dist = std::hypot(
                 pos.x - bubbles[i].shape.getPosition().x,
@@ -130,20 +113,16 @@ void BubbleGame::update()
                     popMatchingBubbles(i);
                 }
                 else {
-
-                    bubbles.push_back(*currentShot);  // Add to bubbles if they don't match
+                    bubbles.push_back(*currentShot);
                 }
 
-                currentShot.reset();  // Clear current shot using unique_ptr
-
+                currentShot.reset();
                 shooter.setFillColor(randomColor());
                 return;
             }
         }
     }
 
-
-    // If no more bubbles, player wins
     if (bubbles.empty() && !BubbleGameWon) {
         BubbleGameWon = true;
     }
@@ -155,88 +134,61 @@ void BubbleGame::setUpLevel()
     float diameter = radius * 2;
     int rows = 5;
     int cols = 12;
-
-    // Calculate total grid width and height
     float totalWidth = cols * diameter;
     float totalHeight = rows * diameter;
-
-    // Centering the grid on the screen
-    float startX = (800 - totalWidth) / 2.0f;  // Center horizontally
-    float startY = (600 - totalHeight) / 2.0f; // Center vertically
+    float startX = (800 - totalWidth) / 2.0f;
+    float startY = (600 - totalHeight) / 2.0f;
 
     for (int row = 0; row < rows; ++row) {
         for (int col = 0; col < cols; ++col) {
-            // Offset every other row for staggered pattern
             float x = startX + col * diameter;
             float y = startY + row * diameter;
-
-            if (row % 2 == 1) {
-                x += radius;  // Offset every other row to form a triangular pattern
-            }
-
-            // Random colors for bubbles
-            sf::Color color = randomColor();
-
-            spawnBubble(x, y, color);
+            if (row % 2 == 1) x += radius;
+            spawnBubble(x, y, randomColor());
         }
     }
 }
 
-
 void BubbleGame::render()
 {
     window.clear();
-
-
-    window.draw(backgroundSprite);  // Draw the background first
-
-    window.draw(shooter);  // Draw the shooter
+    window.draw(backgroundSprite);
+    window.draw(shooter);
 
     for (auto& bubble : bubbles) {
-        bubble.render(window);  // Draw bubbles
+        bubble.render(window);
     }
 
     if (currentShot) {
-        currentShot->render(window);  // Draw the flying bubble
+        currentShot->render(window);
     }
 
-    // Aiming line
-    sf::Vertex line[] =
-    {
+    sf::Vertex line[] = {
         sf::Vertex(shooterPos + sf::Vector2f(15, 15), sf::Color::White),
         sf::Vertex((sf::Vector2f)sf::Mouse::getPosition(window), sf::Color::White)
     };
     window.draw(line, 2, sf::Lines);
 
-    // Draw win message
+    // Draw win or lose message
+    sf::Text message;
+    message.setFont(font);
+    message.setCharacterSize(50);
+    message.setStyle(sf::Text::Bold);
+    message.setPosition(300, 250);
+
     if (BubbleGameWon) {
-        sf::Text winText("You Win!", font, 50);
-        winText.setFillColor(sf::Color::Green);
-        winText.setStyle(sf::Text::Bold);
-        winText.setPosition(800 / 2 - 100, 600 / 2 - 50);
-        window.draw(winText);
+        message.setString("You Win!");
+        message.setFillColor(sf::Color::Green);
+        window.draw(message);
     }
-
-    // Draw lose message if the game is lost
-    if (gameOver) {
-        sf::Text loseText("You Lose!", font, 50);
-        loseText.setFillColor(sf::Color::Red);
-        loseText.setStyle(sf::Text::Bold);
-    }
-
-        sf::Font font;
-        if (font.loadFromFile("assets/arial.ttf")) { // You can use any font you have
-            sf::Text winText("You Win!", font, 50);
-            winText.setFillColor(sf::Color::Green);
-            winText.setStyle(sf::Text::Bold);
-            winText.setPosition(800 / 2 - 100, 600 / 2 - 50);
-            window.draw(winText);
-        }
+    else if (gameOver) {
+        message.setString("You Lose!");
+        message.setFillColor(sf::Color::Red);
+        window.draw(message);
     }
 
     window.display();
 }
-
 
 void BubbleGame::handling()
 {
@@ -244,10 +196,8 @@ void BubbleGame::handling()
     while (window.pollEvent(event)) {
         if (event.type == sf::Event::Closed)
             window.close();
-        if (event.type == sf::Event::MouseButtonPressed) {
-            if (event.mouseButton.button == sf::Mouse::Left) {
-                shootBubble();
-            }
+        if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+            shootBubble();
         }
     }
 }
@@ -256,7 +206,6 @@ bool BubbleGame::isRunning()
 {
     return window.isOpen();
 }
-
 
 void BubbleGame::popMatchingBubbles(size_t index)
 {
@@ -290,12 +239,10 @@ void BubbleGame::popMatchingBubbles(size_t index)
         }
     }
 
-    // Pop the bubbles
     for (auto i : toPop) {
         bubbles[i].isActive = false;
     }
 
-    // Remove popped bubbles
     bubbles.erase(std::remove_if(bubbles.begin(), bubbles.end(),
         [](const Bubble& b) { return !b.isActive; }), bubbles.end());
 }
@@ -310,4 +257,3 @@ sf::Color BubbleGame::randomColor()
     }
     return sf::Color::White;
 }
-
