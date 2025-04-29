@@ -1,8 +1,9 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <memory>
 #include <vector>
-#include "Bubble.h"
+#include "Bubble.h"  // Include Bubble class
 
 class BubbleGame {
 private:
@@ -12,12 +13,14 @@ private:
     sf::Texture backgroundTexture;
     sf::Sprite backgroundSprite;
     bool BubbleGameWon = false;
+    bool gameOver = false;
+    sf::Clock gameClock;
+    const float timeLimit = 90.0f;
 
-
-    std::vector<Bubble> bubbles;  // Grid or stuck bubbles
-
-    Bubble* currentShot = nullptr;     // The flying bubble
-    sf::Vector2f shotVelocity;         // Direction & speed of the shot
+    std::vector<Bubble> bubbles;
+    std::unique_ptr<Bubble> currentShot = nullptr;
+    sf::Vector2f shotVelocity;
+    sf::Font font;
 
 public:
     BubbleGame();
@@ -31,4 +34,5 @@ public:
     void setUpLevel();
     void popMatchingBubbles(size_t index);
     sf::Color randomColor();
+    bool isGameOver() const { return gameOver; }
 };
