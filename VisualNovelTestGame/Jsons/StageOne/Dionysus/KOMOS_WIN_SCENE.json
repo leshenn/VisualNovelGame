@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "line": "Well, well! I have been gifted with the presence of a scholar!",
+      "background_sprite": "Backgrounds/Lake.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Komos.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Snaps fingers*",
+      "background_sprite": "Backgrounds/Lake.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Komos.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Don't embarrass me in front of Dionysus!",
+      "background_sprite": "Backgrounds/Vineyard.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    }
+  ]
+}

@@ -6,6 +6,7 @@ using namespace sf;
 using namespace std;
 
 void Audio::playBackgroundSound() {
+	backgroundSound.stop();
 	if (!backgroundBuffer.loadFromFile("Audio/Background.wav")) {
 		cout << "Cannot find background audio";
 	}
@@ -14,6 +15,22 @@ void Audio::playBackgroundSound() {
 	backgroundSound.setLoop(true);
 	backgroundSound.setVolume(20);
 	backgroundSound.play();
+}
+
+//play any sound and decide if it should be looped
+void Audio::playSound(const string& audioPath, bool loop) {
+	loadedSound.stop();
+	loadedSound.setLoop(false);
+	if (!audioPath.empty() && audioPath != "") {
+		if (!loadedBuffer.loadFromFile(audioPath)) {
+			cout << "Cannot find laoded audio";
+		}
+
+		loadedSound.setBuffer(loadedBuffer);
+		loadedSound.setLoop(loop);
+		loadedSound.setVolume(20);
+		loadedSound.play();
+	}
 }
 
 

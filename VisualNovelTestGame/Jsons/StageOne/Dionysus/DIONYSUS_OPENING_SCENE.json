@@ -1,0 +1,60 @@
+{
+  "data": [
+    {
+      "line": "*Player splashes face*",
+      "background_sprite": "Backgrounds/Lake.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "How long have we flown? My legs ache...",
+      "background_sprite": "Backgrounds/Lake.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Distant music plays*",
+      "background_sprite": "Backgrounds/Lake.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Excited neigh*",
+      "background_sprite": "Backgrounds/Lake.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Pegasus.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Whoa! What's—",
+      "background_sprite": "Backgrounds/Lake.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Flies away*",
+      "background_sprite": "Backgrounds/Lake.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Pegasus.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Melanopter! Come back!",
+      "background_sprite": "Backgrounds/Lake.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Ho there, lost one!",
+      "background_sprite": "Backgrounds/Lake.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Komos.png",
+      "audio": { "path": "", "loop": false }
+    }
+  ]
+}

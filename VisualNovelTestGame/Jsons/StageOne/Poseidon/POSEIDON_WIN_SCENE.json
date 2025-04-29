@@ -1,0 +1,53 @@
+{
+  "data": [
+    {
+      "line": "Surprisingly not useless. Take this for your journey",
+      "background_sprite": "Backgrounds/PoseidonChamber.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Poseidon.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Tosses blue orb*",
+      "background_sprite": "Backgrounds/PoseidonChamber.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "May this guide her spirit.",
+      "background_sprite": "Backgrounds/PoseidonChamber.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Poseidon.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Her? What is—",
+      "background_sprite": "Backgrounds/PoseidonChamber.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Pushed out*",
+      "background_sprite": "Backgrounds/ShrineHallways.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "He didn't even give me directions. Maybe that woman will help",
+      "background_sprite": "Backgrounds/ShrineHallways.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "...",
+      "background_sprite": "Backgrounds/ShrineHallways.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    }
+  ]
+}

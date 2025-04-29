@@ -144,6 +144,7 @@
     <ClCompile Include="ButtonLayout.cpp" />
     <ClCompile Include="DialogManager.cpp" />
     <ClCompile Include="BubbleGame.cpp" />
+    <ClCompile Include="JsonManager.cpp" />
     <ClCompile Include="EndScreen.cpp" />
     <ClCompile Include="ForgeGame.cpp" />
     <ClCompile Include="WineCollectorGame.cpp" />
@@ -187,6 +188,7 @@
     <ClInclude Include="ButtonLayout.h" />
     <ClInclude Include="DialogManager.h" />
     <ClInclude Include="BubbleGame.h" />
+    <ClInclude Include="JsonManager.h" />
     <ClInclude Include="EndScreen.h" />
     <ClInclude Include="ForgeGame.h" />
     <ClInclude Include="WineGame.h" />

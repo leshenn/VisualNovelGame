@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <nlohmann/json.hpp>
+#include "JsonManager.h"
 #include "Button.h"
 #include "LoadSprites.h"
 #include "GameState.h"
@@ -90,12 +91,21 @@ int main()
 	//game.run();
 
 	//Bubble game construction
+<<<<<<< HEAD
 	BubbleGame bubble;
 	while (bubble.isRunning()) {
 		bubble.handling();
 		bubble.update();
 		bubble.render();
 	}
+=======
+	//BubbleGame bubble;
+	//while (bubble.isRunning()) {
+	//	bubble.handling();
+	//	bubble.update();
+	//	bubble.render();
+	//}
+>>>>>>> main
 
 	    //Word game construction
 		//WordGame Wordgame;
@@ -110,6 +120,7 @@ int main()
 	window.setFramerateLimit(30);
 	LoadSprites loadSprites;
 	GameState currentState;
+	JsonManager jm;
 	Font newFont;
 	newFont.loadFromFile("Fonts/norse/Norsebold.otf");
 	Audio audio;
@@ -130,6 +141,7 @@ int main()
       if (currentState == GameState::TYPING_GAME) {  
 		  WordGame wordGame;
 	      wordGame.run();
+		  dialog.setMingameResult("kukuhaha");
 		  currentState = GameState::NYX2;
 		  window.setVisible(true);
         }
@@ -140,10 +152,12 @@ int main()
 				window.close();
 
 			quiz.update();
-			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz, dialog,progressBar);
+			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz, dialog,progressBar, jm);
 		}
+
+		//FIX DOUBLE LOADING
 		quiz.update();
-		renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio,progressBar);
+		//renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio,progressBar);
 	}
 
 	return 0;

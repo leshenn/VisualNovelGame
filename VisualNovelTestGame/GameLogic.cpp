@@ -1,3 +1,4 @@
+#include "JsonManager.h"
 #include "GameLogic.h"
 #include "QuizUI.h"
 #include "QuizManager.h"
@@ -369,6 +370,11 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         layout.loadNextButton();
         progressBar.draw();
         break;
+
+	/*case GameState::NYXGREETING_SCENE:
+        
+        break;*/
+
     default:
         break;
     }
@@ -376,10 +382,10 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
     window.display();  // Update the window with the newly drawn content
 }
 
-void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog,ProgressBar& progressBar)
-{   
+void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog, ProgressBar& progressBar, JsonManager& jm)
+{
     static bool isDialogLoaded = false;  // static to persist across frames
-	
+
     switch (currentState) {
     case GameState::MENU:
         if (event.type == Event::MouseButtonPressed) {
@@ -389,18 +395,18 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio,progressBar);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
     case GameState::INTRO:
         if (!isDialogLoaded) {
             dialog.loadIntroDialog("nyx1_dialog.json", "instruction_screen");
-           // audio.playIntroductionSound();
+            // audio.playIntroductionSound();
             isDialogLoaded = true;  // Mark dialog as loaded
         }
 
-        
-       
+
+
         if (dialog.hasMoreLines()) {
             dialog.introNextLine();
         }
@@ -409,10 +415,10 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 dialog.clearText();
                 isDialogLoaded = false;
                 audio.playClickButtonSound();
-                currentState = GameState::NYX1;
+                currentState = GameState::NYXGREETING_SCENE;
             }
         }
-        
+
         loadGameAssets(currentState, loadSprites, dialog);
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
@@ -440,15 +446,16 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 currentState = GameState::STAGE_ONE_MENU;
             }
         }
+        cout << "nyx1 ran" << endl;
         loadGameAssets(currentState, loadSprites, dialog);
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
-   
+
 
     case GameState::STAGE_ONE_MENU:
         isDialogLoaded = false;
         dialog.reset();
-        
+
         if (event.type == Event::MouseButtonPressed) {
             audio.playClickButtonSound();
             Vector2i mousePos = Mouse::getPosition(window);
@@ -460,25 +467,25 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 quiz.initQuiz(newState); // Initialize with the selected world
             }
             currentState = newState;
-            
-               
+
+
         }
-		
+
         loadGameAssets(currentState, loadSprites, dialog);
-        
+
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
-		
+
         break;
 
     case GameState::SEAWORLD:
     case GameState::UNDERWORLD:
     case GameState::COUNTRY_SIDE:
         loadGameAssets(currentState, loadSprites, dialog);
-        
+
         // Handle quiz events
         if (event.type == Event::MouseButtonPressed) {
             if (!quiz.isQuizComplete()) {
-				progressBar.update();
+                progressBar.update();
                 quiz.handleEvent(); // Normal quiz handling
             }
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
@@ -500,8 +507,8 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
                 int currentScore = quiz.getScore();
                 quiz.resetQuiz();  // Reset the quiz state before moving to stage
-                                
-                if(currentScore < 4)
+
+                if (currentScore < 4)
                 {
                     currentState = GameState::DELPHI;
                     quiz.initQuiz(currentState);
@@ -524,12 +531,12 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // Handle quiz events
         if (event.type == Event::MouseButtonPressed) {
             if (!quiz.isQuizComplete()) {
-				progressBar.update();
+                progressBar.update();
                 quiz.handleEvent(); // Normal quiz handling
             }
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
                 // Only proceed if quiz is complete AND Next is clicked
-				progressBar.update();
+                progressBar.update();
                 audio.playClickButtonSound();
                 currentState = GameState::NYX3;
             }
@@ -562,7 +569,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
-    
+
     case GameState::THRACE:
     case GameState::RHAMNOUS:
         loadGameAssets(currentState, loadSprites, dialog);
@@ -570,7 +577,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // Handle quiz events
         if (event.type == Event::MouseButtonPressed) {
             if (!quiz.isQuizComplete()) {
-				progressBar.update();
+                progressBar.update();
                 quiz.handleEvent(); // Normal quiz handling
             }
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
@@ -605,7 +612,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // Handle quiz events
         if (event.type == Event::MouseButtonPressed) {
             if (!quiz.isQuizComplete()) {
-				progressBar.update();
+                progressBar.update();
                 quiz.handleEvent(); // Normal quiz handling
             }
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
@@ -648,7 +655,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // Handle quiz events
         if (event.type == Event::MouseButtonPressed) {
             if (!quiz.isQuizComplete()) {
-				progressBar.update();
+                progressBar.update();
                 quiz.handleEvent(); // Normal quiz handling
             }
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
@@ -691,7 +698,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // Handle quiz events
         if (event.type == Event::MouseButtonPressed) {
             if (!quiz.isQuizComplete()) {
-				progressBar.update();
+                progressBar.update();
                 quiz.handleEvent(); // Normal quiz handling
             }
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
@@ -725,7 +732,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // Handle quiz events
         if (event.type == Event::MouseButtonPressed) {
             if (!quiz.isQuizComplete()) {
-				progressBar.update();
+                progressBar.update();
                 quiz.handleEvent(); // Normal quiz handling
             }
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
@@ -751,12 +758,99 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
+
+    case GameState::BOSS_GAME:
+
+        break;
+
 	case GameState::TYPING_GAME:
         window.setVisible(false);
 
+
+    case GameState::NYXGREETING_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/Intro/Introduction.json", GameState::NYX1);
         break;
+
 
     default:
         break;
     }
+
+
+}
+
+//func
+void updateGameState(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog, ProgressBar& progressBar, JsonManager& jm, const string& jsonPath, GameState nextState) {
+
+        // --- 1. JSON Initialization ---
+        if (!jm.IsLoaded() || jm.GetCurrentPath() != jsonPath) {
+            cout << "updateGameState: Loading JSON '" << jsonPath << "' (Current: '" << jm.GetCurrentPath() << "')." << endl;
+            jm.ClearAll();
+            jm.LoadJson(jsonPath);
+
+            if (jm.IsLoaded()) {
+                jm.LoadData();
+                dialog.SetDialogueText(jm.line);
+            }
+            else {
+                cerr << "updateGameState: ERROR - Failed to load JSON. Transitioning to ERROR_STATE." << endl;
+                currentState = GameState::MENU;
+                return;
+            }
+        }
+
+        if (!jm.IsLoaded()) {
+            return; // Early exit if JSON still not loaded.
+        }
+
+        // --- 2. Handle Events ---
+        bool stateChanged = false;
+
+        // Advance dialogue on 'F' key
+        if (event.type == Event::KeyReleased && event.key.code == Keyboard::F) {
+            if (jm.HasNext() && dialog.isDialogFinished()) {
+                jm.Clear();
+                jm.LoadData();
+                dialog.SetDialogueText(jm.line);
+            }
+            else {
+                cout << "updateGameState: Cannot advance. HasNext=" << boolalpha << jm.HasNext()
+                    << ", DialogFinished=" << boolalpha << dialog.isDialogFinished() << endl;
+            }
+        }
+
+        // Transition to next state on "Next" button click
+        bool canTransition = !jm.HasNext() && dialog.isDialogFinished();
+
+        if (event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left && canTransition && layout.nextButtonClicked(window)) {
+                cout << "updateGameState: Next button clicked. Transitioning state." << endl;
+                audio.playClickButtonSound();
+                jm.ClearAll();
+                currentState = nextState;
+                stateChanged = true;
+                return;
+            
+        }
+
+        // --- 3. Drawing ---
+        if (!stateChanged) {
+            cout << "drawn" << endl;
+            loadSprites.loadDialogueScreen(jm.backgroundSprite, jm.rightSprite, jm.leftSprite);
+            audio.playSound(jm.audioPath, jm.audioLoop);
+
+            window.clear(Color::Black);
+            window.draw(loadSprites.gameBackgroundSprite);
+            window.draw(loadSprites.godSprite);
+            window.draw(loadSprites.mainCharacterSprite);
+            window.draw(loadSprites.gameScrollSprite);
+            dialog.draw(window);
+
+            if (canTransition) {
+                layout.loadNextButton();
+            }
+
+            window.display();
+        }
+    
+
 }
