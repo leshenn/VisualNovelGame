@@ -132,6 +132,7 @@ int main()
       if (currentState == GameState::TYPING_GAME) {  
 		  WordGame wordGame;
 	      wordGame.run();
+		  dialog.setMingameResult("kukuhaha");
 		  currentState = GameState::NYX2;
 		  window.setVisible(true);
         }
