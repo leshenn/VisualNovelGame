@@ -1,5 +1,7 @@
 #include "BubbleGame.h"
+
 #include "Bubble.h"
+
 #include <cmath>
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -43,9 +45,11 @@ void BubbleGame::spawnBubble(float x, float y, sf::Color color)
 
 void BubbleGame::shootBubble()
 {
+
     if (BubbleGameWon || gameOver) return;  // Don't allow shooting if the game is won or over
 
     if (currentShot != nullptr) return;  // Only one bubble can be in the air
+
 
     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
     sf::Vector2f dir(mousePos.x - shooterPos.x, mousePos.y - shooterPos.y);
@@ -56,6 +60,7 @@ void BubbleGame::shootBubble()
 
     currentShot = std::make_unique<Bubble>(shooterPos.x + 15, shooterPos.y, 15, shooter.getFillColor());
     shotVelocity = dir * 2.0f;  // Set speed
+
 }
 
 void BubbleGame::setUpBubble()
@@ -67,7 +72,8 @@ void BubbleGame::setUpBubble()
     float bubbleSpacing = radius * 2;
     float totalWidth = cols * bubbleSpacing;
     float startX = (800 - totalWidth) / 2.0f;  // Center the grid
-    float startY = 50.0f;  // Starting near top
+    float startY = 50.0f; // Starting near top
+
 
     for (int row = 0; row < rows; ++row) {
         for (int col = 0; col < cols; ++col) {
@@ -84,6 +90,7 @@ void BubbleGame::setUpBubble()
 
 void BubbleGame::update()
 {
+
     if (gameOver || BubbleGameWon) return;  // Don't update if the game is over or won
 
     // Check if 90 seconds have passed
@@ -95,6 +102,7 @@ void BubbleGame::update()
     if (currentShot) {
         currentShot->shape.move(shotVelocity);  // Move the bubble
 
+
         sf::Vector2f pos = currentShot->shape.getPosition();
 
         // Wall bounce logic
@@ -105,6 +113,7 @@ void BubbleGame::update()
         // Top of screen = miss
         if (pos.y < 0) {
             currentShot.reset();  // Clear current shot using unique_ptr
+
             shooter.setFillColor(randomColor());
             return;
         }
@@ -121,15 +130,18 @@ void BubbleGame::update()
                     popMatchingBubbles(i);
                 }
                 else {
+
                     bubbles.push_back(*currentShot);  // Add to bubbles if they don't match
                 }
 
                 currentShot.reset();  // Clear current shot using unique_ptr
+
                 shooter.setFillColor(randomColor());
                 return;
             }
         }
     }
+
 
     // If no more bubbles, player wins
     if (bubbles.empty() && !BubbleGameWon) {
@@ -137,11 +149,47 @@ void BubbleGame::update()
     }
 }
 
+void BubbleGame::setUpLevel()
+{
+    float radius = 15.f;
+    float diameter = radius * 2;
+    int rows = 5;
+    int cols = 12;
+
+    // Calculate total grid width and height
+    float totalWidth = cols * diameter;
+    float totalHeight = rows * diameter;
+
+    // Centering the grid on the screen
+    float startX = (800 - totalWidth) / 2.0f;  // Center horizontally
+    float startY = (600 - totalHeight) / 2.0f; // Center vertically
+
+    for (int row = 0; row < rows; ++row) {
+        for (int col = 0; col < cols; ++col) {
+            // Offset every other row for staggered pattern
+            float x = startX + col * diameter;
+            float y = startY + row * diameter;
+
+            if (row % 2 == 1) {
+                x += radius;  // Offset every other row to form a triangular pattern
+            }
+
+            // Random colors for bubbles
+            sf::Color color = randomColor();
+
+            spawnBubble(x, y, color);
+        }
+    }
+}
+
+
 void BubbleGame::render()
 {
     window.clear();
 
+
     window.draw(backgroundSprite);  // Draw the background first
+
     window.draw(shooter);  // Draw the shooter
 
     for (auto& bubble : bubbles) {
@@ -175,3 +223,91 @@ void BubbleGame::render()
         loseText.setFillColor(sf::Color::Red);
         loseText.setStyle(sf::Text::Bold);
     }
+
+        sf::Font font;
+        if (font.loadFromFile("assets/arial.ttf")) { // You can use any font you have
+            sf::Text winText("You Win!", font, 50);
+            winText.setFillColor(sf::Color::Green);
+            winText.setStyle(sf::Text::Bold);
+            winText.setPosition(800 / 2 - 100, 600 / 2 - 50);
+            window.draw(winText);
+        }
+    }
+
+    window.display();
+}
+
+
+void BubbleGame::handling()
+{
+    sf::Event event;
+    while (window.pollEvent(event)) {
+        if (event.type == sf::Event::Closed)
+            window.close();
+        if (event.type == sf::Event::MouseButtonPressed) {
+            if (event.mouseButton.button == sf::Mouse::Left) {
+                shootBubble();
+            }
+        }
+    }
+}
+
+bool BubbleGame::isRunning()
+{
+    return window.isOpen();
+}
+
+
+void BubbleGame::popMatchingBubbles(size_t index)
+{
+    if (index >= bubbles.size()) return;
+
+    sf::Color targetColor = bubbles[index].color;
+    std::vector<size_t> toCheck = { index };
+    std::vector<size_t> toPop;
+
+    while (!toCheck.empty()) {
+        size_t current = toCheck.back();
+        toCheck.pop_back();
+
+        if (std::find(toPop.begin(), toPop.end(), current) != toPop.end())
+            continue;
+
+        toPop.push_back(current);
+
+        sf::Vector2f pos1 = bubbles[current].shape.getPosition();
+
+        for (size_t i = 0; i < bubbles.size(); ++i) {
+            if (i == current) continue;
+            if (std::find(toPop.begin(), toPop.end(), i) != toPop.end()) continue;
+
+            sf::Vector2f pos2 = bubbles[i].shape.getPosition();
+            float dist = std::hypot(pos1.x - pos2.x, pos1.y - pos2.y);
+
+            if (dist <= 30.0f && bubbles[i].color == targetColor) {
+                toCheck.push_back(i);
+            }
+        }
+    }
+
+    // Pop the bubbles
+    for (auto i : toPop) {
+        bubbles[i].isActive = false;
+    }
+
+    // Remove popped bubbles
+    bubbles.erase(std::remove_if(bubbles.begin(), bubbles.end(),
+        [](const Bubble& b) { return !b.isActive; }), bubbles.end());
+}
+
+sf::Color BubbleGame::randomColor()
+{
+    int r = rand() % 3;
+    switch (r) {
+    case 0: return sf::Color::White;
+    case 1: return sf::Color::Magenta;
+    case 2: return sf::Color::Yellow;
+    }
+    return sf::Color::White;
+}
+

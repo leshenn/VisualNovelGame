@@ -32,10 +32,15 @@ void Timer::reset() {
 }
 
 std::string Timer::getTimeString() const {
-    int minutes = static_cast<int>(remainingTime) / 60;
-    int seconds = static_cast<int>(remainingTime) % 60;
-    std::ostringstream ss;
-    ss << std::setw(2) << std::setfill('0') << minutes << ":" << std::setw(2) << std::setfill('0') << seconds;
+    std::string ss;
+    ss = "Time: " + std::to_string(std::max(0, (int)remainingTime)) + "s";
+    return ss;
+}
 
-    return ss.str();
+float Timer::getTimeRemaining() {
+    return remainingTime;
+}
+
+void Timer::operator=(float time) {
+    duration = time;
 }

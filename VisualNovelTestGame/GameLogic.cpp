@@ -385,7 +385,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         if (event.type == Event::MouseButtonPressed) {
             if (layout.playButtonClicked(window)) {
                 audio.playClickButtonSound();
-                currentState = GameState::NYX1; // Change state when Play button is clicked
+                currentState = GameState::INTRO; // Change state when Play button is clicked
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
@@ -485,7 +485,8 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 // Only proceed if quiz is complete AND Next is clicked
                 //progressBar.update();
                 audio.playClickButtonSound();
-                currentState = GameState::NYX2;
+                //currentState = GameState::NYX2;
+                currentState = GameState::TYPING_GAME;  //TESTING STATES
             }
         }
 
@@ -750,8 +751,8 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
-	case GameState::BOSS_GAME:
-
+	case GameState::TYPING_GAME:
+        window.setVisible(false);
 
         break;
 

@@ -28,6 +28,9 @@ public:
     void update(float deltaTimer);
     void reset();
 
+    //FRIENDS
+    friend class QuizUI;
+
 private:
     std::vector<Question> questions; // Current set of questions
     int currentQuestionIndex; // Index of current question

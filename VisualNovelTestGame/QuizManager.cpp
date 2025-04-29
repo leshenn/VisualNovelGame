@@ -24,51 +24,63 @@ void QuizManager::loadQuestions(GameState world) {
 
     // Load questions for different stages
     if (world == GameState::UNDERWORLD) {
+        questionTimer = 15.f;
         loadHadesQuestions();
     }
     else if (world == GameState::SEAWORLD) {
+        questionTimer = 15.f;
         loadPoseidonQuestions();
     }
     else if (world == GameState::COUNTRY_SIDE) {
+        questionTimer = 15.f;
         loadDionysusQuestions();
     }
     else if (world == GameState::ATHENS) {
+        questionTimer = 10.f;
         loadAthenaQuestions();
     }
     else if (world == GameState::DELPHI) {
+        questionTimer = 10.f;
         loadApolloQuestions();
     }
     else if (world == GameState::RHAMNOUS)
     { 
+        questionTimer = 10.f;
         loadNemesisQuestions();
     }
     else if (world == GameState::THRACE)
     {
+        questionTimer = 10.f;
         loadAresQuestions();
     }
     else if (world == GameState::CRETE) {
+        questionTimer = 10.f;
         loadDaedalusQuestions();
     }
     else if (world == GameState::CYPRUS)
     {
+        questionTimer = 7.f;
         loadAproditeQuestions();
     }
     else if (world == GameState::OLYMPUS) {
+        questionTimer = 7.f;
         loadZeusQuestions();
     }
     else if (world == GameState::LETHE) {
+        questionTimer = 7.f;
         loadHypnosQuestions();
     }
     else if (world == GameState::MOUNT_CYLLENE) {
+        questionTimer = 7.f;
         loadHermesQuestions();
     }
     else if (world == GameState::ARGOS) {
+        questionTimer = 7.f;
         loadHeraQuestions();
     }
 
     // Select 8 random questions
     selectRandomQuestions(10);
-    questionTimer.start();
 }
 
 
@@ -520,12 +532,6 @@ const Question& QuizManager::getCurrentQuestion() const {
 // Answer current question and update the score
 bool QuizManager::answerCurrentQuestion(int answerIndex) {
     
-    if (questionTimer.isFinished()) {
-        cout << "Timer is up";
-        return false;
-    }
-    
-
     if (getCurrentQuestion().isCorrect(answerIndex)) {
         score++;
         return true;
@@ -539,16 +545,7 @@ void QuizManager::nextQuestion() {
 
     if (currentQuestionIndex >= questions.size()) {
         quizComplete = true; // Set completion flag
-    }
-    
-    if (!isQuizComplete()) {
-        questionTimer.reset();
-        questionTimer.start();
-    }
-    else {
-        questionTimer.stop();
-    }
-    
+    }  
 }
 
 bool QuizManager::isQuizComplete() const {
@@ -559,9 +556,8 @@ bool QuizManager::isQuizComplete() const {
 void QuizManager::update(float deltaTime) {
     questionTimer.update(deltaTime);
     if (questionTimer.isFinished()) {
-
         cout << "Timer fininshed " << endl;
-        nextQuestion();
+        questionTimer.stop();
     }
 }
 

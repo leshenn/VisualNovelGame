@@ -42,7 +42,7 @@ void RhythmGame::run() {
 
 void RhythmGame::initializeBackground() {
     loadAndScaleTexture(fullBackgroundTexture, fullBackground,
-        "RhythmAssets/Minigame/RhythmBack.png", fullBackgroundSize);
+        "RhythmAssets/Minigame/RhythmBackground.png", fullBackgroundSize);
 }
 
 void RhythmGame::loadAndScaleTexture(sf::Texture& texture, sf::Sprite& sprite,
@@ -88,8 +88,8 @@ void RhythmGame::initializeUI() {
     gameOverText.setFont(fnfFont);
     gameOverText.setCharacterSize(100);
     gameOverText.setFillColor(sf::Color::Red);
-    gameOverText.setString("GAME OVER\nPress F to Exit");
-    gameOverText.setPosition(600.f, 400.f);
+    gameOverText.setString("GAME OVER");
+    gameOverText.setPosition(675.f, 400.f);
 
     detectionZone.setSize(bottomBackgroundSize);
     detectionZone.setFillColor(sf::Color(0, 0, 255, 100));
@@ -110,9 +110,9 @@ void RhythmGame::initializeHealthBar() {
     auto ts = healthBarTexture.getSize();
     healthBarSprite.setScale(healthBarSize.x / ts.x, healthBarSize.y / ts.y);
 
-    healthFill.setSize(healthBarSize);
+    //healthFill.setSize({healthBarSize.x-50, healthBarSize.y-50});
     healthFill.setFillColor(sf::Color::Red);
-    healthFill.setPosition(healthBarPosition);
+    healthFill.setPosition(healthBarPosition.x,healthBarPosition.y);
 }
 
 void RhythmGame::handleEvents() {
@@ -170,15 +170,23 @@ void RhythmGame::update() {
     for (auto key : keybinds) if (sf::Keyboard::isKeyPressed(key)) checkKeyPress(key);
 
     // Update health fill width
-    float w = (healthBarSize.x / maxHealth) * health;
-    healthFill.setSize({ w, healthBarSize.y });
+    float totalPadX = 10.f;  // 5px on left + 5px on right
+    float fillableW = healthBarSize.x - totalPadX;
+
+    // 2) compute fraction [0..1] and actual width
+    float pct = std::max(0.f, std::min(1.f, static_cast<float>(health) / static_cast<float>(maxHealth)));
+    float w = fillableW * pct;
+
+    // 3) apply size (height minus 10px for vertical padding) and reposition
+    healthFill.setSize({ w, healthBarSize.y - 10 });
+    healthFill.setPosition(healthBarPosition.x + 25,healthBarPosition.y + 5);
 }
 
 void RhythmGame::render() {
     window.clear();
     window.draw(fullBackground);
     for (auto* img : fallingImages) window.draw(img->sprite);
-    window.draw(detectionZone);
+    //window.draw(detectionZone);
 
     window.draw(healthFill);
     window.draw(healthBarSprite);
