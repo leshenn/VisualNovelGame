@@ -31,6 +31,9 @@ public:
     void playCorrectAnswerSound();
     void playIncorrectAnswerSound();
     void playIntroductionSound();
-
     bool isIntroductionSoundPlaying() const;
+    void toggleBackgroundSound();
+    void toggleSound(sf::Sound& sound);
+    sf::Sound& getBackgroundSound() { return backgroundSound; }
+    sf::Sound& getLoadedSound() { return loadedSound; }
 };

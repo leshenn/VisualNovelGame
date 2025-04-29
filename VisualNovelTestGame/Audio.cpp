@@ -79,3 +79,16 @@ void Audio::playIntroductionSound() {
 bool Audio::isIntroductionSoundPlaying() const {
 	return (introductionSound.getStatus() == sf::Sound::Playing);
 }
+
+void Audio::toggleSound(sf::Sound& sound) {
+	if (sound.getStatus() == sf::Sound::Playing) {
+		sound.pause();
+	}
+	else {
+		sound.play();
+	}
+}
+
+void Audio::toggleBackgroundSound() {
+	toggleSound(backgroundSound);
+}
