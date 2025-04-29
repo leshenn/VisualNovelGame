@@ -37,19 +37,19 @@ const int WIN_HEIGHT = 720;
 
 int main()
 {
-	/*int Health = 85;
+	int Health = 85;
 	bool DashPowerUp = false;
 	float parryTime = 0.f;
 	int baseAttack = 13;
 	float defense = 0.0f;
-	bool ShootPowerUp = false;*/
+	bool ShootPowerUp = false;
 
    //Player player(100, 100, true, 0.75f+parryTime, 13, 0.0f, true);
 
 	//Forge game construction
 	/*ForgeGame game;
 	game.run();
-	cout<<game.getScore();*/
+	cout<<(game.getScore()-200) / 60;*/
 
 	//wine game construction
 	/*WineGame Winegame;
@@ -80,7 +80,7 @@ int main()
 	//WordGame wordGame;
 	//wordGame.run();
 	//cout<<"Word game score "<<wordGame.getFinalScore();
-	////150-275 average divide points by 6 this will be health, can get netagive score
+	//150-275 average divide points by 6 this will be health, can get netagive score
 	//int health = wordGame.getFinalScore() / 6 + 85;
 	//health = (health <= 0) ? 1 : health;
 
@@ -124,17 +124,23 @@ int main()
 
 	//This is the play button
 	ButtonLayout layout(window, newFont);
-
+	
 	currentState = GameState::MENU;
 	QuizUI quiz = QuizUI(window, currentState);
 	while (window.isOpen()) {
 
-      if (currentState == GameState::TYPING_GAME) {  
+      if (currentState == GameState::TYPING_GAME) {  		  
 		  WordGame wordGame;
-	      wordGame.run();
-		  dialog.setMingameResult("kukuhaha");
-		  currentState = GameState::NYX2;
-		  window.setVisible(true);
+		  wordGame.run();                           //-13 need 75 or higher for no penalty
+	      Health = (wordGame.getFinalScore() / 6) - 13 +85;
+	      Health = (Health <= 0) ? 1 : Health;
+		  if (wordGame.getGameOver()) {
+			  string text = (Health > 100) ? "This has granted you " : "I take ";
+			  text += Health + " health.";
+			  dialog.setMingameResult(text);
+			  currentState = GameState::NYX2;
+			  window.setVisible(true);
+		  }
         }
 
 		Event event;
