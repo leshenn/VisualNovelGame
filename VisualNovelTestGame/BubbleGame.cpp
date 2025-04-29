@@ -257,8 +257,3 @@ sf::Color BubbleGame::randomColor()
     }
     return sf::Color::White;
 }
-
-void BubbleGame::startGame()
-{
-	gameClock.restart();
-}
