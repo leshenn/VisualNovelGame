@@ -11,6 +11,7 @@ private:
     std::vector<std::string> currentLines;
     std::size_t currentIndex = 0;
     sf::Font font;
+    std::string minigameResult;
     sf::Text dialogText;
     bool isDialogComplete = false;
 
@@ -26,4 +27,5 @@ public:
     bool isDialogFinished() const;
     void clearText();
     void SetDialogueText(const std::string& newText);
+    void setMingameResult(std::string pMinigameResult);
 };
