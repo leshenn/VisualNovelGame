@@ -1,5 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include <fstream>
+#include <iostream>
 #include "LoadSprites.h"
 
 using namespace std;
@@ -10,11 +12,6 @@ void LoadSprites::loadCharacterOptions(const string& malePath, const string& fem
     if (maleCharacterTexture.getSize() == sf::Vector2u(0, 0)) {
         if (!maleCharacterTexture.loadFromFile(malePath)) {
             throw runtime_error("Failed to load male character texture.");
-        }
-    }
-    if (femaleCharacterTexture.getSize() == sf::Vector2u(0, 0)) {
-        if (!femaleCharacterTexture.loadFromFile(femalePath)) {
-            throw runtime_error("Failed to load female character texture.");
         }
     }
 
@@ -86,22 +83,26 @@ void LoadSprites::loadCharacterSelectionScreen(const string& backgroundPath) {
 }
 
 
-void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string& godPath
-                                ,const string& gameScrollPath) {
+void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string& godPath, const string& gameScrollPath) {
     //Checks if there is a file to load
     if (!gameBackgroundTexture.loadFromFile(gameBackgroundPath)) {
         throw runtime_error("Failed to load game background texture.");
-    }
-    if (!godTexture.loadFromFile(godPath)) {
-        throw runtime_error("Failed to load god texture.");
     }
     if (!gameScrollTexture.loadFromFile(gameScrollPath)) {
         throw runtime_error("Failed to load game scroll texture.");
     }
 
+    //does god loading if it exists
+    if (!godTexture.loadFromFile(godPath)) {
+        throw runtime_error("Failed to load god texture.");
+    }
+    else {
+        godSprite.setTexture(godTexture);
+    }
+
     //Sets the textures
     gameBackgroundSprite.setTexture(gameBackgroundTexture);
-    godSprite.setTexture(godTexture);
+
     gameScrollSprite.setTexture(gameScrollTexture);
 
     //Make the background fit the screen
@@ -118,6 +119,52 @@ void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string&
     //position scroll
     PositionScroll(gameScrollTexture.getSize().x, gameScrollTexture.getSize().y, gameScrollSprite);
 
+}
+
+void LoadSprites::loadDialogueScreen(const string& gameBackgroundPath, const string& godPath, const string& playerPath) {
+    //Checks if there is a file to load
+    if (!gameBackgroundPath.empty()) {
+        cout << gameBackgroundPath << endl;
+        if (!gameBackgroundTexture.loadFromFile(gameBackgroundPath)) {
+            throw runtime_error("Failed to load game background texture.");
+        }
+        gameBackgroundSprite.setTexture(gameBackgroundTexture);
+        //Make the background fit the screen
+        fitBackground(WIN_WIDTH, WIN_HEIGHT, gameBackgroundTexture.getSize().x,
+            gameBackgroundTexture.getSize().y, gameBackgroundSprite);
+    }
+
+    if (!gameScrollTexture.loadFromFile("Acessories/Scroll.png")) {
+        throw runtime_error("Failed to load game scroll texture.");
+    }
+    gameScrollSprite.setTexture(gameScrollTexture);
+    //position scroll
+    PositionScroll(gameScrollTexture.getSize().x, gameScrollTexture.getSize().y, gameScrollSprite);
+    
+
+    //does god loading if it exists
+    if (!godPath.empty()) {
+        if (!godTexture.loadFromFile(godPath)) {
+            cout << godPath << endl;
+            throw runtime_error("Failed to load god texture.");
+        }
+        else {
+            godSprite.setTexture(godTexture);
+            //Position god
+            godSprite.setPosition(730, 100);
+            godSprite.setScale(1, 1);
+        }
+    }
+
+    //does player loading if it exists
+    if (!playerPath.empty()) {
+        if (!playerTexture.loadFromFile(playerPath)) {
+            throw runtime_error("Failed to load player texture.");
+        }
+        else {
+            mainCharacterSprite.setTexture(playerTexture);
+        }
+    }
 }
 
 void LoadSprites::fitBackground(float winWidth, float winHeight,

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <nlohmann/json.hpp>
+#include "JsonManager.h"
 #include "Button.h"
 #include "LoadSprites.h"
 #include "GameState.h"
@@ -110,6 +111,7 @@ int main()
 	window.setFramerateLimit(30);
 	LoadSprites loadSprites;
 	GameState currentState;
+	JsonManager jm;
 	Font newFont;
 	newFont.loadFromFile("Fonts/norse/Norsebold.otf");
 	Audio audio;
@@ -140,8 +142,10 @@ int main()
 				window.close();
 
 			quiz.update();
-			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz, dialog,progressBar);
+			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz, dialog,progressBar, jm);
 		}
+
+		//FIX DOUBLE LOADING
 		quiz.update();
 		renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio,progressBar);
 	}

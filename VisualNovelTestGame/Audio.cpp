@@ -16,6 +16,21 @@ void Audio::playBackgroundSound() {
 	backgroundSound.play();
 }
 
+//play any sound and decide if it should be looped
+void Audio::playSound(const string& audioPath, bool loop) {
+	loadedSound.setLoop(false);
+	if (!audioPath.empty() && audioPath != "") {
+		if (!loadedBuffer.loadFromFile(audioPath)) {
+			cout << "Cannot find laoded audio";
+		}
+
+		loadedSound.setBuffer(loadedBuffer);
+		loadedSound.setLoop(loop);
+		loadedSound.setVolume(20);
+		loadedSound.play();
+	}
+}
+
 
 void Audio::playClickButtonSound() {
 	if (!clickButtonBuffer.loadFromFile("Audio/Click.wav")) {

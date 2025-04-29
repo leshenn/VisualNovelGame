@@ -144,3 +144,12 @@ void DialogManager::clearText() {
     dialogText.setString("");
     isDialogComplete = true;
 }
+
+//Sets the text 
+void DialogManager::SetDialogueText(const std::string& newText)
+{
+    dialogText.setPosition(140,500);
+    dialogText.setCharacterSize(23);
+    dialogText.setString(newText);
+}
+

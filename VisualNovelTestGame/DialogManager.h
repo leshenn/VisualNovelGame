@@ -25,4 +25,5 @@ public:
     void reset();
     bool isDialogFinished() const;
     void clearText();
+    void SetDialogueText(const std::string& newText);
 };

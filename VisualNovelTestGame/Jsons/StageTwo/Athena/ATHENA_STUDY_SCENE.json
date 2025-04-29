@@ -1,0 +1,53 @@
+{
+  "data": [
+    {
+      "line": "How long it has been since Cecrops gave a demigod the privilege of entering my study.",
+      "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Athena.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Your mind must be tested. Let me see what your limits are.",
+      "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Athena.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Athena, I need your guidance. I need to—",
+      "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "I need not your words of desperation. Earn the right to plea.",
+      "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Athena.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "But—",
+      "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Prove yourself, or refuse my counsel.",
+      "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Athena.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*sigh* Understood.",
+      "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    }
+  ]
+}

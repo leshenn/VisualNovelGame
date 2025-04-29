@@ -1,0 +1,109 @@
+{
+  "data": [
+    {
+      "line": "Please, I need help finding my way to Mount Olympus",
+      "background_sprite": "Backgrounds/ShrinePort.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Gestures for map*",
+      "background_sprite": "Backgrounds/ShrinePort.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Leucothea.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Follow these waters to Olympus.",
+      "background_sprite": "Backgrounds/ShrinePort.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Leucothea.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Thanks. This means the world.",
+      "background_sprite": "Backgrounds/ShrinePort.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Walks away*",
+      "background_sprite": "Backgrounds/ShrinePort.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Leucothea.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Wait— your name?",
+      "background_sprite": "Backgrounds/ShrinePort.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Smiles*",
+      "background_sprite": "Backgrounds/ShrinePort.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Leucothea.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Leucothea. Your loyal sea guide. Good luck traveller.",
+      "background_sprite": "Backgrounds/ShrinePort.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Leucothea.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Dissolves into mist*",
+      "background_sprite": "Backgrounds/ShrinePort.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Thanks... Leucothea.",
+      "background_sprite": "Backgrounds/ShrinePort.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Walks to boat*",
+      "background_sprite": "Backgrounds/ShrinePort.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Arrives at Athens*",
+      "background_sprite": "Backgrounds/Transition.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Wow, this place...",
+      "background_sprite": "Backgrounds/Athens.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Focus. Find Olympus.",
+      "background_sprite": "Backgrounds/Athens.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Walks into city*",
+      "background_sprite": "Backgrounds/Athens.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    }
+  ]
+}
