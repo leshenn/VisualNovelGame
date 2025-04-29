@@ -72,10 +72,8 @@ string  WordGame::generateWord() {
     }
 
     if (candidates.empty()) return "";
-    //int randomIndex = rand() % candidates.size();
-    static mt19937 rng(random_device{}());
-    uniform_int_distribution<size_t> dist(0, candidates.size() - 1);
-    return candidates[dist(rng)];
+    int randomIndex = rand() % candidates.size();
+    return candidates[randomIndex];
 }
 
 void  WordGame::spawnWord() {
@@ -212,7 +210,7 @@ void  WordGame::run() {
     sf::Sound mysound;
     mysound.setBuffer(s);
     mysound.setLoop(true); // Loop the sound
-    mysound.setVolume(10);
+    mysound.setVolume(50);
     mysound.play();
     while (window.isOpen()) {
         handleEvents();

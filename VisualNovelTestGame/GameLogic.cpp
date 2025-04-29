@@ -760,12 +760,24 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
 
     case GameState::BOSS_GAME:
-
+        window.setVisible(false);
         break;
 
 	case GameState::TYPING_GAME:
         window.setVisible(false);
-
+        break;
+    case GameState::FORGE_GAME:
+        window.setVisible(false);
+        break;
+    case GameState::BUBBLE_GAME:
+        window.setVisible(false);
+        break;
+    case GameState::RHYTHM_GAME:
+        window.setVisible(false);
+        break;
+    case GameState::WINE_GAME:
+        window.setVisible(false);
+        break;
 
     case GameState::NYXGREETING_SCENE:
         updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/Intro/Introduction.json", GameState::NYX1);
