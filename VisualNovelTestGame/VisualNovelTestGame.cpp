@@ -130,19 +130,19 @@ int main()
 	QuizUI quiz = QuizUI(window, currentState);
 	while (window.isOpen()) {
 
-      if (currentState == GameState::TYPING_GAME) {  		  
-		  WordGame wordGame;
-		  wordGame.run();                           //-13 need 75 or higher for no penalty
-	      Health = (wordGame.getFinalScore() / 6) - 13 +85;
-	      Health = (Health <= 0) ? 1 : Health;
-		  if (wordGame.getGameOver()) {
-			  string text = (Health > 100) ? "This has granted you " : "I take ";
-			  text += Health + " health.";
-			  dialog.setMingameResult(text);
-			  currentState = GameState::NYX2;
-			  window.setVisible(true);
-		  }
-        }
+		if (currentState == GameState::TYPING_GAME) {
+			WordGame wordGame;
+			wordGame.run();                           //-13 need 75 or higher for no penalty
+			Health = (wordGame.getFinalScore() / 6) - 13 + 85;
+			Health = (Health <= 0) ? 1 : Health;
+			if (wordGame.getGameOver()) {
+				string text = (Health > 100) ? "This has granted you " : "I take ";
+				text += Health + " health.";
+				dialog.setMingameResult(text);
+				currentState = GameState::NYX2;
+				window.setVisible(true);
+			}
+		}
 
 		Event event;
 		while (window.pollEvent(event)) {
@@ -150,12 +150,14 @@ int main()
 				window.close();
 
 			quiz.update();
-			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz, dialog,progressBar, jm);
+			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm);
 		}
 
 		//FIX DOUBLE LOADING
+		if (quiz.isActive()) {
 		quiz.update();
-		//renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio,progressBar);
+		renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+		}
 	}
 
 	return 0;
