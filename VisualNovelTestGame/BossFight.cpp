@@ -176,7 +176,7 @@
             sprite.setPosition(position);
         }
         else {
-            std::cerr << "[Projectile] Error: Null texture provided." << std::endl;
+            std::cout << "[Projectile] Null texture provided." << std::endl;
             active = false; // Deactivate if no texture
         }
     }
@@ -1476,7 +1476,7 @@
             std::cerr << "[Game] Boss projectile texture '" << textureId << "' not found!" << std::endl;
             return;
         }
-
+     
         projectiles.emplace_back(tex, startPos, velocity, Projectile::Owner::BOSS, damage);
         // std::cout << "[Game] Spawned Boss Projectile: " << textureId << std::endl;
     }

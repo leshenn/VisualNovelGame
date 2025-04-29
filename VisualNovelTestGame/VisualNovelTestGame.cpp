@@ -68,7 +68,7 @@ int main()
 
 
 
-		if (currentState == GameState::TYPING_GAME) {
+		/*if (currentState == GameState::TYPING_GAME) {
 			audio.toggleBackgroundSound();
 			WordGame wordGame;
 			wordGame.run();                           //-13 need 75 or higher for no penalty
@@ -150,7 +150,7 @@ int main()
 			currentState = GameState::NYX1;
 			window.setVisible(true);
 			audio.toggleBackgroundSound();
-		}
+		}*/
 
 		Event event;
 		while (window.pollEvent(event)) {

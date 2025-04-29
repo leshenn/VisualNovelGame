@@ -72,10 +72,8 @@ string  WordGame::generateWord() {
     }
 
     if (candidates.empty()) return "";
-    //int randomIndex = rand() % candidates.size();
-    static mt19937 rng(random_device{}());
-    uniform_int_distribution<size_t> dist(0, candidates.size() - 1);
-    return candidates[dist(rng)];
+    int randomIndex = rand() % candidates.size();
+    return candidates[randomIndex];
 }
 
 void  WordGame::spawnWord() {
