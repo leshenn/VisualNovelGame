@@ -42,4 +42,5 @@ public:
     sf::Color randomColor();
     bool isGameOver() const { return gameOver; }
     bool showInstructions;
+    bool getBubbleGameWon();
 };

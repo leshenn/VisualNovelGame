@@ -353,6 +353,8 @@ void BubbleGame::popMatchingBubbles(size_t index)
         [](const Bubble& b) { return !b.isActive; }), bubbles.end());
 }
 
+bool BubbleGame::getBubbleGameWon() { return BubbleGameWon; };
+
 sf::Color BubbleGame::randomColor()
 {
     int r = rand() % 3;
