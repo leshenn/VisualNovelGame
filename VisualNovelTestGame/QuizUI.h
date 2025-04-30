@@ -25,6 +25,7 @@ public:
 	bool isScoreShown() const { return scoreShown; }
 	void update();
 	void resetQuiz();
+	bool isActive();
 	int getScore() { return manager.getScore(); }
 	
 	// Function template to center elements
@@ -59,6 +60,7 @@ private:
 	bool showingResult;
 	Audio audio;		// Create audio file
 	bool scoreShown = false;
+	bool Active;
 
 };
 

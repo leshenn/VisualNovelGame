@@ -3,6 +3,7 @@
 #include "Question.h"
 #include "Button.h"
 #include "Audio.h"
+#include "GameLogic.h"
 
 
 using namespace std;
@@ -52,6 +53,7 @@ QuizUI::QuizUI(RenderWindow& window, GameState& state) : window(window), current
 
 void QuizUI::initQuiz(GameState world) {
 	// ONLY CALL THIS WHEN STARTING A NEW QUIZ
+	Active = true;
 	currentState = world; // Update the current state
 	manager.loadQuestions(currentState);
 	refreshQuizUI();
@@ -227,6 +229,7 @@ void QuizUI::showFinalScore() {
 		});
 	answerButtons.push_back(finalScoreButton);
 	scoreShown = true;
+	Active = false;
 }
 
 // Draw to window
@@ -288,4 +291,8 @@ void QuizUI::resetQuiz() {
 
 	// Reload questions
 	manager.loadQuestions(currentState);
+}
+
+bool QuizUI::isActive() {
+	return Active;
 }
