@@ -39,10 +39,6 @@ public:
 	Button& getSignsButton();
 
 
-
-
-	void loadQuizButtons(GameState& currentState);
-
 private:
 	RenderWindow& window;
 	Font font;
@@ -53,7 +49,7 @@ private:
 
 	vector<Button> answerButtons; // Store Answer buttons
 
-	Button seaWorldButton, countrySideButton; // Store stage one buttons
+	Button bluePortal, greenPortal; // Store stage one buttons
 	Button atlantisButton, shrineButton; // Store Poseidon choice buttons
 	Button pegasusButton, strangerButton; // Store Dionysus choice buttons
 
