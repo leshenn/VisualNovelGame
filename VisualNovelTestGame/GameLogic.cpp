@@ -277,6 +277,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 dialog.clearText();
                 isDialogLoaded = false;
                 audio.playClickButtonSound();
+                audio.toggleBackgroundSound();
                 currentState = GameState::NYXGREETING_SCENE;
             }
         }
