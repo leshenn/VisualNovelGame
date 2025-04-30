@@ -560,6 +560,10 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/POSEIDON_LOSE_SCENE.json", GameState::POSEIDON_END_SCENE);
         break;
 
+    case GameState::POSEIDON_END_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/POSEIDON_END_SCENE.json", GameState::ATHENS);
+        break;
+
         // Dionysus' Path (Plateaus of Greece)
     case GameState::DIONYSUS_OPENING_SCENE:
         updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/DIONYSUS_OPENING_SCENE.json", GameState::DIONYSUS_CHOICE);

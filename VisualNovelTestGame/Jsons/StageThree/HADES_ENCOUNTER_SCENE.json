@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "line": "*%*",
+      "line": "%",
       "background_sprite": "Backgrounds/StageThree/ThroneRoom.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Cerberus.png",
