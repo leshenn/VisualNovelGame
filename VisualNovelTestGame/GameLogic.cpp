@@ -354,6 +354,8 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         break;
 
     case GameState::HADES_QUIZ:
+
+        HadesScore = quiz.getScore();
         break;
 
         // --------------------------------------------------- INTRODUCTION -------------------------------------------------
