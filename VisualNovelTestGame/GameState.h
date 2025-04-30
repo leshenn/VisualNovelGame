@@ -29,6 +29,8 @@ enum class GameState {
     POSEIDON_WIN_SCENE,
     POSEIDON_LOSE_SCENE,
     POSEIDON_END_SCENE,         //Lose Quiz || End
+    SHRINE_QUIZ,
+    ATLANTIS_QUIZ,
 
     // Dionysus' Path (Plateaus of Greece)
     DIONYSUS_OPENING_SCENE,
@@ -124,5 +126,5 @@ enum class GameState {
     NYX7,
     MOUNT_CYLLENE,          // Hermes stage
     NYX8,
-
+    NONE
 };

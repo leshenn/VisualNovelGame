@@ -27,7 +27,7 @@ void QuizManager::loadQuestions(GameState world) {
         questionTimer = 15.f;
         loadHadesQuestions();
     }
-    else if (world == GameState::SEAWORLD) {
+    else if (world == GameState::ATLANTIS_QUIZ || world == GameState::SHRINE_QUIZ) {
         questionTimer = 15.f;
         loadPoseidonQuestions();
     }
