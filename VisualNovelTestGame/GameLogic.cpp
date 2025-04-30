@@ -646,31 +646,6 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                     renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
                     break;
                 */
-
- //---------------------------------------------------------- GAMES + BEGIN GAME ------------------------------------------------------------------------------
-    case GameState::BOSS_GAME:
-        window.setVisible(false);
-        break;
-
-	case GameState::TYPING_GAME:
-        window.setVisible(false);
-        break;
-    case GameState::RHYTHM_GAME:
-        window.setVisible(false);
-        break;
-
-    case GameState::FORGE_GAME:
-        window.setVisible(false);
-        break;
-    case GameState::BUBBLE_GAME:
-        window.setVisible(false);
-        break;
-
-    case GameState::WINE_GAME:
-        window.setVisible(false);
-        break;
-
-    
     
     // --------------------------------------------------- INTRODUCTION -------------------------------------------------
     case GameState::NYXGREETING_SCENE:
