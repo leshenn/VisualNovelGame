@@ -29,44 +29,44 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         break;
 
     case GameState::ATLANTIS_QUIZ:
-        loadSprites.loadGameScreen("Backgrounds/StageOne/AtlantisCity.png", "Characters/Hades.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageOne/AtlantisCity.png", "Characters/Kourouna.png", "Acessories/Scroll.png");
         break;
 
     case GameState::SHRINE_QUIZ:
-        loadSprites.loadGameScreen("Backgrounds/StageOne/ShrineHallways.png", "Characters/Hades.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageOne/ShrineHallways.png", "Characters/Leucothea.png", "Acessories/Scroll.png");
         break;
 
     case GameState::HADES_QUIZ:
-        loadSprites.loadGameScreen("Backgrounds/HadesBackground.jpg", "Characters/Hades.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/HadesBackground.jpg", "Characters/Cerberus.png", "Acessories/Scroll.png");
         break;
 
     case GameState::DIONYSUS_CHOICE:
-        loadSprites.loadGameScreen("Backgrounds/DionysusBackground.jpg", "Characters/Dionysus.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageOne/Dionysus/Lake.png", "Characters/Dionysus.png", "Acessories/Scroll.png");
         break;
 
     case GameState::KOMOS_SCENE:
-        loadSprites.loadGameScreen("Backgrounds/StageOne/Lake.png", "Characters/Hades.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageOne/Lake.png", "Characters/Komos.png", "Acessories/Scroll.png");
         break;
 
     case GameState::FOREST_SCENE:
-        loadSprites.loadGameScreen("Backgrounds/StageOne/Forest.png", "Characters/Hades.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageOne/Forest.png", "Characters/Nymph.png", "Acessories/Scroll.png");
         break;
 
 
     case GameState::STAGE_TWO_MENU:
-        loadSprites.loadMenuScreen("Backgrounds/MenuBackground00.png");
+        loadSprites.loadMenuScreen("Backgrounds/StageOne/Athens.png");
         break;
 
     case GameState::APOLLO_QUIZ:
-        loadSprites.loadGameScreen("Backgrounds/StageTwo/Apollo/Stage.png", "Characters/Apollo.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageTwo/Apollo/Stage.png", "Characters/Lyrix.png", "Acessories/Scroll.png");
         break;
 
     case GameState::HEPHAESTUS_QUIZ:
-        loadSprites.loadGameScreen("Backgrounds/StageTwo/Hephaestus/Forge.png", "Characters/Apollo.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageTwo/Hephaestus/Forge.png", "Characters/Pyra.png", "Acessories/Scroll.png");
         break;
 
     case GameState::ATHENA_QUIZ:
-        loadSprites.loadGameScreen("Backgrounds/StageTwo/Athena/Study.png", "Characters/Athena.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageTwo/Athena/Study.png", "Characters/Cecrops.png", "Acessories/Scroll.png");
         break;
 
 
