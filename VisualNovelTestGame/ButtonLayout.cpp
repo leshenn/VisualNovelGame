@@ -55,8 +55,8 @@ void ButtonLayout::loadPlayButton()
 	playButton = Button("Play", Vector2f(250.f, 80.f), 36, Color(255, 215, 0), Color::Black);
 	playButton.setFont(font);
 	playButton.setOutline(Color::White, 3.f);
-	playButton.setPosition({(window.getSize().x - playButton.getSize().x) / 2.f, window.getSize().y * 0.7f});
-	
+	playButton.setPosition({ (window.getSize().x - playButton.getSize().x) / 2.f, window.getSize().y * 0.7f });
+
 	playButton.drawTo(window);
 }
 
@@ -101,107 +101,194 @@ Button& ButtonLayout::getNextButton() {
 // Create and load buttons for user to choose
 void ButtonLayout::loadStageOneButtons()
 {
-	// Underworld
-	underWorldButton = Button("Underworld", Vector2f(200.f, 60.f), 24, Color(128, 0, 128), Color::White);
-	underWorldButton.setFont(font);
+	// Country side
+	countrySideButton = Button("Country Side", Vector2f(200.f, 60.f), 24, Color(128, 0, 128), Color::White);
+	countrySideButton.setFont(font);
 
 	// Seaworld
 	seaWorldButton = Button("Sea World", Vector2f(200.f, 60.f), 24, Color(0, 105, 148), Color::White);
 	seaWorldButton.setFont(font);
 
-	// Country side
-	countrySideButton = Button("Country Side", Vector2f(200.f, 60.f), 24, Color(34, 139, 34), Color::White);
-	countrySideButton.setFont(font);
+	// Set position of buttons
+	float buttonSpacing = 30.f;
+	float width = countrySideButton.getSize().x + seaWorldButton.getSize().x + 2 * buttonSpacing;
+	float xPosition = (window.getSize().x - width) / 2.f;
+
+	countrySideButton.setPosition({ xPosition, window.getSize().y - 120.f });
+	seaWorldButton.setPosition({ xPosition + countrySideButton.getSize().x + buttonSpacing, window.getSize().y - 120.f });
+
+
+	countrySideButton.drawTo(window);
+	seaWorldButton.drawTo(window);
+}
+
+// Check if a button is clicked based on mouse position
+GameState ButtonLayout::loadStageOneButtonClicked(const sf::Vector2i& mousePos)
+
+{
+	if (seaWorldButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+		return GameState::POSEIDON_OPENING_SCENE;	
+	}
+	else if (countrySideButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+		return GameState::NYXGREETING_SCENE;	//GameState::DIONYSUS_OPENING_SCENE
+	}
+	else {
+		return GameState::STAGE_ONE_MENU;
+	}
+
+}
+
+
+// Create and load buttons for user to choose
+void ButtonLayout::loadPoseidonChoiceButtons()
+{
+	// Atlantis
+	atlantisButton = Button("Atlantis", Vector2f(200.f, 60.f), 24, Color(128, 0, 128), Color::White);
+	atlantisButton.setFont(font);
+
+	// shrine
+	shrineButton = Button("Shrine", Vector2f(200.f, 60.f), 24, Color(0, 105, 148), Color::White);
+	shrineButton.setFont(font);
 
 	// Set position of buttons
 	float buttonSpacing = 30.f;
-	float width = underWorldButton.getSize().x + seaWorldButton.getSize().x + countrySideButton.getSize().x + 2 * buttonSpacing;
+	float width = atlantisButton.getSize().x + shrineButton.getSize().x + 2 * buttonSpacing;
 	float xPosition = (window.getSize().x - width) / 2.f;
 
-	underWorldButton.setPosition({ xPosition, window.getSize().y - 120.f });
-	seaWorldButton.setPosition({ xPosition + underWorldButton.getSize().x + buttonSpacing, window.getSize().y - 120.f });
-	countrySideButton.setPosition({ xPosition + underWorldButton.getSize().x + seaWorldButton.getSize().x + 2 * buttonSpacing, window.getSize().y - 120.f});
+	atlantisButton.setPosition({ xPosition, window.getSize().y - 120.f });
+	shrineButton.setPosition({ xPosition + atlantisButton.getSize().x + buttonSpacing, window.getSize().y - 120.f });
 
 
-	underWorldButton.drawTo(window);
-	seaWorldButton.drawTo(window);
-	countrySideButton.drawTo(window);
+	atlantisButton.drawTo(window);
+	shrineButton.drawTo(window);
+}
+
+// Check if a button is clicked based on mouse position
+GameState ButtonLayout::loadPoseidonChoiceButtonClicked(const sf::Vector2i& mousePos)
+
+{
+	std::cout << "TEST LAOD STAGEONE" << endl;
+	if (atlantisButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+		return GameState::SEAWORLD;	//GameState::ATLANTIS_SCENE
+	}
+	else if (shrineButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+		return GameState::NYXGREETING_SCENE;	//GameState::SHRINE_SCENE
+	}
+	else {
+		return GameState::STAGE_ONE_MENU;
+	}
+
+}
+
+
+// Create and load buttons for user to choose
+void ButtonLayout::loadDionysusChoiceButtons()
+{
+	// pegasus
+	pegasusButton = Button("Run after pegasus", Vector2f(200.f, 60.f), 24, Color(128, 0, 128), Color::White);
+	pegasusButton.setFont(font);
+
+	// stranger
+	strangerButton = Button("Talk to stranger", Vector2f(200.f, 60.f), 24, Color(0, 105, 148), Color::White);
+	strangerButton.setFont(font);
+
+	// Set position of buttons
+	float buttonSpacing = 30.f;
+	float width = pegasusButton.getSize().x + strangerButton.getSize().x + 2 * buttonSpacing;
+	float xPosition = (window.getSize().x - width) / 2.f;
+
+	pegasusButton.setPosition({ xPosition, window.getSize().y - 120.f });
+	strangerButton.setPosition({ xPosition + pegasusButton.getSize().x + buttonSpacing, window.getSize().y - 120.f });
+
+
+	pegasusButton.drawTo(window);
+	strangerButton.drawTo(window);
+}
+
+// Check if a button is clicked based on mouse position
+GameState ButtonLayout::loadDionysusChoiceButtonClicked(const sf::Vector2i& mousePos)
+
+{
+	std::cout << "TEST LAOD STAGEONE" << endl;
+	if (pegasusButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+		return GameState::NYXGREETING_SCENE;	//GameState::PEGASUS_SCENE
+	}
+	else if (strangerButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+		return GameState::NYXGREETING_SCENE;	//GameState::STRANGER_SCENE
+	}
+	else {
+		return GameState::STAGE_ONE_MENU;
+	}
+
 }
 
 
 // Create and load buttons for user to choose
 void ButtonLayout::loadStageTwoButtons()
 {
-	// Athens
-	athensButton = Button("Athens", Vector2f(200.f, 60.f), 24, Color(128, 0, 128), Color::White);
-	athensButton.setFont(font);
+	// Follow music
+	musicButton = Button("Follow music", Vector2f(200.f, 60.f), 24, Color(128, 0, 128), Color::White);
+	musicButton.setFont(font);
 
-	// Delphi
-	delphiButton = Button("Delphi", Vector2f(200.f, 60.f), 24, Color(34, 139, 34), Color::White);
-	delphiButton.setFont(font);
+	// Follow smoke trail
+	smokeButton = Button("Follow smoke", Vector2f(200.f, 60.f), 24, Color(34, 139, 34), Color::White);
+	smokeButton.setFont(font);
+
+	// Follow signs
+	signsButton = Button("Follow signs", Vector2f(200.f, 60.f), 24, Color(34, 20, 34), Color::White);
+	signsButton.setFont(font);
 
 	// Set position of buttons
 	float buttonSpacing = 30.f;
-	float width = athensButton.getSize().x + delphiButton.getSize().x + 2 * buttonSpacing;
+	float width = musicButton.getSize().x + smokeButton.getSize().x + signsButton.getSize().x + 2 * buttonSpacing;
 	float xPosition = (window.getSize().x - width) / 2.f;
 
-	athensButton.setPosition({ xPosition, window.getSize().y - 120.f });
-	delphiButton.setPosition({ xPosition + athensButton.getSize().x + buttonSpacing, window.getSize().y - 120.f });
+	musicButton.setPosition({ xPosition, window.getSize().y - 120.f });
+	smokeButton.setPosition({ xPosition + musicButton.getSize().x + buttonSpacing, window.getSize().y - 120.f });
+	signsButton.setPosition({ smokeButton.getPosition().x + smokeButton.getSize().x + buttonSpacing, window.getSize().y - 120.f });
 
 
-	athensButton.drawTo(window);
-	delphiButton.drawTo(window);
+	musicButton.drawTo(window);
+	smokeButton.drawTo(window);
+	signsButton.drawTo(window);
 }
 
-// Check if a button is clicked based on mouse position
-GameState ButtonLayout::loadStageOneButtonClicked(const sf::Vector2i& mousePos)
-{
-	if (seaWorldButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::SEAWORLD;
-	}
-	else if (underWorldButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::UNDERWORLD;
-	}
 
-	else if (countrySideButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::COUNTRY_SIDE;
-	}
-	else {
-		return GameState::STAGE_ONE_MENU;
-	}
-		
-}
 
 GameState ButtonLayout::loadStageTwoButtonClicked(const sf::Vector2i& mousePos)
 {
 
-	if (athensButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::ATHENS;
+	if (musicButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+		return GameState::NYXGREETING_SCENE;  //HEPHAESTUS_OPENING_SCENE
 	}
-	else if (delphiButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::DELPHI;
+	else if (smokeButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+		return GameState::NYXGREETING_SCENE;	//APOLLO_OPENING_SCENE
+	}
+	else if (signsButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+		return GameState::NYXGREETING_SCENE;	//ATHENA_OPENING_SCENE
 	}
 
 }
 
 
 //Allows user to access which button was clicked(underWorld/seaWorld/countrySide)
-Button& ButtonLayout::getUnderworldButton() { 
-	return underWorldButton;
-}
 
-Button& ButtonLayout::getSeaWorldButton() { 
+Button& ButtonLayout::getSeaWorldButton() {
 	return seaWorldButton;
 }
 
-Button& ButtonLayout::getCountrySideButton() { 
+Button& ButtonLayout::getCountrySideButton() {
 	return countrySideButton;
 }
 
-Button& ButtonLayout::getAthensButton() {
-	return athensButton;
+Button& ButtonLayout::getMusicButton() {
+	return musicButton;
 }
 
-Button& ButtonLayout::getDelphiButton() {
-	return delphiButton;
+Button& ButtonLayout::getSmokeButton() {
+	return smokeButton;
+}
+
+Button& ButtonLayout::getSignsButton() {
+	return signsButton;
 }
