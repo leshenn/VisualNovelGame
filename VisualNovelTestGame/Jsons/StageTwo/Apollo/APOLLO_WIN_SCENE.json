@@ -12,7 +12,7 @@
         "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Transparent.png",
-        "audio": { "path": "", "loop": false }
+        "audio": { "path": "Audio/crowdCheer.wav", "loop": false }
       },
       {
         "line": "I see Nyx's mark upon you, mortal. This is no ordinary dance—your purpose is grand.",
@@ -47,7 +47,7 @@
         "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
         "left_sprite": "Characters/Player.png",
         "right_sprite": "Characters/Transparent.png",
-        "audio": { "path": "", "loop": false }
+        "audio": { "path": "Audio/run.wav", "loop": false }
       },
       {
         "line": "Now, who is ready for the next song!",
@@ -61,7 +61,7 @@
         "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Transparent.png",
-        "audio": { "path": "", "loop": false }
+        "audio": { "path": "Audio/crowdCheer.wav", "loop": false }
       }
     ]
   }

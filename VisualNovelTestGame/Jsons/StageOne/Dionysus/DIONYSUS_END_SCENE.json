@@ -19,7 +19,7 @@
       "background_sprite": "Backgrounds/Athens.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Pegasus.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/horseSnort.wav", "loop": false }
     },
     {
       "line": "How do I enter Olympus? There's no gate, no path— just the city if Athens!",
@@ -33,7 +33,7 @@
       "background_sprite": "Backgrounds/Athens.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Pegasus.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/wingSpread.wav", "loop": false }
     },
     {
       "line": "Wait— don't you dare—",
@@ -47,7 +47,7 @@
       "background_sprite": "Backgrounds/Athens.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Pegasus.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/wingFlap.wav", "loop": false }
     },
     {
       "line": "MELANOPTER! You featherbrained—",
@@ -75,7 +75,7 @@
       "background_sprite": "Backgrounds/Athens.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/sigh.wav", "loop": false }
     }
   ]
 }
