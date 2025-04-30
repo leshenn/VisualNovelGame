@@ -53,14 +53,14 @@
       "line": "*Slams his hammer down*",
       "background_sprite": "Backgrounds/StageTwo/Hephaestus/Private_Forge.png",
       "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Hephaestus_Hammering.png",
+      "right_sprite": "Characters/Hephaestus.png",
       "audio": { "path": "", "loop": false }
     },
     {
       "line": "I said I don't repeat myself! The forge doesn't wait for slow minds. Out!",
       "background_sprite": "Backgrounds/StageTwo/Hephaestus/Private_Forge.png",
       "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Hephaestus_Angry.png",
+      "right_sprite": "Characters/Hephaestus.png",
       "audio": { "path": "", "loop": false }
     },
     {

@@ -100,7 +100,7 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 			currentState = GameState::DIONYSUS_WIN_SCENE;
 		}
 		else {
-			string text = "The wine spills... No power-up granted.";
+			string text = "The wine might as well be juice... No power-up granted.";
 			dialog.setMingameResult(text);
 			currentState = GameState::DIONYSUS_LOSE_SCENE;
 		}

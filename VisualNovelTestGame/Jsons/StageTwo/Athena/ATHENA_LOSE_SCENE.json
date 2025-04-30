@@ -4,21 +4,21 @@
       "line": "Cecrops' wastes my time with your presence.",
       "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
       "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Athena_Smiling.png",
+      "right_sprite": "Characters/Athena.png",
       "audio": { "path": "", "loop": false }
     },
     {
         "line": "%",
         "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
         "left_sprite": "Characters/Transparent.png",
-        "right_sprite": "Characters/Athena_Smiling.png",
+        "right_sprite": "Characters/Athena.png",
         "audio": { "path": "", "loop": false }
       },
     {
       "line": "That mark on you... Nyx...",
       "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
       "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Athena_Concerned.png",
+      "right_sprite": "Characters/Athena.png",
       "audio": { "path": "", "loop": false }
     },
     {

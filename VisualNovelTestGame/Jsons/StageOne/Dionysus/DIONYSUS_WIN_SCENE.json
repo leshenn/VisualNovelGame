@@ -15,14 +15,14 @@
       "audio": { "path": "", "loop": false }
     }, 
     {
-      "line": "Hades's blood? But I thoguht I was a mortal?",
+      "line": "Hades's blood? But I thought I was a mortal?",
       "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Here. I have bestowed you with my blessing of DRUNKEN STEP.",
+      "line": "%",
       "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Dionysus.png",
