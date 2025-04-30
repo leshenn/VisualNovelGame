@@ -33,7 +33,7 @@
       "background_sprite": "Backgrounds/ShrinePort.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Leucothea.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/walk.wav", "loop": false }
     },
     {
       "line": "Wait— your name?",
@@ -75,7 +75,7 @@
       "background_sprite": "Backgrounds/ShrinePort.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/walk.wav", "loop": false }
     },
     {
       "line": "*Arrives at Athens*",

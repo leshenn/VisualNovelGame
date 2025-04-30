@@ -40,7 +40,7 @@
       "background_sprite": "Backgrounds/StageThree/ThroneRoom.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Nyx.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/stab.wav", "loop": false }
     },
     {
       "line": "At last! The Underworld will be mine to rule!",
@@ -75,14 +75,14 @@
       "background_sprite": "Backgrounds/StageThree/ThroneRoom.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Hades.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/groan.wav", "loop": false }
     },
     {
       "line": "*Stabs Hades*",
       "background_sprite": "Backgrounds/StageThree/ThroneRoom.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/stab.wav", "loop": false }
     },
     {
       "line": "*Hades turns into dust*",
@@ -110,7 +110,7 @@
       "background_sprite": "Backgrounds/StageThree/ThroneRoom.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Nyx.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/evilLaugh.wav", "loop": false }
     },
     {
       "line": "...",

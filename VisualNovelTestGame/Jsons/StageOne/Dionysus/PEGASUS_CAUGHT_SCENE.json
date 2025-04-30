@@ -40,7 +40,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Sky_Clouds.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Pegasus.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/neigh.wav", "loop": false }
     },
     {
       "line": "You could have gotten us both killed!",
@@ -96,7 +96,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Sky_Clouds.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/wingFlap.wav", "loop": false }
     },
     {
       "line": "...",

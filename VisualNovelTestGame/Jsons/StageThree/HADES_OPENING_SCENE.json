@@ -12,7 +12,7 @@
       "background_sprite": "Backgrounds/Underworld/ThroneRoom.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/bark.wav", "loop": false }
     },
     {
       "line": "You trespass upon our King's kingdom",
@@ -33,7 +33,7 @@
       "background_sprite": "Backgrounds/Underworld/ThroneRoom.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Cerberus.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/bark.wav", "loop": false }
     },
     {
       "line": "You are doomed to fall at his summons",
@@ -54,7 +54,7 @@
       "background_sprite": "Backgrounds/Underworld/ThroneRoom.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Cerberus.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/bark.wav", "loop": false }
     },
     {
       "line": "Answer my questions quickly. Before Hades arrives.",
@@ -75,7 +75,7 @@
       "background_sprite": "Backgrounds/Underworld/ThroneRoom.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Cerberus.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/bark.wav", "loop": false }
     },
     {
       "line": "It will be... worth your time.",

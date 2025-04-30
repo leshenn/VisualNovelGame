@@ -5,7 +5,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Forest.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/rustlingLeaves.wav", "loop": false }
     },
     {
       "line": "Melanopter! Wait!",
@@ -19,7 +19,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Forest.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Nymph.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/giggle.wav", "loop": false }
     },
     {
       "line": "Ooooh, someone’s in a hurry!",
@@ -75,7 +75,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Forest.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Nymph.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/dramaGasp.wav", "loop": false }
     },
     {
       "line": "*Flips upright, grinning*",
@@ -103,7 +103,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Forest.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Nymph.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/clapping.wav", "loop": false }
     }
   ]
 }

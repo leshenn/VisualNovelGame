@@ -19,7 +19,7 @@
         "background_sprite": "Backgrounds/StageOne/Dionysus/Lake.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Pegasus.png",
-        "audio": { "path": "", "loop": false }
+        "audio": { "path": "Audio/neigh.wav", "loop": false }
       },
       {
         "line": "Melanopter! Thank the—",
@@ -33,7 +33,7 @@
         "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Dionysus.png",
-        "audio": { "path": "", "loop": false }
+        "audio": { "path": "Audio/spill.wav", "loop": false }
       },
       {
         "line": "No thanking others in my vineyard! The only proper gratitude here comes in liquid form... or through entertainment.",
@@ -68,7 +68,7 @@
         "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Dionysus.png",
-        "audio": { "path": "", "loop": false }
+        "audio": { "path": "Audio/laughing.wav", "loop": false }
       },
       {
         "line": "Oh ho! And does Night give you wings now? Very well - beat my champion in a game of kottabos, and you'll have your horse.",
@@ -89,7 +89,7 @@
         "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Dionysus.png",
-        "audio": { "path": "", "loop": false }
+        "audio": { "path": "Audio/pourWine.wav", "loop": false }
       },
       {
         "line": "The rules are simple: Pick out the quality among the rotten. My grapes are ripe for the harvest!",

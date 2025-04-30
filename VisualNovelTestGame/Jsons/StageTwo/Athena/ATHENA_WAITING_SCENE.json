@@ -75,7 +75,7 @@
       "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/run.wav", "loop": false }
     },
     {
       "line": "Good luck.",

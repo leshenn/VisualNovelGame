@@ -19,7 +19,7 @@
       "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Pyra.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/walkingAway.wav", "loop": false }
     },
     {
       "line": "*Open the heavy door*",

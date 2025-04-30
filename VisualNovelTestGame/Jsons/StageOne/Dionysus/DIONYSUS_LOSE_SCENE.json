@@ -19,7 +19,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Pegasus.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/drunkHiccup.wav", "loop": false }
     },
     {
       "line": "You... you got my Pegasus drunk?!",
@@ -40,7 +40,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Pegasus_Drunk.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/maleSneeze.wav", "loop": false }
     },
     {
       "line": "Off with you both before I decide this drunken horse would make excellent vineyard decor.",
@@ -68,7 +68,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/wingFlap.wav", "loop": false }
     }
   ]
 }
