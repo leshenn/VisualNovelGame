@@ -253,7 +253,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         if (event.type == Event::MouseButtonPressed) {
             if (layout.playButtonClicked(window)) {
                 audio.playClickButtonSound();
-                currentState = GameState::INTRO; // Change state when Play button is clicked
+                currentState = GameState::APOLLO_DANCE_SCENE; // Change state when Play button is clicked
 
                 //load the dialoguesprite once at the start of the gameasda
                 loadSprites.loadGameScroll("Acessories/Scroll.png");
@@ -737,7 +737,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         break;
 
     case GameState::APOLLO_LOSE_SCENE:
-        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Apollo/APOLLO_LOSE_SCENE.json", GameState::APOLLO_WAITING_SCENE);
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Apollo/APOLLO_LOSE_SCENE.json", GameState::OLYMPUS_DOOR);
         break;
 
     case GameState::APOLLO_WAITING_SCENE:
