@@ -6,7 +6,7 @@ using namespace std;
 Question::Question() {}
 
 // Parameterized constructor
-Question::Question(const string& insertQuestionText, const std::vector<std::string>& insertOptions, int insertCorrectAnswerIndex)
+Question::Question(const string& insertQuestionText, const vector<string>& insertOptions, int insertCorrectAnswerIndex)
 {
     questionText = insertQuestionText;
     options = insertOptions;
