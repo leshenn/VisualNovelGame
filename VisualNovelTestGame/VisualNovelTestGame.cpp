@@ -165,6 +165,12 @@ int main()
 			currentState == GameState::WINE_GAME || currentState == GameState::BUBBLE_GAME || currentState == GameState::FORGE_GAME)
 		handleMinigameExecution(currentState, window, audio, dialog);
 
+		if (currentState==GameState::HADES_QUIZ)
+		{
+			HadesScore = quiz.getScore() * 10;
+			string text = (HadesScore <= 50)?  "You have made the boss sick. The boss does less damage.":"You have a weakness the boss does more damage now.";
+			dialog.setMingameResult(text);
+		}
 		Event event;
 		while (window.pollEvent(event)) {
 			if (event.type == Event::Closed)

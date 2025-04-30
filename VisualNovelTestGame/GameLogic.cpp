@@ -471,15 +471,13 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         if (event.type == Event::MouseButtonPressed) {
             if (!quiz.isQuizComplete()) {
                 quiz.handleEvent(); // Normal quiz handling
+                
             }
             else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
                 // Only proceed if quiz is complete AND Next is clicked
                 progressBar.update();
                 audio.playClickButtonSound();
-                
-                HadesScore = quiz.getScore()*10;
-                string text = (HadesScore > 40) ? "You have a weakness the boss does more damage now." : "You have made the boss sick. The boss does less damage.";
-                dialog.setMingameResult(text);
+                         
                 currentState = GameState::HADES_ENCOUNTER_SCENE;  //TESTING STATES
                 
             }
