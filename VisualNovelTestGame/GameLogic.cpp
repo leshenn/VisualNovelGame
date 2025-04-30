@@ -253,7 +253,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         if (event.type == Event::MouseButtonPressed) {
             if (layout.playButtonClicked(window)) {
                 audio.playClickButtonSound();
-                currentState = GameState::APOLLO_DANCE_SCENE; // Change state when Play button is clicked
+                currentState = GameState::NYXGREETING_SCENE; // Change state when Play button is clicked
 
                 //load the dialoguesprite once at the start of the gameasda
                 loadSprites.loadGameScroll("Acessories/Scroll.png");
