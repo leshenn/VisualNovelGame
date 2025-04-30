@@ -29,7 +29,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "I'm not here to faint— I need to find Apollo, it's urgent.",
+      "line": "I'm not here to faint- I need to find Apollo, it's urgent.",
       "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",

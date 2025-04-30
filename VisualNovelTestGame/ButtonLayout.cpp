@@ -62,33 +62,33 @@ Button& ButtonLayout::getNextButton() {
 void ButtonLayout::loadStageOneButtons()
 {
 	// Country side
-	countrySideButton = Button("Country Side", Vector2f(200.f, 60.f), 24, Color(128, 0, 128), Color::White);
-	countrySideButton.setFont(font);
+	greenPortal = Button("Green Portal", Vector2f(200.f, 60.f), 24, Color(34, 139, 34), Color::White);
+	greenPortal.setFont(font);
 
 	// Seaworld
-	seaWorldButton = Button("Sea World", Vector2f(200.f, 60.f), 24, Color(0, 105, 148), Color::White);
-	seaWorldButton.setFont(font);
+	bluePortal = Button("Blue Portal", Vector2f(200.f, 60.f), 24, Color(30, 144, 255), Color::White);
+	bluePortal.setFont(font);
 
 	// Set position of buttons
 	float buttonSpacing = 30.f;
-	float width = countrySideButton.getSize().x + seaWorldButton.getSize().x + 2 * buttonSpacing;
+	float width = greenPortal.getSize().x + greenPortal.getSize().x + 2 * buttonSpacing;
 	float xPosition = (window.getSize().x - width) / 2.f;
 
-	countrySideButton.setPosition({ xPosition, window.getSize().y - 120.f });
-	seaWorldButton.setPosition({ xPosition + countrySideButton.getSize().x + buttonSpacing, window.getSize().y - 120.f });
+	bluePortal.setPosition({ xPosition, window.getSize().y - 120.f });
+	greenPortal.setPosition({ xPosition + greenPortal.getSize().x + buttonSpacing, window.getSize().y - 120.f });
 
 
-	countrySideButton.drawTo(window);
-	seaWorldButton.drawTo(window);
+	greenPortal.drawTo(window);
+	bluePortal.drawTo(window);
 }
 
 // Check if a button is clicked based on mouse position
 GameState ButtonLayout::loadStageOneButtonClicked(const sf::Vector2i& mousePos)
 {
-	if (seaWorldButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+	if (bluePortal.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::POSEIDON_OPENING_SCENE;	
 	}
-	else if (countrySideButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+	else if (greenPortal.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::DIONYSUS_OPENING_SCENE;	//GameState::DIONYSUS_OPENING_SCENE
 	}
 	else {
@@ -103,11 +103,11 @@ GameState ButtonLayout::loadStageOneButtonClicked(const sf::Vector2i& mousePos)
 void ButtonLayout::loadPoseidonChoiceButtons()
 {
 	// Atlantis
-	atlantisButton = Button("Atlantis", Vector2f(200.f, 60.f), 24, Color(128, 0, 128), Color::White);
+	atlantisButton = Button("Jump In", Vector2f(200.f, 60.f), 24, Color(128, 0, 128), Color::White);
 	atlantisButton.setFont(font);
 
 	// shrine
-	shrineButton = Button("Shrine", Vector2f(200.f, 60.f), 24, Color(0, 105, 148), Color::White);
+	shrineButton = Button("Go to the Shrine", Vector2f(200.f, 60.f), 24, Color(0, 105, 148), Color::White);
 	shrineButton.setFont(font);
 
 	// Set position of buttons
@@ -234,11 +234,11 @@ GameState ButtonLayout::loadStageTwoButtonClicked(const sf::Vector2i& mousePos)
 //Allows user to access which button was clicked(underWorld/seaWorld/countrySide)
 
 Button& ButtonLayout::getSeaWorldButton() {
-	return seaWorldButton;
+	return bluePortal;
 }
 
 Button& ButtonLayout::getCountrySideButton() {
-	return countrySideButton;
+	return greenPortal;
 }
 
 Button& ButtonLayout::getMusicButton() {

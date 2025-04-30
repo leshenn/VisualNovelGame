@@ -22,7 +22,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "But—",
+      "line": "But-",
       "background_sprite": "Backgrounds/StageTwo/Athena/Library.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
@@ -64,7 +64,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Athena... Please, I really need—",
+      "line": "Athena... Please, I really need-",
       "background_sprite": "Backgrounds/StageTwo/Athena/Library.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",

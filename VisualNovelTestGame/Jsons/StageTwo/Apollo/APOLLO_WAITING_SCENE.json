@@ -8,7 +8,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "But this is urgent— I need her help now!",
+      "line": "But this is urgent- I need her help now!",
       "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
@@ -22,7 +22,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "But—",
+      "line": "But-",
       "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
