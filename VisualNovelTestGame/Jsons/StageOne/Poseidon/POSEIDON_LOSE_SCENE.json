@@ -2,14 +2,21 @@
   "data": [
     {
       "line": "Pathetic demigods! Begone!",
-      "background_sprite": "Backgrounds/PoseidonChamber.png",
+      "background_sprite": "Backgrounds/StageOne/Poseidon/WarRoom.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Poseidon.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "%",
+      "background_sprite": "Backgrounds/StageOne/Poseidon/WarRoom.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Poseidon.png",
       "audio": { "path": "", "loop": false }
     },
     {
       "line": "*Shoved out*",
-      "background_sprite": "Backgrounds/ShrineHallways.png",
+      "background_sprite": "Backgrounds/StageOne/Poseidon/WarRoom.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }
