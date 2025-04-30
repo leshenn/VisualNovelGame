@@ -15,7 +15,7 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         break;
 
     case GameState::INTRO:
-        loadSprites.loadInstructionScreen("Backgrounds/InstructionBackground.jpg", "Acessories/MenuScroll.png");
+        loadSprites.loadInstructionScreen("Backgrounds/MenuBackground.png1", "Acessories/MenuScroll.png");
         break;
 
     case GameState::NYX1:
@@ -764,14 +764,14 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
     
-    // --- INTRODUCTION ---
+    // --------------------------------------------------- INTRODUCTION -------------------------------------------------
     case GameState::NYXGREETING_SCENE:
         updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/Intro/Introduction.json", GameState::STAGE_ONE_CHOICE);
         break;
 
     case GameState::STAGE_ONE_CHOICE:
-        //GameState::POSEIDON_OPENING_SCENE;
-        //GameState::DIONYSUS_OPENING_SCENE;
+        //Choose blue door -> GameState::POSEIDON_OPENING_SCENE;
+        //Choose green door -> GameState::DIONYSUS_OPENING_SCENE;
         break;
 
     //------------------------------------------------- Stage 1 ------------------------------------------------------------------------
