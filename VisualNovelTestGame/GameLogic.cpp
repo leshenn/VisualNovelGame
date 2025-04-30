@@ -356,6 +356,9 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
     case GameState::ATLANTIS_QUIZ:
     case GameState::SHRINE_QUIZ:
+        if (!quiz.isActive()) {  // Ensure quiz is only initialized once
+            quiz.initQuiz(currentState);  // Initialize with the current state (ATLANTIS_QUIZ/SHRINE_QUIZ)
+        }
         loadGameAssets(currentState, loadSprites, dialog);
 
         // Handle quiz events
@@ -699,9 +702,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
     */
 
     case GameState::ATLANTIS_SCENE:
-        
         updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/ATLANTIS_SCENE.json", GameState::ATLANTIS_QUIZ);
-        quiz.initQuiz(currentState);
         break;
 
     case GameState::ATLANTIS_WIN_SCENE:
