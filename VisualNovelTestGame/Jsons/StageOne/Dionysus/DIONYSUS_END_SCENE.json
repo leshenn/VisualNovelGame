@@ -36,7 +36,7 @@
       "audio": { "path": "Audio/wingSpread.wav", "loop": false }
     },
     {
-      "line": "Wait— don't you dare-",
+      "line": "Wait- don't you dare-",
       "background_sprite": "Backgrounds/StageOne/Athens.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",

@@ -16,14 +16,14 @@
       },
       {
         "line": "*Excited neigh*",
-        "background_sprite": "Backgrounds/StageOne/Dionysus/Lake.png",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Pegasus.png",
         "audio": { "path": "Audio/neigh.wav", "loop": false }
       },
       {
-        "line": "Melanopter! Thank the—",
-        "background_sprite": "BackgroundsStageOne/Dionysus//Vineyard.png",
+        "line": "Melanopter! Thank the-",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Player.png",
         "right_sprite": "Characters/Transparent.png",
         "audio": { "path": "", "loop": false }

@@ -92,7 +92,7 @@
         "audio": { "path": "", "loop": false }
       },
       {
-        "line": "Do we have to—",
+        "line": "Do we have to-",
         "background_sprite": "Backgrounds/StageOne/Poseidon/AtlantisCity.png",
         "left_sprite": "Characters/Player.png",
         "right_sprite": "Characters/Transparent.png",

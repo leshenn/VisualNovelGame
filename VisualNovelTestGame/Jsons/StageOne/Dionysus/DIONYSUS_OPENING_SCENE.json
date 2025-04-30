@@ -29,7 +29,7 @@
       "audio": { "path": "Audio/neigh.wav", "loop": false }
     },
     {
-      "line": "Whoa! What's—",
+      "line": "Whoa! What's-",
       "background_sprite": "Backgrounds/StageOne/Dionysus/Lake.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
