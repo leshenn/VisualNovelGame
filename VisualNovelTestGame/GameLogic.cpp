@@ -475,13 +475,17 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 // Only proceed if quiz is complete AND Next is clicked
                 progressBar.update();
                 audio.playClickButtonSound();
+                
+                HadesScore = quiz.getScore()*10;
+                string text = (HadesScore > 40) ? "You have weakness boss does more damage" : "You have made the boss shiver";
+                dialog.setMingameResult(text);
                 currentState = GameState::HADES_ENCOUNTER_SCENE;  //TESTING STATES
                 
             }
         }
-
+        
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
-        HadesScore = quiz.getScore();
+
         break;
 
         // --------------------------------------------------- INTRODUCTION -------------------------------------------------
