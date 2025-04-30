@@ -31,9 +31,12 @@ void LoadSprites::selectCharacter(bool isMale) {
 void LoadSprites::updateMainCharacterDisplay() {
     mainCharacterSprite.setTexture(isMaleCharacterSelected ? maleCharacterTexture : femaleCharacterTexture);
 
-    // Position Main character
-    mainCharacterSprite.setScale(0.95f, 0.95f);
-    FloatRect bounds = mainCharacterSprite.getGlobalBounds();
+    // Position main character
+    float posX = WIN_WIDTH * 0.1f; 
+    float posY = WIN_HEIGHT * 0.7f;
+
+    mainCharacterSprite.setPosition(posX, posY);
+    mainCharacterSprite.setScale(1, 1);
 }
 
 // Load textures from files and assign them to sprites
