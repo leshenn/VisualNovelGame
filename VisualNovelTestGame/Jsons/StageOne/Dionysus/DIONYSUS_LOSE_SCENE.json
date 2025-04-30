@@ -15,6 +15,13 @@
       "audio": { "path": "", "loop": false }
     },
     {
+      "line": "%",
+      "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Dionysus.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
       "line": "*Stumbles in, hiccuping*",
       "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
       "left_sprite": "Characters/Transparent.png",

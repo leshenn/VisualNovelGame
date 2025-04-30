@@ -29,7 +29,7 @@ WordGame::WordGame() :
 {
     gridCells.fill(false);
 
-    if (!correctBuffer.loadFromFile("correct.wav") || !wrongBuffer.loadFromFile("wrong.wav")) {
+    if (!correctBuffer.loadFromFile("TypingGame/correct.wav") || !wrongBuffer.loadFromFile("TypingGame/wrong.wav")) {
         cout << ("Failed to load sound files!") << endl;
     }
     correctSound.setBuffer(correctBuffer);
@@ -204,7 +204,7 @@ bool WordGame::getGameOver() {
 
 void  WordGame::run() {
     sf::SoundBuffer s;
-    if (!s.loadFromFile("easy_cheesy.ogg")) {
+    if (!s.loadFromFile("TypingGame/easy_cheesy.ogg")) {
         cout << ("easy_cheesy.ogg sound failed to load") << endl;
     }
     sf::Sound mysound;

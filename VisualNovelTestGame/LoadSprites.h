@@ -4,60 +4,68 @@
 #include <fstream>  
 #include <iostream>  
 
-using namespace std;  
-using namespace sf;  
+using namespace std;
+using namespace sf;
 
-class LoadSprites {  
-public:  
-   // Window dimensions  
-   const int WIN_WIDTH = 1280;  
-   const int WIN_HEIGHT = 720;  
+class LoadSprites {
+public:
+    // Window dimensions  
+    const int WIN_WIDTH = 1280;
+    const int WIN_HEIGHT = 720;
 
-   // Load in all the textures  
-   Texture menuBackgroundTexture;  
-   Texture gameBackgroundTexture;  
-   Texture instructionBackgroundTexture;  
-   Texture godTexture;  
-   Texture playerTexture;  
-   Texture maleCharacterTexture;  
-   Texture femaleCharacterTexture;  
-   bool isMaleCharacterSelected;  
-   Texture gameScrollTexture;  
-   Texture menuScrollTexture;  
+    // Load in all the textures  
+    Texture menuBackgroundTexture;
+    Texture gameBackgroundTexture;
+    Texture instructionBackgroundTexture;
+    Texture godTexture;
+    Texture playerTexture;
+    Texture maleCharacterTexture;
+    Texture femaleCharacterTexture;
+    bool isMaleCharacterSelected;
+    Texture gameScrollTexture;
+    Texture menuScrollTexture;
 
-   // Load in all the sprites  
-   Sprite menuBackgroundSprite;  
-   Sprite instructionBackgroundSprite;  
-   Sprite gameBackgroundSprite;  
-   Sprite godSprite;  
-   Sprite playerSprite;  
-   Sprite mainCharacterSprite;  
-   Sprite gameScrollSprite;  
-   Sprite menuScrollSprite;  
+    // Load in all the sprites  
+    Sprite menuBackgroundSprite;
+    Sprite instructionBackgroundSprite;
+    Sprite gameBackgroundSprite;
+    Sprite godSprite;
+    Sprite playerSprite;
+    Sprite mainCharacterSprite;
+    Sprite gameScrollSprite;
+    Sprite menuScrollSprite;
 
-public:  
-   void loadMenuScreen(const string& menuBackgroundPath);  
+    // stores currently loaded sprite paths
+    string godPaths;
+    string playerPaths;
+    string gameBackgroundPaths;
 
-   void loadInstructionScreen(const string& insrtuctionBackgroundPath, const string& menuScrollPath);  
 
-   void loadCharacterSelectionScreen(const string& backgroundPath);  
+public:
+    void loadMenuScreen(const string& menuBackgroundPath);
 
-   void loadCharacterOptions(const string& maleCharcter, const string& femaleCharcter);  
+    void loadInstructionScreen(const string& insrtuctionBackgroundPath, const string& menuScrollPath);
 
-   void selectCharacter(bool isMale);  
+    void loadCharacterSelectionScreen(const string& backgroundPath);
 
-   void updateMainCharacterDisplay();  
+    void loadCharacterOptions(const string& maleCharcter, const string& femaleCharcter);
 
-   void loadGameScreen(const string& gameBackgroundPath, const string& godPath, const string& gameScrollPath);  
+    void selectCharacter(bool isMale);
 
-   void loadDialogueScreen(const string& gameBackgroundPath, const string& godPath, const string& playerPath);  
+    void updateMainCharacterDisplay();
 
-   void fitBackground(float winWidth, float winHeight,   
-       float textureX, float textureY, Sprite& menuBackgroundSprite);  
+    void loadGameScreen(const string& gameBackgroundPath, const string& godPath, const string& gameScrollPath);
 
-   void CenterMenuScroll(float textureX, float textureY, Sprite& scrollSprite);  
+    void loadGameScroll(const string& gameScrollPath);
 
-   void PositionScroll(float textureX, float textureY, Sprite& mainCharacterSprite);  
+    void loadDialogueScreen(const string& gameBackgroundPath, const string& godPath, const string& playerPath);
 
-   void PositionMainCharacter(float textureX, float textureY, Sprite& mainCharacterSprite);  
+    void fitBackground(float winWidth, float winHeight,
+        float textureX, float textureY, Sprite& menuBackgroundSprite);
+
+    void CenterMenuScroll(float textureX, float textureY, Sprite& scrollSprite);
+
+    void PositionScroll(float textureX, float textureY, Sprite& mainCharacterSprite);
+
+    void PositionMainCharacter(float textureX, float textureY, Sprite& mainCharacterSprite);
 };
