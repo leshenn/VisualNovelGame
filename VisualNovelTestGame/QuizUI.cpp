@@ -47,8 +47,6 @@ QuizUI::QuizUI(RenderWindow& window, GameState& state) : window(window), current
 	nextButton.setFont(font);
 	nextButton.setOutline(Color::White, 2.f);
 
-
-	showingResult = false;
 }
 
 void QuizUI::initQuiz(GameState world) {
@@ -95,8 +93,6 @@ void QuizUI::refreshQuizUI()
 
 	centerPosition(timerText, 65.f);
 
-	
-
 
 	// Position answer buttons
 	float yPosition = window.getSize().y * 0.4f;
@@ -131,7 +127,6 @@ void QuizUI::refreshQuizUI()
 		});
 
 	showingResult = false; // Reset result display state
-
 
 }
 
