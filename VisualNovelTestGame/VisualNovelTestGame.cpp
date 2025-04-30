@@ -43,7 +43,7 @@ int main()
 	int baseAttack = 13;
 	float defense = 1.0f; //0 %
 	bool ShootPowerUp = false;
-
+	
 	RenderWindow window(VideoMode(WIN_WIDTH, WIN_HEIGHT), "Visual Novel");
 	window.setFramerateLimit(30);
 	LoadSprites loadSprites;
@@ -162,8 +162,11 @@ int main()
 		}
 
 		//FIX DOUBLE LOADING
-		quiz.update();
-		//renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio,progressBar);
+		if (quiz.isActive()) {
+			quiz.update();
+			renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio,progressBar);
+		}
+		
 	}
 
 	return 0;
