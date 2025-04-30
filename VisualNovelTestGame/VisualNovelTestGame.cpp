@@ -53,7 +53,7 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 		int score = wordGame.getFinalScore();
 		Health = (score / 6) - 13 + 85; // Apply score penalty/bonus relative to a baseline
 		Health = (Health <= 0) ? 1 : Health; // Ensure health doesn't drop below 1
-		string text = (Health > 85) ? "Your focus sharpens! Health: " : "Your mind wanders... Health: "; 
+		string text = (Health > 85) ? "Your focus sharpens! Your health increases to " : "Your mind wanders... health decreases to "; 
 		text += to_string(Health);
 		dialog.setMingameResult(text);
 		currentState = (score>74)?  GameState::ATHENA_WIN_SCENE : GameState::ATHENA_LOSE_SCENE;
@@ -66,8 +66,8 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 		int attackChange = (score - 200) / 60; // Calculate attack change based on score vs threshold
 		baseAttack += attackChange;
 		baseAttack = (baseAttack < 1) ? 1 : baseAttack; // Ensure attack doesn't drop below 1
-		string text = (attackChange >= 0) ? "You forged a sharper weapon! +" : "Your weapon feels dull... ";
-		text += to_string(attackChange) + " Attack. Base Attack: " + to_string(baseAttack);
+		string text = (attackChange >= 0) ? "You forged a sharper weapon! +" : "Your weapon feels dull... -";
+		text += to_string(attackChange) + " Attack. Base Attack is now " + to_string(baseAttack);
 		dialog.setMingameResult(text);
 		currentState = (score>199)? GameState::HEPHAESTUS_WIN_SCENE: GameState::HEPHAESTUS_LOSE_SCENE;
 	}
