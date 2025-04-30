@@ -251,41 +251,8 @@
         attackStates = { AnimationState::Attack1, AnimationState::Attack2, AnimationState::Attack3 }; // Store attack states
     }
 	// Copy constructor
-    Player::Player(const Player& other)
-        : animations(other.animations),
-        isHurt(other.isHurt),
-        hurtTimer(other.hurtTimer),
-        hurtFlashIntervalTimer(other.hurtFlashIntervalTimer),
-        jumpForce(other.jumpForce),
-        currentHealth(other.currentHealth),
-        maxHealth(other.maxHealth),
-        attackDamage(other.attackDamage),
-        defensePercent(other.defensePercent),
-        canAttack(other.canAttack),
-        canDash(other.canDash),
-        canParry(other.canParry),
-        canShoot(other.canShoot),
-        dashTimer(other.dashTimer),
-        attackTimer(other.attackTimer),
-        attackStates(other.attackStates),
-        parryTimer(other.parryTimer),
-        shootTimer(other.shootTimer),
-        dashCooldownTimer(other.dashCooldownTimer),
-        parrySuccessWindow(other.parrySuccessWindow),
-        parrySuccessDuration(other.parrySuccessDuration),
-        attackDistribution(other.attackDistribution),
-        rng(other.rng),
-        facingRight(other.facingRight),
-        enableDash(other.enableDash),
-        enableShoot(other.enableShoot),
-        shootTriggered(other.shootTriggered),
-        hasShotDuringAnimation(other.hasShotDuringAnimation),
-        defaultColor(other.defaultColor),
-        damageColor(other.damageColor),
-        knockbackForceX(other.knockbackForceX),
-        knockbackForceY(other.knockbackForceY),
-		position(other.position),
-        isGrounded(other.isGrounded) {
+    Player::Player(const Player& other){
+        *this = other;
     }
 
     Player& Player::operator=(const Player& other) {
