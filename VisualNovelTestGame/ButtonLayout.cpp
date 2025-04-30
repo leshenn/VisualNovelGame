@@ -132,9 +132,6 @@ GameState ButtonLayout::loadStageOneButtonClicked(const sf::Vector2i& mousePos)
 	else if (countrySideButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::DIONYSUS_OPENING_SCENE;	//GameState::DIONYSUS_OPENING_SCENE
 	}
-	else {
-		return GameState::STAGE_ONE_MENU;
-	}
 
 }
 
@@ -172,9 +169,6 @@ GameState ButtonLayout::loadPoseidonChoiceButtonClicked(const sf::Vector2i& mous
 	}
 	else if (shrineButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::SHRINE_SCENE;	//GameState::SHRINE_SCENE
-	}
-	else {
-		return GameState::STAGE_ONE_MENU;
 	}
 
 }
