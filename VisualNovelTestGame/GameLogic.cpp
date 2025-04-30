@@ -14,96 +14,59 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         loadSprites.loadMenuScreen("Backgrounds/MenuBackground.png");
         break;
 
-    case GameState::INTRO:
+    
+     case GameState::INTRO:
         loadSprites.loadInstructionScreen("Backgrounds/InstructionBackground.jpg", "Acessories/MenuScroll.png");
         break;
-
-    case GameState::NYX1:
-        loadSprites.loadGameScreen("Backgrounds/NyxBackground.png", "Characters/Nyx.png", "Acessories/Scroll.png");
-        break;
+    
 
     case GameState::STAGE_ONE_MENU:
         loadSprites.loadMenuScreen("Backgrounds/MenuBackground00.png");
         break;
 
-    case GameState::SEAWORLD:
+    case GameState::POSEIDON_QUIZ:
         loadSprites.loadGameScreen("Backgrounds/PoseidonBackground.jpg", "Characters/Poseidon.png", "Acessories/Scroll.png");
         break;
-
-    case GameState::UNDERWORLD:
+    
+    case GameState::ATLANTIS_SCENE:
         loadSprites.loadGameScreen("Backgrounds/HadesBackground.jpg", "Characters/Hades.png", "Acessories/Scroll.png");
         break;
 
-    case GameState::COUNTRY_SIDE:
+    case GameState::SHRINE_SCENE:
+        loadSprites.loadGameScreen("Backgrounds/HadesBackground.jpg", "Characters/Hades.png", "Acessories/Scroll.png");
+        break;
+
+    case GameState::HADES_QUIZ:
+        loadSprites.loadGameScreen("Backgrounds/HadesBackground.jpg", "Characters/Hades.png", "Acessories/Scroll.png");
+        break;
+
+    case GameState::DIONYSUS_QUIZ:
         loadSprites.loadGameScreen("Backgrounds/DionysusBackground.jpg", "Characters/Dionysus.png", "Acessories/Scroll.png");
         break;
 
-    case GameState::NYX2:
-        loadSprites.loadGameScreen("Backgrounds/NyxBackground.png", "Characters/Nyx.png", "Acessories/Scroll.png");
+    case GameState::KOMOS_SCENE:
+        loadSprites.loadGameScreen("Backgrounds/HadesBackground.jpg", "Characters/Hades.png", "Acessories/Scroll.png");
         break;
 
-    case GameState::ATHENS:
-        loadSprites.loadGameScreen("Backgrounds/AthenaBackground.png", "Characters/Athena.png", "Acessories/Scroll.png");
+    case GameState::FOREST_SCENE:
+        loadSprites.loadGameScreen("Backgrounds/HadesBackground.jpg", "Characters/Hades.png", "Acessories/Scroll.png");
         break;
 
-    case GameState::RHAMNOUS:
-        loadSprites.loadGameScreen("Backgrounds/NemesisBackground.png", "Characters/Nemesis.png", "Acessories/Scroll.png");
+
+    case GameState::STAGE_TWO_MENU:
+        loadSprites.loadMenuScreen("Backgrounds/MenuBackground00.png");
         break;
 
-    case GameState::NYX3:
-        loadSprites.loadGameScreen("Backgrounds/NyxBackground.png", "Characters/Nyx.png", "Acessories/Scroll.png");
-        break;
-
-    case GameState::DELPHI:
+    case GameState::APOLLO_QUIZ:
         loadSprites.loadGameScreen("Backgrounds/ApolloBackground.png", "Characters/Apollo.png", "Acessories/Scroll.png");
         break;
 
-    case GameState::THRACE:
-        loadSprites.loadGameScreen("Backgrounds/AresBackground.png", "Characters/Ares.png", "Acessories/Scroll.png");
+    case GameState::HEPHAESTUS_QUIZ:
+        loadSprites.loadGameScreen("Backgrounds/ApolloBackground.png", "Characters/Apollo.png", "Acessories/Scroll.png");
         break;
 
-    case GameState::NYX4:
-        loadSprites.loadGameScreen("Backgrounds/NyxBackground.png", "Characters/Nyx.png", "Acessories/Scroll.png");
-        break;
-    
-    case GameState::CRETE:
-        loadSprites.loadGameScreen("Backgrounds/DaedalusBackground.png", "Characters/Daedalus.png", "Acessories/Scroll.png");
-        break;
-
-    case GameState::NYX5:
-        loadSprites.loadGameScreen("Backgrounds/NyxBackground.png", "Characters/Nyx.png", "Acessories/Scroll.png");
-        break;
-
-    case GameState::CYPRUS:
-        loadSprites.loadGameScreen("Backgrounds/AphroditeBackground.png", "Characters/Aphrodite.png", "Acessories/Scroll.png");
-        break;
-
-    case GameState::LETHE:
-        loadSprites.loadGameScreen("Backgrounds/HypnosBackground.png", "Characters/Hypnos.png", "Acessories/Scroll.png");
-        break;
-
-    case GameState::NYX6:
-        loadSprites.loadGameScreen("Backgrounds/NyxBackground.png", "Characters/Nyx.png", "Acessories/Scroll.png");
-        break;
-
-    case GameState::OLYMPUS:
-        loadSprites.loadGameScreen("Backgrounds/ZeusBackground.png", "Characters/Zeus.png", "Acessories/Scroll.png");
-        break;
-
-    case GameState::ARGOS:
-        loadSprites.loadGameScreen("Backgrounds/HeraBackground.png", "Characters/Hera.png", "Acessories/Scroll.png");
-        break;
-
-    case GameState::NYX7:
-        loadSprites.loadGameScreen("Backgrounds/NyxBackground.png", "Characters/Nyx.png", "Acessories/Scroll.png");
-        break;
-
-    case GameState::MOUNT_CYLLENE:
-        loadSprites.loadGameScreen("Backgrounds/HermesBackground.png", "Characters/Hermes.png", "Acessories/Scroll.png");
-        break;
-
-    case GameState::NYX8:
-        loadSprites.loadGameScreen("Backgrounds/NyxBackground.png", "Characters/Nyx.png", "Acessories/Scroll.png");
+    case GameState::ATHENA_QUIZ:
+        loadSprites.loadGameScreen("Backgrounds/AthenaBackground.png", "Characters/Athena.png", "Acessories/Scroll.png");
         break;
 
 
@@ -133,21 +96,6 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         dialog.draw(window);
         break;
 
-
-    case GameState::NYX1:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        dialog.draw(window);
-        // Only show Next button if dialog is complete
-        if (dialog.isDialogFinished()) {
-            layout.loadNextButton();
-        }
-
-        break;
-
     case GameState::STAGE_ONE_MENU:
         window.clear();
         window.draw(loadSprites.menuBackgroundSprite);
@@ -156,11 +104,10 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         //layout.loadDionysusChoiceButtons();
         //layout.loadStageTwoButtons();
         
-      
         break;
 
 
-    case GameState::SEAWORLD:
+    case GameState::POSEIDON_QUIZ:
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
@@ -171,7 +118,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
 
         break;
 
-    case GameState::UNDERWORLD:
+    case GameState::HADES_QUIZ:
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
@@ -182,114 +129,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
 
         break;
 
-    case GameState::COUNTRY_SIDE:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        progressBar.draw();
-        quiz.render();
-
-        break;
-
-    case GameState::NYX2:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        layout.loadNextButton();
-        progressBar.draw();
-        break;
-
-
-    case GameState::ATHENS:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        progressBar.draw();
-        quiz.render();
-
-        break;
-
-    case GameState::RHAMNOUS:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        progressBar.draw();
-        quiz.render();
-        
-        break;
-
-    case GameState::NYX3:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        layout.loadNextButton();
-        progressBar.draw();
-        break;
-
-    case GameState::DELPHI:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        progressBar.draw();
-        quiz.render();
-
-        break;
-
-    case GameState::THRACE:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        progressBar.draw();
-        quiz.render();
-
-        break;
-
-    case GameState::NYX4:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        layout.loadNextButton();
-		progressBar.draw();
-        break;
-
-    case GameState::CRETE:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        progressBar.draw();
-        quiz.render();
-
-        break;
-
-    case GameState::NYX5:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        layout.loadNextButton();
-        progressBar.draw();
-        break;
-
-    case GameState::CYPRUS:
+    case GameState::DIONYSUS_QUIZ:
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
@@ -301,7 +141,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         break;
 
 
-    case GameState::LETHE:
+    case GameState::ATHENA_QUIZ:
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
@@ -312,17 +152,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
 
         break;
 
-    case GameState::NYX6:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        layout.loadNextButton();
-        progressBar.draw();
-        break;
-
-    case GameState::OLYMPUS:
+    case GameState::APOLLO_QUIZ:
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
@@ -331,48 +161,6 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         progressBar.draw();
         quiz.render();
 
-        break;
-
-    case GameState::ARGOS:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        progressBar.draw();
-        quiz.render();
-
-        break;
-
-    case GameState::NYX7:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        layout.loadNextButton();
-        progressBar.draw();
-        break;
-    
-    case GameState::MOUNT_CYLLENE:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        progressBar.draw();
-        quiz.render();
-
-        break;
-    
-    case GameState::NYX8:
-        window.clear();
-        window.draw(loadSprites.gameBackgroundSprite);
-        window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
-        window.draw(loadSprites.gameScrollSprite);
-        layout.loadNextButton();
-        progressBar.draw();
         break;
 
     default:
