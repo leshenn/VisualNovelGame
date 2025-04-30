@@ -15,6 +15,13 @@
         "audio": { "path": "Audio/crowdCheer.wav", "loop": false }
       },
       {
+        "line": "%",
+        "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
+        "left_sprite": "Characters/Transparent.png",
+        "right_sprite": "Characters/Transparent.png",
+        "audio": { "path": "Audio/crowdCheer.wav", "loop": false }
+      },
+      {
         "line": "I see Nyx's mark upon you, mortal. This is no ordinary dance—your purpose is grand.",
         "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
         "left_sprite": "Characters/Transparent.png",

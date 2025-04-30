@@ -2,7 +2,7 @@
   "data": [
     {
       "line": "How embarrasing...",
-      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }
@@ -15,8 +15,15 @@
       "audio": { "path": "", "loop": false }
     },
     {
+      "line": "%",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Apollo.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
       "line": "*Crowd Booing*",
-      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage_Crowd.png",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "Audio/boo.wav", "loop": false }
@@ -37,7 +44,7 @@
     },
     {
       "line": "Than-",
-      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }

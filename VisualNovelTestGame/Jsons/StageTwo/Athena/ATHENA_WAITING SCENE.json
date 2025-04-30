@@ -39,7 +39,7 @@
       "line": "*Cecrops turns and leaves*",
       "background_sprite": "Backgrounds/StageTwo/Athena/Library.png",
       "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Cecrops_Leaving.png",
+      "right_sprite": "Characters/Cecrops.png",
       "audio": { "path": "", "loop": false }
     },
     {
@@ -74,14 +74,14 @@
       "line": "*Suddenly stops and turns*",
       "background_sprite": "Backgrounds/StageTwo/Athena/Library.png",
       "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Athena_Concerned.png",
+      "right_sprite": "Characters/Athena.png",
       "audio": { "path": "", "loop": false }
     },
     {
       "line": "That mark on you... Nyx...",
       "background_sprite": "Backgrounds/StageTwo/Athena/Library.png",
       "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Athena_Concerned.png",
+      "right_sprite": "Characters/Athena.png",
       "audio": { "path": "", "loop": false }
     },
     {

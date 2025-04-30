@@ -8,7 +8,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Here. I have granted you the ability of OCEANIC BURST",
+      "line": "%",
       "background_sprite": "Backgrounds/PoseidonChamber.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Transparent.png",

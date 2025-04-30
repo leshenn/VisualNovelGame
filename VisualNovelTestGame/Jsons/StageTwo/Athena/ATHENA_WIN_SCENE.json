@@ -4,21 +4,21 @@
       "line": "Marvelous. I understand Cecrops' approval of you.",
       "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
       "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Athena_Smiling.png",
+      "right_sprite": "Characters/Athena.png",
       "audio": { "path": "", "loop": false }
     },
     {
         "line": "%",
         "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
         "left_sprite": "Characters/Transparent.png",
-        "right_sprite": "Characters/Athena_Smiling.png",
+        "right_sprite": "Characters/Athena.png",
         "audio": { "path": "", "loop": false }
       },
     {
       "line": "Wait- That mark on you... Nyx...",
       "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
       "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Athena_Concerned.png",
+      "right_sprite": "Characters/Athena.png",
       "audio": { "path": "", "loop": false }
     },
     {

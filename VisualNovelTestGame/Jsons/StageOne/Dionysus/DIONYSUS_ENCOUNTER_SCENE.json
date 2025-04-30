@@ -92,7 +92,14 @@
         "audio": { "path": "Audio/pourWine.wav", "loop": false }
       },
       {
-        "line": "The rules are simple: Pick out the quality among the rotten. My grapes are ripe for the harvest!",
+        "line": "The rules are simple: Use your W,A,S,D Keys to weave around pests, and pick out the quality among the rotten.",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
+        "left_sprite": "Characters/Transparent.png",
+        "right_sprite": "Characters/Dionysus.png",
+        "audio": { "path": "", "loop": false }
+      },
+      {
+        "line": " My grapes are ripe for the harvest!",
         "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Dionysus.png",

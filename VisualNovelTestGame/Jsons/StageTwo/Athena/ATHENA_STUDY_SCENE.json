@@ -70,5 +70,12 @@
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "Audio/sigh.wav", "loop": false }
     }
+    {
+      "line": "TYPE out the words as they appear.",
+      "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Athena.png",
+      "audio": { "path": "", "loop": false }
+    }
   ]
 }
