@@ -12,7 +12,7 @@
       "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/hammer.wav", "loop": false }
     },
     {
       "line": "This place... it's incredible. I've never seen such raw power harnessed like this.",

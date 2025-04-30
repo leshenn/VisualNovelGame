@@ -19,7 +19,7 @@
       "background_sprite": "Backgrounds/StageTwo/Apollo/Stage_Crowd.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/boo.wav", "loop": false }
     },
     {
       "line": "I see the mark on you mortal.",
@@ -54,7 +54,7 @@
       "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Apollo.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/crowdCheer.wav", "loop": false }
     },
     {
       "line": "Ugh... I guess I have no choice.",
@@ -68,7 +68,7 @@
       "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/run.wav", "loop": false }
     },
     {
       "line": "...",

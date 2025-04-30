@@ -47,8 +47,6 @@ QuizUI::QuizUI(RenderWindow& window, GameState& state) : window(window), current
 	nextButton.setFont(font);
 	nextButton.setOutline(Color::White, 2.f);
 
-
-	showingResult = false;
 }
 
 void QuizUI::initQuiz(GameState world) {
@@ -95,8 +93,6 @@ void QuizUI::refreshQuizUI()
 
 	centerPosition(timerText, 65.f);
 
-	
-
 
 	// Position answer buttons
 	float yPosition = window.getSize().y * 0.4f;
@@ -131,7 +127,6 @@ void QuizUI::refreshQuizUI()
 		});
 
 	showingResult = false; // Reset result display state
-
 
 }
 
@@ -217,12 +212,12 @@ void QuizUI::showFinalScore() {
 	centerPosition(questionText, window.getSize().y * 0.77f);
 
 	// Create final score display text
-	std::string resultStr = "Final Score: " + std::to_string(manager.getScore()) +
-		" out of " + std::to_string(manager.getTotalQuestions());
+	std::string resultStr = "Final Score: " + to_string(manager.getScore()) +
+		" out of " + to_string(manager.getTotalQuestions());
 	answerButtons.clear();
 
 	// Create a special button to display the final score
-	Button finalScoreButton(resultStr, sf::Vector2f(400.f, 80.f), 32, sf::Color::Transparent, sf::Color::White);
+	Button finalScoreButton(resultStr, sf::Vector2f(400.f, 80.f), 32, Color::Transparent, Color::White);
 	finalScoreButton.setFont(font);
 	finalScoreButton.setPosition({
 		(window.getSize().x - finalScoreButton.getSize().x) / 2.f, // Center horizontally

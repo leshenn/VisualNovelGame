@@ -16,7 +16,7 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
 
 
     case GameState::INTRO:
-        loadSprites.loadInstructionScreen("Backgrounds/InstructionBackground.jpg", "Acessories/MenuScroll.png");
+        loadSprites.loadInstructionScreen("Backgrounds/MenuBackground.png", "Acessories/MenuScroll.png");
         break;
 
 
