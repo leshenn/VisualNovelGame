@@ -495,7 +495,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
         // Poseidon's Path (Seas of Greece)
     case GameState::POSEIDON_OPENING_SCENE:
-        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/POSEIDON_ENCOUNTER_SCENE.json", GameState::POSEIDON_CHOICE);
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/POSEIDON_OPENING_SCENE.json", GameState::POSEIDON_CHOICE);
         break;
 
         /*
