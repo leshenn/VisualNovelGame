@@ -1,0 +1,53 @@
+{
+  "data": [
+    {
+      "line": "*Walks out sweating, after a long performance*",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Apollo.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Notices you*",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Apollo.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "You carry the mark of Nyx. Yet another claimed by her darkness.",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Apollo.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Please, I need to get to Mount Olympus, but I don't know how.",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Hurry to the Marble Tower behind the Parthenon on the northernmost side of Athens. A door will appear there at nightfall— and it's nearly upon us!",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Apollo.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Thank you, Apollo! I won't let you down.",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Runs off*",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    }
+  ]
+}

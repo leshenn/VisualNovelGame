@@ -5,25 +5,27 @@ enum class GameState {
    
 
 
-    // --- MENU + INTRODUCTION ---
+    // --- MENU ---
     MENU,                      // Main menu screen
     INTRO,                     // Introduction screen (unused in current implementation)
-    NYXGREETING_SCENE,          // Greeting from Nyx
-    STAGE_ONE_CHOICE,           // Button choices for which god to visit
+
+    // --- INTRODUCTION ---
+    NYXGREETING_SCENE,         // Greeting from Nyx
+    STAGE_ONE_CHOICE,          // Button choices for which god to visit
 
     // --- Stage 1 ---
 
     // Poseidon's Path (Seas of Greece)
     POSEIDON_OPENING_SCENE,
-    POESEIDON_CHOICE,
+    POSEIDON_CHOICE,
     ATLANTIS_SCENE,             // Jump into Ocean
-    ATLANTIS_WIN_SCENE,
-    ATLANTIS_LOSE_SCENE,
+        ATLANTIS_WIN_SCENE,
+        ATLANTIS_LOSE_SCENE,
     SHRINE_SCENE,               // Go to Shrine
-    SHRINE_WIN_SCENE,
-    SHRINE_LOSE_SCENE,
+        SHRINE_WIN_SCENE,
+        SHRINE_LOSE_SCENE,
     POSEIDON_QUIZ,
-	POEIDON_ENCOUNTER_SCENE,    //Win Quiz + Call BUBBLE_GAME
+	POSEIDON_ENCOUNTER_SCENE,    //Win Quiz + Call BUBBLE_GAME
     POSEIDON_WIN_SCENE,
     POSEIDON_LOSE_SCENE,
     POSEIDON_END_SCENE,         //Lose Quiz || End
@@ -32,21 +34,21 @@ enum class GameState {
     DIONYSUS_OPENING_SCENE,
     DIONYSUS_CHOICE,
     KOMOS_SCENE,                // Talk to Stranger
-	KOMOS_WIN_SCENE,
-	KOMOS_LOSE_SCENE,
+	    KOMOS_WIN_SCENE,
+	    KOMOS_LOSE_SCENE,
     FOREST_SCENE,               // Run after Pegasus
-	FOREST_WIN_SCENE,
-	FOREST_LOSE_SCENE,
+	    FOREST_WIN_SCENE,
+	    FOREST_LOSE_SCENE,
     DIONYSUS_QUIZ,
 	DIONYSUS_ENCOUNTER_SCENE,   //Win Quiz + Call WINE_GAME
     DIONYSUS_LOSE_SCENE,         
     DIONYSUS_WIN_SCENE,
-    PEGASUS_CATCH_SCENE,        //Lose Quiz
+    PEGASUS_CAUGHT_SCENE,        //Lose Quiz
 	DIONYSUS_END_SCENE,         //End
 
-
+    // After Stage 1, choose next stage
     ATHENS_SCENE,
-    STAGE_TWO_CHOICE,           // After Stage 1, choose next stage
+    STAGE_TWO_CHOICE,           
 
     // --- Stage 2 ---
 
@@ -54,41 +56,39 @@ enum class GameState {
     APOLLO_OPENING_SCENE,
     APOLLO_QUIZ,
     APOLLO_DANCE_SCENE,         // Win Quiz
-    APOLLO_BACKSTAGE_SCENE,     // Lose Quiz + Call RHYTHM_GAME
+    APOLLO_WIN_SCENE,           // Win Minigame
+    APOLLO_LOSE_SCENE,          // Lose Minigame
+    APOLLO_WAITING_SCENE,     // Lose Quiz || Lose Minigame
 
-    // Athena's Path (Smoke)
+    // Athena's Path (Signs)
     ATHENA_OPENING_SCENE,
     ATHENA_QUIZ,
-    ATHENA_WAITING_SCENE,       // Lose Quiz
-    ATHENA_REJECTION_SCENE,     // Win Quiz + Win BUBBLE_GAME
     ATHENA_STUDY_SCENE,         // Win Quiz + Call TYPING_GAME
+    ATHENA_WIN_SCENE,           // Win Minigame
+    ATHENA_LOSE_SCENE,          // Lose Minigame
+    ATHENA_WAITING_SCENE,       // Lose Quiz || Lose Minigame
 
-    // Hephaestus' Path (Forge)
+    // Hephaestus' Path (Smoke)
     HEPHAESTUS_OPENING_SCENE,
     HEPHAESTUS_QUIZ,
-    HEPHAESTUS_WAITING_SCENE,   // Lose Quiz
-    HEPHAESTUS_FORGE_SCENE,     // Win Quiz + Call _
+    HEPHAESTUS_PRIVATE_FORGE_SCENE,     // Win Quiz + Call FORGE_GAME
+    HEPHAESTUS_WIN_SCENE,       // Win Minigame
+    HEPHAESTUS_LOSE_SCENE,      // Lose Minigame
+    HEPHAESTUS_WAITING_SCENE,   // Lose Quiz || Lose Minigame
+
+    // After Stage 2, transition to stage 3
+    OLYMPUS_DOOR,
 
     // --- Stage 3 ---
 
-    // Hera's Path (Palace)
-	HERA_OPENING_SCENE,
-    HERA_QUIZ,
-	HERA_REJECTION_SCENE,
-    HERA_END_SCENE,
-
-
-    // Aphrodite's Path (Bedchamber)
-	APHRODITE_OPENING_SCENE,
-	APHRODITE_QUIZ,
-	APHRODITE_REJECTION_SCENE,
-	APHRODITE_END_SCENE,
-
     // Hades' Path (Underworld)
-    HADES_ENCOUNTER_SCENE,      //Call BOSS_GAME
-
+    HADES_OPENING_SCENE,
+    HADES_QUIZ,
+    HADES_ENCOUNTER_SCENE,      // Call BOSS_GAME
     HADES_FALSE_ENDING,         // Lose Game
     HADES_TRUE_ENDING,          // Win Game
+
+    END_GAME,
 
     // --- Mini-Games ---
     BOSS_GAME,

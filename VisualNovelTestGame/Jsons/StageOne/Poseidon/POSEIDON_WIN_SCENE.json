@@ -8,21 +8,21 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "*Tosses blue orb*",
+      "line": "Here. I have granted you the ability of OCEANIC BURST",
       "background_sprite": "Backgrounds/PoseidonChamber.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "May this guide her spirit.",
+      "line": "May this aid you in your troubles to come.",
       "background_sprite": "Backgrounds/PoseidonChamber.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Poseidon.png",
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Her? What is—",
+      "line": "What troubles—",
       "background_sprite": "Backgrounds/PoseidonChamber.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
@@ -36,7 +36,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "He didn't even give me directions. Maybe that woman will help",
+      "line": "He didn't even give me directions... Maybe that woman will help",
       "background_sprite": "Backgrounds/ShrineHallways.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",

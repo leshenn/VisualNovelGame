@@ -1,0 +1,74 @@
+{
+  "data": [
+    {
+      "line": "*Exits chamber*",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Hephaestus.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Notices you*",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Hephaestus.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Hephaestus, I need to get into Olympus. Can you help me?",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Nods curtly*",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Hephaestus_Nodding.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "I know mortal. I see the mark that follows you.",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Hephaestus.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Hurry to the Marble Tower behind the Parthenon on the northern side of Athens. A door will appear there at exactly nightfall.",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Hephaestus.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Don't be late.",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Hephaestus.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Thank you, Hephaestus. I won't waste a moment.",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Runs off*",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "...",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    }
+  ]
+}

@@ -1,10 +1,17 @@
 {
   "data": [
     {
-      "line": "Awake, little godling. Does mortality feel as fragile as they say? A heartbeat, a breath... so easily snuffed..............................................................................",
+      "line": "Awake, little godling. Does mortality feel as fragile as they say? A heartbeat, a breath... so easily snuffed.",
       "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
       "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Pyra.png",
+      "right_sprite": "Characters/Nyx.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "A heartbeat, a breath... so easily snuffed.",
+      "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Nyx.png",
       "audio": { "path": "", "loop": false }
     },
     {
@@ -43,7 +50,15 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "You were just a child, so fueled with rage to gain power. Greedy. Bloodlusted. You screamed for Hades's blessings, and he gave them—until you overreached. You thought yourself a god... until you fell.",
+      "line": "You were just a child, so fueled with rage to gain power. Greedy. Bloodlusted.",
+      "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Nyx.png",
+      "audio": { "path": "", "loop": false }
+    },
+    
+    {
+      "line": "You screamed for Hades's blessings, and he gave them—until you overreached. You thought yourself a god... until you fell.",
       "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Nyx.png",
@@ -78,20 +93,6 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "*Tosses the player a sword wreathed in crimson war runes*",
-      "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
-      "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Nyx.png",
-      "audio": { "path": "", "loop": false }
-    },
-    {
-      "line": "Take this blade. Sever your ties to Hades. Confront him on Olympus... and I will ensure your freedom.",
-      "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
-      "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Nyx.png",
-      "audio": { "path": "", "loop": false }
-    },
-    {
       "line": "Was I really that stupid? To make such a trade...",
       "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
       "left_sprite": "Characters/Player.png",
@@ -99,10 +100,80 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Youth is folly. Now choose.",
+      "line": "Youth is folly.",
       "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Nyx.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Break the contract. Travel to Athens find the entrance to the Underworld",
+      "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Nyx.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "This is all so overwhelming...",
+      "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Choose how you would want your journey across Greece will be set.",
+      "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Nyx.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Travel across Greece's waters in my vessel by walking through the Blue Portal.",
+      "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Nyx.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Or fly through the plateaus of Greece on my pegasus by entering the Green Portal.",
+      "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Nyx.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Travel across Greece? Who are you? Why should I trust you?",
+      "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Mortal, you are blessed by none other than...",
+      "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Nyx.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Nyx, the Goddess of Night.",
+      "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Nyx.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Now choose, or suffer a worse fate than the one you've been sealed in.",
+      "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Nyx.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Okay...",
+      "background_sprite": "Backgrounds/Intro/Nyx_Portals.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }
     }
   ]

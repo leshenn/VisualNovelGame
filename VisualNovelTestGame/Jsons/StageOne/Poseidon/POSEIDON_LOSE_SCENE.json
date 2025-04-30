@@ -9,8 +9,8 @@
     },
     {
       "line": "*Shoved out*",
-      "background_sprite": "Backgrounds/PoseidonChamber.png",
-      "left_sprite": "Characters/ShrineHallways.png",
+      "background_sprite": "Backgrounds/ShrineHallways.png",
+      "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }
     },

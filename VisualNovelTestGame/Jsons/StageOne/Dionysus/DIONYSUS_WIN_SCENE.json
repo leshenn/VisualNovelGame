@@ -22,28 +22,28 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "*Tosses a glowing purple orb*",
+      "line": "Here. I have bestowed you with my blessing of DRUNKEN STEP.",
       "background_sprite": "Backgrounds/Vineyard.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Dionysus.png",
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "What is this? It's... warm?",
+      "line": "What is this? I'm... tingling?",
       "background_sprite": "Backgrounds/Vineyard.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Free this soul from Nyx's grasp when the time comes.",
+      "line": "May it aid you in the challenge to come.",
       "background_sprite": "Backgrounds/Vineyard.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Dionysus.png",
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "How did you—",
+      "line": "What do you—",
       "background_sprite": "Backgrounds/Vineyard.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",

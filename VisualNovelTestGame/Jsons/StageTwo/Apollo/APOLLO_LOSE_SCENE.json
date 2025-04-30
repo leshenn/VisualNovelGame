@@ -1,0 +1,61 @@
+{
+  "data": [
+    {
+      "line": "Oh dear, this performance is more of a tragic stumble than a dance!",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Apollo.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Crowd Booing*",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage_Crowd.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Enough of this folly— let's move on. Off you go, mortal!",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Apollo.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "%",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Apollo.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Crowd Booing*",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Apollo.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Ugh... I guess I have no choice.",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    
+    {
+      "line": "Maybe I will be able to talk to him after the show.",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "...",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    }
+  ]
+}

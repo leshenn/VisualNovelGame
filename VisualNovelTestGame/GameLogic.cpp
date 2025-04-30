@@ -387,41 +387,6 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
     static bool isDialogLoaded = false;  // static to persist across frames
 
     switch (currentState) {
-    case GameState::MENU:
-        if (event.type == Event::MouseButtonPressed) {
-            if (layout.playButtonClicked(window)) {
-                audio.playClickButtonSound();
-                currentState = GameState::INTRO; // Change state when Play button is clicked
-            }
-        }
-        loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
-        break;
-
-    case GameState::INTRO:
-        if (!isDialogLoaded) {
-            dialog.loadIntroDialog("nyx1_dialog.json", "instruction_screen");
-            // audio.playIntroductionSound();
-            isDialogLoaded = true;  // Mark dialog as loaded
-        }
-
-
-
-        if (dialog.hasMoreLines()) {
-            dialog.introNextLine();
-        }
-        else if (event.type == Event::MouseButtonPressed && !audio.isIntroductionSoundPlaying()) {
-            if (layout.nextButtonClicked(window)) {
-                dialog.clearText();
-                isDialogLoaded = false;
-                audio.playClickButtonSound();
-                currentState = GameState::NYXGREETING_SCENE;
-            }
-        }
-
-        loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
-        break;
 
     case GameState::NYX1:
         if (!isDialogLoaded) {
@@ -765,10 +730,289 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
 	case GameState::TYPING_GAME:
         window.setVisible(false);
+        break;
 
+//---------------------------------------------------------------------------------------------------------------------------------------------//
+    // --- MENU ---
+    case GameState::MENU:
+        if (event.type == Event::MouseButtonPressed) {
+            if (layout.playButtonClicked(window)) {
+                audio.playClickButtonSound();
+                currentState = GameState::INTRO; // Change state when Play button is clicked
+            }
+        }
+        loadGameAssets(currentState, loadSprites, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+        break;
 
+    case GameState::INTRO:
+        if (!isDialogLoaded) {
+            dialog.loadIntroDialog("nyx1_dialog.json", "instruction_screen");
+            // audio.playIntroductionSound();
+            isDialogLoaded = true;  // Mark dialog as loaded
+        }
+        if (dialog.hasMoreLines()) {
+            dialog.introNextLine();
+        }
+        else if (event.type == Event::MouseButtonPressed && !audio.isIntroductionSoundPlaying()) {
+            if (layout.nextButtonClicked(window)) {
+                dialog.clearText();
+                isDialogLoaded = false;
+                audio.playClickButtonSound();
+                currentState = GameState::NYXGREETING_SCENE;
+            }
+        }
+        loadGameAssets(currentState, loadSprites, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+        break;
+    
+    // --- INTRODUCTION ---
     case GameState::NYXGREETING_SCENE:
-        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/Intro/Introduction.json", GameState::NYX1);
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/Intro/Introduction.json", GameState::STAGE_ONE_CHOICE);
+        break;
+
+    case GameState::STAGE_ONE_CHOICE:
+        //GameState::POSEIDON_OPENING_SCENE;
+        //GameState::DIONYSUS_OPENING_SCENE;
+        break;
+
+    //------------------------------------------------- Stage 1 ------------------------------------------------------------------------
+
+    // Poseidon's Path (Seas of Greece)
+    case GameState::POSEIDON_OPENING_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/POSEIDON_ENCOUNTER_SCENE.json", GameState::POSEIDON_CHOICE);
+        break;
+    
+    case GameState::POSEIDON_CHOICE:
+        // Jump in the water     ->  GameState::ATLANTIS_SCENE;
+        // Sail to Shrine        ->  GameState::SHRINE_SCENE;
+        break;
+    
+    case GameState::POSEIDON_QUIZ:
+        // if (win && poseidon choice==ATLANTIS_SCENE) -> GameState::ATLANTIS_WIN_SCENE
+        // if (win && poseidon choice==SHRINE_SCENE) -> GameState::SHRINE_WIN_SCENE
+        // if (lose && poseidon choice==ATLANTIS_SCENE) -> GameState::ATLANTIS_LOSE_SCENE
+        // if (lose && poseidon choice==SHRINE_SCENE) -> GameState::SHRINE_LOSE_SCENE
+        break;
+
+    case GameState::ATLANTIS_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/ATLANTIS_SCENE.json", GameState::POSEIDON_QUIZ);
+        break;
+
+    case GameState::ATLANTIS_WIN_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/ATLANTIS_WIN_SCENE.json", GameState::POSEIDON_ENCOUNTER_SCENE);
+        break;
+
+    case GameState::ATLANTIS_LOSE_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/ATLANTIS_LOSE_SCENE.json", GameState::POSEIDON_END_SCENE);
+        break;
+    
+    case GameState::SHRINE_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/SHRINE_SCENE.json", GameState::POSEIDON_QUIZ);
+        break;
+
+    case GameState::SHRINE_WIN_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/SHRINE_WIN_SCENE.json", GameState::POSEIDON_ENCOUNTER_SCENE);
+        break;
+
+    case GameState::SHRINE_LOSE_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/SHRINE_LOSE_SCENE.json", GameState::POSEIDON_END_SCENE);
+        break;
+
+    case GameState::POSEIDON_ENCOUNTER_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/POSEIDON_ENCOUNTER_SCENE.json", GameState::BUBBLE_GAME);
+        break;
+    
+    case GameState::POSEIDON_WIN_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/POSEIDON_WIN_SCENE.json", GameState::POSEIDON_END_SCENE);
+        break;
+
+    case GameState::POSEIDON_LOSE_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/POSEIDON_LOSE_SCENE.json", GameState::POSEIDON_END_SCENE);
+        break;
+
+    // Dionysus' Path (Plateaus of Greece)
+    case GameState::DIONYSUS_OPENING_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/DIONYSUS_OPENING_SCENE.json", GameState::DIONYSUS_CHOICE);
+        break;
+
+    case GameState::DIONYSUS_CHOICE:
+        // Talk to stranger     ->  GameState::KOMOS_SCENE;
+        // Run after pegasus    ->  GameState::FOREST_SCENE;
+        break;
+
+    case GameState::DIONYSUS_QUIZ:
+        // if ( win && Dionysus_Choice==KOMOS_SCENE )    -> GameState::KOMOS_WIN_SCENE
+        // if ( lose && Dionysus_Choice==KOMOS_SCENE )   -> GameState::KOMOS_LOSE_SCENE
+        // if ( win && Dionysus_Choice==FOREST_SCENE )   -> GameState::FOREST_WIN_SCENE
+        // if ( lose && Dionysus_Choice==FOREST_SCENE )  -> GameState::FOREST_LOSE_SCENE
+        break;
+
+    case GameState::KOMOS_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/KOMOS_SCENE.json", GameState::DIONYSUS_QUIZ);
+        break;
+
+    case GameState::KOMOS_WIN_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/KOMOS_WIN_SCENE.json", GameState::DIONYSUS_ENCOUNTER_SCENE);
+        break;
+
+    case GameState::KOMOS_LOSE_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/KOMOS_LOSE_SCENE.json", GameState::PEGASUS_CAUGHT_SCENE);
+        break;
+
+    case GameState::FOREST_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/FOREST_SCENE.json", GameState::DIONYSUS_QUIZ);
+        break;
+
+    case GameState::FOREST_WIN_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/FOREST_WIN_SCENE.json", GameState::DIONYSUS_ENCOUNTER_SCENE);
+        break;
+
+    case GameState::FOREST_LOSE_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/FOREST_LOSE_SCENE.json", GameState::PEGASUS_CAUGHT_SCENE);
+        break;
+
+    case GameState::DIONYSUS_ENCOUNTER_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/DIONYSUS_ENCOUNTER_SCENE.json", GameState::WINE_GAME);
+        break;
+
+    case GameState::DIONYSUS_WIN_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/DIONYSUS_WIN_SCENE.json", GameState::DIONYSUS_END_SCENE);
+        break;
+
+    case GameState::DIONYSUS_LOSE_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/DIONYSUS_LOSE_SCENE.json", GameState::DIONYSUS_END_SCENE);
+        break;
+
+    case GameState::DIONYSUS_END_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/DIONYSUS_END_SCENE.json", GameState::ATHENS_SCENE);
+        break;
+
+    case GameState::PEGASUS_CAUGHT_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/PEGASUS_CAUGHT_SCENE.json", GameState::ATHENS_SCENE);
+        break;
+
+    case GameState::ATHENS_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Athens.json", GameState::STAGE_TWO_CHOICE);
+        break;
+
+    case GameState::STAGE_TWO_CHOICE:
+        // Follow Smoke     ->  GameState::HEPHAESTUS_OPENING_SCENE;
+        // Follow Music    ->  GameState::APOLLO_OPENING_SCENE;
+        // Follow Signs    ->  GameState::ATHENA_OPENING_SCENE;
+        break;
+
+    // ------------------------------------------------------ Stage 2 ---------------------------------------------------------------
+     
+    // Hephaestus' Path (Smoke)
+    case GameState::HEPHAESTUS_OPENING_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Hephaestus/HEPHAESTUS_OPENING_SCENE.json", GameState::HEPHAESTUS_QUIZ);
+        break;
+
+    case GameState::HEPHAESTUS_QUIZ:
+        // if ( win  )   -> GameState::HEPHAESTUS_PRIVATE_FORGE_SCENE
+        // if ( lose )   -> GameState::HEPHAESTUS_WAITING_SCENE
+        break;
+
+    case GameState::HEPHAESTUS_PRIVATE_FORGE_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Hephaestus/HEPHAESTUS_PRIVATE_FORGE_SCENE.json", GameState::FORGE_GAME);
+        break;
+
+    case GameState::HEPHAESTUS_WIN_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Hephaestus/HEPHAESTUS_WIN_SCENE.json", GameState::OLYMPUS_DOOR);
+        break;
+
+    case GameState::HEPHAESTUS_LOSE_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Hephaestus/HEPHAESTUS_LOSE_SCENE.json", GameState::HEPHAESTUS_WAITING_SCENE);
+        break;
+
+    case GameState::HEPHAESTUS_WAITING_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Hephaestus/HEPHAESTUS_WAITING_SCENE.json", GameState::OLYMPUS_DOOR);
+        break;
+
+
+
+    // Athena's Path (Signs)
+    case GameState::ATHENA_OPENING_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Athena/ATHENA_OPENING_SCENE.json", GameState::ATHENA_QUIZ);
+        break;
+
+    case GameState::ATHENA_QUIZ:
+        // if ( win  )   -> GameState::HEPHAESTUS_PRIVATE_FORGE_SCENE
+        // if ( lose )   -> GameState::HEPHAESTUS_WAITING_SCENE
+        break;
+
+    case GameState::ATHENA_STUDY_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Athena/ATHENA_STUDY_SCENE.json", GameState::TYPING_GAME);
+        break;
+
+    case GameState::ATHENA_WIN_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Athena/ATHENA_WIN_SCENE.json", GameState::OLYMPUS_DOOR);
+        break;
+
+    case GameState::ATHENA_LOSE_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Athena/ATHENA_LOSE_SCENE.json", GameState::ATHENA_WAITING_SCENE);
+        break;
+
+    case GameState::ATHENA_WAITING_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Athena/ATHENA_WAITING_SCENE.json", GameState::OLYMPUS_DOOR);
+        break;
+
+
+
+    // Apollo's Path (Music)
+    case GameState::APOLLO_OPENING_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Apollo/APOLLO_OPENING_SCENE.json", GameState::APOLLO_QUIZ);
+        break;
+
+    case GameState::APOLLO_QUIZ:
+        // if ( win  )   -> GameState::HEPHAESTUS_PRIVATE_FORGE_SCENE
+        // if ( lose )   -> GameState::HEPHAESTUS_WAITING_SCENE
+        break;
+
+    case GameState::APOLLO_DANCE_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Apollo/APOLLO_DANCE_SCENE.json", GameState::RHYTHM_GAME);
+        break;
+
+    case GameState::APOLLO_WIN_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Apollo/APOLLO_WIN_SCENE.json", GameState::OLYMPUS_DOOR);
+        break;
+
+    case GameState::APOLLO_LOSE_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Apollo/APOLLO_LOSE_SCENE.json", GameState::APOLLO_WAITING_SCENE);
+        break;
+
+    case GameState::APOLLO_WAITING_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Apollo/APOLLO_WAITING_SCENE.json", GameState::OLYMPUS_DOOR);
+        break;
+
+
+
+    // TRANSITION from stage 2 to 3
+    case GameState::OLYMPUS_DOOR:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/OLYMPUS_DOOR.json", GameState::HADES_OPENING_SCENE);
+        break;
+
+
+    // ------------------------------------------------------ Stage 3 ---------------------------------------------------------------
+    case GameState::HADES_OPENING_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageThree/HADES_OPENING_SCENE.json", GameState::HADES_QUIZ);
+        break;
+
+    case GameState::HADES_QUIZ:
+        // GameState::HADES_ENCOUNTER_SCENE
+        break;
+
+    case GameState::HADES_ENCOUNTER_SCENE:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageThree/HADES_ENCOUNTER_SCENE.json", GameState::BOSS_GAME);
+        break;
+
+    case GameState::HADES_TRUE_ENDING:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageThree/HADES_TRUE_ENDING.json", GameState::END_GAME);
+        break;
+
+    case GameState::HADES_FALSE_ENDING:
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageThreeHADES_FALSE_ENDING.json", GameState::END_GAME);
         break;
 
 
