@@ -83,6 +83,37 @@ void QuizManager::loadQuestions(GameState world) {
     selectRandomQuestions(10);
 }
 
+// Hades question bank
+void QuizManager::loadQuestions(string jsonName, string title) {
+    quizQuestions.clear();
+    ifstream file(jsonName);
+
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open json file." << endl;
+        return;
+    }
+
+    json jsonData;
+    file >> jsonData;
+    file.close();
+
+    try {
+        for (const auto& item : jsonData[title]) {
+            quizQuestions.emplace_back(
+                item["question"].get<string>(),
+                item["options"].get<vector<string>>(),
+                item["correct_answer"].get<int>()
+            );
+        }
+    }
+    catch (const json::exception& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return;
+    }
+
+    // Copy questions to the main question bank
+    questions = quizQuestions;
+}
 
 // Hades question bank
 void QuizManager::loadHadesQuestions() {

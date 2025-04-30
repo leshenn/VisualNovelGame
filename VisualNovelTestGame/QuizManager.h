@@ -48,10 +48,12 @@ private:
     std::vector<Question> hypnosQuestions;    // All hypnos questions
     std::vector<Question> hermesQuestions;  //All hermes questions
     std::vector<Question> heraQuestions;    //All hera questions
+    std::vector<Question> quizQuestions;
     Timer questionTimer;
     bool quizComplete;
 
     // Helper methods
+    void loadQuestions(string jsonName, string title);
     void loadHadesQuestions(); // Load Hades questions
     void loadPoseidonQuestions(); // Load Poseidon questions
     void loadDionysusQuestions(); // Load Dionysus questions
