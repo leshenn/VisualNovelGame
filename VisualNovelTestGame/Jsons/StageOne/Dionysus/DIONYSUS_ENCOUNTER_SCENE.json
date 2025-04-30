@@ -2,98 +2,98 @@
     "data": [
       {
         "line": "What- Where am I?",
-        "background_sprite": "Backgrounds/Vineyard.png",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Player.png",
         "right_sprite": "Characters/Transparent.png",
         "audio": { "path": "", "loop": false }
       },
       {
         "line": "Ah, Nyx's errand boy! Your horse snacks well on my finest vintage grapes.",
-        "background_sprite": "Backgrounds/Vineyard.png",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Dionysus.png",
         "audio": { "path": "", "loop": false }
       },
       {
         "line": "*Excited neigh*",
-        "background_sprite": "Backgrounds/Lake.png",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Lake.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Pegasus.png",
         "audio": { "path": "", "loop": false }
       },
       {
         "line": "Melanopter! Thank the—",
-        "background_sprite": "Backgrounds/Vineyard.png",
+        "background_sprite": "BackgroundsStageOne/Dionysus//Vineyard.png",
         "left_sprite": "Characters/Player.png",
         "right_sprite": "Characters/Transparent.png",
         "audio": { "path": "", "loop": false }
       },
       {
         "line": "*Holds up a hand, spilling wine*",
-        "background_sprite": "Backgrounds/Vineyard.png",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Dionysus.png",
         "audio": { "path": "", "loop": false }
       },
       {
         "line": "No thanking others in my vineyard! The only proper gratitude here comes in liquid form... or through entertainment.",
-        "background_sprite": "Backgrounds/Vineyard.png",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Dionysus.png",
         "audio": { "path": "", "loop": false }
       },
       {
         "line": "What do you want? More questions about your long lived life?",
-        "background_sprite": "Backgrounds/Vineyard.png",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Player.png",
         "right_sprite": "Characters/Transparent.png",
         "audio": { "path": "", "loop": false }
       },
       {
         "line": "So impatient! Tell me, little demigod - why should I return your runaway steed when he's clearly happier here?",
-        "background_sprite": "Backgrounds/Vineyard.png",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Dionysus.png",
         "audio": { "path": "", "loop": false }
       },
       {
         "line": "Because I'm on a divine mission from Nyx herself!",
-        "background_sprite": "Backgrounds/Vineyard.png",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Player.png",
         "right_sprite": "Characters/Transparent.png",
         "audio": { "path": "", "loop": false }
       },
       {
         "line": "*Bursts into laughter, wine sloshing*",
-        "background_sprite": "Backgrounds/Vineyard.png",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Dionysus.png",
         "audio": { "path": "", "loop": false }
       },
       {
         "line": "Oh ho! And does Night give you wings now? Very well - beat my champion in a game of kottabos, and you'll have your horse.",
-        "background_sprite": "Backgrounds/Vineyard.png",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Dionysus.png",
         "audio": { "path": "", "loop": false }
       },
       {
         "line": "What... what are the rules?",
-        "background_sprite": "Backgrounds/Vineyard.png",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Player.png",
         "right_sprite": "Characters/Transparent.png",
         "audio": { "path": "", "loop": false }
       },
       {
         "line": "*Grins, refilling his cup*",
-        "background_sprite": "Backgrounds/Vineyard.png",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Dionysus.png",
         "audio": { "path": "", "loop": false }
       },
       {
         "line": "The rules are simple: Pick out the quality among the rotten. My grapes are ripe for the harvest!",
-        "background_sprite": "Backgrounds/Vineyard.png",
+        "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Dionysus.png",
         "audio": { "path": "", "loop": false }

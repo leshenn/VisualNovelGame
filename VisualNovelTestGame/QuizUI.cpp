@@ -59,6 +59,7 @@ void QuizUI::initQuiz(GameState world) {
 	refreshQuizUI();
 }
 
+
 void QuizUI::refreshQuizUI()
 {	
 	answerButtons.clear();
