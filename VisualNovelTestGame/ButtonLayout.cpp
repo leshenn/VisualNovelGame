@@ -130,7 +130,7 @@ GameState ButtonLayout::loadStageOneButtonClicked(const sf::Vector2i& mousePos)
 		return GameState::POSEIDON_OPENING_SCENE;	
 	}
 	else if (countrySideButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::NYXGREETING_SCENE;	//GameState::DIONYSUS_OPENING_SCENE
+		return GameState::DIONYSUS_OPENING_SCENE;	//GameState::DIONYSUS_OPENING_SCENE
 	}
 	else {
 		return GameState::STAGE_ONE_MENU;
@@ -167,12 +167,11 @@ void ButtonLayout::loadPoseidonChoiceButtons()
 GameState ButtonLayout::loadPoseidonChoiceButtonClicked(const sf::Vector2i& mousePos)
 
 {
-	std::cout << "TEST LAOD STAGEONE" << endl;
 	if (atlantisButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::SEAWORLD;	//GameState::ATLANTIS_SCENE
+		return GameState::ATLANTIS_SCENE;	//GameState::ATLANTIS_SCENE
 	}
 	else if (shrineButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::NYXGREETING_SCENE;	//GameState::SHRINE_SCENE
+		return GameState::SHRINE_SCENE;	//GameState::SHRINE_SCENE
 	}
 	else {
 		return GameState::STAGE_ONE_MENU;

@@ -28,11 +28,11 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         loadSprites.loadGameScreen("Backgrounds/PoseidonBackground.jpg", "Characters/Poseidon.png", "Acessories/Scroll.png");
         break;
 
-    case GameState::ATLANTIS_SCENE:
+    case GameState::ATLANTIS_QUIZ:
         loadSprites.loadGameScreen("Backgrounds/HadesBackground.jpg", "Characters/Hades.png", "Acessories/Scroll.png");
         break;
 
-    case GameState::SHRINE_SCENE:
+    case GameState::SHRINE_QUIZ:
         loadSprites.loadGameScreen("Backgrounds/HadesBackground.jpg", "Characters/Hades.png", "Acessories/Scroll.png");
         break;
 
@@ -83,7 +83,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.menuBackgroundSprite);
         layout.loadPlayButton();
         break;
-
+        
 
     case GameState::INTRO:
         window.clear();
@@ -114,7 +114,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
 
         break;
 
-    case GameState::ATLANTIS_SCENE:
+    case GameState::ATLANTIS_QUIZ:
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
@@ -124,7 +124,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         quiz.render();
         break;
 
-    case GameState::SHRINE_SCENE:
+    case GameState::SHRINE_QUIZ:
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
@@ -281,12 +281,69 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 break;
             */
 
+    case GameState::POSEIDON_CHOICE:
+        if (event.type == Event::MouseButtonPressed) {
+            audio.playClickButtonSound();
+            Vector2i mousePos = Mouse::getPosition(window);
+            GameState newState = layout.loadPoseidonChoiceButtonClicked(mousePos);
+            if (newState != GameState::NONE) {
+                currentState = newState; // Should be ATLANTIS_SCENE or SHRINE_SCENE
+            }
+        }
+        loadGameAssets(currentState, loadSprites, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+        break;
+
+    case GameState::DIONYSUS_CHOICE:
+        if (event.type == Event::MouseButtonPressed) {
+            audio.playClickButtonSound();
+            Vector2i mousePos = Mouse::getPosition(window);
+            GameState newState = layout.loadDionysusChoiceButtonClicked(mousePos);
+            if (newState != GameState::NONE) {
+                currentState = newState; // Should be ATLANTIS_SCENE or SHRINE_SCENE
+            }
+        }
+        loadGameAssets(currentState, loadSprites, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+        break;
+
+    case GameState::MENU:
+        if (event.type == Event::MouseButtonPressed) {
+            if (layout.playButtonClicked(window)) {
+                audio.playClickButtonSound();
+                currentState = GameState::INTRO; // Change state when Play button is clicked
+            }
+        }
+        loadGameAssets(currentState, loadSprites, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+        break;
+
+    case GameState::INTRO:
+        if (!isDialogLoaded) {
+            dialog.loadIntroDialog("nyx1_dialog.json", "instruction_screen");
+            // audio.playIntroductionSound();
+            isDialogLoaded = true;  // Mark dialog as loaded
+        }
+        if (dialog.hasMoreLines()) {
+            dialog.introNextLine();
+        }
+        else if (event.type == Event::MouseButtonPressed && !audio.isIntroductionSoundPlaying()) {
+            if (layout.nextButtonClicked(window)) {
+                dialog.clearText();
+                isDialogLoaded = false;
+                audio.playClickButtonSound();
+                currentState = GameState::NYXGREETING_SCENE;
+            }
+        }
+        loadGameAssets(currentState, loadSprites, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+        break;
+
     case GameState::STAGE_ONE_MENU:
         if (event.type == Event::MouseButtonPressed) {
             audio.playClickButtonSound();
             Vector2i mousePos = Mouse::getPosition(window);
             GameState newState = layout.loadStageOneButtonClicked(mousePos);
-            quiz.initQuiz(newState);
             currentState = newState;
 
 
@@ -313,6 +370,27 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 audio.playClickButtonSound();
                 //currentState = GameState::NYX2;
                 currentState = GameState::TYPING_GAME;  //TESTING STATES
+            }
+        }
+
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+        break;
+
+    case GameState::SHRINE_QUIZ:
+    case GameState::ATLANTIS_QUIZ:
+        loadGameAssets(currentState, loadSprites, dialog);
+
+        // Handle quiz events
+        if (event.type == Event::MouseButtonPressed) {
+            if (!quiz.isQuizComplete()) {
+                progressBar.update();
+                quiz.handleEvent(); // Normal quiz handling
+            }
+            else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
+                // Only proceed if quiz is complete AND Next is clicked
+                progressBar.update();
+                audio.playClickButtonSound();
+                currentState = GameState::NYX3;
             }
         }
 
@@ -586,41 +664,11 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         window.setVisible(false);
         break;
 
-    case GameState::MENU:
-        if (event.type == Event::MouseButtonPressed) {
-            if (layout.playButtonClicked(window)) {
-                audio.playClickButtonSound();
-                currentState = GameState::INTRO; // Change state when Play button is clicked
-            }
-        }
-        loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
-        break;
-
-    case GameState::INTRO:
-        if (!isDialogLoaded) {
-            dialog.loadIntroDialog("nyx1_dialog.json", "instruction_screen");
-            // audio.playIntroductionSound();
-            isDialogLoaded = true;  // Mark dialog as loaded
-        }
-        if (dialog.hasMoreLines()) {
-            dialog.introNextLine();
-        }
-        else if (event.type == Event::MouseButtonPressed && !audio.isIntroductionSoundPlaying()) {
-            if (layout.nextButtonClicked(window)) {
-                dialog.clearText();
-                isDialogLoaded = false;
-                audio.playClickButtonSound();
-                currentState = GameState::NYXGREETING_SCENE;
-            }
-        }
-        loadGameAssets(currentState, loadSprites, dialog);
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
-        break;
+    
     
     // --------------------------------------------------- INTRODUCTION -------------------------------------------------
     case GameState::NYXGREETING_SCENE:
-        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/Intro/Introduction.json", GameState::TYPING_GAME);
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/Intro/Introduction.json", GameState::STAGE_ONE_MENU);
         break;
 
     case GameState::STAGE_ONE_CHOICE:
@@ -635,11 +683,12 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/POSEIDON_ENCOUNTER_SCENE.json", GameState::POSEIDON_CHOICE);
         break;
     
+        /*
     case GameState::POSEIDON_CHOICE:
         // Jump in the water     ->  GameState::ATLANTIS_SCENE;
         // Sail to Shrine        ->  GameState::SHRINE_SCENE;
         break;
-    
+   */
     /*
     case GameState::POSEIDON_QUIZ:
         // if (win && poseidon choice==ATLANTIS_SCENE) -> GameState::ATLANTIS_WIN_SCENE
@@ -690,10 +739,12 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/DIONYSUS_OPENING_SCENE.json", GameState::DIONYSUS_CHOICE);
         break;
 
+        /*
     case GameState::DIONYSUS_CHOICE:
         // Talk to stranger     ->  GameState::KOMOS_SCENE;
         // Run after pegasus    ->  GameState::FOREST_SCENE;
         break;
+        */
     /*
     case GameState::DIONYSUS_QUIZ:
         // if ( win && Dionysus_Choice==KOMOS_SCENE )    -> GameState::KOMOS_WIN_SCENE
