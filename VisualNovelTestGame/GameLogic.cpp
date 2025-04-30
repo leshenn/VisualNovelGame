@@ -258,6 +258,9 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             if (layout.playButtonClicked(window)) {
                 audio.playClickButtonSound();
                 currentState = GameState::INTRO; // Change state when Play button is clicked
+
+                //load the dialoguesprite once at the start of the gameasda
+                loadSprites.loadGameScroll("Acessories/Scroll.png");
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
