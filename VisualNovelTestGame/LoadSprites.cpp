@@ -30,7 +30,12 @@ void LoadSprites::selectCharacter(bool isMale) {
 
 void LoadSprites::updateMainCharacterDisplay() {
     mainCharacterSprite.setTexture(isMaleCharacterSelected ? maleCharacterTexture : femaleCharacterTexture);
-    mainCharacterSprite.setPosition(0, 140);
+
+    // Position main character
+    float posX = WIN_WIDTH * 0.1f; 
+    float posY = WIN_HEIGHT * 0.7f;
+
+    mainCharacterSprite.setPosition(posX, posY);
     mainCharacterSprite.setScale(1, 1);
 }
 
@@ -120,8 +125,9 @@ void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string&
     updateMainCharacterDisplay();
 
     //Position god
-    godSprite.setPosition(730, 100);
-    godSprite.setScale(1, 1);
+    godSprite.setScale(0.95f, 0.95f);
+    FloatRect godBounds = godSprite.getGlobalBounds();
+    godSprite.setPosition(WIN_WIDTH - godBounds.width * 0.7f, 160);
 
     //position scroll
     PositionScroll(gameScrollTexture.getSize().x, gameScrollTexture.getSize().y, gameScrollSprite);
@@ -153,9 +159,12 @@ void LoadSprites::loadDialogueScreen(const string& gameBackgroundPath, const str
         else {
             godPaths = godPath;
         }
+
+        // Position god
         godSprite.setTexture(godTexture);
-        godSprite.setPosition(730, 100);
-        godSprite.setScale(1, 1);
+        godSprite.setScale(0.95f, 0.95f);
+        FloatRect godBounds = godSprite.getGlobalBounds();
+        godSprite.setPosition(WIN_WIDTH - godBounds.width * 0.7f, 160);
     }
 
     // Check and load player sprite if path is different and not empty

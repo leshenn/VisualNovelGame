@@ -25,34 +25,71 @@ void QuizManager::loadQuestions(GameState world) {
     // Load questions for different stages
     if (world == GameState::HADES_QUIZ) {
         questionTimer = 15.f;
-        loadHadesQuestions();
+        loadQuestions("hades_questions.json", "hadesQuestions");
+        //loadHadesQuestions();
     }
     else if (world == GameState::ATLANTIS_QUIZ || world == GameState::SHRINE_QUIZ) {
         questionTimer = 15.f;
-        loadPoseidonQuestions();
+        loadQuestions("poseidon_questions.json", "poseidonQuestions");
+        //loadPoseidonQuestions();
     }
     else if (world == GameState::KOMOS_QUIZ || world == GameState::FOREST_QUIZ) {
         questionTimer = 15.f;
-        loadDionysusQuestions();
+        loadQuestions("dionysus_questions.json", "dionysusQuestions");
+        //loadDionysusQuestions();
     }
     else if (world == GameState::ATHENA_QUIZ) {
         questionTimer = 10.f;
-        loadAthenaQuestions();
+        loadQuestions("athena_questions.json", "athenaQuestions");
+        //loadAthenaQuestions();
     }
     else if (world == GameState::APOLLO_QUIZ) {
         questionTimer = 10.f;
-        loadApolloQuestions();
+        loadQuestions("apollo_questions.json", "apolloQuestions");
+        //loadApolloQuestions();
     }
     else if (world == GameState::HEPHAESTUS_QUIZ)
     { 
         questionTimer = 10.f;
-        loadHephaestusQuestions();
+        loadQuestions("hephaestus_questions.json", "hephaestusQuestions");
+        //loadHephaestusQuestions();
     }
 
     // Select 8 random questions
     selectRandomQuestions(10);
 }
 
+// Load quiz questions
+void QuizManager::loadQuestions(string jsonName, string title) {
+    quizQuestions.clear();
+    ifstream file(jsonName);
+
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open json file." << endl;
+        return;
+    }
+
+    json jsonData;
+    file >> jsonData;
+    file.close();
+
+    try {
+        for (const auto& item : jsonData[title]) {
+            quizQuestions.emplace_back(
+                item["question"].get<string>(),
+                item["options"].get<vector<string>>(),
+                item["correct_answer"].get<int>()
+            );
+        }
+    }
+    catch (const json::exception& e) {
+        cerr << "JSON parsing error: " << e.what() << endl;
+        return;
+    }
+
+    // Copy questions to the main question bank
+    questions = quizQuestions;
+}
 
 // Hades question bank
 void QuizManager::loadHadesQuestions() {

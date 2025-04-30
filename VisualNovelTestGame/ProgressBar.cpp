@@ -16,7 +16,7 @@ ProgressBar::ProgressBar(RenderWindow& window) : window(window), currentWidth(0.
 }
 
 void ProgressBar::update() {
-    currentWidth += 1.5;
+    currentWidth += 75.5;
 	std::cout << currentWidth << std::endl; // Debugging line to check currentWidth
     //  it doesn’t go beyond the bar
     if (currentWidth > maxWidth) currentWidth = maxWidth;

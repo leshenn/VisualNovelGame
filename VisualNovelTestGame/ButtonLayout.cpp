@@ -124,7 +124,6 @@ void ButtonLayout::loadStageOneButtons()
 
 // Check if a button is clicked based on mouse position
 GameState ButtonLayout::loadStageOneButtonClicked(const sf::Vector2i& mousePos)
-
 {
 	if (seaWorldButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::POSEIDON_OPENING_SCENE;	
@@ -132,6 +131,10 @@ GameState ButtonLayout::loadStageOneButtonClicked(const sf::Vector2i& mousePos)
 	else if (countrySideButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::DIONYSUS_OPENING_SCENE;	//GameState::DIONYSUS_OPENING_SCENE
 	}
+	else {
+		return GameState::STAGE_ONE_MENU;
+	}
+	
 
 }
 
@@ -162,13 +165,15 @@ void ButtonLayout::loadPoseidonChoiceButtons()
 
 // Check if a button is clicked based on mouse position
 GameState ButtonLayout::loadPoseidonChoiceButtonClicked(const sf::Vector2i& mousePos)
-
 {
 	if (atlantisButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::ATLANTIS_SCENE;	//GameState::ATLANTIS_SCENE
 	}
 	else if (shrineButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::SHRINE_SCENE;	//GameState::SHRINE_SCENE
+	}
+	else {
+		return GameState::POSEIDON_CHOICE;
 	}
 
 }
@@ -200,7 +205,6 @@ void ButtonLayout::loadDionysusChoiceButtons()
 
 // Check if a button is clicked based on mouse position
 GameState ButtonLayout::loadDionysusChoiceButtonClicked(const sf::Vector2i& mousePos)
-
 {
 	std::cout << "TEST LAOD STAGEONE" << endl;
 	if (pegasusButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
@@ -210,7 +214,7 @@ GameState ButtonLayout::loadDionysusChoiceButtonClicked(const sf::Vector2i& mous
 		return GameState::KOMOS_SCENE;	//GameState::STRANGER_SCENE
 	}
 	else {
-		return GameState::STAGE_ONE_MENU;
+		return GameState::DIONYSUS_CHOICE;
 	}
 
 }
@@ -228,7 +232,7 @@ void ButtonLayout::loadStageTwoButtons()
 	smokeButton.setFont(font);
 
 	// Follow signs
-	signsButton = Button("Follow signs", Vector2f(200.f, 60.f), 24, Color(34, 20, 34), Color::White);
+	signsButton = Button("Follow signs", Vector2f(200.f, 60.f), 24, Color(34, 0, 134), Color::White);
 	signsButton.setFont(font);
 
 	// Set position of buttons
@@ -259,6 +263,9 @@ GameState ButtonLayout::loadStageTwoButtonClicked(const sf::Vector2i& mousePos)
 	}
 	else if (signsButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::ATHENA_OPENING_SCENE;	//ATHENA_OPENING_SCENE
+	}
+	else {
+		return GameState::STAGE_TWO_MENU;
 	}
 
 }

@@ -41,7 +41,8 @@ private:
     std::vector<Question> athenaQuestions; // All ATHENA questions
     std::vector<Question> apolloQuestions; // All apollo questions
     std::vector<Question> hephaestusQuestions;    //All hera questions
-    Timer questionTimer;
+    std::vector<Question> quizQuestions;
+    Timer<float> questionTimer;
     bool quizComplete;
 
     // Helper methods
@@ -51,5 +52,6 @@ private:
     void loadAthenaQuestions();   // Load Athena questions
     void loadApolloQuestions();   // Load Athena questions
     void loadHephaestusQuestions(); //Load all Hera Questions
+    void loadQuestions(string jsonName, string title);
     void selectRandomQuestions(int count); // Select random subset of questions
 };
