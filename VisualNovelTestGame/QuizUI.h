@@ -45,7 +45,6 @@ private:
 	RectangleShape progressbar;
 	RectangleShape progressbarOutline;
 
-
 	RenderWindow& window;
 	vector<Button> answerButtons;
 	GameState& currentState;
