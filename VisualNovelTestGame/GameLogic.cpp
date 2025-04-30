@@ -731,6 +731,20 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 	case GameState::TYPING_GAME:
         window.setVisible(false);
         break;
+    case GameState::RHYTHM_GAME:
+        window.setVisible(false);
+        break;
+
+    case GameState::FORGE_GAME:
+        window.setVisible(false);
+        break;
+    case GameState::BUBBLE_GAME:
+        window.setVisible(false);
+        break;
+
+    case GameState::WINE_GAME:
+        window.setVisible(false);
+        break;
 
     case GameState::MENU:
         if (event.type == Event::MouseButtonPressed) {
