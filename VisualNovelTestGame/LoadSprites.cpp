@@ -31,11 +31,7 @@ void LoadSprites::selectCharacter(bool isMale) {
 void LoadSprites::updateMainCharacterDisplay() {
     mainCharacterSprite.setTexture(isMaleCharacterSelected ? maleCharacterTexture : femaleCharacterTexture);
 
-    // Position main character
-    float posX = WIN_WIDTH * 0.1f; 
-    float posY = WIN_HEIGHT * 0.7f;
-
-    mainCharacterSprite.setPosition(posX, posY);
+    mainCharacterSprite.setPosition(-120, 200);
     mainCharacterSprite.setScale(1, 1);
 }
 
