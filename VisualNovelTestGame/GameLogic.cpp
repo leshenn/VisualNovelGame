@@ -151,7 +151,11 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
     case GameState::STAGE_ONE_MENU:
         window.clear();
         window.draw(loadSprites.menuBackgroundSprite);
-        layout.loadStageOneButtons();
+        //layout.loadStageOneButtons();
+        layout.loadPoseidonChoiceButtons();
+        //layout.loadDionysusChoiceButtons();
+        //layout.loadStageTwoButtons();
+        
       
         break;
 
@@ -371,10 +375,6 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         progressBar.draw();
         break;
 
-	/*case GameState::NYXGREETING_SCENE:
-        
-        break;*/
-
     default:
         break;
     }
@@ -388,7 +388,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
     switch (currentState) {
 
-    case GameState::NYX1:
+    /*case GameState::NYX1:
         if (!isDialogLoaded) {
             dialog.reset();  // Clear old dialog first
             if (dialog.loadDialog("nyx1_dialog.json", "nyx_intro")) {
@@ -414,56 +414,10 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         cout << "nyx1 ran" << endl;
         loadGameAssets(currentState, loadSprites, dialog);
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
-        break;
+        break;*/
 
 
-    case GameState::STAGE_ONE_MENU:
-        isDialogLoaded = false;
-        dialog.reset();
-
-        if (event.type == Event::MouseButtonPressed) {
-            audio.playClickButtonSound();
-            Vector2i mousePos = Mouse::getPosition(window);
-            GameState newState = layout.loadStageOneButtonClicked(mousePos);
-
-            if (newState == GameState::SEAWORLD ||
-                newState == GameState::UNDERWORLD ||
-                newState == GameState::COUNTRY_SIDE) {
-                quiz.initQuiz(newState); // Initialize with the selected world
-            }
-            currentState = newState;
-
-
-        }
-
-        loadGameAssets(currentState, loadSprites, dialog);
-
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
-
-        break;
-
-    case GameState::SEAWORLD:
-    case GameState::UNDERWORLD:
-    case GameState::COUNTRY_SIDE:
-        loadGameAssets(currentState, loadSprites, dialog);
-
-        // Handle quiz events
-        if (event.type == Event::MouseButtonPressed) {
-            if (!quiz.isQuizComplete()) {
-                progressBar.update();
-                quiz.handleEvent(); // Normal quiz handling
-            }
-            else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
-                // Only proceed if quiz is complete AND Next is clicked
-                //progressBar.update();
-                audio.playClickButtonSound();
-                //currentState = GameState::NYX2;
-                currentState = GameState::TYPING_GAME;  //TESTING STATES
-            }
-        }
-
-        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
-        break;
+    
 
     case GameState::NYX2:
         if (event.type == Event::MouseButtonPressed) {
@@ -736,7 +690,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         if (event.type == Event::MouseButtonPressed) {
             if (layout.playButtonClicked(window)) {
                 audio.playClickButtonSound();
-                currentState = GameState::INTRO; // Change state when Play button is clicked
+                currentState = GameState::POSEIDON_CHOICE; // Change state when Play button is clicked
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
@@ -754,10 +708,11 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         }
         else if (event.type == Event::MouseButtonPressed && !audio.isIntroductionSoundPlaying()) {
             if (layout.nextButtonClicked(window)) {
+                quiz.initQuiz(currentState);
                 dialog.clearText();
                 isDialogLoaded = false;
                 audio.playClickButtonSound();
-                currentState = GameState::NYXGREETING_SCENE;
+                currentState = GameState::SEAWORLD;
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
@@ -766,12 +721,27 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
     
     // --- INTRODUCTION ---
     case GameState::NYXGREETING_SCENE:
-        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/Intro/Introduction.json", GameState::STAGE_ONE_CHOICE);
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/Intro/Introduction.json", GameState::POSEIDON_CHOICE);
         break;
 
-    case GameState::STAGE_ONE_CHOICE:
+    
         //GameState::POSEIDON_OPENING_SCENE;
         //GameState::DIONYSUS_OPENING_SCENE;
+
+    case GameState::STAGE_ONE_MENU:
+        if (event.type == Event::MouseButtonPressed) {
+            audio.playClickButtonSound();
+            Vector2i mousePos = Mouse::getPosition(window);
+            GameState newState = layout.loadStageOneButtonClicked(mousePos);
+            quiz.initQuiz(newState);
+            currentState = newState;
+
+
+        }
+
+        loadGameAssets(currentState, loadSprites, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+
         break;
 
     //------------------------------------------------- Stage 1 ------------------------------------------------------------------------
@@ -782,8 +752,42 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         break;
     
     case GameState::POSEIDON_CHOICE:
-        // Jump in the water     ->  GameState::ATLANTIS_SCENE;
-        // Sail to Shrine        ->  GameState::SHRINE_SCENE;
+        if (event.type == Event::MouseButtonPressed) {
+            audio.playClickButtonSound();
+            Vector2i mousePos = Mouse::getPosition(window);
+            GameState newState = layout.loadPoseidonChoiceButtonClicked(mousePos);
+            quiz.initQuiz(newState);
+
+            currentState = newState;
+
+
+        }
+
+        loadGameAssets(currentState, loadSprites, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+
+        break;
+
+    case GameState::SEAWORLD:
+    case GameState::UNDERWORLD:
+        loadGameAssets(currentState, loadSprites, dialog);
+
+        // Handle quiz events
+        if (event.type == Event::MouseButtonPressed) {
+            if (!quiz.isQuizComplete()) {
+                progressBar.update();
+                quiz.handleEvent(); // Normal quiz handling
+            }
+            else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
+                // Only proceed if quiz is complete AND Next is clicked
+                //progressBar.update();
+                audio.playClickButtonSound();
+                //currentState = GameState::NYX2;
+                currentState = GameState::TYPING_GAME;  //TESTING STATES
+            }
+        }
+
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
     
     case GameState::POSEIDON_QUIZ:
