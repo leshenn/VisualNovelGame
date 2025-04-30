@@ -36,7 +36,7 @@
       "audio": { "path": "Audio/walk.wav", "loop": false }
     },
     {
-      "line": "Wait— your name?",
+      "line": "Wait- your name?",
       "background_sprite": "Backgrounds/StageOne/Poseidon/ShrinePort.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",

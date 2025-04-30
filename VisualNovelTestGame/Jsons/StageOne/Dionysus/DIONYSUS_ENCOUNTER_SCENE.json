@@ -22,7 +22,7 @@
         "audio": { "path": "Audio/neigh.wav", "loop": false }
       },
       {
-        "line": "Melanopter! Thank the—",
+        "line": "Melanopter! Thank the-",
         "background_sprite": "BackgroundsStageOne/Dionysus//Vineyard.png",
         "left_sprite": "Characters/Player.png",
         "right_sprite": "Characters/Transparent.png",

@@ -15,7 +15,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Wait, what do you mean by 'fun way'—",
+      "line": "Wait, what do you mean by 'fun way'-",
       "background_sprite": "Backgrounds/StageOne/Dionysus/Forest.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",

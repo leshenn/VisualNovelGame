@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "line": "Not bad, mortal— you've got the edge of Apollo's fire in your words.",
+      "line": "Not bad, mortal- you've got the edge of Apollo's fire in your words.",
       "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Lyrix.png",
@@ -50,7 +50,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Listen well—there's a surprise guest that will make this night remembered for all eternity!",
+      "line": "Listen well-there's a surprise guest that will make this night remembered for all eternity!",
       "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Apollo.png",

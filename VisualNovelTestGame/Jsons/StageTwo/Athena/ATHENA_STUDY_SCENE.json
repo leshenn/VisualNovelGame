@@ -36,7 +36,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Athena, I need your guidance. I need to—",
+      "line": "Athena, I need your guidance. I need to-",
       "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
@@ -50,7 +50,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "But—",
+      "line": "But-",
       "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",

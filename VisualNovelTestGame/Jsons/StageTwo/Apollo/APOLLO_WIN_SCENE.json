@@ -22,7 +22,7 @@
         "audio": { "path": "Audio/crowdCheer.wav", "loop": false }
       },
       {
-        "line": "I see Nyx's mark upon you, mortal. This is no ordinary dance—your purpose is grand.",
+        "line": "I see Nyx's mark upon you, mortal. This is no ordinary dance-your purpose is grand.",
         "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Apollo.png",
@@ -36,7 +36,7 @@
         "audio": { "path": "", "loop": false }
       },
       {
-        "line": "Now, hurry to the Marble Tower behind the Parthenon on the northernmost side of Athens. A door will appear there at nightfall—and it's nearly upon us!",
+        "line": "Now, hurry to the Marble Tower behind the Parthenon on the northernmost side of Athens. A door will appear there at nightfall-and it's nearly upon us!",
         "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Apollo.png",

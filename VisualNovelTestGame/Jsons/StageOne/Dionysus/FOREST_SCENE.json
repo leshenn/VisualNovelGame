@@ -92,7 +92,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Ugh—FINE! Just hurry!",
+      "line": "Ugh-FINE! Just hurry!",
       "background_sprite": "Backgrounds/StageOne/Dionysus/Forest.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
