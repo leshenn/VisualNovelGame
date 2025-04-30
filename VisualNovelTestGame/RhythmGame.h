@@ -32,7 +32,6 @@ struct FallingImage {
     float spawnInterval;
     float speedMultiplier;
     int score;
-    sf::Font robotoFont;
     sf::Font fnfFont;
     sf::Text scoreText;
     sf::Text feedbackText;
@@ -42,7 +41,7 @@ struct FallingImage {
 
     // Timing and scaling
     float speedIncreaseTimer;
-    const float ScalingRate = 0.5f;
+    const float ScalingRate = 0.7f;
     const float baseSpeed = 200.0f;
 	sf::Time endScreen = sf::seconds(3);
 
@@ -54,7 +53,7 @@ struct FallingImage {
     // Sizes
     const sf::Vector2f fullBackgroundSize{ 1920,1080 };
     const sf::Vector2f arrowSize{ 100,100 };
-    const sf::Vector2f bottomBackgroundSize{ 1920,150 };
+    const sf::Vector2f bottomBackgroundSize{ 1920,90 };
 
     sf::Clock clock;
 
@@ -63,6 +62,8 @@ struct FallingImage {
     sf::SoundBuffer missBuffer;
     sf::Sound hitSound;
     sf::Sound missSound;
+    sf::Music backgroundMusic;
+
 
     // Health bar
     int health = 15;
