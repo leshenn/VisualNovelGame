@@ -104,7 +104,6 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 			dialog.setMingameResult(text);
 			currentState = GameState::BUBBLE_GAME;
 		}
-		currentState = GameState::BUBBLE_GAME;
 	}
 	// --- Bubble Game ---
 	else if (currentState == GameState::BUBBLE_GAME) {
