@@ -25,7 +25,7 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         break;
 
     case GameState::POSEIDON_CHOICE:
-        loadSprites.loadGameScreen("Backgrounds/PoseidonBackground.jpg", "Characters/Poseidon.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageOne/Poseidon/Ocean.png", "", "");
         break;
 
     case GameState::ATLANTIS_QUIZ:

@@ -216,10 +216,10 @@ GameState ButtonLayout::loadStageTwoButtonClicked(const sf::Vector2i& mousePos)
 {
 
 	if (musicButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::HEPHAESTUS_OPENING_SCENE;  //HEPHAESTUS_OPENING_SCENE
+		return GameState::APOLLO_OPENING_SCENE;  //HEPHAESTUS_OPENING_SCENE
 	}
 	else if (smokeButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::APOLLO_OPENING_SCENE;	//APOLLO_OPENING_SCENE
+		return GameState::HEPHAESTUS_OPENING_SCENE;	//APOLLO_OPENING_SCENE
 	}
 	else if (signsButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::ATHENA_OPENING_SCENE;	//ATHENA_OPENING_SCENE
