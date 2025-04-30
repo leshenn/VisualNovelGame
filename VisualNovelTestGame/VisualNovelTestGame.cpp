@@ -127,7 +127,7 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 	}
 	// --- Boss Game ---
 	else if (currentState == GameState::BOSS_GAME) {
-		defense = 2.0f - 0.012f * HadesScore;
+		defense = 2.0f - 0.012f * HadesScore; //max boss damage 2x and min 0.8x
 		Player player1(Health, Health, DashPowerUp, parryTime, baseAttack, defense, ShootPowerUp);
 		BossGame game(player1);
 		game.run();
