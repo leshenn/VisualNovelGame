@@ -50,24 +50,26 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 	if (currentState == GameState::TYPING_GAME) {
 		WordGame wordGame;
 		wordGame.run(); 
-		Health = (wordGame.getFinalScore() / 6) - 13 + 85; // Apply score penalty/bonus relative to a baseline
+		int score = wordGame.getFinalScore();
+		Health = (score / 6) - 13 + 85; // Apply score penalty/bonus relative to a baseline
 		Health = (Health <= 0) ? 1 : Health; // Ensure health doesn't drop below 1
 		string text = (Health > 85) ? "Your focus sharpens! Health: " : "Your mind wanders... Health: "; 
 		text += to_string(Health);
 		dialog.setMingameResult(text);
-		currentState = GameState::FORGE_GAME;
+		currentState = (score>74)?  GameState::FORGE_GAME : GameState::FORGE_GAME;
 	}
 	// --- Forge Game ---
 	else if (currentState == GameState::FORGE_GAME) {
 		ForgeGame forgeGame; 
 		forgeGame.run();
-		int attackChange = (forgeGame.getScore() - 200) / 60; // Calculate attack change based on score vs threshold
+		int score = forgeGame.getScore();
+		int attackChange = (score - 200) / 60; // Calculate attack change based on score vs threshold
 		baseAttack += attackChange;
 		baseAttack = (baseAttack < 1) ? 1 : baseAttack; // Ensure attack doesn't drop below 1
 		string text = (attackChange >= 0) ? "You forged a sharper weapon! +" : "Your weapon feels dull... ";
 		text += to_string(attackChange) + " Attack. Base Attack: " + to_string(baseAttack);
 		dialog.setMingameResult(text);
-		currentState = GameState::RHYTHM_GAME;
+		currentState = (score>199)? GameState::RHYTHM_GAME: GameState::RHYTHM_GAME;
 	}
 	// --- Rhythm Game ---
 	else if (currentState == GameState::RHYTHM_GAME) {
@@ -82,7 +84,7 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 		string text = (parryTimeChange >= 0) ? "You've mastered the rhythm! +" : "Your timing is off... ";
 		text += to_string(parryTimeChange) + "s Parry Window. Total: " + to_string(parryTime) + "s";
 		dialog.setMingameResult(text);
-		currentState = GameState::WINE_GAME;
+		currentState = (score>49)? GameState::WINE_GAME: GameState::WINE_GAME;
 	}
 	// --- Wine Game ---
 	else if (currentState == GameState::WINE_GAME) {
@@ -137,7 +139,6 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 
 int main()
 {
-	
 	RenderWindow window(VideoMode(WIN_WIDTH, WIN_HEIGHT), "Visual Novel");
 	window.setFramerateLimit(30);
 	LoadSprites loadSprites;
