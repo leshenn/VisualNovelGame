@@ -1,6 +1,48 @@
 {
   "data": [
     {
+      "line": "Expected.",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Pyra.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Wait here. He will greet you when the time is right",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Pyra.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Walks away*",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Pyra.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Wait-",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*sighs*",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Some time later...",
+      "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
       "line": "*Exits chamber*",
       "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
       "left_sprite": "Characters/Transparent.png",

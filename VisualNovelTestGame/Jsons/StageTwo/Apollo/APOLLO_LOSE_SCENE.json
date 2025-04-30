@@ -1,6 +1,13 @@
 {
   "data": [
     {
+      "line": "How embarrasing...",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
       "line": "Oh dear, this performance is more of a tragic stumble than a dance!",
       "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
       "left_sprite": "Characters/Transparent.png",
@@ -15,21 +22,35 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Enough of this folly— let's move on. Off you go, mortal!",
+      "line": "I see the mark on you mortal.",
       "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Apollo.png",
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "%",
+      "line": "Hurry to the Marble Tower behind the Parthenon on the east side of North Athens. A door will appear there at nightfall, which is nearly upon us.",
       "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Apollo.png",
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "*Crowd Booing*",
+      "line": "Than-",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Enough of this folly! Let's move on. Off you go, mortal!",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Apollo.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Crowd Cheering*",
       "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Apollo.png",
@@ -37,23 +58,22 @@
     },
     {
       "line": "Ugh... I guess I have no choice.",
-      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }
     },
-    
     {
-      "line": "Maybe I will be able to talk to him after the show.",
-      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
+      "line": "*Runs off",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }
     },
     {
       "line": "...",
-      "background_sprite": "Backgrounds/StageTwo/Apollo/Backstage.png",
-      "left_sprite": "Characters/Player.png",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
+      "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }
     }

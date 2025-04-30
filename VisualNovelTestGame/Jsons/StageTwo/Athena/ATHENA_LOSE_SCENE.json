@@ -1,12 +1,19 @@
 {
   "data": [
     {
-      "line": "Marvelous. I understand Cecrops' approval of you.",
+      "line": "Cecrops' wastes my time with your presence.",
       "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Athena_Smiling.png",
       "audio": { "path": "", "loop": false }
     },
+    {
+        "line": "%",
+        "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
+        "left_sprite": "Characters/Transparent.png",
+        "right_sprite": "Characters/Athena_Smiling.png",
+        "audio": { "path": "", "loop": false }
+      },
     {
       "line": "That mark on you... Nyx...",
       "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
@@ -43,45 +50,10 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "*The player rushes off*",
+      "line": "*Rushes off*",
       "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "", "loop": false }
-    },
-    {
-      "line": "Wait! Take this with you, too.",
-      "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
-      "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Athena.png",
-      "audio": { "path": "", "loop": false }
-    },
-    {
-      "line": "*Hands the player a white, glowing soul orb*",
-      "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
-      "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Athena.png",
-      "audio": { "path": "", "loop": false }
-    },
-    {
-      "line": "Free her... Let her know peace. Now go! Hurry!",
-      "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
-      "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Athena.png",
-      "audio": { "path": "", "loop": false }
-    },
-    {
-      "line": "*Runs off*",
-      "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
-      "left_sprite": "Characters/Player.png",
-      "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "", "loop": false }
-    },
-    {
-      "line": "Good luck.",
-      "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
-      "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Athena.png",
       "audio": { "path": "", "loop": false }
     }
   ]

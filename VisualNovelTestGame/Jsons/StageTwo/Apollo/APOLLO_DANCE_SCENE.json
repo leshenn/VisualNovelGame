@@ -29,15 +29,15 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "*Pushes Player onto stage*",
+      "line": "*Pushes you onto stage*",
       "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Lyrix.png",
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "*The player stumbles onto stage*",
-      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage_Crowd.png",
+      "line": "*The you stumbles onto stage*",
+      "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }

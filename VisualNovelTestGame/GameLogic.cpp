@@ -221,7 +221,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
     window.display();  // Update the window with the newly drawn content
 }
 
-void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog, ProgressBar& progressBar, JsonManager& jm)
+void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog, ProgressBar& progressBar, JsonManager& jm) 
 {
     static bool isDialogLoaded = false;  // static to persist across frames
 

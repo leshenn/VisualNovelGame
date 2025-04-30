@@ -30,49 +30,49 @@
     },
     {
       "line": "*Notices signs*",
-      "background_sprite": "Backgrounds/StageOne/AthensRoad_Signs.png",
+      "background_sprite": "Backgrounds/StageOne/Athens.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "","loop": false}
     },
     {
       "line": "Palladium Archives... a library?",
-      "background_sprite": "Backgrounds/StageOne/AthensRoad_Signs.png",
+      "background_sprite": "Backgrounds/StageOne/Athens.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": {"path": "", "loop": false}
     },
     {
       "line": "*Noticies distant music*",
-      "background_sprite": "Backgrounds/StageOne/AthensRoad_Signs.png",
+      "background_sprite": "Backgrounds/StageOne/Athens.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "","loop": false}
     },
     {
       "line": "This melodic tune... a concert?",
-      "background_sprite": "Backgrounds/StageOne/AthensRoad_Signs.png",
+      "background_sprite": "Backgrounds/StageOne/Athens.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": {"path": "", "loop": false}
     },
     {
       "line": "*Notices billows of smoke*",
-      "background_sprite": "Backgrounds/StageOne/AthensRoad_Signs.png",
+      "background_sprite": "Backgrounds/StageOne/Athens.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "","loop": false}
     },
     {
       "line": "Rhats a lot of smoke... a fire?",
-      "background_sprite": "Backgrounds/StageOne/AthensRoad_Signs.png",
+      "background_sprite": "Backgrounds/StageOne/Athens.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": {"path": "", "loop": false}
     },
     {
       "line": "What do I do now? Where do I go?",
-      "background_sprite": "Backgrounds/StageOne/AthensRoad_Smoke.png",
+      "background_sprite": "Backgrounds/StageOne/Athens.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": {"path": "", "loop": false}
