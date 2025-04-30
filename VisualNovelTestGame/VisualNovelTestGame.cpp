@@ -83,7 +83,8 @@ int main()
 				window.setVisible(true);
 			}
 			audio.toggleBackgroundSound();
-		}currentState == GameState::FORGE_GAME){
+		}
+		if (currentState == GameState::FORGE_GAME){
 			audio.toggleBackgroundSound();
 			ForgeGame Forgegame;
 			Forgegame.run();

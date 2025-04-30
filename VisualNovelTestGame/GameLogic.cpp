@@ -15,7 +15,7 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         break;
 
     case GameState::INTRO:
-        loadSprites.loadInstructionScreen("Backgrounds/MenuBackground.png1", "Acessories/MenuScroll.png");
+        loadSprites.loadInstructionScreen("Backgrounds/MenuBackground.png", "Acessories/MenuScroll.png");
         break;
 
     case GameState::NYX1:
@@ -780,7 +780,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
     
     // --------------------------------------------------- INTRODUCTION -------------------------------------------------
     case GameState::NYXGREETING_SCENE:
-        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/Intro/Introduction.json", GameState::STAGE_ONE_CHOICE);
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/Intro/Introduction.json", GameState::TYPING_GAME);
         break;
 
     case GameState::STAGE_ONE_CHOICE:
