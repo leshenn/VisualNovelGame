@@ -127,6 +127,7 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 	}
 	// --- Boss Game ---
 	else if (currentState == GameState::BOSS_GAME) {
+		defense = 2.0f - 0.012f * HadesScore;
 		Player player1(Health, Health, DashPowerUp, parryTime, baseAttack, defense, ShootPowerUp);
 		BossGame game(player1);
 		game.run();
@@ -159,7 +160,6 @@ int main()
 	currentState = GameState::MENU;
 	QuizUI quiz = QuizUI(window, currentState);
 	while (window.isOpen()) {
-
 		if (currentState == GameState::BOSS_GAME || currentState == GameState::TYPING_GAME || currentState == GameState::RHYTHM_GAME  || 
 			currentState == GameState::WINE_GAME || currentState == GameState::BUBBLE_GAME || currentState == GameState::FORGE_GAME)
 		handleMinigameExecution(currentState, window, audio, dialog);
@@ -168,11 +168,9 @@ int main()
 		while (window.pollEvent(event)) {
 			if (event.type == Event::Closed)
 				window.close();
-
 			quiz.update();
 			handleGameLogic(window, currentState, layout, loadSprites, event, audio, quiz, dialog,progressBar, jm);
 		}
-
 		//FIX DOUBLE LOADING
 		if (quiz.isActive()) {
 			quiz.update();

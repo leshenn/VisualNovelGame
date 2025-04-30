@@ -5,7 +5,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Dionysus.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/applaud.wav", "loop": false }
     },
     {
       "line": "Sharp eyes for a mortal! Though I suspect Hades's blood helps.",
@@ -61,7 +61,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Pegasus.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/drunkHiccup.wav", "loop": false }
     },
     {
       "line": "You fed him wine grapes?!",
@@ -89,7 +89,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/wingFlap.wav", "loop": false }
     }
   ]
 }

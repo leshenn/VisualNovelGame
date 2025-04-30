@@ -40,14 +40,7 @@ private:
     std::vector<Question> dionysusQuestions; // All dionysus questions
     std::vector<Question> athenaQuestions; // All ATHENA questions
     std::vector<Question> apolloQuestions; // All apollo questions
-    std::vector<Question> nemesisQuestions; // All nemesis questions
-    std::vector<Question> aresQuestions;    // All ares questions
-    std::vector<Question> daedalusQuestions;    // All ares questions
-    std::vector<Question> aphroditeQuestions;    // All aphrodite questions
-    std::vector<Question> zeusQuestions;    // All zeus questions
-    std::vector<Question> hypnosQuestions;    // All hypnos questions
-    std::vector<Question> hermesQuestions;  //All hermes questions
-    std::vector<Question> heraQuestions;    //All hera questions
+    std::vector<Question> hephaestusQuestions;    //All hera questions
     Timer questionTimer;
     bool quizComplete;
 
@@ -57,13 +50,6 @@ private:
     void loadDionysusQuestions(); // Load Dionysus questions
     void loadAthenaQuestions();   // Load Athena questions
     void loadApolloQuestions();   // Load Athena questions
-    void loadNemesisQuestions(); // Load Nemesis questions
-    void loadAresQuestions();    // Load Ares Questions
-    void loadDaedalusQuestions();    // Load Ares Questions
-    void loadAproditeQuestions();    // Load Aphrodite Questions
-    void loadZeusQuestions();    // Load Zeus Questions
-    void loadHypnosQuestions();    // Load hypnos Questions
-    void loadHermesQuestions(); //Load all hermes Questions
-    void loadHeraQuestions(); //Load all Hera Questions
+    void loadHephaestusQuestions(); //Load all Hera Questions
     void selectRandomQuestions(int count); // Select random subset of questions
 };

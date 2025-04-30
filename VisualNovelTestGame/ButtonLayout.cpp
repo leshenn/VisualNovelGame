@@ -132,9 +132,6 @@ GameState ButtonLayout::loadStageOneButtonClicked(const sf::Vector2i& mousePos)
 	else if (countrySideButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::DIONYSUS_OPENING_SCENE;	//GameState::DIONYSUS_OPENING_SCENE
 	}
-	else {
-		return GameState::STAGE_ONE_MENU;
-	}
 
 }
 
@@ -173,9 +170,6 @@ GameState ButtonLayout::loadPoseidonChoiceButtonClicked(const sf::Vector2i& mous
 	else if (shrineButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::SHRINE_SCENE;	//GameState::SHRINE_SCENE
 	}
-	else {
-		return GameState::STAGE_ONE_MENU;
-	}
 
 }
 
@@ -210,10 +204,10 @@ GameState ButtonLayout::loadDionysusChoiceButtonClicked(const sf::Vector2i& mous
 {
 	std::cout << "TEST LAOD STAGEONE" << endl;
 	if (pegasusButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::NYXGREETING_SCENE;	//GameState::PEGASUS_SCENE
+		return GameState::FOREST_SCENE;	//GameState::PEGASUS_SCENE
 	}
 	else if (strangerButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::NYXGREETING_SCENE;	//GameState::STRANGER_SCENE
+		return GameState::KOMOS_SCENE;	//GameState::STRANGER_SCENE
 	}
 	else {
 		return GameState::STAGE_ONE_MENU;
@@ -258,13 +252,13 @@ GameState ButtonLayout::loadStageTwoButtonClicked(const sf::Vector2i& mousePos)
 {
 
 	if (musicButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::NYXGREETING_SCENE;  //HEPHAESTUS_OPENING_SCENE
+		return GameState::HEPHAESTUS_OPENING_SCENE;  //HEPHAESTUS_OPENING_SCENE
 	}
 	else if (smokeButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::NYXGREETING_SCENE;	//APOLLO_OPENING_SCENE
+		return GameState::APOLLO_OPENING_SCENE;	//APOLLO_OPENING_SCENE
 	}
 	else if (signsButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
-		return GameState::NYXGREETING_SCENE;	//ATHENA_OPENING_SCENE
+		return GameState::ATHENA_OPENING_SCENE;	//ATHENA_OPENING_SCENE
 	}
 
 }

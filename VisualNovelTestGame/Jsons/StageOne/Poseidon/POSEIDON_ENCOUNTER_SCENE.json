@@ -2,28 +2,28 @@
   "data": [
     {
       "line": "...",
-      "background_sprite": "Backgrounds/StageOne/Poseidon/WarRoom.png",
+      "background_sprite": "Backgrounds/PoseidonChamber.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }
     },
     {
       "line": "What is this intrusion?",
-      "background_sprite": "Backgrounds/StageOne/Poseidon/WarRoom.png",
+      "background_sprite": "Backgrounds/PoseidonChamber.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Poseidon.png",
       "audio": { "path": "", "loop": false }
     },
     {
       "line": "I've been cursed—",
-      "background_sprite": "Backgrounds/StageOne/Poseidon/WarRoom.png",
+      "background_sprite": "Backgrounds/PoseidonChamber.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }
     },
     {
       "line": "I am busy child. Prove yourself worthy of my attention.",
-      "background_sprite": "Backgrounds/StageOne/Poseidon/WarRoom.png",
+      "background_sprite": "Backgrounds/PoseidonChamber.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Poseidon.png",
       "audio": { "path": "", "loop": false }

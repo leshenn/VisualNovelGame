@@ -42,7 +42,7 @@ void RhythmGame::run() {
 
 void RhythmGame::initializeBackground() {
     loadAndScaleTexture(fullBackgroundTexture, fullBackground,
-        "RhythmAssets/Minigame/RhythmBackground.png", fullBackgroundSize);
+        "RhythmAssets/Minigame/RhythmBack.png", fullBackgroundSize);
 }
 
 void RhythmGame::loadAndScaleTexture(sf::Texture& texture, sf::Sprite& sprite,
@@ -72,10 +72,9 @@ void RhythmGame::initializeArrows() {
 int RhythmGame::getScore(){return score;}
 
 void RhythmGame::initializeUI() {
-    robotoFont.loadFromFile("RhythmAssets/Font/fnf.ttf");
     fnfFont.loadFromFile("RhythmAssets/Font/fnf.ttf");
 
-    scoreText.setFont(robotoFont);
+    scoreText.setFont(fnfFont);
     scoreText.setCharacterSize(36);
     scoreText.setFillColor(sf::Color::White);
     scoreText.setPosition(10.f, 60.f);
@@ -101,6 +100,15 @@ void RhythmGame::initializeSounds() {
     hitSound.setBuffer(hitBuffer);
     missBuffer.loadFromFile("RhythmAssets/Sounds/miss_sound.wav");
     missSound.setBuffer(missBuffer);
+
+    if (!backgroundMusic.openFromFile("RhythmAssets/Sounds/song.ogg")) {
+        std::cerr << "Failed to load background music" << std::endl;
+    }
+    else {
+        backgroundMusic.setLoop(true); // Loop the music
+        backgroundMusic.play();        // Start playing
+        backgroundMusic.setVolume(10);
+    }
 }
 
 void RhythmGame::initializeHealthBar() {
@@ -124,6 +132,10 @@ void RhythmGame::handleEvents() {
 
 void RhythmGame::update() {
     // On Game Over, await F to close
+    if (isGameOver && backgroundMusic.getStatus() == sf::Music::Playing) {
+        backgroundMusic.stop();
+    }
+
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::F) && isGameOver) window.close();
     if (isGameOver && endScreen.asSeconds()<=0) {

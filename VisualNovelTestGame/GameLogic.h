@@ -27,3 +27,4 @@ void handleGameLogic(RenderWindow& window, GameState& currentState,
 
 void updateGameState(RenderWindow& window, GameState& currentState, ButtonLayout& layout, LoadSprites& loadSprites, Event& event, Audio& audio, QuizUI& quiz, DialogManager& dialog, ProgressBar& progressBar, JsonManager& jm, const string& jsonPath, GameState nextState);
 static int totalScore = 0;
+static int HadesScore = 0;
