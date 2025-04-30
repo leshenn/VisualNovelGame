@@ -354,8 +354,8 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
         break;
 
-    case GameState::POSEIDON_QUIZ:
-    case GameState::DIONYSUS_QUIZ:
+    case GameState::ATLANTIS_QUIZ:
+    case GameState::SHRINE_QUIZ:
         loadGameAssets(currentState, loadSprites, dialog);
 
         // Handle quiz events
@@ -376,7 +376,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
-    case GameState::SHRINE_QUIZ:
+    /*case GameState::SHRINE_QUIZ:
     case GameState::ATLANTIS_QUIZ:
         loadGameAssets(currentState, loadSprites, dialog);
 
@@ -395,7 +395,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         }
 
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
-        break;
+        break;*/
 
     case GameState::HEPHAESTUS_QUIZ:
     case GameState::ATHENA_QUIZ:
@@ -699,7 +699,9 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
     */
 
     case GameState::ATLANTIS_SCENE:
-        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/ATLANTIS_SCENE.json", GameState::POSEIDON_QUIZ);
+        
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/ATLANTIS_SCENE.json", GameState::ATLANTIS_QUIZ);
+        quiz.initQuiz(currentState);
         break;
 
     case GameState::ATLANTIS_WIN_SCENE:
@@ -711,7 +713,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         break;
     
     case GameState::SHRINE_SCENE:
-        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/SHRINE_SCENE.json", GameState::POSEIDON_QUIZ);
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/SHRINE_SCENE.json", GameState::SHRINE_QUIZ);
         break;
 
     case GameState::SHRINE_WIN_SCENE:

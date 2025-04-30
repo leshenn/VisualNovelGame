@@ -176,8 +176,8 @@ int main()
 
 		//FIX DOUBLE LOADING
 	
-			//quiz.update();
-			//renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio,progressBar);
+			quiz.update();
+			renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio,progressBar);
 		
 		
 	}
