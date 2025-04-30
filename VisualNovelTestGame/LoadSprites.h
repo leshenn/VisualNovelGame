@@ -35,11 +35,6 @@ public:
    Sprite gameScrollSprite;  
    Sprite menuScrollSprite;  
 
-   // Paths currently loaded
-   string gameBackgroundPaths;
-   string godPaths;
-   string playerPaths;
-
 public:  
    void loadMenuScreen(const string& menuBackgroundPath);  
 
@@ -55,9 +50,7 @@ public:
 
    void loadGameScreen(const string& gameBackgroundPath, const string& godPath, const string& gameScrollPath);  
 
-   void loadDialogueScreen(const string& gameBackgroundPath, const string& godPath, const string& playerPath);
-
-   void loadGameScroll(const string& gameScrollPath);
+   void loadDialogueScreen(const string& gameBackgroundPath, const string& godPath, const string& playerPath);  
 
    void fitBackground(float winWidth, float winHeight,   
        float textureX, float textureY, Sprite& menuBackgroundSprite);  

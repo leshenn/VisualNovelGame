@@ -56,7 +56,7 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 		string text = (Health > 85) ? "Your focus sharpens! Health: " : "Your mind wanders... Health: "; 
 		text += to_string(Health);
 		dialog.setMingameResult(text);
-		currentState = (score>74)?  GameState::FORGE_GAME : GameState::FORGE_GAME;
+		currentState = (score>74)?  GameState::ATHENA_WIN_SCENE : GameState::ATHENA_LOSE_SCENE;
 	}
 	// --- Forge Game ---
 	else if (currentState == GameState::FORGE_GAME) {
@@ -69,7 +69,7 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 		string text = (attackChange >= 0) ? "You forged a sharper weapon! +" : "Your weapon feels dull... ";
 		text += to_string(attackChange) + " Attack. Base Attack: " + to_string(baseAttack);
 		dialog.setMingameResult(text);
-		currentState = (score>199)? GameState::RHYTHM_GAME: GameState::RHYTHM_GAME;
+		currentState = (score>199)? GameState::HEPHAESTUS_WIN_SCENE: GameState::HEPHAESTUS_LOSE_SCENE;
 	}
 	// --- Rhythm Game ---
 	else if (currentState == GameState::RHYTHM_GAME) {
@@ -84,7 +84,7 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 		string text = (parryTimeChange >= 0) ? "You've mastered the rhythm! +" : "Your timing is off... ";
 		text += to_string(parryTimeChange) + "s Parry Window. Total: " + to_string(parryTime) + "s";
 		dialog.setMingameResult(text);
-		currentState = (score>49)? GameState::WINE_GAME: GameState::WINE_GAME;
+		currentState = (score>49)? GameState::APOLLO_WIN_SCENE: GameState::APOLLO_LOSE_SCENE;
 	}
 	// --- Wine Game ---
 	else if (currentState == GameState::WINE_GAME) {
@@ -97,12 +97,12 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 			string text = "The drink invigorates you! You gained DRUNKEN DASH.";
 			dialog.setMingameResult(text);
 			DashPowerUp = true;
-			currentState = GameState::BUBBLE_GAME;
+			currentState = GameState::DIONYSUS_WIN_SCENE;
 		}
 		else {
 			string text = "The wine spills... No power-up granted.";
 			dialog.setMingameResult(text);
-			currentState = GameState::BUBBLE_GAME;
+			currentState = GameState::DIONYSUS_LOSE_SCENE;
 		}
 	}
 	// --- Bubble Game ---
@@ -117,12 +117,12 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 			string text = "A strange energy flows through you! Gained ARCANE SHOT."; 
 			dialog.setMingameResult(text);
 			ShootPowerUp = true;
-			currentState = GameState::BOSS_GAME;
+			currentState = GameState::POSEIDON_WIN_SCENE;
 		}
 		else {
 			string text = "The bubbles pop harmlessly... No power-up gained.";
 			dialog.setMingameResult(text);
-			currentState = GameState::BOSS_GAME;
+			currentState = GameState::POSEIDON_LOSE_SCENE;
 		}
 	}
 	// --- Boss Game ---
@@ -130,7 +130,7 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 		Player player1(Health, Health, DashPowerUp, parryTime, baseAttack, defense, ShootPowerUp);
 		BossGame game(player1);
 		game.run();
-		currentState = GameState::NYX1; 	
+		currentState = (game.playerWin())? GameState::HADES_TRUE_ENDING:GameState::HADES_FALSE_ENDING; 	
 	}
 	audio.toggleBackgroundSound();
 	window.setVisible(true);
