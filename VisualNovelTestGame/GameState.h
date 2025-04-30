@@ -2,7 +2,7 @@
 
 // Enumeration of possible game states
 enum class GameState {
-   
+
 
 
     // --- MENU ---
@@ -19,13 +19,13 @@ enum class GameState {
     POSEIDON_OPENING_SCENE,
     POSEIDON_CHOICE,
     ATLANTIS_SCENE,             // Jump into Ocean
-        ATLANTIS_WIN_SCENE,
-        ATLANTIS_LOSE_SCENE,
+    ATLANTIS_WIN_SCENE,
+    ATLANTIS_LOSE_SCENE,
     SHRINE_SCENE,               // Go to Shrine
-        SHRINE_WIN_SCENE,
-        SHRINE_LOSE_SCENE,
+    SHRINE_WIN_SCENE,
+    SHRINE_LOSE_SCENE,
     POSEIDON_QUIZ,
-	POSEIDON_ENCOUNTER_SCENE,    //Win Quiz + Call BUBBLE_GAME
+    POSEIDON_ENCOUNTER_SCENE,    //Win Quiz + Call BUBBLE_GAME
     POSEIDON_WIN_SCENE,
     POSEIDON_LOSE_SCENE,
     POSEIDON_END_SCENE,         //Lose Quiz || End
@@ -36,9 +36,11 @@ enum class GameState {
     DIONYSUS_OPENING_SCENE,
     DIONYSUS_CHOICE,
     KOMOS_SCENE,                // Talk to Stranger
+        KOMOS_QUIZ,
 	    KOMOS_WIN_SCENE,
 	    KOMOS_LOSE_SCENE,
     FOREST_SCENE,               // Run after Pegasus
+        FOREST_QUIZ,
 	    FOREST_WIN_SCENE,
 	    FOREST_LOSE_SCENE,
     DIONYSUS_QUIZ,

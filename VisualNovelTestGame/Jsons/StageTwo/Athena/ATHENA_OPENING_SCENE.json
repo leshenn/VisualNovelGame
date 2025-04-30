@@ -19,7 +19,7 @@
       "background_sprite": "Backgrounds/StageTwo/Athena/Library.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Cecrops.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/ahem.wav", "loop": false }
     },
     {
       "line": "Ah... a seeker of thought, not flame nor melody. Welcome to the Archive of Reason.",

@@ -12,7 +12,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Lake.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Komos.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/fingerSnap.wav", "loop": false }
     },
     {
       "line": "Don't embarrass me in front of Dionysus!",

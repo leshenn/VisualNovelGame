@@ -160,7 +160,7 @@ int main()
 	currentState = GameState::MENU;
 	QuizUI quiz = QuizUI(window, currentState);
 	while (window.isOpen()) {
-
+		currentState = GameState::RHYTHM_GAME;
 		if (currentState == GameState::BOSS_GAME || currentState == GameState::TYPING_GAME || currentState == GameState::RHYTHM_GAME  || 
 			currentState == GameState::WINE_GAME || currentState == GameState::BUBBLE_GAME || currentState == GameState::FORGE_GAME)
 		handleMinigameExecution(currentState, window, audio, dialog);

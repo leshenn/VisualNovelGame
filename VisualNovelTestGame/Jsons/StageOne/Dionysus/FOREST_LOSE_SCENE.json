@@ -5,7 +5,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Forest.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Nymph.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/dramaGasp.wav", "loop": false }
     },
     {
       "line": "That's too many strikes! Time for the fun way up!",
@@ -26,7 +26,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Forest.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Nymph.png",
-      "audio": { "path": "", "loop": false }
+      "audio": { "path": "Audio/fingerSnap.wav", "loop": false }
     },
     {
       "line": "Don't miss the landing! Toodle-oo!",

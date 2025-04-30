@@ -101,9 +101,6 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.draw(loadSprites.menuBackgroundSprite);
         layout.loadStageOneButtons();
 
-
-        //layout.loadStageTwoButtons();
-
         break;
 
 
@@ -153,7 +150,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
 
         break;
 
-    case GameState::KOMOS_SCENE:
+    case GameState::KOMOS_QUIZ:
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
@@ -163,7 +160,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         quiz.render();
         break;
 
-    case GameState::FOREST_SCENE:
+    case GameState::FOREST_QUIZ:
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
@@ -176,7 +173,6 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
     case GameState::STAGE_TWO_MENU:
         window.clear();
         window.draw(loadSprites.menuBackgroundSprite);
-
         layout.loadStageTwoButtons();
 
         break;
@@ -246,7 +242,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             Vector2i mousePos = Mouse::getPosition(window);
             GameState newState = layout.loadDionysusChoiceButtonClicked(mousePos);
             if (newState != GameState::NONE) {
-                currentState = newState; // Should be ATLANTIS_SCENE or SHRINE_SCENE
+                currentState = newState; // Should be KOMOS_SCENE or FOREST_SCENE
             }
         }
         loadGameAssets(currentState, loadSprites, dialog);
@@ -317,11 +313,17 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 progressBar.update();
                 audio.playClickButtonSound();
                 int currentScore = quiz.getScore();
-                if (currentScore > 5) {
+                if (currentScore > 5 && currentState == GameState::ATLANTIS_QUIZ) {
                     currentState = GameState::ATLANTIS_WIN_SCENE;
                 }
-                else {
+                else if(currentScore <= 5 && currentState == GameState::ATLANTIS_QUIZ) {
                     currentState = GameState::ATLANTIS_LOSE_SCENE;  //TESTING STATES
+                }
+                else if (currentScore > 5 && currentState == GameState::SHRINE_QUIZ) {
+                    currentState = GameState::SHRINE_WIN_SCENE;
+                }
+                else if (currentScore <= 5 && currentState == GameState::SHRINE_QUIZ) {
+                    currentState = GameState::SHRINE_LOSE_SCENE;
                 }
 
             }
@@ -331,8 +333,107 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         break;
 
 
+    case GameState::KOMOS_QUIZ:
+    case GameState::FOREST_QUIZ:
+        loadGameAssets(currentState, loadSprites, dialog);
+
+        // Handle quiz events
+        if (event.type == Event::MouseButtonPressed) {
+            if (!quiz.isQuizComplete()) {
+                quiz.handleEvent(); // Normal quiz handling
+            }
+            else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
+                // Only proceed if quiz is complete AND Next is clicked
+                progressBar.update();
+                audio.playClickButtonSound();
+                int currentScore = quiz.getScore();
+                if (currentScore > 6 && currentState == GameState::KOMOS_QUIZ) {
+                    currentState = GameState::KOMOS_WIN_SCENE;
+                }
+                else if (currentScore <= 6 && currentState == GameState::KOMOS_QUIZ) {
+                    currentState = GameState::KOMOS_LOSE_SCENE;  //TESTING STATES
+                }
+                else if (currentScore > 6 && currentState == GameState::FOREST_QUIZ) {
+                    currentState = GameState::FOREST_WIN_SCENE;
+                }
+                else if (currentScore <= 6 && currentState == GameState::FOREST_QUIZ) {
+                    currentState = GameState::FOREST_LOSE_SCENE;
+                }
+
+            }
+        }
+
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+        break;
+
+
+    case GameState::STAGE_TWO_MENU:
+        if (event.type == Event::MouseButtonPressed) {
+            audio.playClickButtonSound();
+            Vector2i mousePos = Mouse::getPosition(window);
+            GameState newState = layout.loadStageTwoButtonClicked(mousePos);
+            currentState = newState;
+
+
+        }
+
+        loadGameAssets(currentState, loadSprites, dialog);
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+
+        break;
+
     case GameState::HEPHAESTUS_QUIZ:
+        loadGameAssets(currentState, loadSprites, dialog);
+
+        // Handle quiz events
+        if (event.type == Event::MouseButtonPressed) {
+            if (!quiz.isQuizComplete()) {
+                quiz.handleEvent(); // Normal quiz handling
+            }
+            else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
+                // Only proceed if quiz is complete AND Next is clicked
+                progressBar.update();
+                audio.playClickButtonSound();
+                int currentScore = quiz.getScore();
+                if (currentScore > 7) {
+                    currentState = GameState::HEPHAESTUS_PRIVATE_FORGE_SCENE;
+                }
+                else {
+                    currentState = GameState::HEPHAESTUS_WAITING_SCENE;  //TESTING STATES
+                }
+            }
+        }
+
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+        break;
+
+
     case GameState::ATHENA_QUIZ:
+        loadGameAssets(currentState, loadSprites, dialog);
+
+        // Handle quiz events
+        if (event.type == Event::MouseButtonPressed) {
+            if (!quiz.isQuizComplete()) {
+                quiz.handleEvent(); // Normal quiz handling
+            }
+            else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
+                // Only proceed if quiz is complete AND Next is clicked
+                progressBar.update();
+                audio.playClickButtonSound();
+                int currentScore = quiz.getScore();
+                if (currentScore > 7) {
+                    currentState = GameState::ATHENA_WIN_SCENE;
+                }
+                else {
+                    currentState = GameState::ATHENA_LOSE_SCENE;  //TESTING STATES
+                }
+            }
+        }
+
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
+        break;
+
+
     case GameState::APOLLO_QUIZ:
         loadGameAssets(currentState, loadSprites, dialog);
 
@@ -346,7 +447,13 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 // Only proceed if quiz is complete AND Next is clicked
                 progressBar.update();
                 audio.playClickButtonSound();
-                currentState = GameState::NYX3;
+                int currentScore = quiz.getScore();
+                if (currentScore > 7) {
+                    currentState = GameState::APOLLO_WIN_SCENE;
+                }
+                else {
+                    currentState = GameState::APOLLO_LOSE_SCENE;  //TESTING STATES
+                }
             }
         }
 
@@ -354,7 +461,24 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         break;
 
     case GameState::HADES_QUIZ:
+        loadGameAssets(currentState, loadSprites, dialog);
 
+        // Handle quiz events
+        if (event.type == Event::MouseButtonPressed) {
+            if (!quiz.isQuizComplete()) {
+                progressBar.update();
+                quiz.handleEvent(); // Normal quiz handling
+            }
+            else if (quiz.isScoreShown() && layout.nextButtonClicked(window)) {
+                // Only proceed if quiz is complete AND Next is clicked
+                progressBar.update();
+                audio.playClickButtonSound();
+                currentState = GameState::HADES_ENCOUNTER_SCENE;  //TESTING STATES
+                
+            }
+        }
+
+        renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         HadesScore = quiz.getScore();
         break;
 
@@ -372,7 +496,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
         // Poseidon's Path (Seas of Greece)
     case GameState::POSEIDON_OPENING_SCENE:
-        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/POSEIDON_ENCOUNTER_SCENE.json", GameState::POSEIDON_CHOICE);
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/POSEIDON_OPENING_SCENE.json", GameState::POSEIDON_CHOICE);
         break;
 
         /*
@@ -407,6 +531,9 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
 
     case GameState::SHRINE_SCENE:
         updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Poseidon/SHRINE_SCENE.json", GameState::SHRINE_QUIZ);
+        if (currentState == GameState::SHRINE_QUIZ) {
+            quiz.initQuiz(currentState);
+        }
         break;
 
     case GameState::SHRINE_WIN_SCENE:
@@ -449,7 +576,10 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
             break;
         */
     case GameState::KOMOS_SCENE:
-        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/KOMOS_SCENE.json", GameState::DIONYSUS_QUIZ);
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/KOMOS_SCENE.json", GameState::KOMOS_QUIZ);
+        if (currentState == GameState::KOMOS_QUIZ) {
+            quiz.initQuiz(currentState);
+        }
         break;
 
     case GameState::KOMOS_WIN_SCENE:
@@ -461,7 +591,10 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         break;
 
     case GameState::FOREST_SCENE:
-        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/FOREST_SCENE.json", GameState::DIONYSUS_QUIZ);
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Dionysus/FOREST_SCENE.json", GameState::FOREST_QUIZ);
+        if (currentState == GameState::FOREST_QUIZ) {
+            quiz.initQuiz(currentState);
+        }
         break;
 
     case GameState::FOREST_WIN_SCENE:
@@ -493,7 +626,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         break;
 
     case GameState::ATHENS_SCENE:
-        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Athens.json", GameState::STAGE_TWO_CHOICE);
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageOne/Athens.json", GameState::STAGE_TWO_MENU);
         break;
 
     case GameState::STAGE_TWO_CHOICE:
@@ -507,6 +640,9 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // Hephaestus' Path (Smoke)
     case GameState::HEPHAESTUS_OPENING_SCENE:
         updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Hephaestus/HEPHAESTUS_OPENING_SCENE.json", GameState::HEPHAESTUS_QUIZ);
+        if (currentState == GameState::HEPHAESTUS_QUIZ) {
+            quiz.initQuiz(currentState);
+        }
         break;
         /*
         case GameState::HEPHAESTUS_QUIZ:
@@ -535,6 +671,9 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // Athena's Path (Signs)
     case GameState::ATHENA_OPENING_SCENE:
         updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Athena/ATHENA_OPENING_SCENE.json", GameState::ATHENA_QUIZ);
+        if (currentState == GameState::ATHENA_QUIZ) {
+            quiz.initQuiz(currentState);
+        }
         break;
 
         /*
@@ -564,6 +703,9 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // Apollo's Path (Music)
     case GameState::APOLLO_OPENING_SCENE:
         updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Apollo/APOLLO_OPENING_SCENE.json", GameState::APOLLO_QUIZ);
+        if (currentState == GameState::APOLLO_QUIZ) {
+            quiz.initQuiz(currentState);
+        }
         break;
 
         /*
@@ -599,6 +741,9 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         // ------------------------------------------------------ Stage 3 ---------------------------------------------------------------
     case GameState::HADES_OPENING_SCENE:
         updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageThree/HADES_OPENING_SCENE.json", GameState::HADES_QUIZ);
+        if (currentState == GameState::HADES_QUIZ) {
+            quiz.initQuiz(currentState);
+        }
         break;
 
         /*
