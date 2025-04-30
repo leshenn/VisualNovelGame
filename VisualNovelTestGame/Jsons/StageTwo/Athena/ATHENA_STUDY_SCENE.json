@@ -1,6 +1,27 @@
 {
   "data": [
     {
+      "line": "Admirable. You have proven yourself worthy of her presence. Go on in, she awaits.",
+      "background_sprite": "Backgrounds/StageTwo/Athena/Library.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Cecrops.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "Go on in, she awaits.",
+      "background_sprite": "Backgrounds/StageTwo/Athena/Library.png",
+      "left_sprite": "Characters/Transparent.png",
+      "right_sprite": "Characters/Cecrops.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
+      "line": "*Walks in*",
+      "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
+      "left_sprite": "Characters/Player.png",
+      "right_sprite": "Characters/Transparent.png",
+      "audio": { "path": "", "loop": false }
+    },
+    {
       "line": "How long it has been since Cecrops gave a demigod the privilege of entering my study.",
       "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
       "left_sprite": "Characters/Transparent.png",
