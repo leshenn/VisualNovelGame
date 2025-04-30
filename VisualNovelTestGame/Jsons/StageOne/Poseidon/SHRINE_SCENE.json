@@ -1,20 +1,6 @@
 {
   "data": [
     {
-      "line": "*Player approaches shrine entrance*",
-      "background_sprite": "Backgrounds/StageOne/Poseidon/ShrinePort.png",
-      "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "", "loop": false }
-    },
-    {
-      "line": "*Gust of wind sweeps past*",
-      "background_sprite": "Backgrounds/StageOne/Poseidon/ShrinePort.png",
-      "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Transparent.png",
-      "audio": { "path": "Audio/gust.wav", "loop": false }
-    },
-    {
       "line": "Welcome, traveler. Seek answers?",
       "background_sprite": "Backgrounds/StageOne/Poseidon/ShrinePort.png",
       "left_sprite": "Characters/Transparent.png",
