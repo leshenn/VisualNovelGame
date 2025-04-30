@@ -723,7 +723,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         renderGameScene(window, currentState, layout, loadSprites, quiz, dialog, audio, progressBar);
         break;
 
-
+ //---------------------------------------------------------- GAMES + BEGIN GAME ------------------------------------------------------------------------------
     case GameState::BOSS_GAME:
         window.setVisible(false);
         break;
