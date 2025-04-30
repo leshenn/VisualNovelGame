@@ -11,7 +11,8 @@ void LoadSprites::loadCharacterOptions(const string& malePath, const string& fem
     // Only load textures if they haven't been loaded already
     if (maleCharacterTexture.getSize() == sf::Vector2u(0, 0)) {
         if (!maleCharacterTexture.loadFromFile(malePath)) {
-            throw runtime_error("Failed to load male character texture.");
+            maleCharacterTexture.loadFromFile("Characters/Transparent.png");
+            cout << ("Failed to load maleCharacter texture: " + malePath);
         }
     }
 
@@ -37,7 +38,8 @@ void LoadSprites::updateMainCharacterDisplay() {
 void LoadSprites::loadMenuScreen(const string& menuBackgroundPath) {
     //Checks if there is a file to load
     if (!menuBackgroundTexture.loadFromFile(menuBackgroundPath)) {
-        throw runtime_error("Failed to load menu background texture.");
+        menuBackgroundTexture.loadFromFile("Characters/Transparent.png");
+        cout << ("Failed to load menuBackgroundPath texture: " + menuBackgroundPath);
     }
     //Sets the textures
     menuBackgroundSprite.setTexture(menuBackgroundTexture);
@@ -51,10 +53,12 @@ void LoadSprites::loadMenuScreen(const string& menuBackgroundPath) {
 void LoadSprites::loadInstructionScreen(const string& insrtuctionBackgroundPath, const string& menuScrollPath) {
     //Checks if there is a file to load
     if (!instructionBackgroundTexture.loadFromFile(insrtuctionBackgroundPath)) {
-        throw runtime_error("Failed to load instruction background texture.");
+        instructionBackgroundTexture.loadFromFile("Characters/Transparent.png");
+        cout<<("Failed to load instruction background texture: "+insrtuctionBackgroundPath );
     }
     if (!menuScrollTexture.loadFromFile(menuScrollPath)) {
-        throw runtime_error("Failed to load menu scroll texture.");
+        menuScrollTexture.loadFromFile("Characters/Transparent.png");
+        cout << ("Failed to load menuScroll texture: " + menuScrollPath);
     }
 
     //Sets the textures
@@ -86,15 +90,18 @@ void LoadSprites::loadCharacterSelectionScreen(const string& backgroundPath) {
 void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string& godPath, const string& gameScrollPath) {
     //Checks if there is a file to load
     if (!gameBackgroundTexture.loadFromFile(gameBackgroundPath)) {
-        throw runtime_error("Failed to load game background texture.");
+        gameBackgroundTexture.loadFromFile("Characters/Transparent.png");
+        cout << ("Failed to load gameBackground texture: " + gameBackgroundPath);
     }
     if (!gameScrollTexture.loadFromFile(gameScrollPath)) {
-        throw runtime_error("Failed to load game scroll texture.");
+        gameBackgroundTexture.loadFromFile("Characters/Transparent.png");
+        cout << ("Failed to load gamescroll texture: " + gameScrollPath);
     }
 
     //does god loading if it exists
     if (!godTexture.loadFromFile(godPath)) {
-        throw runtime_error("Failed to load god texture.");
+        godTexture.loadFromFile("Characters/Transparent.png");
+        cout << ("Failed to load instruction background texture: " + godPath);
     }
     else {
         godSprite.setTexture(godTexture);
@@ -126,7 +133,8 @@ void LoadSprites::loadDialogueScreen(const string& gameBackgroundPath, const str
     if (!gameBackgroundPath.empty()) {
         cout << gameBackgroundPath << endl;
         if (!gameBackgroundTexture.loadFromFile(gameBackgroundPath)) {
-            throw runtime_error("Failed to load game background texture.");
+            gameBackgroundTexture.loadFromFile("Characters/Transparent.png");
+            cout << ("Failed to load gamebackground background texture: " + gameBackgroundPath);
         }
         gameBackgroundSprite.setTexture(gameBackgroundTexture);
         //Make the background fit the screen
@@ -135,7 +143,8 @@ void LoadSprites::loadDialogueScreen(const string& gameBackgroundPath, const str
     }
 
     if (!gameScrollTexture.loadFromFile("Acessories/Scroll.png")) {
-        throw runtime_error("Failed to load game scroll texture.");
+        gameScrollTexture.loadFromFile("Characters/Transparent.png");
+        cout << ("Failed to load Acessories / Scroll.png texture: " );
     }
     gameScrollSprite.setTexture(gameScrollTexture);
     //position scroll
@@ -146,7 +155,8 @@ void LoadSprites::loadDialogueScreen(const string& gameBackgroundPath, const str
     if (!godPath.empty()) {
         if (!godTexture.loadFromFile(godPath)) {
             cout << godPath << endl;
-            throw runtime_error("Failed to load god texture.");
+            godTexture.loadFromFile("Characters/Transparent.png");
+            cout << ("Failed to load god texture: " + godPath);
         }
         else {
             godSprite.setTexture(godTexture);
@@ -159,7 +169,8 @@ void LoadSprites::loadDialogueScreen(const string& gameBackgroundPath, const str
     //does player loading if it exists
     if (!playerPath.empty()) {
         if (!playerTexture.loadFromFile(playerPath)) {
-            throw runtime_error("Failed to load player texture.");
+            playerTexture.loadFromFile("Characters/Transparent.png");
+            cout << ("Failed to load playerPath texture: " + playerPath);
         }
         else {
             mainCharacterSprite.setTexture(playerTexture);

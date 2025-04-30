@@ -1027,6 +1027,11 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageThreeHADES_FALSE_ENDING.json", GameState::END_GAME);
         break;
 
+    case GameState::END_GAME:
+        std::cout << "GAME OVER" << endl;
+        currentState = GameState::MENU;
+        break;
+
 
     default:
         break;
