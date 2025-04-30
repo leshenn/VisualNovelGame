@@ -68,6 +68,7 @@ int main()
 
 
 
+		
 		/*if (currentState == GameState::TYPING_GAME) {
 			audio.toggleBackgroundSound();
 			WordGame wordGame;
@@ -82,8 +83,7 @@ int main()
 				window.setVisible(true);
 			}
 			audio.toggleBackgroundSound();
-		}
-		if (currentState == GameState::FORGE_GAME){
+		}currentState == GameState::FORGE_GAME){
 			audio.toggleBackgroundSound();
 			ForgeGame Forgegame;
 			Forgegame.run();
@@ -169,5 +169,8 @@ int main()
 		
 	}
 
+
+
 	return 0;
 }
+
