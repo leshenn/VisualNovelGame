@@ -48,6 +48,7 @@ private:
     std::vector<Question> hypnosQuestions;    // All hypnos questions
     std::vector<Question> hermesQuestions;  //All hermes questions
     std::vector<Question> heraQuestions;    //All hera questions
+    std::vector<Question> hephaestusQuestions;    //All hera questions
     Timer questionTimer;
     bool quizComplete;
 
@@ -65,5 +66,6 @@ private:
     void loadHypnosQuestions();    // Load hypnos Questions
     void loadHermesQuestions(); //Load all hermes Questions
     void loadHeraQuestions(); //Load all Hera Questions
+    void loadHephaestusQuestions(); //Load all Hera Questions
     void selectRandomQuestions(int count); // Select random subset of questions
 };
