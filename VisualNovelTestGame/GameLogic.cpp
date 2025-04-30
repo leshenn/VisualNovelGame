@@ -1005,7 +1005,7 @@ void updateGameState(RenderWindow& window, GameState& currentState, ButtonLayout
             window.draw(loadSprites.gameBackgroundSprite);
             window.draw(loadSprites.godSprite);
             window.draw(loadSprites.mainCharacterSprite);
-            window.draw(loadSprites.gameScrollSprite);
+            //window.draw(loadSprites.gameScrollSprite);
             dialog.draw(window);
 
             if (canTransition) {
