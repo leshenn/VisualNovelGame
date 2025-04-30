@@ -42,7 +42,7 @@ private:
     std::vector<Question> apolloQuestions; // All apollo questions
     std::vector<Question> hephaestusQuestions;    //All hera questions
     std::vector<Question> quizQuestions;
-    Timer questionTimer;
+    Timer<float> questionTimer;
     bool quizComplete;
 
     // Helper methods

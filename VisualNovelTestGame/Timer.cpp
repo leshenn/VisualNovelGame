@@ -1,4 +1,4 @@
-#include "Timer.h"
+/*#include "Timer.h"
 #include <iomanip>
 #include <sstream>
 
@@ -43,4 +43,4 @@ float Timer::getTimeRemaining() {
 
 void Timer::operator=(float time) {
     duration = time;
-}
+}*/
