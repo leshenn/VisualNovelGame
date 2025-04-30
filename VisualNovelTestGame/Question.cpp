@@ -5,8 +5,8 @@ using namespace std;
 // Default constructor
 Question::Question() {}
 
-// Parameterized constructor
-Question::Question(const string& insertQuestionText, const std::vector<std::string>& insertOptions, int insertCorrectAnswerIndex)
+// Constructor
+Question::Question(const string& insertQuestionText, const vector<string>& insertOptions, int insertCorrectAnswerIndex)
 {
     questionText = insertQuestionText;
     options = insertOptions;

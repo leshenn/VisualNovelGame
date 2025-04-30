@@ -8,46 +8,6 @@
 
 ButtonLayout::ButtonLayout(RenderWindow& window, Font& font) : window(window), font(font) {}
 
-// Load quiz buttons
-void ButtonLayout::loadQuizButtons(GameState& currentState)
-{
-
-	vector<Button> answerButtons;
-
-	QuizManager newQuiz;
-	newQuiz.loadQuestions(currentState);
-
-	const Question& currentQuestion = newQuiz.getCurrentQuestion();
-	vector<string> options = currentQuestion.getOptions();
-
-	// Create answer button for each option
-	for (size_t i = 0; i < options.size(); ++i)
-	{
-		Button answerButton(options[i], Vector2f(600.f, 50.f), 22, Color(70, 70, 70), Color::White);
-		answerButton.setFont(font);
-
-		// Push Button into the answerButtons vector
-		answerButtons.push_back(answerButton);
-	}
-
-	// Set position for the answer buttons
-	float yPosition = window.getSize().y * 0.4f;
-	float spacing = 15.f;
-
-	for (size_t i = 0; i < answerButtons.size(); ++i)
-	{
-		answerButtons[i].setPosition({ (window.getSize().x - answerButtons[i].getSize().x) / 2.f, // Center the buttons
-										yPosition + i * (answerButtons[i].getSize().y + spacing) }); // Vertically align buttons
-	}
-
-	// Draw to window
-	for (auto& button : answerButtons)
-	{
-		button.drawTo(window);
-	}
-
-}
-
 
 // Create and load play button for the menu page
 void ButtonLayout::loadPlayButton()

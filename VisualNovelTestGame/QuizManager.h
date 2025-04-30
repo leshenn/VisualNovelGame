@@ -6,6 +6,8 @@
 #include <random>
 #include <algorithm>
 
+using namespace std;
+
 // Manages the quiz questions and game progression
 class QuizManager {
 public:
@@ -32,26 +34,14 @@ public:
     friend class QuizUI;
 
 private:
-    std::vector<Question> questions; // Current set of questions
+    vector<Question> questions; // Current set of questions
     int currentQuestionIndex; // Index of current question
     int score; // Player's score
-    std::vector<Question> hadesQuestions; // All hades questions
-    std::vector<Question> poseidonQuestions; // All poseidon questions
-    std::vector<Question> dionysusQuestions; // All dionysus questions
-    std::vector<Question> athenaQuestions; // All ATHENA questions
-    std::vector<Question> apolloQuestions; // All apollo questions
-    std::vector<Question> hephaestusQuestions;    //All hera questions
-    std::vector<Question> quizQuestions;
+    vector<Question> quizQuestions;
     Timer<float> questionTimer;
     bool quizComplete;
 
     // Helper methods
-    void loadHadesQuestions(); // Load Hades questions
-    void loadPoseidonQuestions(); // Load Poseidon questions
-    void loadDionysusQuestions(); // Load Dionysus questions
-    void loadAthenaQuestions();   // Load Athena questions
-    void loadApolloQuestions();   // Load Athena questions
-    void loadHephaestusQuestions(); //Load all Hera Questions
-    void loadQuestions(string jsonName, string title);
+    void loadQuestions(string jsonName, string title); // Load questions
     void selectRandomQuestions(int count); // Select random subset of questions
 };

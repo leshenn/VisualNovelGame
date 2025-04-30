@@ -478,7 +478,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 audio.playClickButtonSound();
                 
                 HadesScore = quiz.getScore()*10;
-                string text = (HadesScore > 40) ? "You have weakness boss does more damage" : "You have made the boss shiver";
+                string text = (HadesScore > 40) ? "You have a weakness the boss does more damage now." : "You have made the boss sick. The boss does less damage.";
                 dialog.setMingameResult(text);
                 currentState = GameState::HADES_ENCOUNTER_SCENE;  //TESTING STATES
                 
@@ -681,8 +681,6 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
     case GameState::HEPHAESTUS_WAITING_SCENE:
         updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageTwo/Hephaestus/HEPHAESTUS_WAITING_SCENE.json", GameState::OLYMPUS_DOOR);
         break;
-
-
 
         // Athena's Path (Signs)
     case GameState::ATHENA_OPENING_SCENE:
