@@ -36,7 +36,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Many desire wisdom. Few are prepared to meet her terms. Tell me, child of war and night—what will you do with knowledge once you hold it?",
+      "line": "Many desire wisdom. Few are prepared to meet her terms. Tell me, child of war and night-what will you do with knowledge \nonce you hold it?",
       "background_sprite": "Backgrounds/StageTwo/Athena/Library.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Cecrops.png",

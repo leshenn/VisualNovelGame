@@ -36,7 +36,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Hurry to the Marble Tower behind the Parthenon on the east side of North Athens. A door will appear there at nightfall, which is nearly upon us.",
+      "line": "Hurry to the Marble Tower behind the Parthenon on the east side of North Athens. A door will appear there at nightfall, \nwhich is nearly upon us.",
       "background_sprite": "Backgrounds/StageTwo/Athena/Study.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Athena.png",

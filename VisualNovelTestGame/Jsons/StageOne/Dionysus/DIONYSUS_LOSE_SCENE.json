@@ -46,7 +46,7 @@
       "line": "*Sneezes, spraying grape juice everywhere*",
       "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
       "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Pegasus_Drunk.png",
+      "right_sprite": "Characters/Pegasus.png",
       "audio": { "path": "Audio/maleSneeze.wav", "loop": false }
     },
     {

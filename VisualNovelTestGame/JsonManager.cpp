@@ -34,7 +34,7 @@ void JsonManager::LoadJson(const std::string& jsonPath) noexcept {
 
     currentIndex_ = 0;
     UpdateHasNext();
-    std::cout << "JsonManager: Loaded JSON: " << jsonPath << std::endl;
+    //std::cout << "JsonManager: Loaded JSON: " << jsonPath << std::endl;
 }
 
 void JsonManager::LoadData() noexcept {
@@ -59,7 +59,7 @@ void JsonManager::LoadData() noexcept {
         audioLoop = false;
     }
 
-    std::cout << "JsonManager: Loaded data idx=" << currentIndex_ << std::endl;
+    //std::cout << "JsonManager: Loaded data idx=" << currentIndex_ << std::endl;
     ++currentIndex_;
     UpdateHasNext();
 }

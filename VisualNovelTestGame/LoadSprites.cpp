@@ -89,7 +89,7 @@ void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string&
 void LoadSprites::loadDialogueScreen(const string& gameBackgroundPath, const string& godPath, const string& playerPath) {
     // Check and load game background if path is different and not empty
     if (!gameBackgroundPath.empty() && gameBackgroundPath != gameBackgroundPaths) {
-        cout << gameBackgroundPath << endl;
+        //cout << gameBackgroundPath << endl;
         if (!gameBackgroundTexture.loadFromFile(gameBackgroundPath)) {
             cout << gameBackgroundPath + " didn't load" << endl;
             gameBackgroundTexture.loadFromFile("Characters/Transparent.png");

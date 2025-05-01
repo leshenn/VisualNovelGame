@@ -166,7 +166,6 @@ void ButtonLayout::loadDionysusChoiceButtons()
 // Check if a button is clicked based on mouse position
 GameState ButtonLayout::loadDionysusChoiceButtonClicked(const sf::Vector2i& mousePos)
 {
-	std::cout << "TEST LAOD STAGEONE" << endl;
 	if (pegasusButton.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
 		return GameState::FOREST_SCENE;	//GameState::PEGASUS_SCENE
 	}

@@ -22,7 +22,7 @@
       "audio": { "path": "Audio/giggle.wav", "loop": false }
     },
     {
-      "line": "Ooooh, someone’s in a hurry!",
+      "line": "Ooooh, someone's in a hurry!",
       "background_sprite": "Backgrounds/StageOne/Dionysus/Forest.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Nymph.png",
@@ -57,21 +57,21 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Why chase a horse that flies? He’s just playing tag!",
+      "line": "Why chase a horse that flies? He's just playing tag!",
       "background_sprite": "Backgrounds/StageOne/Dionysus/Forest.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Nymph.png",
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "I don’t have time for games! I need to get to Olympus!",
+      "line": "I don't have time for games! I need to get to Olympus!",
       "background_sprite": "Backgrounds/StageOne/Dionysus/Forest.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "*Gasp!* Olympus? Ooooh, you’re one of *those* demigods!",
+      "line": "*Gasp!* Olympus? Ooooh, you're one of *those* demigods!",
       "background_sprite": "Backgrounds/StageOne/Dionysus/Forest.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Nymph.png",
@@ -85,7 +85,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Fine, fine! Answer these teeny questions, and *maybe* I’ll help you catch your pony!",
+      "line": "Fine, fine! Answer these teeny questions, and *maybe* I'll help you catch your pony!",
       "background_sprite": "Backgrounds/StageOne/Dionysus/Forest.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Nymph.png",
