@@ -37,7 +37,7 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         break;
 
     case GameState::HADES_QUIZ:
-        loadSprites.loadGameScreen("Backgrounds/StaheThree/ThroneRoom.png", "Characters/Cerberus.png","Characters/Player.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageThree/ThroneRoom.png", "Characters/Cerberus.png","Characters/Player.png", "Acessories/Scroll.png");
         break;
 
     case GameState::DIONYSUS_CHOICE:
@@ -115,7 +115,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.playerSprite);
         window.draw(loadSprites.gameScrollSprite);
         progressBar.draw();
         quiz.render();
@@ -125,7 +125,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.playerSprite);
         window.draw(loadSprites.gameScrollSprite);
         progressBar.draw();
         quiz.render();
@@ -135,7 +135,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.playerSprite);
         window.draw(loadSprites.gameScrollSprite);
         progressBar.draw();
         quiz.render();
@@ -154,7 +154,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.playerSprite);
         window.draw(loadSprites.gameScrollSprite);
         progressBar.draw();
         quiz.render();
@@ -164,7 +164,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.playerSprite);
         window.draw(loadSprites.gameScrollSprite);
         progressBar.draw();
         quiz.render();
@@ -181,7 +181,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.playerSprite);
         window.draw(loadSprites.gameScrollSprite);
         progressBar.draw();
         quiz.render();
@@ -192,7 +192,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.playerSprite);
         window.draw(loadSprites.gameScrollSprite);
         progressBar.draw();
         quiz.render();
@@ -203,7 +203,7 @@ void renderGameScene(RenderWindow& window, GameState currentState, ButtonLayout&
         window.clear();
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.playerSprite);
         window.draw(loadSprites.gameScrollSprite);
         progressBar.draw();
         quiz.render();

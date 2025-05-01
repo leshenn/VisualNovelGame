@@ -28,7 +28,6 @@ public:
     Sprite gameBackgroundSprite;
     Sprite godSprite;
     Sprite playerSprite;
-    Sprite mainCharacterSprite;
     Sprite gameScrollSprite;
     Sprite menuScrollSprite;
 
