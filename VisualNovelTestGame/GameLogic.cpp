@@ -25,31 +25,31 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         break;
 
     case GameState::POSEIDON_CHOICE:
-        loadSprites.loadGameScreen("Backgrounds/StageOne/Poseidon/Ocean.png", "", "");
+        loadSprites.loadMenuScreen("Backgrounds/StageOne/Poseidon/Ocean.png");
         break;
 
     case GameState::ATLANTIS_QUIZ:
-        loadSprites.loadGameScreen("Backgrounds/StageOne/AtlantisCity.png", "Characters/Kourouna.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageOne/Poseidon/AtlantisCity.png", "Characters/Kourouna.png", "Characters/Player.png", "Acessories/Scroll.png");
         break;
 
     case GameState::SHRINE_QUIZ:
-        loadSprites.loadGameScreen("Backgrounds/StageOne/ShrineHallways.png", "Characters/Leucothea.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageOne/Poseidon/ShrineHallways.png", "Characters/Leucothea.png", "Characters/Player.png", "Acessories/Scroll.png");
         break;
 
     case GameState::HADES_QUIZ:
-        loadSprites.loadGameScreen("Backgrounds/HadesBackground.jpg", "Characters/Cerberus.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StaheThree/ThroneRoom.png", "Characters/Cerberus.png","Characters/Player.png", "Acessories/Scroll.png");
         break;
 
     case GameState::DIONYSUS_CHOICE:
-        loadSprites.loadGameScreen("Backgrounds/StageOne/Dionysus/Lake.png", "Characters/Dionysus.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageOne/Dionysus/Lake.png", "Characters/Dionysus.png", "Characters/Player.png", "Acessories/Scroll.png");
         break;
 
     case GameState::KOMOS_SCENE:
-        loadSprites.loadGameScreen("Backgrounds/StageOne/Lake.png", "Characters/Komos.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageOne/Dionysus/Lake.png", "Characters/Komos.png", "Characters/Player.png", "Acessories/Scroll.png");
         break;
 
     case GameState::FOREST_SCENE:
-        loadSprites.loadGameScreen("Backgrounds/StageOne/Forest.png", "Characters/Nymph.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageOne/Dionysus/Forest.png", "Characters/Nymph.png", "Characters/Player.png", "Acessories/Scroll.png");
         break;
 
 
@@ -58,15 +58,15 @@ void loadGameAssets(GameState currentState, LoadSprites& loadSprites, DialogMana
         break;
 
     case GameState::APOLLO_QUIZ:
-        loadSprites.loadGameScreen("Backgrounds/StageTwo/Apollo/Stage.png", "Characters/Lyrix.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageTwo/Apollo/Stage.png", "Characters/Lyrix.png", "Characters/Player.png", "Acessories/Scroll.png");
         break;
 
     case GameState::HEPHAESTUS_QUIZ:
-        loadSprites.loadGameScreen("Backgrounds/StageTwo/Hephaestus/Forge.png", "Characters/Pyra.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageTwo/Hephaestus/Forge.png", "Characters/Pyra.png", "Characters/Player.png", "Acessories/Scroll.png");
         break;
 
     case GameState::ATHENA_QUIZ:
-        loadSprites.loadGameScreen("Backgrounds/StageTwo/Athena/Study.png", "Characters/Cecrops.png", "Acessories/Scroll.png");
+        loadSprites.loadGameScreen("Backgrounds/StageTwo/Athena/Study.png", "Characters/Cecrops.png", "Characters/Player.png", "Acessories/Scroll.png");
         break;
 
 
@@ -853,7 +853,7 @@ void updateGameState(RenderWindow& window, GameState& currentState, ButtonLayout
         window.clear(Color::Black);
         window.draw(loadSprites.gameBackgroundSprite);
         window.draw(loadSprites.godSprite);
-        window.draw(loadSprites.mainCharacterSprite);
+        window.draw(loadSprites.playerSprite);
         window.draw(loadSprites.gameScrollSprite);
         dialog.draw(window);
 

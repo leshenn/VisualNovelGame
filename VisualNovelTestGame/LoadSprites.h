@@ -19,9 +19,6 @@ public:
     Texture instructionBackgroundTexture;
     Texture godTexture;
     Texture playerTexture;
-    Texture maleCharacterTexture;
-    Texture femaleCharacterTexture;
-    bool isMaleCharacterSelected;
     Texture gameScrollTexture;
     Texture menuScrollTexture;
 
@@ -46,15 +43,8 @@ public:
 
     void loadInstructionScreen(const string& insrtuctionBackgroundPath, const string& menuScrollPath);
 
-    void loadCharacterSelectionScreen(const string& backgroundPath);
-
-    void loadCharacterOptions(const string& maleCharcter, const string& femaleCharcter);
-
-    void selectCharacter(bool isMale);
-
-    void updateMainCharacterDisplay();
-
-    void loadGameScreen(const string& gameBackgroundPath, const string& godPath, const string& gameScrollPath);
+    void loadGameScreen(const string& gameBackgroundPath, const string& godPath,
+        const string& mainCharacterPath, const string& gameScrollPath);
 
     void loadGameScroll(const string& gameScrollPath);
 
@@ -67,5 +57,4 @@ public:
 
     void PositionScroll(float textureX, float textureY, Sprite& mainCharacterSprite);
 
-    void PositionMainCharacter(float textureX, float textureY, Sprite& mainCharacterSprite);
 };

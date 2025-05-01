@@ -23,14 +23,14 @@
     },
     {
       "line": "I blew it... Hopefully that woman will help me instead.",
-      "background_sprite": "Backgrounds/ShrineHallways.png",
+      "background_sprite": "Backgrounds/StageOne/Poseidon/ShrineHallways.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }
     },
     {
       "line": "...",
-      "background_sprite": "Backgrounds/ShrineHallways.png",
+      "background_sprite": "Backgrounds/StageOne/Poseidon/ShrineHallways.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }

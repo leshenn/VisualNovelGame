@@ -7,40 +7,12 @@
 using namespace std;
 using namespace sf;
 
-void LoadSprites::loadCharacterOptions(const string& malePath, const string& femalePath) {
-    // Only load textures if they haven't been loaded already
-    if (maleCharacterTexture.getSize() == sf::Vector2u(0, 0)) {
-        if (!maleCharacterTexture.loadFromFile(malePath)) {
-            maleCharacterTexture.loadFromFile("Characters/Transparent.png");
-            cout << ("Failed to load maleCharacter texture: " + malePath);
-        }
-    }
-
-    // Default to male character
-    isMaleCharacterSelected = true;
-    updateMainCharacterDisplay();
-}
-
-void LoadSprites::selectCharacter(bool isMale) {
-    if (isMaleCharacterSelected != isMale) {  // Only update if changed
-        isMaleCharacterSelected = isMale;
-        updateMainCharacterDisplay();
-    }
-}
-
-void LoadSprites::updateMainCharacterDisplay() {
-    mainCharacterSprite.setTexture(isMaleCharacterSelected ? maleCharacterTexture : femaleCharacterTexture);
-
-    mainCharacterSprite.setPosition(-120, 200);
-    mainCharacterSprite.setScale(1, 1);
-}
 
 // Load textures from files and assign them to sprites
 void LoadSprites::loadMenuScreen(const string& menuBackgroundPath) {
     //Checks if there is a file to load
     if (!menuBackgroundTexture.loadFromFile(menuBackgroundPath)) {
-        menuBackgroundTexture.loadFromFile("Characters/Transparent.png");
-        cout << ("Failed to load menuBackgroundPath texture: " + menuBackgroundPath);
+        throw runtime_error("Failed to load menu background texture.");
     }
     //Sets the textures
     menuBackgroundSprite.setTexture(menuBackgroundTexture);
@@ -49,17 +21,16 @@ void LoadSprites::loadMenuScreen(const string& menuBackgroundPath) {
     fitBackground(WIN_WIDTH, WIN_HEIGHT, menuBackgroundTexture.getSize().x,
         menuBackgroundTexture.getSize().y, menuBackgroundSprite);
 
+
 }
 
 void LoadSprites::loadInstructionScreen(const string& insrtuctionBackgroundPath, const string& menuScrollPath) {
     //Checks if there is a file to load
     if (!instructionBackgroundTexture.loadFromFile(insrtuctionBackgroundPath)) {
-        instructionBackgroundTexture.loadFromFile("Characters/Transparent.png");
-        cout << ("Failed to load instruction background texture: " + insrtuctionBackgroundPath);
+        throw runtime_error("Failed to load instruction background texture.");
     }
     if (!menuScrollTexture.loadFromFile(menuScrollPath)) {
-        menuScrollTexture.loadFromFile("Characters/Transparent.png");
-        cout << ("Failed to load menuScroll texture: " + menuScrollPath);
+        throw runtime_error("Failed to load menu scroll texture.");
     }
 
     //Sets the textures
@@ -74,56 +45,41 @@ void LoadSprites::loadInstructionScreen(const string& insrtuctionBackgroundPath,
     CenterMenuScroll(menuScrollTexture.getSize().x, menuScrollTexture.getSize().y, menuScrollSprite);
 }
 
-void LoadSprites::loadCharacterSelectionScreen(const string& backgroundPath) {
-    // Load background
-    if (!instructionBackgroundTexture.loadFromFile(backgroundPath)) {
-        throw runtime_error("Failed to load instruction background texture.");
-    }
-    instructionBackgroundSprite.setTexture(instructionBackgroundTexture);
-
-    fitBackground(WIN_WIDTH, WIN_HEIGHT,
-        instructionBackgroundTexture.getSize().x,
-        instructionBackgroundTexture.getSize().y,
-        instructionBackgroundSprite);
-}
 
 
-void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string& godPath, const string& gameScrollPath) {
+void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string& godPath,
+    const string& mainCharacterPath, const string& gameScrollPath) {
     //Checks if there is a file to load
     if (!gameBackgroundTexture.loadFromFile(gameBackgroundPath)) {
-        gameBackgroundTexture.loadFromFile("Characters/Transparent.png");
-        cout << ("Failed to load gameBackground texture: " + gameBackgroundPath);
+        throw runtime_error("Failed to load game background texture.");
+    }
+    if (!godTexture.loadFromFile(godPath)) {
+        throw runtime_error("Failed to load god texture.");
+    }
+    if (!playerTexture.loadFromFile(mainCharacterPath)) {
+        throw runtime_error("Failed to load main character texture.");
     }
     if (!gameScrollTexture.loadFromFile(gameScrollPath)) {
-        gameBackgroundTexture.loadFromFile("Characters/Transparent.png");
-        cout << ("Failed to load gamescroll texture: " + gameScrollPath);
-    }
-
-    //does god loading if it exists
-    if (!godTexture.loadFromFile(godPath)) {
-        godTexture.loadFromFile("Characters/Transparent.png");
-        cout << ("Failed to load instruction background texture: " + godPath);
-    }
-    else {
-        godSprite.setTexture(godTexture);
+        throw runtime_error("Failed to load game scroll texture.");
     }
 
     //Sets the textures
     gameBackgroundSprite.setTexture(gameBackgroundTexture);
-
+    godSprite.setTexture(godTexture);
+    playerSprite.setTexture(playerTexture);
     gameScrollSprite.setTexture(gameScrollTexture);
 
     //Make the background fit the screen
     fitBackground(WIN_WIDTH, WIN_HEIGHT, gameBackgroundTexture.getSize().x,
         gameBackgroundTexture.getSize().y, gameBackgroundSprite);
 
-    // The main character will use whatever texture was selected
-    updateMainCharacterDisplay();
+    //Position main Character
+    playerSprite.setPosition(-120, 200);
+    playerSprite.setScale(1, 1);
 
     //Position god
-    godSprite.setScale(0.95f, 0.95f);
-    FloatRect godBounds = godSprite.getGlobalBounds();
-    godSprite.setPosition(WIN_WIDTH - godBounds.width * 0.7f, 160);
+    godSprite.setPosition(730, 100);
+    godSprite.setScale(1, 1);
 
     //position scroll
     PositionScroll(gameScrollTexture.getSize().x, gameScrollTexture.getSize().y, gameScrollSprite);
@@ -161,6 +117,7 @@ void LoadSprites::loadDialogueScreen(const string& gameBackgroundPath, const str
         godSprite.setScale(0.95f, 0.95f);
         FloatRect godBounds = godSprite.getGlobalBounds();
         godSprite.setPosition(WIN_WIDTH - godBounds.width * 0.7f, 160);
+ 
     }
 
     // Check and load player sprite if path is different and not empty
@@ -172,8 +129,10 @@ void LoadSprites::loadDialogueScreen(const string& gameBackgroundPath, const str
         else {
             playerPaths = playerPath;
         }
-        mainCharacterSprite.setTexture(playerTexture);
+        playerSprite.setTexture(playerTexture);
     }
+    playerSprite.setPosition(-120, 200);
+    playerSprite.setScale(1, 1);
 
 }
 

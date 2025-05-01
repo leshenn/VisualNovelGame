@@ -152,8 +152,6 @@ int main()
 	DialogManager dialog;
 	ProgressBar progressBar(window);
     
-	//Store the male and female character
-	loadSprites.loadCharacterOptions("Characters/MainCharacter.png", "Characters/Athena.png");
 
 	//This is the play button
 	ButtonLayout layout(window, newFont);
