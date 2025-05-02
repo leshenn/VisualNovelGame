@@ -6,11 +6,6 @@
             "correct_answer": 0
         },
         {
-            "question": "Is this right",
-            "options": [ "True", "False" ],
-            "correct_answer": 0
-        },
-        {
             "question": "What is Athena's sacred animal?",
             "options": [ "Owl", "Horse", "Serpent", "Eagle" ],
             "correct_answer": 0

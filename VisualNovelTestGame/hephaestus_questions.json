@@ -1,7 +1,7 @@
 {
   "hephaestusQuestions": [
     {
-      "question": "Who is Hephaestus' Roman counterpart?",
+      "question": "Who is Hephaestus's Roman counterpart?",
       "options": [ "A) Vulcan", "B) Mars", "C) Mercury", "D) Neptune" ],
       "correct_answer": 0
     },
@@ -16,7 +16,7 @@
       "correct_answer": 1
     },
     {
-      "question": "Who were Hephaestus' parents?",
+      "question": "Who were Hephaestus's parents?",
       "options": [ "A) Zeus and Hera", "B) Poseidon and Amphitrite", "C) Cronus and Rhea", "D) Uranus and Gaia" ],
       "correct_answer": 0
     },
@@ -31,7 +31,7 @@
       "correct_answer": 0
     },
     {
-      "question": "Where was Hephaestus' forge located?",
+      "question": "Where was Hephaestus's forge located?",
       "options": [ "A) Mount Olympus", "B) Under the sea", "C) Inside a volcano", "D) The underworld" ],
       "correct_answer": 2
     },

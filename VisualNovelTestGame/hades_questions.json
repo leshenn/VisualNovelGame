@@ -1,7 +1,7 @@
 {
     "hadesQuestions": [
         {
-            "question": "Who is Hades' Roman counterpart?",
+            "question": "Who is Hades's Roman counterpart?",
             "options": [ "A) Pluto", "B) Mars", "C) Mercury", "D) Saturn" ],
             "correct_answer": 0
         },
@@ -11,12 +11,12 @@
             "correct_answer": 2
         },
         {
-            "question": "What is the name of Hades' three-headed dog?",
+            "question": "What is the name of Hades's three-headed dog?",
             "options": [ "A) Chimera", "B) Cerberus", "C) Hydra", "D) Orthrus" ],
             "correct_answer": 1
         },
         {
-            "question": "Who is Hades' wife?",
+            "question": "Who is Hades's wife?",
             "options": [ "A) Hera", "B) Aphrodite", "C) Persephone", "D) Athena" ],
             "correct_answer": 2
         },
@@ -41,12 +41,12 @@
             "correct_answer": 1
         },
         {
-            "question": "What is Hades' most famous symbol?",
+            "question": "What is Hades's most famous symbol?",
             "options": [ "A) Trident", "B) Helm of Darkness", "C) Lightning bolt", "D) Caduceus" ],
             "correct_answer": 1
         },
         {
-            "question": "What is the name of Hades' palace?",
+            "question": "What is the name of Hades's palace?",
             "options": [ "A) Mount Olympus", "B) Elysium Hall", "C) House of Hades", "D) Palace of Souls" ],
             "correct_answer": 2
         },
