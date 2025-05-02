@@ -8,7 +8,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "But this is urgent—I need her help now!",
+      "line": "But this is urgent-I need her help now!",
       "background_sprite": "Backgrounds/StageTwo/Athena/Library.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",
@@ -99,7 +99,7 @@
       "audio": { "path": "", "loop": false }
     },
     {
-      "line": "Hurry to the Marble Tower behind the Parthenon on the northernmost part of Athens. A door will appear there at nightfall, which is nearly upon us.",
+      "line": "Hurry to the Marble Tower behind the Parthenon on the northernmost part of Athens. A door will appear there at nightfall, \nwhich is nearly upon us.",
       "background_sprite": "Backgrounds/StageTwo/Athena/Library.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Athena.png",

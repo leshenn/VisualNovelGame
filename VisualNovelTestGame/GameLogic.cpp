@@ -350,16 +350,16 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 progressBar.update();
                 audio.playClickButtonSound();
                 int currentScore = quiz.getScore();
-                if (currentScore > 1 && currentState == GameState::KOMOS_QUIZ) {
+                if (currentScore > 5 && currentState == GameState::KOMOS_QUIZ) {
                     currentState = GameState::KOMOS_WIN_SCENE;
                 }
-                else if (currentScore <= 1 && currentState == GameState::KOMOS_QUIZ) {
+                else if (currentScore <= 5 && currentState == GameState::KOMOS_QUIZ) {
                     currentState = GameState::KOMOS_LOSE_SCENE;  //TESTING STATES
                 }
-                else if (currentScore > 1 && currentState == GameState::FOREST_QUIZ) {
+                else if (currentScore > 5 && currentState == GameState::FOREST_QUIZ) {
                     currentState = GameState::FOREST_WIN_SCENE;
                 }
-                else if (currentScore <= 1 && currentState == GameState::FOREST_QUIZ) {
+                else if (currentScore <= 5 && currentState == GameState::FOREST_QUIZ) {
                     currentState = GameState::FOREST_LOSE_SCENE;
                 }
 
@@ -427,7 +427,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 audio.playClickButtonSound();
                 int currentScore = quiz.getScore();
                 if (currentScore > 7) {
-                    currentState = GameState::ATHENA_WIN_SCENE;
+                    currentState = GameState::ATHENA_STUDY_SCENE;
                 }
                 else {
                     currentState = GameState::ATHENA_LOSE_SCENE;  //TESTING STATES

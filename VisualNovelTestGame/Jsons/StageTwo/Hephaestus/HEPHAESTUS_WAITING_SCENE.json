@@ -67,7 +67,7 @@
       "line": "*Nods curtly*",
       "background_sprite": "Backgrounds/StageTwo/Hephaestus/Forge.png",
       "left_sprite": "Characters/Transparent.png",
-      "right_sprite": "Characters/Hephaestus_Nodding.png",
+      "right_sprite": "Characters/Hephaestus.png",
       "audio": { "path": "", "loop": false }
     },
     {
