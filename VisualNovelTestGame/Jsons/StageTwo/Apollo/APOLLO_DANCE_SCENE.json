@@ -36,7 +36,7 @@
       "audio": { "path": "Audio/pushing.wav", "loop": false }
     },
     {
-      "line": "*The you stumbles onto stage*",
+      "line": "*Then you stumbles onto stage*",
       "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
       "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Transparent.png",

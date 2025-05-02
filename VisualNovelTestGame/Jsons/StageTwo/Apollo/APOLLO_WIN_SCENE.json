@@ -12,7 +12,7 @@
         "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Transparent.png",
-        "audio": { "path": "Audio/crowdCheer.wav", "loop": false }
+        "audio": { "path": "Audio/clapping.wav", "loop": false }
       },
       {
         "line": "%",
@@ -36,7 +36,7 @@
         "audio": { "path": "", "loop": false }
       },
       {
-        "line": "Now, hurry to the Marble Tower behind the Parthenon on the northernmost side of Athens. A door will appear there at nightfall-and it's nearly upon us!",
+        "line": "Now, hurry to the Marble Tower behind the Parthenon on the northernmost side of Athens. A door will appear there at \nnightfall-and it's nearly upon us!",
         "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Apollo.png",
@@ -68,7 +68,7 @@
         "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
         "left_sprite": "Characters/Transparent.png",
         "right_sprite": "Characters/Transparent.png",
-        "audio": { "path": "Audio/crowdCheer.wav", "loop": false }
+        "audio": { "path": "Audio/clapping.wav", "loop": false }
       }
     ]
   }

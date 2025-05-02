@@ -453,7 +453,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                 audio.playClickButtonSound();
                 int currentScore = quiz.getScore();
                 if (currentScore > 7) {
-                    currentState = GameState::APOLLO_WIN_SCENE;
+                    currentState = GameState::APOLLO_DANCE_SCENE;
                 }
                 else {
                     currentState = GameState::APOLLO_LOSE_SCENE;  //TESTING STATES

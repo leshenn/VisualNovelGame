@@ -40,7 +40,7 @@
       "background_sprite": "Backgrounds/StageOne/Dionysus/Lake.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Pegasus.png",
-      "audio": { "path": "Audio/wingFlap.wav", "loop": false }
+      "audio": { "path": "Audio/Flapping.mp3", "loop": true }
     },
     {
       "line": "Melanopter! Come back!",

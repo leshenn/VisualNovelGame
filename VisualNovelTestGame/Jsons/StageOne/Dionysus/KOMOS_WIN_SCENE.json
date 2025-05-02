@@ -16,7 +16,7 @@
     },
     {
       "line": "Don't embarrass me in front of Dionysus!",
-      "background_sprite": "Backgrounds/StageOne/Dionysus/Vineyard.png",
+      "background_sprite": "Backgrounds/StageOne/Dionysus/Lake.png",
       "left_sprite": "Characters/Transparent.png",
       "right_sprite": "Characters/Transparent.png",
       "audio": { "path": "", "loop": false }
