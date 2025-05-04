@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <nlohmann/json.hpp>
+#include "windows.h"
 #include "JsonManager.h"
 #include "Button.h"
 #include "LoadSprites.h"
@@ -141,6 +142,7 @@ void handleMinigameExecution(GameState& currentState, RenderWindow& window, Audi
 int main()
 {
 	RenderWindow window(VideoMode(WIN_WIDTH, WIN_HEIGHT), "Visual Novel");
+	FreeConsole();
 	window.setFramerateLimit(30);
 	LoadSprites loadSprites;
 	GameState currentState;

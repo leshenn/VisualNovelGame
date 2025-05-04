@@ -430,7 +430,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                     currentState = GameState::ATHENA_STUDY_SCENE;
                 }
                 else {
-                    currentState = GameState::ATHENA_LOSE_SCENE;  //TESTING STATES
+                    currentState = GameState::ATHENA_WAITING_SCENE;  //TESTING STATES
                 }
             }
         }
@@ -456,7 +456,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
                     currentState = GameState::APOLLO_DANCE_SCENE;
                 }
                 else {
-                    currentState = GameState::APOLLO_LOSE_SCENE;  //TESTING STATES
+                    currentState = GameState::APOLLO_WAITING_SCENE;  //TESTING STATES
                 }
             }
         }
@@ -775,7 +775,7 @@ void handleGameLogic(RenderWindow& window, GameState& currentState, ButtonLayout
         break;
 
     case GameState::HADES_FALSE_ENDING:
-        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageThreeHADES_FALSE_ENDING.json", GameState::END_GAME);
+        updateGameState(window, currentState, layout, loadSprites, event, audio, quiz, dialog, progressBar, jm, "Jsons/StageThree/HADES_FALSE_ENDING.json", GameState::END_GAME);
         break;
 
     case GameState::END_GAME:
