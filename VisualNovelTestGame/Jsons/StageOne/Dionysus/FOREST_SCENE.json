@@ -101,7 +101,7 @@
     {
       "line": "*Claps hands* Yay! First question-",
       "background_sprite": "Backgrounds/StageOne/Dionysus/Forest.png",
-      "left_sprite": "Characters/Transparent.png",
+      "left_sprite": "Characters/Player.png",
       "right_sprite": "Characters/Nymph.png",
       "audio": { "path": "Audio/clapping.wav", "loop": false }
     }
