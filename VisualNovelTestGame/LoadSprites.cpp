@@ -48,41 +48,53 @@ void LoadSprites::loadInstructionScreen(const string& insrtuctionBackgroundPath,
 
 
 void LoadSprites::loadGameScreen(const string& gameBackgroundPath, const string& godPath,
-    const string& mainCharacterPath, const string& gameScrollPath) {
-    //Checks if there is a file to load
-    if (!gameBackgroundTexture.loadFromFile(gameBackgroundPath)) {
-        throw runtime_error("Failed to load game background texture.");
-    }
-    if (!godTexture.loadFromFile(godPath)) {
-        throw runtime_error("Failed to load god texture.");
-    }
-    if (!playerTexture.loadFromFile(mainCharacterPath)) {
-        throw runtime_error("Failed to load main character texture.");
-    }
-    if (!gameScrollTexture.loadFromFile(gameScrollPath)) {
-        throw runtime_error("Failed to load game scroll texture.");
+    const string& mainCharacterPath) {
+    // Check and load game background if path is different and not empty
+    if (!gameBackgroundPath.empty() && gameBackgroundPath != gameBackgroundPaths) {
+        //cout << gameBackgroundPath << endl;
+        if (!gameBackgroundTexture.loadFromFile(gameBackgroundPath)) {
+            cout << gameBackgroundPath + " didn't load" << endl;
+            gameBackgroundTexture.loadFromFile("Characters/Transparent.png");
+        }
+        else {
+            gameBackgroundPaths = gameBackgroundPath;
+        }
+        gameBackgroundSprite.setTexture(gameBackgroundTexture);
+        fitBackground(WIN_WIDTH, WIN_HEIGHT, gameBackgroundTexture.getSize().x,
+            gameBackgroundTexture.getSize().y, gameBackgroundSprite);
     }
 
-    //Sets the textures
-    gameBackgroundSprite.setTexture(gameBackgroundTexture);
-    godSprite.setTexture(godTexture);
-    playerSprite.setTexture(playerTexture);
-    gameScrollSprite.setTexture(gameScrollTexture);
+    // Check and load god sprite if path is different and not empty
+    if (!godPath.empty() && godPath != godPaths) {
+        if (!godTexture.loadFromFile(godPath)) {
+            cout << godPath + " didn't load" << endl;
+            godTexture.loadFromFile("Characters/Transparent.png");
+        }
+        else {
+            godPaths = godPath;
+        }
 
-    //Make the background fit the screen
-    fitBackground(WIN_WIDTH, WIN_HEIGHT, gameBackgroundTexture.getSize().x,
-        gameBackgroundTexture.getSize().y, gameBackgroundSprite);
+        // Position god
+        godSprite.setTexture(godTexture);
+        godSprite.setScale(0.95f, 0.95f);
+        FloatRect godBounds = godSprite.getGlobalBounds();
+        godSprite.setPosition(WIN_WIDTH - godBounds.width * 0.7f, 160);
 
-    //Position main Character
+    }
+
+    // Check and load player sprite if path is different and not empty
+    if (!mainCharacterPath.empty() && mainCharacterPath != playerPaths) {
+        if (!playerTexture.loadFromFile(mainCharacterPath)) {
+            cout << mainCharacterPath + " didn't load" << endl;
+            playerTexture.loadFromFile("Characters/Transparent.png");
+        }
+        else {
+            playerPaths = mainCharacterPath;
+        }
+        playerSprite.setTexture(playerTexture);
+    }
     playerSprite.setPosition(-120, 200);
     playerSprite.setScale(1, 1);
-
-    //Position god
-    godSprite.setPosition(730, 100);
-    godSprite.setScale(1, 1);
-
-    //position scroll
-    PositionScroll(gameScrollTexture.getSize().x, gameScrollTexture.getSize().y, gameScrollSprite);
 
 }
 

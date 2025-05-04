@@ -29,13 +29,6 @@
         "audio": { "path": "", "loop": false }
       },
       {
-        "line": "%",
-        "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
-        "left_sprite": "Characters/Player.png",
-        "right_sprite": "Characters/Apollo.png",
-        "audio": { "path": "", "loop": false }
-      },
-      {
         "line": "Now, hurry to the Marble Tower behind the Parthenon on the northernmost side of Athens. A door will appear there at \nnightfall-and it's nearly upon us!",
         "background_sprite": "Backgrounds/StageTwo/Apollo/Stage.png",
         "left_sprite": "Characters/Transparent.png",

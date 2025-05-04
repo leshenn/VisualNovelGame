@@ -43,7 +43,7 @@ public:
     void loadInstructionScreen(const string& insrtuctionBackgroundPath, const string& menuScrollPath);
 
     void loadGameScreen(const string& gameBackgroundPath, const string& godPath,
-        const string& mainCharacterPath, const string& gameScrollPath);
+        const string& mainCharacterPath);
 
     void loadGameScroll(const string& gameScrollPath);
 
